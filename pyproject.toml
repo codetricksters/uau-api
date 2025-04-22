@@ -1,0 +1,33 @@
+[tool.poetry]
+name = "uau-api"
+version = "0.1.0"
+description = ""
+authors = ["codetricksters <leonardo.magic@hotmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+numpy = "^1.26.4"
+pandas = "^2.2.1"
+requests = "^2.31.0"
+openpyxl = "^3.1.2"
+ipykernel = "^6.29.4"
+xlsxwriter = "^3.2.0"
+pydantic = "^2.8.2"
+pydantic-settings = "^2.3.4"
+sqlalchemy = "^2.0.31"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.5"
+isort = "^6.0.1"
+blue = "^0.9.1"
+taskipy = "^1.14.1"
+
+[tool.poetry.group.doc.dependencies]
+mkdocs-material = "^9.6.12"
+mkdocstrings = "^0.29.1"
+mkdocstrings-python = "^1.16.10"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
