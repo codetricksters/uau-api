@@ -1,24 +1,16 @@
-"""This module contains auto-generated API class.
-
-DO NOT EDIT MANUALLY.
-"""
-
 from typing import Dict, Any, List, Optional
 from datetime import datetime
 from ..requestsapi import RequestsApi
 
+import requests
 class NotasFiscais:
-    """Auto-generated API class"""
-
-    def __init__(self, api):
+    def __init__(self, api: RequestsApi):
         """Initialize with API client
 
         Args:
-            api: The authenticated API client instance
+            api: The API client instance
         """
-        if not hasattr(api, "is_authenticated") or not api.is_authenticated:
-            raise ValueError("API client must be authenticated")
-        self.api = RequestsApi(api.base_url, session=api.get_session())
+        self.api = api
 
     def consultar_nfentrada(
         self,
@@ -31,70 +23,157 @@ class NotasFiscais:
         data_final: Optional[datetime] = None,
         tipo_periodo: Optional[Any] = None
     ) -> dict:
-        """Listagem de nota fiscal
-
+        """
+        
+        Endpoint: `NotasFiscais/ConsultarNFEntrada`
+        HTTP Method: `POST`
+        
         Implementation Notes:
          Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario.
-Preencher os parâmetros de request para uso do endpoint.
-
-Definição de Negócio:
-
-Ao menos uma chave de pesquisa deve ser preenchida sendo elas ([CodigoEmpresa],
-  [CnpjFornecedor], [CodigoFornecedor], [DataInicial], [ListaNFEntrada]).
-Caso tenha informado a propriedade da Obra, a Empresa torna-se obrigatória.
-Preenchimento da [DataInicial] torna [DataFinal] obrigatória.
-Preenchimento da [DataFinal] torna [DataInicial] obrigatória.
-Obra só vai achar informação se a nota estiver vinculada a um processo.
-[ListaNFEntrada] Cada objeto deve ter obrigatoriamente o [CodigoEmpresa] e o [NumeroNotaFiscal ou NumeroNotaFiscalEletronica]
-  6.1 NumeroNotaFiscal = Número de controle da nota fiscal (Obs: no retorno dos dados esse valor fica no campo Numero)
-  6.2 NumeroNotaFiscalEletronica = Número da nota fiscal eletrônica, informado na DANFE ou NFS-e (Obs: no retorno dos dados esse valor fica no campo NumeroNotaFiscal)
-
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario.
+        Preencher os parâmetros de request para uso do endpoint.
+        
+        Definição de Negócio:
+        
+        Ao menos uma chave de pesquisa deve ser preenchida sendo elas ([CodigoEmpresa],
+          [CnpjFornecedor], [CodigoFornecedor], [DataInicial], [ListaNFEntrada]).
+        Caso tenha informado a propriedade da Obra, a Empresa torna-se obrigatória.
+        Preenchimento da [DataInicial] torna [DataFinal] obrigatória.
+        Preenchimento da [DataFinal] torna [DataInicial] obrigatória.
+        Obra só vai achar informação se a nota estiver vinculada a um processo.
+        [ListaNFEntrada] Cada objeto deve ter obrigatoriamente o [CodigoEmpresa] e o [NumeroNotaFiscal ou NumeroNotaFiscalEletronica]
+          6.1 NumeroNotaFiscal = Número de controle da nota fiscal (Obs: no retorno dos dados esse valor fica no campo Numero)
+          6.2 NumeroNotaFiscalEletronica = Número da nota fiscal eletrônica, informado na DANFE ou NFS-e (Obs: no retorno dos dados esse valor fica no campo NumeroNotaFiscal)
+        
+        
+        
+        Args:
+            ListaNFEntrada (List[Dict[str, Any]]): The lista n f entrada
+            CodigoEmpresa (int): The codigo empresa
+            CodigoObra (str): The codigo obra
+            CnpjFornecedor (str): The cnpj fornecedor
+            CodigoFornecedor (str): The codigo fornecedor
+            DataInicial (datetime): The data inicial
+            DataFinal (datetime): The data final
+            TipoPeriodo (int): The tipo periodo
+        
+        Parameter Structure:
+        
+            {
+                "ListaNFEntrada": [
+                    {
+                        "CodigoEmpresa": 0,
+                        "NumeroNotaFiscal": 0,
+                        "NumeroNotaFiscalEletronica": "string"
+                    }
+                ],
+                "CodigoEmpresa": 0,
+                "CodigoObra": "string",
+                "CnpjFornecedor": "string",
+                "CodigoFornecedor": "string",
+                "DataInicial": "2025-04-23T13:46:13.469Z",
+                "DataFinal": "2025-04-23T13:46:13.469Z",
+                "TipoPeriodo": 1
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = NotasFiscais()
+            >>> response = api._consultarnf_entrada(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "NotasFiscais/ConsultarNFEntrada"
-        return self.api.post(
-            path,
-            json={
-                "ListaNFEntrada": listanf_entrada,
-                "CodigoEmpresa": codigo_empresa,
-                "CodigoObra": codigo_obra,
-                "CnpjFornecedor": cnpj_fornecedor,
-                "CodigoFornecedor": codigo_fornecedor,
-                "DataInicial": data_inicial,
-                "DataFinal": data_final,
-                "TipoPeriodo": tipo_periodo,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "ListaNFEntrada": listanf_entrada,
+                    "CodigoEmpresa": codigo_empresa,
+                    "CodigoObra": codigo_obra,
+                    "CnpjFornecedor": cnpj_fornecedor,
+                    "CodigoFornecedor": codigo_fornecedor,
+                    "DataInicial": data_inicial,
+                    "DataFinal": data_final,
+                    "TipoPeriodo": tipo_periodo,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def salvar_arquivo_xmlnotafiscal_entrada(
         self,
         parameters: Optional[List[Dict]] = None
     ) -> dict:
-        """Salvar o arquivo XML das notas fiscais para importação no sistema.
-
+        """
+        
+        Endpoint: `NotasFiscais/SalvarArquivoXMLnotafiscalEntrada`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario.
-Preencher os parâmetros de request para uso do endpoint.
-
-Definição de Negócio:
-
-Poderá ser enviado uma lista de arquivos XML.
-Será permitido no máximo uma lista com 20 arquivos.
-Tipo do arquivo XML [TipoXML]
-   0 para NF-e
-   1 para CT-e
-   2 para NFS-e,
-Arquivo XML da nota fiscal (Texto do arquivo) [ArquivoXML].
-
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario.
+        Preencher os parâmetros de request para uso do endpoint.
+        
+        Definição de Negócio:
+        
+        Poderá ser enviado uma lista de arquivos XML.
+        Será permitido no máximo uma lista com 20 arquivos.
+        Tipo do arquivo XML [TipoXML]
+           0 para NF-e
+           1 para CT-e
+           2 para NFS-e,
+        Arquivo XML da nota fiscal (Texto do arquivo) [ArquivoXML].
+        
+        
+        
+        Args:
+            parameters (List[Dict]): List of parameter dictionaries for the request
+        
+        Parameter Structure:
+        
+            [
+                {
+                    "TipoXML": 0,
+                    "ArquivoXML": "string"
+                }
+            ]
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = NotasFiscais()
+            >>> response = api._salvar_arquivoxm_lnotafiscal_entrada(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "NotasFiscais/SalvarArquivoXMLnotafiscalEntrada"
-        return self.api.post(
-            path,
-            json=parameters if parameters is not None else {}
-        )
+        try:
+            response = self.api.post(
+                path,
+                json=parameters if parameters is not None else {}
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 

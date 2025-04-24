@@ -1,24 +1,16 @@
-"""This module contains auto-generated API class.
-
-DO NOT EDIT MANUALLY.
-"""
-
 from typing import Dict, Any, List, Optional
 from datetime import datetime
 from ..requestsapi import RequestsApi
 
+import requests
 class ConfigGerais:
-    """Auto-generated API class"""
-
-    def __init__(self, api):
+    def __init__(self, api: RequestsApi):
         """Initialize with API client
 
         Args:
-            api: The authenticated API client instance
+            api: The API client instance
         """
-        if not hasattr(api, "is_authenticated") or not api.is_authenticated:
-            raise ValueError("API client must be authenticated")
-        self.api = RequestsApi(api.base_url, session=api.get_session())
+        self.api = api
 
     def retornar_versao_bd(
         self,
@@ -26,27 +18,63 @@ class ConfigGerais:
         mensagem: Optional[str] = None,
         descricao: Optional[str] = None
     ) -> dict:
-        """Retornar a versão do BD.
-
+        """
+        
+        Endpoint: `ConfigGerais/RetornarVersaoBD`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request para uso do método.
-
-Definição de Negócio:
-  Retornar a versão do BD.
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        
+        Definição de Negócio:
+          Retornar a versão do BD.
+        
+        
+        Args:
+            Detalhe (str): The detalhe
+            Mensagem (str): The mensagem
+            Descricao (str): The descricao
+        
+        Parameter Structure:
+        
+            {
+                "Detalhe": "string",
+                "Mensagem": "string",
+                "Descricao": "string"
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = ConfigGerais()
+            >>> response = api._retornar_versaobd(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "ConfigGerais/RetornarVersaoBD"
-        return self.api.post(
-            path,
-            json={
-                "Detalhe": detalhe,
-                "Mensagem": mensagem,
-                "Descricao": descricao,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "Detalhe": detalhe,
+                    "Mensagem": mensagem,
+                    "Descricao": descricao,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def retornar_versao_ws(
         self,
@@ -54,27 +82,63 @@ Definição de Negócio:
         mensagem: Optional[str] = None,
         descricao: Optional[str] = None
     ) -> dict:
-        """Retornar a versão do WS (Web Service).
-
+        """
+        
+        Endpoint: `ConfigGerais/RetornarVersaoWS`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request para uso do método.
-
-Definição de Negócio:
-  Retornar a versão do WS (Web Service).
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        
+        Definição de Negócio:
+          Retornar a versão do WS (Web Service).
+        
+        
+        Args:
+            Detalhe (str): The detalhe
+            Mensagem (str): The mensagem
+            Descricao (str): The descricao
+        
+        Parameter Structure:
+        
+            {
+                "Detalhe": "string",
+                "Mensagem": "string",
+                "Descricao": "string"
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = ConfigGerais()
+            >>> response = api._retornar_versaows(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "ConfigGerais/RetornarVersaoWS"
-        return self.api.post(
-            path,
-            json={
-                "Detalhe": detalhe,
-                "Mensagem": mensagem,
-                "Descricao": descricao,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "Detalhe": detalhe,
+                    "Mensagem": mensagem,
+                    "Descricao": descricao,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def obter_configuracao_de_casas_decimais(
         self,
@@ -82,25 +146,61 @@ Definição de Negócio:
         mensagem: Optional[str] = None,
         descricao: Optional[str] = None
     ) -> dict:
-        """Retorna a configuração de quantidade de casas decimais do sistema.
-
+        """
+        
+        Endpoint: `ConfigGerais/ObterConfiguracaoDeCasasDecimais`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request para uso do método.
-
-Definição de Negócio:
-  Retorna a configuração de quantidade de casas decimais do sistema.
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        
+        Definição de Negócio:
+          Retorna a configuração de quantidade de casas decimais do sistema.
+        
+        
+        Args:
+            Detalhe (str): The detalhe
+            Mensagem (str): The mensagem
+            Descricao (str): The descricao
+        
+        Parameter Structure:
+        
+            {
+                "Detalhe": "string",
+                "Mensagem": "string",
+                "Descricao": "string"
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = ConfigGerais()
+            >>> response = api._obter_configuracao_de_casas_decimais(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "ConfigGerais/ObterConfiguracaoDeCasasDecimais"
-        return self.api.post(
-            path,
-            json={
-                "Detalhe": detalhe,
-                "Mensagem": mensagem,
-                "Descricao": descricao,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "Detalhe": detalhe,
+                    "Mensagem": mensagem,
+                    "Descricao": descricao,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 

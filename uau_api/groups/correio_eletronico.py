@@ -1,24 +1,16 @@
-"""This module contains auto-generated API class.
-
-DO NOT EDIT MANUALLY.
-"""
-
 from typing import Dict, Any, List, Optional
 from datetime import datetime
 from ..requestsapi import RequestsApi
 
+import requests
 class CorreioEletronico:
-    """Auto-generated API class"""
-
-    def __init__(self, api):
+    def __init__(self, api: RequestsApi):
         """Initialize with API client
 
         Args:
-            api: The authenticated API client instance
+            api: The API client instance
         """
-        if not hasattr(api, "is_authenticated") or not api.is_authenticated:
-            raise ValueError("API client must be authenticated")
-        self.api = RequestsApi(api.base_url, session=api.get_session())
+        self.api = api
 
     def enviar_mail_interno_uau(
         self,
@@ -27,29 +19,67 @@ class CorreioEletronico:
         usuariouau_envio: Optional[str] = None,
         assunto: Optional[str] = None
     ) -> dict:
-        """Enviar email interno para o usuário root
-
+        """
+        
+        Endpoint: `CorreioEletronico/EnviarMailInternoUau`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request para uso do endpoint
-
-Definição de Negócio:
-
-Possibilita envio de email interno para o usuário root.
-Valida as informaçõe passadas no request.
-
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do endpoint
+        
+        Definição de Negócio:
+        
+        Possibilita envio de email interno para o usuário root.
+        Valida as informaçõe passadas no request.
+        
+        
+        
+        Args:
+            mensagem_envio (str): The mensagem_envio
+            usuariosuau_destino (str): The usuariosuau_destino
+            usuariouau_envio (str): The usuariouau_envio
+            assunto (str): The assunto
+        
+        Parameter Structure:
+        
+            {
+                "mensagem_envio": "string",
+                "usuariosuau_destino": "string",
+                "usuariouau_envio": "string",
+                "assunto": "string"
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = CorreioEletronico()
+            >>> response = api._enviar_mail_interno_uau(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "CorreioEletronico/EnviarMailInternoUau"
-        return self.api.post(
-            path,
-            json={
-                "mensagem_envio": mensagem_envio,
-                "usuariosuau_destino": usuariosuau_destino,
-                "usuariouau_envio": usuariouau_envio,
-                "assunto": assunto,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "mensagem_envio": mensagem_envio,
+                    "usuariosuau_destino": usuariosuau_destino,
+                    "usuariouau_envio": usuariouau_envio,
+                    "assunto": assunto,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 

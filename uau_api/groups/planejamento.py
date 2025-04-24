@@ -1,24 +1,16 @@
-"""This module contains auto-generated API class.
-
-DO NOT EDIT MANUALLY.
-"""
-
 from typing import Dict, Any, List, Optional
 from datetime import datetime
 from ..requestsapi import RequestsApi
 
+import requests
 class Planejamento:
-    """Auto-generated API class"""
-
-    def __init__(self, api):
+    def __init__(self, api: RequestsApi):
         """Initialize with API client
 
         Args:
-            api: The authenticated API client instance
+            api: The API client instance
         """
-        if not hasattr(api, "is_authenticated") or not api.is_authenticated:
-            raise ValueError("API client must be authenticated")
-        self.api = RequestsApi(api.base_url, session=api.get_session())
+        self.api = api
 
     def atualizar_item_planejamento(
         self,
@@ -30,29 +22,73 @@ class Planejamento:
         descricao_item: Optional[str] = None,
         usuario: Optional[str] = None
     ) -> dict:
-        """Atualizar item do planejamento.
-
+        """
+        
+        Endpoint: `Planejamento/AtualizarItemPlanejamento`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request para uso do método.
-
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        
+        
+        
+        Args:
+            Empresa (int): The empresa
+            Obra (str): The obra
+            Produto (str): The produto
+            Contrato (str): The contrato
+            Item (str): The item
+            DescricaoItem (str): The descricao item
+            Usuario (str): The usuario
+        
+        Parameter Structure:
+        
+            {
+                "Empresa": 0,
+                "Obra": "string",
+                "Produto": "string",
+                "Contrato": "string",
+                "Item": "string",
+                "DescricaoItem": "string",
+                "Usuario": "string"
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Planejamento()
+            >>> response = api._atualizar_item_planejamento(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Planejamento/AtualizarItemPlanejamento"
-        return self.api.post(
-            path,
-            json={
-                "Empresa": empresa,
-                "Obra": obra,
-                "Produto": produto,
-                "Contrato": contrato,
-                "Item": item,
-                "DescricaoItem": descricao_item,
-                "Usuario": usuario,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "Empresa": empresa,
+                    "Obra": obra,
+                    "Produto": produto,
+                    "Contrato": contrato,
+                    "Item": item,
+                    "DescricaoItem": descricao_item,
+                    "Usuario": usuario,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def consultar_item_planejamento(
         self,
@@ -62,27 +98,67 @@ Preencher os parâmetros de request para uso do método.
         contrato: Optional[str] = None,
         item: Optional[str] = None
     ) -> dict:
-        """Consultar item do planejamento de acordo com a chave do planejamento.
-
+        """
+        
+        Endpoint: `Planejamento/ConsultarItemPlanejamento`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request para uso do método.
-
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        
+        
+        
+        Args:
+            Empresa (int): The empresa
+            Obra (str): The obra
+            Produto (str): The produto
+            Contrato (str): The contrato
+            Item (str): The item
+        
+        Parameter Structure:
+        
+            {
+                "Empresa": 0,
+                "Obra": "string",
+                "Produto": "string",
+                "Contrato": "string",
+                "Item": "string"
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Planejamento()
+            >>> response = api._consultar_item_planejamento(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Planejamento/ConsultarItemPlanejamento"
-        return self.api.post(
-            path,
-            json={
-                "Empresa": empresa,
-                "Obra": obra,
-                "Produto": produto,
-                "Contrato": contrato,
-                "Item": item,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "Empresa": empresa,
+                    "Obra": obra,
+                    "Produto": produto,
+                    "Contrato": contrato,
+                    "Item": item,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def consultar_saldo_siplanejada(
         self,
@@ -95,31 +171,77 @@ Preencher os parâmetros de request para uso do método.
         mes_pl: Optional[str] = None,
         insumo: Optional[str] = None
     ) -> dict:
-        """Realiza consulta de valores aprovados e saldos das SIs do planejamento.
-
+        """
+        
+        Endpoint: `Planejamento/ConsultarSaldoSIPlanejada`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request para uso do método.
-Necessário permissão de consulta no programa OBPLNOBR
-
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        Necessário permissão de consulta no programa OBPLNOBR
+        
+        
+        
+        Args:
+            Empresa (int): The empresa
+            Obra (str): The obra
+            Produto (int): The produto
+            Contrato (int): The contrato
+            Item (str): The item
+            Servico (str): The servico
+            MesPl (str): The mes pl
+            Insumo (str): The insumo
+        
+        Parameter Structure:
+        
+            {
+                "Empresa": 0,
+                "Obra": "string",
+                "Produto": 0,
+                "Contrato": 0,
+                "Item": "string",
+                "Servico": "string",
+                "MesPl": "string",
+                "Insumo": "string"
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Planejamento()
+            >>> response = api._consultar_saldosi_planejada(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Planejamento/ConsultarSaldoSIPlanejada"
-        return self.api.post(
-            path,
-            json={
-                "Empresa": empresa,
-                "Obra": obra,
-                "Produto": produto,
-                "Contrato": contrato,
-                "Item": item,
-                "Servico": servico,
-                "MesPl": mes_pl,
-                "Insumo": insumo,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "Empresa": empresa,
+                    "Obra": obra,
+                    "Produto": produto,
+                    "Contrato": contrato,
+                    "Item": item,
+                    "Servico": servico,
+                    "MesPl": mes_pl,
+                    "Insumo": insumo,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def inserir_servico_planejamento(
         self,
@@ -132,30 +254,76 @@ Necessário permissão de consulta no programa OBPLNOBR
         tipo_de_custo: Optional[str] = None,
         usuario: Optional[str] = None
     ) -> dict:
-        """Inserir serviços no planejamento.
-
+        """
+        
+        Endpoint: `Planejamento/InserirServicoPlanejamento`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request para uso do método.
-
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        
+        
+        
+        Args:
+            Empresa (int): The empresa
+            Obra (str): The obra
+            Produto (str): The produto
+            Contrato (str): The contrato
+            Item (str): The item
+            Servico (str): The servico
+            TipoDeCusto (str): The tipo de custo
+            Usuario (str): The usuario
+        
+        Parameter Structure:
+        
+            {
+                "Empresa": 0,
+                "Obra": "string",
+                "Produto": "string",
+                "Contrato": "string",
+                "Item": "string",
+                "Servico": "string",
+                "TipoDeCusto": "string",
+                "Usuario": "string"
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Planejamento()
+            >>> response = api._inserir_servico_planejamento(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Planejamento/InserirServicoPlanejamento"
-        return self.api.post(
-            path,
-            json={
-                "Empresa": empresa,
-                "Obra": obra,
-                "Produto": produto,
-                "Contrato": contrato,
-                "Item": item,
-                "Servico": servico,
-                "TipoDeCusto": tipo_de_custo,
-                "Usuario": usuario,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "Empresa": empresa,
+                    "Obra": obra,
+                    "Produto": produto,
+                    "Contrato": contrato,
+                    "Item": item,
+                    "Servico": servico,
+                    "TipoDeCusto": tipo_de_custo,
+                    "Usuario": usuario,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def exportar_planejamento_produto(
         self,
@@ -164,51 +332,136 @@ Preencher os parâmetros de request para uso do método.
         contrato: Optional[int] = None,
         produto: Optional[int] = None
     ) -> dict:
-        """Exportar planejamento de um produto
-
+        """
+        
+        Endpoint: `Planejamento/ExportarPlanejamentoProduto`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request para uso do método.
-
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        
+        
+        
+        Args:
+            Empresa (int): The empresa
+            Obra (str): The obra
+            Contrato (int): The contrato
+            Produto (int): The produto
+        
+        Parameter Structure:
+        
+            {
+                "Empresa": 0,
+                "Obra": "string",
+                "Contrato": 0,
+                "Produto": 0
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Planejamento()
+            >>> response = api._exportar_planejamento_produto(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Planejamento/ExportarPlanejamentoProduto"
-        return self.api.post(
-            path,
-            json={
-                "Empresa": empresa,
-                "Obra": obra,
-                "Contrato": contrato,
-                "Produto": produto,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "Empresa": empresa,
+                    "Obra": obra,
+                    "Contrato": contrato,
+                    "Produto": produto,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def atualizar_insumos_planejamento(
         self,
         insumos: Optional[List[Dict]] = None,
         justificativa_aprovacao_pl: Optional[str] = None
     ) -> dict:
-        """Alterar valores
-
+        """
+        
+        Endpoint: `Planejamento/AtualizarInsumosPlanejamento`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request para uso do método.
-Necessário permissão de alteração no programa OBPLNOBR
-
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        Necessário permissão de alteração no programa OBPLNOBR
+        
+        
+        
+        Args:
+            Insumos (List[Dict[str, Any]]): The insumos
+            justificativaAprovacaoPl (str): The aprovacao pl
+        
+        Parameter Structure:
+        
+            {
+                "Insumos": [
+                    {
+                        "Empresa": 0,
+                        "Obra": "string",
+                        "Produto": 0,
+                        "Contrato": 0,
+                        "Item": "string",
+                        "Servico": "string",
+                        "MesPl": "string",
+                        "Insumo": "string",
+                        "quantidade": 0,
+                        "preco": 0
+                    }
+                ],
+                "justificativaAprovacaoPl": "string"
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Planejamento()
+            >>> response = api._atualizar_insumos_planejamento(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Planejamento/AtualizarInsumosPlanejamento"
-        return self.api.post(
-            path,
-            json={
-                "Insumos": insumos,
-                "justificativaAprovacaoPl": justificativa_aprovacao_pl,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "Insumos": insumos,
+                    "justificativaAprovacaoPl": justificativa_aprovacao_pl,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def atualizar_servico_planejamento(
         self,
@@ -223,32 +476,82 @@ Necessário permissão de alteração no programa OBPLNOBR
         data_termino: Optional[str] = None,
         usuario: Optional[str] = None
     ) -> dict:
-        """Atualizar serviço do planejamento.
-
+        """
+        
+        Endpoint: `Planejamento/AtualizarServicoPlanejamento`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request para uso do método.
-
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        
+        
+        
+        Args:
+            Empresa (int): The empresa
+            Obra (str): The obra
+            Produto (str): The produto
+            Contrato (str): The contrato
+            Item (str): The item
+            Servico (str): The servico
+            Qtde (int): The qtde
+            DataInicio (str): The data inicio
+            DataTermino (str): The data termino
+            Usuario (str): The usuario
+        
+        Parameter Structure:
+        
+            {
+                "Empresa": 0,
+                "Obra": "string",
+                "Produto": "string",
+                "Contrato": "string",
+                "Item": "string",
+                "Servico": "string",
+                "Qtde": 0,
+                "DataInicio": "string",
+                "DataTermino": "string",
+                "Usuario": "string"
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Planejamento()
+            >>> response = api._atualizar_servico_planejamento(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Planejamento/AtualizarServicoPlanejamento"
-        return self.api.post(
-            path,
-            json={
-                "Empresa": empresa,
-                "Obra": obra,
-                "Produto": produto,
-                "Contrato": contrato,
-                "Item": item,
-                "Servico": servico,
-                "Qtde": qtde,
-                "DataInicio": data_inicio,
-                "DataTermino": data_termino,
-                "Usuario": usuario,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "Empresa": empresa,
+                    "Obra": obra,
+                    "Produto": produto,
+                    "Contrato": contrato,
+                    "Item": item,
+                    "Servico": servico,
+                    "Qtde": qtde,
+                    "DataInicio": data_inicio,
+                    "DataTermino": data_termino,
+                    "Usuario": usuario,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def consultar_servico_planejamento(
         self,
@@ -259,50 +562,124 @@ Preencher os parâmetros de request para uso do método.
         item: Optional[str] = None,
         servico: Optional[str] = None
     ) -> dict:
-        """Consultar serviços do planejamento de acordo com a chave do planejamento.
-
+        """
+        
+        Endpoint: `Planejamento/ConsultarServicoPlanejamento`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request para uso do método.
-
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        
+        
+        
+        Args:
+            Empresa (int): The empresa
+            Obra (str): The obra
+            Produto (str): The produto
+            Contrato (str): The contrato
+            Item (str): The item
+            Servico (str): The servico
+        
+        Parameter Structure:
+        
+            {
+                "Empresa": 0,
+                "Obra": "string",
+                "Produto": "string",
+                "Contrato": "string",
+                "Item": "string",
+                "Servico": "string"
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Planejamento()
+            >>> response = api._consultar_servico_planejamento(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Planejamento/ConsultarServicoPlanejamento"
-        return self.api.post(
-            path,
-            json={
-                "Empresa": empresa,
-                "Obra": obra,
-                "Produto": produto,
-                "Contrato": contrato,
-                "Item": item,
-                "Servico": servico,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "Empresa": empresa,
+                    "Obra": obra,
+                    "Produto": produto,
+                    "Contrato": contrato,
+                    "Item": item,
+                    "Servico": servico,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def consultar_solicitacao_insumo_pl(
         self,
         num_solicitacao: Optional[int] = None
     ) -> dict:
-        """Consultar as solicitações de alteração de insumos do planejamento.
-
+        """
+        
+        Endpoint: `Planejamento/ConsultarSolicitacaoInsumoPL`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request para uso do método.
-
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        
+        
+        
+        Args:
+            numSolicitacao (int): The solicitacao
+        
+        Parameter Structure:
+        
+            {
+                "numSolicitacao": 0
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Planejamento()
+            >>> response = api._consultar_solicitacao_insumopl(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Planejamento/ConsultarSolicitacaoInsumoPL"
-        return self.api.post(
-            path,
-            json={
-                "numSolicitacao": num_solicitacao,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "numSolicitacao": num_solicitacao,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def inserir_estrutura_planejamento(
         self,
@@ -318,55 +695,139 @@ Preencher os parâmetros de request para uso do método.
         qtde: Optional[int] = None,
         usuario: Optional[str] = None
     ) -> dict:
-        """Inserir estrutura no planejamento.
-
+        """
+        
+        Endpoint: `Planejamento/InserirEstruturaPlanejamento`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request para uso do método.
-
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        
+        
+        
+        Args:
+            Empresa (int): The empresa
+            Obra (str): The obra
+            Produto (str): The produto
+            Contrato (str): The contrato
+            Item (str): The item
+            Servico (str): The servico
+            Sequencia (str): The sequencia
+            CodigoItem (str): The codigo item
+            Tipo (int): The tipo
+            Qtde (int): The qtde
+            Usuario (str): The usuario
+        
+        Parameter Structure:
+        
+            {
+                "Empresa": 0,
+                "Obra": "string",
+                "Produto": "string",
+                "Contrato": "string",
+                "Item": "string",
+                "Servico": "string",
+                "Sequencia": "string",
+                "CodigoItem": "string",
+                "Tipo": 0,
+                "Qtde": 0,
+                "Usuario": "string"
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Planejamento()
+            >>> response = api._inserir_estrutura_planejamento(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Planejamento/InserirEstruturaPlanejamento"
-        return self.api.post(
-            path,
-            json={
-                "Empresa": empresa,
-                "Obra": obra,
-                "Produto": produto,
-                "Contrato": contrato,
-                "Item": item,
-                "Servico": servico,
-                "Sequencia": sequencia,
-                "CodigoItem": codigo_item,
-                "Tipo": tipo,
-                "Qtde": qtde,
-                "Usuario": usuario,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "Empresa": empresa,
+                    "Obra": obra,
+                    "Produto": produto,
+                    "Contrato": contrato,
+                    "Item": item,
+                    "Servico": servico,
+                    "Sequencia": sequencia,
+                    "CodigoItem": codigo_item,
+                    "Tipo": tipo,
+                    "Qtde": qtde,
+                    "Usuario": usuario,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def consultar_solicitacao_servico_pl(
         self,
         num_solicitacao: Optional[int] = None
     ) -> dict:
-        """Consultar as solicitações de alteração de serviço do planejamento.
-
+        """
+        
+        Endpoint: `Planejamento/ConsultarSolicitacaoServicoPL`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request para uso do método.
-
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        
+        
+        
+        Args:
+            numSolicitacao (int): The solicitacao
+        
+        Parameter Structure:
+        
+            {
+                "numSolicitacao": 0
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Planejamento()
+            >>> response = api._consultar_solicitacao_servicopl(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Planejamento/ConsultarSolicitacaoServicoPL"
-        return self.api.post(
-            path,
-            json={
-                "numSolicitacao": num_solicitacao,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "numSolicitacao": num_solicitacao,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def inserir_servico_planejamento_mes(
         self,
@@ -380,31 +841,79 @@ Preencher os parâmetros de request para uso do método.
         qtde: Optional[int] = None,
         usuario: Optional[str] = None
     ) -> dict:
-        """Inserir serviço do planejamento de acordo com o mês.
-
+        """
+        
+        Endpoint: `Planejamento/InserirServicoPlanejamentoMes`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request para uso do método.
-
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        
+        
+        
+        Args:
+            Empresa (int): The empresa
+            Obra (str): The obra
+            Produto (str): The produto
+            Contrato (str): The contrato
+            Item (str): The item
+            Servico (str): The servico
+            Mes (str): The mes
+            Qtde (int): The qtde
+            Usuario (str): The usuario
+        
+        Parameter Structure:
+        
+            {
+                "Empresa": 0,
+                "Obra": "string",
+                "Produto": "string",
+                "Contrato": "string",
+                "Item": "string",
+                "Servico": "string",
+                "Mes": "string",
+                "Qtde": 0,
+                "Usuario": "string"
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Planejamento()
+            >>> response = api._inserir_servico_planejamento_mes(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Planejamento/InserirServicoPlanejamentoMes"
-        return self.api.post(
-            path,
-            json={
-                "Empresa": empresa,
-                "Obra": obra,
-                "Produto": produto,
-                "Contrato": contrato,
-                "Item": item,
-                "Servico": servico,
-                "Mes": mes,
-                "Qtde": qtde,
-                "Usuario": usuario,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "Empresa": empresa,
+                    "Obra": obra,
+                    "Produto": produto,
+                    "Contrato": contrato,
+                    "Item": item,
+                    "Servico": servico,
+                    "Mes": mes,
+                    "Qtde": qtde,
+                    "Usuario": usuario,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def aprovar_solicitacao_planejamento(
         self,
@@ -413,34 +922,72 @@ Preencher os parâmetros de request para uso do método.
         departamento: Optional[str] = None,
         cargo: Optional[str] = None
     ) -> dict:
-        """Aprovar a solicitação de aprovação de planejamento.
-
+        """
+        
+        Endpoint: `Planejamento/AprovarSolicitacaoPlanejamento`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request para uso do método.
-Exemplo do json de request:
- {
- "NumSolicitacao" 622,
-   "Usuario": "root",
-   "Departamento": "FIN",
-   "Cargo": "10"
-   }
-
-
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        Exemplo do json de request:
+         {
+         "NumSolicitacao" 622,
+           "Usuario": "root",
+           "Departamento": "FIN",
+           "Cargo": "10"
+           }
+        
+        
+        
+        
+        Args:
+            NumSolicitacao (int): The num solicitacao
+            Usuario (str): The usuario
+            Departamento (str): The departamento
+            Cargo (str): The cargo
+        
+        Parameter Structure:
+        
+            {
+                "NumSolicitacao": 0,
+                "Usuario": "string",
+                "Departamento": "string",
+                "Cargo": "string"
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Planejamento()
+            >>> response = api._aprovar_solicitacao_planejamento(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Planejamento/AprovarSolicitacaoPlanejamento"
-        return self.api.post(
-            path,
-            json={
-                "NumSolicitacao": num_solicitacao,
-                "Usuario": usuario,
-                "Departamento": departamento,
-                "Cargo": cargo,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "NumSolicitacao": num_solicitacao,
+                    "Usuario": usuario,
+                    "Departamento": departamento,
+                    "Cargo": cargo,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def atualizar_estrutura_planejamento(
         self,
@@ -454,31 +1001,79 @@ Exemplo do json de request:
         qtde: Optional[int] = None,
         usuario: Optional[str] = None
     ) -> dict:
-        """Atualizar estrutura no planejamento.
-
+        """
+        
+        Endpoint: `Planejamento/AtualizarEstruturaPlanejamento`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request para uso do método.
-
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        
+        
+        
+        Args:
+            Empresa (int): The empresa
+            Obra (str): The obra
+            Produto (str): The produto
+            Contrato (str): The contrato
+            Item (str): The item
+            Servico (str): The servico
+            Sequencia (str): The sequencia
+            Qtde (int): The qtde
+            Usuario (str): The usuario
+        
+        Parameter Structure:
+        
+            {
+                "Empresa": 0,
+                "Obra": "string",
+                "Produto": "string",
+                "Contrato": "string",
+                "Item": "string",
+                "Servico": "string",
+                "Sequencia": "string",
+                "Qtde": 0,
+                "Usuario": "string"
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Planejamento()
+            >>> response = api._atualizar_estrutura_planejamento(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Planejamento/AtualizarEstruturaPlanejamento"
-        return self.api.post(
-            path,
-            json={
-                "Empresa": empresa,
-                "Obra": obra,
-                "Produto": produto,
-                "Contrato": contrato,
-                "Item": item,
-                "Servico": servico,
-                "Sequencia": sequencia,
-                "Qtde": qtde,
-                "Usuario": usuario,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "Empresa": empresa,
+                    "Obra": obra,
+                    "Produto": produto,
+                    "Contrato": contrato,
+                    "Item": item,
+                    "Servico": servico,
+                    "Sequencia": sequencia,
+                    "Qtde": qtde,
+                    "Usuario": usuario,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def consultar_estrutura_planejamento(
         self,
@@ -490,29 +1085,73 @@ Preencher os parâmetros de request para uso do método.
         servico: Optional[str] = None,
         sequencia: Optional[str] = None
     ) -> dict:
-        """Consultar estrutura do planejamento.
-
+        """
+        
+        Endpoint: `Planejamento/ConsultarEstruturaPlanejamento`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request para uso do método.
-
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        
+        
+        
+        Args:
+            Empresa (int): The empresa
+            Obra (str): The obra
+            Produto (str): The produto
+            Contrato (str): The contrato
+            Item (str): The item
+            Servico (str): The servico
+            Sequencia (str): The sequencia
+        
+        Parameter Structure:
+        
+            {
+                "Empresa": 0,
+                "Obra": "string",
+                "Produto": "string",
+                "Contrato": "string",
+                "Item": "string",
+                "Servico": "string",
+                "Sequencia": "string"
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Planejamento()
+            >>> response = api._consultar_estrutura_planejamento(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Planejamento/ConsultarEstruturaPlanejamento"
-        return self.api.post(
-            path,
-            json={
-                "Empresa": empresa,
-                "Obra": obra,
-                "Produto": produto,
-                "Contrato": contrato,
-                "Item": item,
-                "Servico": servico,
-                "Sequencia": sequencia,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "Empresa": empresa,
+                    "Obra": obra,
+                    "Produto": produto,
+                    "Contrato": contrato,
+                    "Item": item,
+                    "Servico": servico,
+                    "Sequencia": sequencia,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def atualizar_servico_planejamento_mes(
         self,
@@ -526,31 +1165,79 @@ Preencher os parâmetros de request para uso do método.
         qtde: Optional[int] = None,
         usuario: Optional[str] = None
     ) -> dict:
-        """Atualizar serviço do planejamento de acordo com o mês.
-
+        """
+        
+        Endpoint: `Planejamento/AtualizarServicoPlanejamentoMes`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request para uso do método.
-
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        
+        
+        
+        Args:
+            Empresa (int): The empresa
+            Obra (str): The obra
+            Produto (str): The produto
+            Contrato (str): The contrato
+            Item (str): The item
+            Servico (str): The servico
+            Mes (str): The mes
+            Qtde (int): The qtde
+            Usuario (str): The usuario
+        
+        Parameter Structure:
+        
+            {
+                "Empresa": 0,
+                "Obra": "string",
+                "Produto": "string",
+                "Contrato": "string",
+                "Item": "string",
+                "Servico": "string",
+                "Mes": "string",
+                "Qtde": 0,
+                "Usuario": "string"
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Planejamento()
+            >>> response = api._atualizar_servico_planejamento_mes(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Planejamento/AtualizarServicoPlanejamentoMes"
-        return self.api.post(
-            path,
-            json={
-                "Empresa": empresa,
-                "Obra": obra,
-                "Produto": produto,
-                "Contrato": contrato,
-                "Item": item,
-                "Servico": servico,
-                "Mes": mes,
-                "Qtde": qtde,
-                "Usuario": usuario,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "Empresa": empresa,
+                    "Obra": obra,
+                    "Produto": produto,
+                    "Contrato": contrato,
+                    "Item": item,
+                    "Servico": servico,
+                    "Mes": mes,
+                    "Qtde": qtde,
+                    "Usuario": usuario,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def consultar_desembolso_planejamento(
         self,
@@ -559,34 +1246,72 @@ Preencher os parâmetros de request para uso do método.
         mes_inicial: Optional[str] = None,
         mes_final: Optional[str] = None
     ) -> dict:
-        """Consultar desembolso (Projetado, A pagar e Pago) por obra e período.
-
+        """
+        
+        Endpoint: `Planejamento/ConsultarDesembolsoPlanejamento`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request para uso do método.
-O mês inicial e final deverão ser informados no formato MM/YYYY. Exemplo: 01/2019, 12/2019.
-
-Definição de Negócio:
-  Status:
-
-Projetado: Considera a data de pagamento (DtaRef) para realizar o cálculo dos valores.
-A pagar: Considera a data de prorrogação da parcela (DtaRef) para realizar o cálculo dos valores.
-Pago: Considera a data de pagamento da parcela (DtaRef) para realizar o cálculo dos valores.
-
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        O mês inicial e final deverão ser informados no formato MM/YYYY. Exemplo: 01/2019, 12/2019.
+        
+        Definição de Negócio:
+          Status:
+        
+        Projetado: Considera a data de pagamento (DtaRef) para realizar o cálculo dos valores.
+        A pagar: Considera a data de prorrogação da parcela (DtaRef) para realizar o cálculo dos valores.
+        Pago: Considera a data de pagamento da parcela (DtaRef) para realizar o cálculo dos valores.
+        
+        
+        
+        Args:
+            Empresa (int): The empresa
+            Obra (str): The obra
+            MesInicial (str): The mes inicial
+            MesFinal (str): The mes final
+        
+        Parameter Structure:
+        
+            {
+                "Empresa": 0,
+                "Obra": "string",
+                "MesInicial": "string",
+                "MesFinal": "string"
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Planejamento()
+            >>> response = api._consultar_desembolso_planejamento(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Planejamento/ConsultarDesembolsoPlanejamento"
-        return self.api.post(
-            path,
-            json={
-                "Empresa": empresa,
-                "Obra": obra,
-                "MesInicial": mes_inicial,
-                "MesFinal": mes_final,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "Empresa": empresa,
+                    "Obra": obra,
+                    "MesInicial": mes_inicial,
+                    "MesFinal": mes_final,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def consultar_servico_planejamento_mes(
         self,
@@ -598,53 +1323,131 @@ Pago: Considera a data de pagamento da parcela (DtaRef) para realizar o cálculo
         servico: Optional[str] = None,
         mes: Optional[str] = None
     ) -> dict:
-        """Consultar serviço do planejamento de acordo com o mês.
-
+        """
+        
+        Endpoint: `Planejamento/ConsultarServicoPlanejamentoMes`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request para uso do método.
-
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        
+        
+        
+        Args:
+            Empresa (int): The empresa
+            Obra (str): The obra
+            Produto (str): The produto
+            Contrato (str): The contrato
+            Item (str): The item
+            Servico (str): The servico
+            Mes (str): The mes
+        
+        Parameter Structure:
+        
+            {
+                "Empresa": 0,
+                "Obra": "string",
+                "Produto": "string",
+                "Contrato": "string",
+                "Item": "string",
+                "Servico": "string",
+                "Mes": "string"
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Planejamento()
+            >>> response = api._consultar_servico_planejamento_mes(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Planejamento/ConsultarServicoPlanejamentoMes"
-        return self.api.post(
-            path,
-            json={
-                "Empresa": empresa,
-                "Obra": obra,
-                "Produto": produto,
-                "Contrato": contrato,
-                "Item": item,
-                "Servico": servico,
-                "Mes": mes,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "Empresa": empresa,
+                    "Obra": obra,
+                    "Produto": produto,
+                    "Contrato": contrato,
+                    "Item": item,
+                    "Servico": servico,
+                    "Mes": mes,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def consultar_servico_planejamento_por_obra(
         self,
         empresa: Optional[int] = None,
         obra: Optional[str] = None
     ) -> dict:
-        """Consultar serviço do planejamento por obra.
-
+        """
+        
+        Endpoint: `Planejamento/ConsultarServicoPlanejamentoPorObra`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request para uso do método.
-
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        
+        
+        
+        Args:
+            Empresa (int): The empresa
+            Obra (str): The obra
+        
+        Parameter Structure:
+        
+            {
+                "Empresa": 0,
+                "Obra": "string"
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Planejamento()
+            >>> response = api._consultar_servico_planejamento_por_obra(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Planejamento/ConsultarServicoPlanejamentoPorObra"
-        return self.api.post(
-            path,
-            json={
-                "Empresa": empresa,
-                "Obra": obra,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "Empresa": empresa,
+                    "Obra": obra,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def inserir_servico_planejamento_integrado(
         self,
@@ -658,31 +1461,79 @@ Preencher os parâmetros de request para uso do método.
         codigo_externo: Optional[str] = None,
         usuario: Optional[str] = None
     ) -> dict:
-        """Inserir serviços no planejamento integrado.
-
+        """
+        
+        Endpoint: `Planejamento/InserirServicoPlanejamentoIntegrado`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request para uso do método.
-
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        
+        
+        
+        Args:
+            Empresa (int): The empresa
+            Obra (str): The obra
+            Produto (str): The produto
+            Contrato (str): The contrato
+            Item (str): The item
+            Servico (str): The servico
+            TipoDeCusto (str): The tipo de custo
+            CodigoExterno (str): The codigo externo
+            Usuario (str): The usuario
+        
+        Parameter Structure:
+        
+            {
+                "Empresa": 0,
+                "Obra": "string",
+                "Produto": "string",
+                "Contrato": "string",
+                "Item": "string",
+                "Servico": "string",
+                "TipoDeCusto": "string",
+                "CodigoExterno": "string",
+                "Usuario": "string"
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Planejamento()
+            >>> response = api._inserir_servico_planejamento_integrado(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Planejamento/InserirServicoPlanejamentoIntegrado"
-        return self.api.post(
-            path,
-            json={
-                "Empresa": empresa,
-                "Obra": obra,
-                "Produto": produto,
-                "Contrato": contrato,
-                "Item": item,
-                "Servico": servico,
-                "TipoDeCusto": tipo_de_custo,
-                "CodigoExterno": codigo_externo,
-                "Usuario": usuario,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "Empresa": empresa,
+                    "Obra": obra,
+                    "Produto": produto,
+                    "Contrato": contrato,
+                    "Item": item,
+                    "Servico": servico,
+                    "TipoDeCusto": tipo_de_custo,
+                    "CodigoExterno": codigo_externo,
+                    "Usuario": usuario,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def recusar_solicitacao_planejamento_geral(
         self,
@@ -693,28 +1544,74 @@ Preencher os parâmetros de request para uso do método.
         departamento: Optional[str] = None,
         cargo: Optional[str] = None
     ) -> dict:
-        """Recusar a solicitação de planejamento, como também os itens da solicitação.
-
+        """
+        
+        Endpoint: `Planejamento/RecusarSolicitacaoPlanejamentoGeral`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request para uso do método.
-
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        
+        
+        
+        Args:
+            NumSolicitacao (int): The num solicitacao
+            NumSolicitacoes (List[Dict[str, Any]]): The num solicitacoes
+            IdsItensSolicitacao (List[Dict[str, Any]]): The ids itens solicitacao
+            Usuario (str): The usuario
+            Departamento (str): The departamento
+            Cargo (str): The cargo
+        
+        Parameter Structure:
+        
+            {
+                "NumSolicitacao": 0,
+                "NumSolicitacoes": [
+                    0
+                ],
+                "IdsItensSolicitacao": [
+                    0
+                ],
+                "Usuario": "string",
+                "Departamento": "string",
+                "Cargo": "string"
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Planejamento()
+            >>> response = api._recusar_solicitacao_planejamento_geral(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Planejamento/RecusarSolicitacaoPlanejamentoGeral"
-        return self.api.post(
-            path,
-            json={
-                "NumSolicitacao": num_solicitacao,
-                "NumSolicitacoes": num_solicitacoes,
-                "IdsItensSolicitacao": ids_itens_solicitacao,
-                "Usuario": usuario,
-                "Departamento": departamento,
-                "Cargo": cargo,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "NumSolicitacao": num_solicitacao,
+                    "NumSolicitacoes": num_solicitacoes,
+                    "IdsItensSolicitacao": ids_itens_solicitacao,
+                    "Usuario": usuario,
+                    "Departamento": departamento,
+                    "Cargo": cargo,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def aprovar_solicitacao_planejamento_em_lote(
         self,
@@ -723,36 +1620,76 @@ Preencher os parâmetros de request para uso do método.
         departamento: Optional[str] = None,
         cargo: Optional[str] = None
     ) -> dict:
-        """Aprovar várias solicitações de aprovação de planejamento em uma única requisição.
-
+        """
+        
+        Endpoint: `Planejamento/AprovarSolicitacaoPlanejamentoEmLote`
+        HTTP Method: `POST`
+        
         Implementation Notes:
          Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request para uso do método.
-Exemplo do json de request:
- {
- "NumSolicitacoes" [
-       625, 626
-   ],
-   "Usuario": "root",
-   "Departamento": "FIN",
-   "Cargo": "10"
-  }
-
-
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        Exemplo do json de request:
+         {
+         "NumSolicitacoes" [
+               625, 626
+           ],
+           "Usuario": "root",
+           "Departamento": "FIN",
+           "Cargo": "10"
+          }
+        
+        
+        
+        
+        Args:
+            NumSolicitacoes (List[Dict[str, Any]]): The num solicitacoes
+            Usuario (str): The usuario
+            Departamento (str): The departamento
+            Cargo (str): The cargo
+        
+        Parameter Structure:
+        
+            {
+                "NumSolicitacoes": [
+                    0
+                ],
+                "Usuario": "string",
+                "Departamento": "string",
+                "Cargo": "string"
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Planejamento()
+            >>> response = api._aprovar_solicitacao_planejamento_em_lote(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Planejamento/AprovarSolicitacaoPlanejamentoEmLote"
-        return self.api.post(
-            path,
-            json={
-                "NumSolicitacoes": num_solicitacoes,
-                "Usuario": usuario,
-                "Departamento": departamento,
-                "Cargo": cargo,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "NumSolicitacoes": num_solicitacoes,
+                    "Usuario": usuario,
+                    "Departamento": departamento,
+                    "Cargo": cargo,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def atualizar_servico_planejamento_integrado(
         self,
@@ -762,73 +1699,179 @@ Exemplo do json de request:
         data_termino: Optional[str] = None,
         usuario: Optional[str] = None
     ) -> dict:
-        """Atualizar serviço do planejamento integrado.
-
+        """
+        
+        Endpoint: `Planejamento/AtualizarServicoPlanejamentoIntegrado`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request para uso do método.
-
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        
+        
+        
+        Args:
+            CodigoExterno (str): The codigo externo
+            Qtde (int): The qtde
+            DataInicio (str): The data inicio
+            DataTermino (str): The data termino
+            Usuario (str): The usuario
+        
+        Parameter Structure:
+        
+            {
+                "CodigoExterno": "string",
+                "Qtde": 0,
+                "DataInicio": "string",
+                "DataTermino": "string",
+                "Usuario": "string"
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Planejamento()
+            >>> response = api._atualizar_servico_planejamento_integrado(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Planejamento/AtualizarServicoPlanejamentoIntegrado"
-        return self.api.post(
-            path,
-            json={
-                "CodigoExterno": codigo_externo,
-                "Qtde": qtde,
-                "DataInicio": data_inicio,
-                "DataTermino": data_termino,
-                "Usuario": usuario,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "CodigoExterno": codigo_externo,
+                    "Qtde": qtde,
+                    "DataInicio": data_inicio,
+                    "DataTermino": data_termino,
+                    "Usuario": usuario,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def consultar_servico_planejado_desintegrado(
         self,
         empresa: Optional[int] = None,
         obra: Optional[str] = None
     ) -> dict:
-        """Consultar serviço planejado desintegrado.
-
+        """
+        
+        Endpoint: `Planejamento/ConsultarServicoPlanejadoDesintegrado`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request para uso do método.
-
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        
+        
+        
+        Args:
+            Empresa (int): The empresa
+            Obra (str): The obra
+        
+        Parameter Structure:
+        
+            {
+                "Empresa": 0,
+                "Obra": "string"
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Planejamento()
+            >>> response = api._consultar_servico_planejado_desintegrado(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Planejamento/ConsultarServicoPlanejadoDesintegrado"
-        return self.api.post(
-            path,
-            json={
-                "Empresa": empresa,
-                "Obra": obra,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "Empresa": empresa,
+                    "Obra": obra,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def consultar_servico_planejamento_integrado(
         self,
         codigo_externo: Optional[str] = None
     ) -> dict:
-        """Consultar serviço do planejamento integrado.
-
+        """
+        
+        Endpoint: `Planejamento/ConsultarServicoPlanejamentoIntegrado`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request para uso do método.
-
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        
+        
+        
+        Args:
+            CodigoExterno (str): The codigo externo
+        
+        Parameter Structure:
+        
+            {
+                "CodigoExterno": "string"
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Planejamento()
+            >>> response = api._consultar_servico_planejamento_integrado(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Planejamento/ConsultarServicoPlanejamentoIntegrado"
-        return self.api.post(
-            path,
-            json={
-                "CodigoExterno": codigo_externo,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "CodigoExterno": codigo_externo,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def consultar_aprovacao_pl_pendente_por_usuario(
         self,
@@ -839,28 +1882,70 @@ Preencher os parâmetros de request para uso do método.
         tipo_consulta_aprovacao: Optional[str] = None,
         numero_dias: Optional[int] = None
     ) -> dict:
-        """Realiza consulta das aprovações pendentes para o usuário.
-
+        """
+        
+        Endpoint: `Planejamento/ConsultarAprovacaoPlPendentePorUsuario`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request para uso do método.
-
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        
+        
+        
+        Args:
+            usuario (str): The usuario
+            departamento (str): The departamento
+            cargo (str): The cargo
+            empresasObras (str): The obras
+            tipoConsultaAprovacao (str): The consulta aprovacao
+            numero_dias (int): The numero_dias
+        
+        Parameter Structure:
+        
+            {
+                "usuario": "string",
+                "departamento": "string",
+                "cargo": "string",
+                "empresasObras": "string",
+                "tipoConsultaAprovacao": "string",
+                "numero_dias": 0
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Planejamento()
+            >>> response = api._consultar_aprovacao_pl_pendente_por_usuario(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Planejamento/ConsultarAprovacaoPlPendentePorUsuario"
-        return self.api.post(
-            path,
-            json={
-                "usuario": usuario,
-                "departamento": departamento,
-                "cargo": cargo,
-                "empresasObras": empresas_obras,
-                "tipoConsultaAprovacao": tipo_consulta_aprovacao,
-                "numero_dias": numero_dias,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "usuario": usuario,
+                    "departamento": departamento,
+                    "cargo": cargo,
+                    "empresasObras": empresas_obras,
+                    "tipoConsultaAprovacao": tipo_consulta_aprovacao,
+                    "numero_dias": numero_dias,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def recusar_solicitacao_planejamento_geral_em_lote(
         self,
@@ -871,28 +1956,74 @@ Preencher os parâmetros de request para uso do método.
         departamento: Optional[str] = None,
         cargo: Optional[str] = None
     ) -> dict:
-        """Recusar a solicitação de planejamento em lote, como também os itens da solicitação.
-
+        """
+        
+        Endpoint: `Planejamento/RecusarSolicitacaoPlanejamentoGeralEmLote`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request para uso do método.
-
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        
+        
+        
+        Args:
+            NumSolicitacao (int): The num solicitacao
+            NumSolicitacoes (List[Dict[str, Any]]): The num solicitacoes
+            IdsItensSolicitacao (List[Dict[str, Any]]): The ids itens solicitacao
+            Usuario (str): The usuario
+            Departamento (str): The departamento
+            Cargo (str): The cargo
+        
+        Parameter Structure:
+        
+            {
+                "NumSolicitacao": 0,
+                "NumSolicitacoes": [
+                    0
+                ],
+                "IdsItensSolicitacao": [
+                    0
+                ],
+                "Usuario": "string",
+                "Departamento": "string",
+                "Cargo": "string"
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Planejamento()
+            >>> response = api._recusar_solicitacao_planejamento_geral_em_lote(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Planejamento/RecusarSolicitacaoPlanejamentoGeralEmLote"
-        return self.api.post(
-            path,
-            json={
-                "NumSolicitacao": num_solicitacao,
-                "NumSolicitacoes": num_solicitacoes,
-                "IdsItensSolicitacao": ids_itens_solicitacao,
-                "Usuario": usuario,
-                "Departamento": departamento,
-                "Cargo": cargo,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "NumSolicitacao": num_solicitacao,
+                    "NumSolicitacoes": num_solicitacoes,
+                    "IdsItensSolicitacao": ids_itens_solicitacao,
+                    "Usuario": usuario,
+                    "Departamento": departamento,
+                    "Cargo": cargo,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def aprovar_solicitacao_planejamento_insumos_em_lote(
         self,
@@ -901,36 +2032,76 @@ Preencher os parâmetros de request para uso do método.
         departamento: Optional[str] = None,
         cargo: Optional[str] = None
     ) -> dict:
-        """Aprovar a solicitação de aprovação de planejamento de insumos em lotes de solicitações. Passando como parâmetro o número dos itens das solicitações.
-
+        """
+        
+        Endpoint: `Planejamento/AprovarSolicitacaoPlanejamentoInsumosEmLote`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request para uso do método.
-Exemplo do json de request:
-{
- "IdsItensSolicitacao" [
-       1615, 1616, 1617            
-   ],
-   "Usuario": "root",
-   "Departamento": "FIN",
-   "Cargo": "10"
-  }
-
-
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        Exemplo do json de request:
+        {
+         "IdsItensSolicitacao" [
+               1615, 1616, 1617            
+           ],
+           "Usuario": "root",
+           "Departamento": "FIN",
+           "Cargo": "10"
+          }
+        
+        
+        
+        
+        Args:
+            IdsItensSolicitacao (List[Dict[str, Any]]): The ids itens solicitacao
+            Usuario (str): The usuario
+            Departamento (str): The departamento
+            Cargo (str): The cargo
+        
+        Parameter Structure:
+        
+            {
+                "IdsItensSolicitacao": [
+                    0
+                ],
+                "Usuario": "string",
+                "Departamento": "string",
+                "Cargo": "string"
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Planejamento()
+            >>> response = api._aprovar_solicitacao_planejamento_insumos_em_lote(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Planejamento/AprovarSolicitacaoPlanejamentoInsumosEmLote"
-        return self.api.post(
-            path,
-            json={
-                "IdsItensSolicitacao": ids_itens_solicitacao,
-                "Usuario": usuario,
-                "Departamento": departamento,
-                "Cargo": cargo,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "IdsItensSolicitacao": ids_itens_solicitacao,
+                    "Usuario": usuario,
+                    "Departamento": departamento,
+                    "Cargo": cargo,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def aprovar_solicitacao_planejamento_servicos_em_lote(
         self,
@@ -940,55 +2111,105 @@ Exemplo do json de request:
         departamento: Optional[str] = None,
         cargo: Optional[str] = None
     ) -> dict:
-        """Aprovar a solicitação de aprovação de planejamento de serviços em lotes de solicitações.
-
+        """
+        
+        Endpoint: `Planejamento/AprovarSolicitacaoPlanejamentoServicosEmLote`
+        HTTP Method: `POST`
+        
         Implementation Notes:
          Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request para uso do método.
-Exemplo do json de request:
-{
-"NumSolicitacao": 630,
-  "ChavesServico": [
-      {
-          "empresa": 1,
-          "obra": "00000",
-          "produto": 7,
-          "contrato": 1,
-          "item": "01.01.01.02",
-          "servico": "020201P",
-          "data": "01/09/2005"
-      },
-      {
-          "empresa": 1,
-          "obra": "00000",
-          "produto": 7,
-          "contrato": 1,
-          "item": "01.01.01.03",
-          "servico": "030109P",
-          "data": "01/09/2005"
-      }
-  ],
-  "Usuario": "root",
-  "Departamento": "FIN",
-  "Cargo": "10"
-  }
-
-
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        Exemplo do json de request:
+        {
+        "NumSolicitacao": 630,
+          "ChavesServico": [
+              {
+                  "empresa": 1,
+                  "obra": "00000",
+                  "produto": 7,
+                  "contrato": 1,
+                  "item": "01.01.01.02",
+                  "servico": "020201P",
+                  "data": "01/09/2005"
+              },
+              {
+                  "empresa": 1,
+                  "obra": "00000",
+                  "produto": 7,
+                  "contrato": 1,
+                  "item": "01.01.01.03",
+                  "servico": "030109P",
+                  "data": "01/09/2005"
+              }
+          ],
+          "Usuario": "root",
+          "Departamento": "FIN",
+          "Cargo": "10"
+          }
+        
+        
+        
+        
+        Args:
+            NumSolicitacao (int): The num solicitacao
+            ChavesServico (List[Dict[str, Any]]): The chaves servico
+            Usuario (str): The usuario
+            Departamento (str): The departamento
+            Cargo (str): The cargo
+        
+        Parameter Structure:
+        
+            {
+                "NumSolicitacao": 0,
+                "ChavesServico": [
+                    {
+                        "empresa": 0,
+                        "obra": "string",
+                        "produto": 0,
+                        "contrato": 0,
+                        "item": "string",
+                        "servico": "string",
+                        "data": "string"
+                    }
+                ],
+                "Usuario": "string",
+                "Departamento": "string",
+                "Cargo": "string"
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Planejamento()
+            >>> response = api._aprovar_solicitacao_planejamento_servicos_em_lote(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Planejamento/AprovarSolicitacaoPlanejamentoServicosEmLote"
-        return self.api.post(
-            path,
-            json={
-                "NumSolicitacao": num_solicitacao,
-                "ChavesServico": chaves_servico,
-                "Usuario": usuario,
-                "Departamento": departamento,
-                "Cargo": cargo,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "NumSolicitacao": num_solicitacao,
+                    "ChavesServico": chaves_servico,
+                    "Usuario": usuario,
+                    "Departamento": departamento,
+                    "Cargo": cargo,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def consultar_quantidade_aprovacao_pl_pendente_por_usuario(
         self,
@@ -999,26 +2220,68 @@ Exemplo do json de request:
         tipo_consulta_aprovacao: Optional[str] = None,
         numero_dias: Optional[int] = None
     ) -> dict:
-        """Realiza a busca da quantidade de solicitação pendente para o usuário.
-
+        """
+        
+        Endpoint: `Planejamento/ConsultarQuantidadeAprovacaoPlPendentePorUsuario`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request para uso do método.
-
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        
+        
+        
+        Args:
+            usuario (str): The usuario
+            departamento (str): The departamento
+            cargo (str): The cargo
+            empresasObras (str): The obras
+            tipoConsultaAprovacao (str): The consulta aprovacao
+            numero_dias (int): The numero_dias
+        
+        Parameter Structure:
+        
+            {
+                "usuario": "string",
+                "departamento": "string",
+                "cargo": "string",
+                "empresasObras": "string",
+                "tipoConsultaAprovacao": "string",
+                "numero_dias": 0
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Planejamento()
+            >>> response = api._consultar_quantidade_aprovacao_pl_pendente_por_usuario(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Planejamento/ConsultarQuantidadeAprovacaoPlPendentePorUsuario"
-        return self.api.post(
-            path,
-            json={
-                "usuario": usuario,
-                "departamento": departamento,
-                "cargo": cargo,
-                "empresasObras": empresas_obras,
-                "tipoConsultaAprovacao": tipo_consulta_aprovacao,
-                "numero_dias": numero_dias,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "usuario": usuario,
+                    "departamento": departamento,
+                    "cargo": cargo,
+                    "empresasObras": empresas_obras,
+                    "tipoConsultaAprovacao": tipo_consulta_aprovacao,
+                    "numero_dias": numero_dias,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 

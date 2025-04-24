@@ -1,24 +1,16 @@
-"""This module contains auto-generated API class.
-
-DO NOT EDIT MANUALLY.
-"""
-
 from typing import Dict, Any, List, Optional
 from datetime import datetime
 from ..requestsapi import RequestsApi
 
+import requests
 class Orcamento:
-    """Auto-generated API class"""
-
-    def __init__(self, api):
+    def __init__(self, api: RequestsApi):
         """Initialize with API client
 
         Args:
-            api: The authenticated API client instance
+            api: The API client instance
         """
-        if not hasattr(api, "is_authenticated") or not api.is_authenticated:
-            raise ValueError("API client must be authenticated")
-        self.api = RequestsApi(api.base_url, session=api.get_session())
+        self.api = api
 
     def alterar_insumo_orcamento(
         self,
@@ -33,32 +25,82 @@ class Orcamento:
         tipo_insumo: Optional[int] = None,
         encargo: Optional[int] = None
     ) -> dict:
-        """Alterar insumo no orçamento.
-
+        """
+        
+        Endpoint: `Orcamento/AlterarInsumoOrcamento`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request para uso do método.
-
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        
+        
+        
+        Args:
+            empresa (int): The empresa
+            obra (str): The obra
+            orcamento (int): The orcamento
+            composicao (str): The composicao
+            insumo (str): The insumo
+            usuario (str): The usuario
+            quantidade (int): The quantidade
+            preco (int): The preco
+            tipoInsumo (int): The insumo
+            encargo (int): The encargo
+        
+        Parameter Structure:
+        
+            {
+                "empresa": 0,
+                "obra": "string",
+                "orcamento": 0,
+                "composicao": "string",
+                "insumo": "string",
+                "usuario": "string",
+                "quantidade": 0,
+                "preco": 0,
+                "tipoInsumo": 0,
+                "encargo": 0
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Orcamento()
+            >>> response = api._alterar_insumo_orcamento(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Orcamento/AlterarInsumoOrcamento"
-        return self.api.post(
-            path,
-            json={
-                "empresa": empresa,
-                "obra": obra,
-                "orcamento": orcamento,
-                "composicao": composicao,
-                "insumo": insumo,
-                "usuario": usuario,
-                "quantidade": quantidade,
-                "preco": preco,
-                "tipoInsumo": tipo_insumo,
-                "encargo": encargo,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "empresa": empresa,
+                    "obra": obra,
+                    "orcamento": orcamento,
+                    "composicao": composicao,
+                    "insumo": insumo,
+                    "usuario": usuario,
+                    "quantidade": quantidade,
+                    "preco": preco,
+                    "tipoInsumo": tipo_insumo,
+                    "encargo": encargo,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def excluir_insumo_orcamento(
         self,
@@ -73,54 +115,149 @@ Preencher os parâmetros de request para uso do método.
         tipo_insumo: Optional[int] = None,
         encargo: Optional[int] = None
     ) -> dict:
-        """Excluir insumo no orçamento.
-
+        """
+        
+        Endpoint: `Orcamento/ExcluirInsumoOrcamento`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request para uso do método.
-
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        
+        
+        
+        Args:
+            empresa (int): The empresa
+            obra (str): The obra
+            orcamento (int): The orcamento
+            composicao (str): The composicao
+            insumo (str): The insumo
+            usuario (str): The usuario
+            quantidade (int): The quantidade
+            preco (int): The preco
+            tipoInsumo (int): The insumo
+            encargo (int): The encargo
+        
+        Parameter Structure:
+        
+            {
+                "empresa": 0,
+                "obra": "string",
+                "orcamento": 0,
+                "composicao": "string",
+                "insumo": "string",
+                "usuario": "string",
+                "quantidade": 0,
+                "preco": 0,
+                "tipoInsumo": 0,
+                "encargo": 0
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Orcamento()
+            >>> response = api._excluir_insumo_orcamento(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Orcamento/ExcluirInsumoOrcamento"
-        return self.api.post(
-            path,
-            json={
-                "empresa": empresa,
-                "obra": obra,
-                "orcamento": orcamento,
-                "composicao": composicao,
-                "insumo": insumo,
-                "usuario": usuario,
-                "quantidade": quantidade,
-                "preco": preco,
-                "tipoInsumo": tipo_insumo,
-                "encargo": encargo,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "empresa": empresa,
+                    "obra": obra,
+                    "orcamento": orcamento,
+                    "composicao": composicao,
+                    "insumo": insumo,
+                    "usuario": usuario,
+                    "quantidade": quantidade,
+                    "preco": preco,
+                    "tipoInsumo": tipo_insumo,
+                    "encargo": encargo,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def inserir_insumo_orcamento(
         self,
         insumos_orcamento: Optional[List[Dict]] = None
     ) -> dict:
-        """Inserir insumos no orçamento. Podem ser informados diversos insumos para que sejam inseridos em lote.
-
+        """
+        
+        Endpoint: `Orcamento/InserirInsumoOrcamento`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request para uso do método.
-
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        
+        
+        
+        Args:
+            InsumosOrcamento (List[Dict[str, Any]]): The insumos orcamento
+        
+        Parameter Structure:
+        
+            {
+                "InsumosOrcamento": [
+                    {
+                        "empresa": 0,
+                        "obra": "string",
+                        "orcamento": 0,
+                        "composicao": "string",
+                        "insumo": "string",
+                        "usuario": "string",
+                        "quantidade": 0,
+                        "preco": 0,
+                        "tipoInsumo": 0,
+                        "encargo": 0
+                    }
+                ]
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Orcamento()
+            >>> response = api._inserir_insumo_orcamento(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Orcamento/InserirInsumoOrcamento"
-        return self.api.post(
-            path,
-            json={
-                "InsumosOrcamento": insumos_orcamento,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "InsumosOrcamento": insumos_orcamento,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def alterar_servico_orcamento(
         self,
@@ -135,32 +272,82 @@ Preencher os parâmetros de request para uso do método.
         servico: Optional[str] = None,
         cod_externo_integracao: Optional[str] = None
     ) -> dict:
-        """Alterar serviço no orçamento.
-
+        """
+        
+        Endpoint: `Orcamento/AlterarServicoOrcamento`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request para uso do método.
-
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        
+        
+        
+        Args:
+            usuario (str): The usuario
+            quantidade (int): The quantidade
+            dataInicio (datetime): The inicio
+            dataFim (datetime): The fim
+            empresa (int): The empresa
+            obra (str): The obra
+            numOrcamento (int): The orcamento
+            item (str): The item
+            servico (str): The servico
+            codExternoIntegracao (str): The externo integracao
+        
+        Parameter Structure:
+        
+            {
+                "usuario": "string",
+                "quantidade": 0,
+                "dataInicio": "2025-04-23T13:46:13.523Z",
+                "dataFim": "2025-04-23T13:46:13.523Z",
+                "empresa": 0,
+                "obra": "string",
+                "numOrcamento": 0,
+                "item": "string",
+                "servico": "string",
+                "codExternoIntegracao": "string"
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Orcamento()
+            >>> response = api._alterar_servico_orcamento(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Orcamento/AlterarServicoOrcamento"
-        return self.api.post(
-            path,
-            json={
-                "usuario": usuario,
-                "quantidade": quantidade,
-                "dataInicio": data_inicio,
-                "dataFim": data_fim,
-                "empresa": empresa,
-                "obra": obra,
-                "numOrcamento": num_orcamento,
-                "item": item,
-                "servico": servico,
-                "codExternoIntegracao": cod_externo_integracao,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "usuario": usuario,
+                    "quantidade": quantidade,
+                    "dataInicio": data_inicio,
+                    "dataFim": data_fim,
+                    "empresa": empresa,
+                    "obra": obra,
+                    "numOrcamento": num_orcamento,
+                    "item": item,
+                    "servico": servico,
+                    "codExternoIntegracao": cod_externo_integracao,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def excluir_servico_orcamento(
         self,
@@ -172,51 +359,141 @@ Preencher os parâmetros de request para uso do método.
         servico: Optional[str] = None,
         cod_externo_integracao: Optional[str] = None
     ) -> dict:
-        """Exclui serviço ou item do orçamento.
-
+        """
+        
+        Endpoint: `Orcamento/ExcluirServicoOrcamento`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request para uso do método.
-
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        
+        
+        
+        Args:
+            usuario (str): The usuario
+            empresa (int): The empresa
+            obra (str): The obra
+            numOrcamento (int): The orcamento
+            item (str): The item
+            servico (str): The servico
+            codExternoIntegracao (str): The externo integracao
+        
+        Parameter Structure:
+        
+            {
+                "usuario": "string",
+                "empresa": 0,
+                "obra": "string",
+                "numOrcamento": 0,
+                "item": "string",
+                "servico": "string",
+                "codExternoIntegracao": "string"
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Orcamento()
+            >>> response = api._excluir_servico_orcamento(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Orcamento/ExcluirServicoOrcamento"
-        return self.api.post(
-            path,
-            json={
-                "usuario": usuario,
-                "empresa": empresa,
-                "obra": obra,
-                "numOrcamento": num_orcamento,
-                "item": item,
-                "servico": servico,
-                "codExternoIntegracao": cod_externo_integracao,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "usuario": usuario,
+                    "empresa": empresa,
+                    "obra": obra,
+                    "numOrcamento": num_orcamento,
+                    "item": item,
+                    "servico": servico,
+                    "codExternoIntegracao": cod_externo_integracao,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def inserir_servico_orcamento(
         self,
         servicos_orcamento: Optional[List[Dict]] = None
     ) -> dict:
-        """Inserir serviços no orçamento. Podem ser informados diversos serviços para que sejam inseridos em lote.
-
+        """
+        
+        Endpoint: `Orcamento/InserirServicoOrcamento`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request para uso do método.
-
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        
+        
+        
+        Args:
+            ServicosOrcamento (List[Dict[str, Any]]): The servicos orcamento
+        
+        Parameter Structure:
+        
+            {
+                "ServicosOrcamento": [
+                    {
+                        "usuario": "string",
+                        "quantidade": 0,
+                        "dataInicio": "2025-04-23T13:46:13.532Z",
+                        "dataFim": "2025-04-23T13:46:13.532Z",
+                        "descricaoServico": "string",
+                        "empresa": 0,
+                        "obra": "string",
+                        "numOrcamento": 0,
+                        "item": "string",
+                        "servico": "string",
+                        "codExternoIntegracao": "string"
+                    }
+                ]
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Orcamento()
+            >>> response = api._inserir_servico_orcamento(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Orcamento/InserirServicoOrcamento"
-        return self.api.post(
-            path,
-            json={
-                "ServicosOrcamento": servicos_orcamento,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "ServicosOrcamento": servicos_orcamento,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def consultar_insumos_por_chave(
         self,
@@ -225,26 +502,64 @@ Preencher os parâmetros de request para uso do método.
         orcamento: Optional[int] = None,
         composicao: Optional[str] = None
     ) -> dict:
-        """Consultar a tabela PlanilhaCronograma pela sua chave
-
+        """
+        
+        Endpoint: `Orcamento/ConsultarInsumosPorChave`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request para uso do método.
-
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        
+        
+        
+        Args:
+            empresa (int): The empresa
+            obra (str): The obra
+            orcamento (int): The orcamento
+            composicao (str): The composicao
+        
+        Parameter Structure:
+        
+            {
+                "empresa": 0,
+                "obra": "string",
+                "orcamento": 0,
+                "composicao": "string"
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Orcamento()
+            >>> response = api._consultar_insumos_por_chave(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Orcamento/ConsultarInsumosPorChave"
-        return self.api.post(
-            path,
-            json={
-                "empresa": empresa,
-                "obra": obra,
-                "orcamento": orcamento,
-                "composicao": composicao,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "empresa": empresa,
+                    "obra": obra,
+                    "orcamento": orcamento,
+                    "composicao": composicao,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def alterar_planilha_cronograma(
         self,
@@ -257,30 +572,76 @@ Preencher os parâmetros de request para uso do método.
         periodo: Optional[str] = None,
         quantidade: Optional[int] = None
     ) -> dict:
-        """Alterar cronograma no orçamento.
-
+        """
+        
+        Endpoint: `Orcamento/AlterarPlanilhaCronograma`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request para uso do método.
-
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        
+        
+        
+        Args:
+            usuario (str): The usuario
+            empresa (int): The empresa
+            obra (str): The obra
+            numOrcamento (int): The orcamento
+            item (str): The item
+            servico (str): The servico
+            periodo (str): The periodo
+            quantidade (int): The quantidade
+        
+        Parameter Structure:
+        
+            {
+                "usuario": "string",
+                "empresa": 0,
+                "obra": "string",
+                "numOrcamento": 0,
+                "item": "string",
+                "servico": "string",
+                "periodo": "string",
+                "quantidade": 0
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Orcamento()
+            >>> response = api._alterar_planilha_cronograma(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Orcamento/AlterarPlanilhaCronograma"
-        return self.api.post(
-            path,
-            json={
-                "usuario": usuario,
-                "empresa": empresa,
-                "obra": obra,
-                "numOrcamento": num_orcamento,
-                "item": item,
-                "servico": servico,
-                "periodo": periodo,
-                "quantidade": quantidade,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "usuario": usuario,
+                    "empresa": empresa,
+                    "obra": obra,
+                    "numOrcamento": num_orcamento,
+                    "item": item,
+                    "servico": servico,
+                    "periodo": periodo,
+                    "quantidade": quantidade,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def excluir_planilha_cronograma(
         self,
@@ -293,30 +654,76 @@ Preencher os parâmetros de request para uso do método.
         periodo: Optional[str] = None,
         quantidade: Optional[int] = None
     ) -> dict:
-        """Excluir cronograma no orçamento.
-
+        """
+        
+        Endpoint: `Orcamento/ExcluirPlanilhaCronograma`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request para uso do método.
-
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        
+        
+        
+        Args:
+            usuario (str): The usuario
+            empresa (int): The empresa
+            obra (str): The obra
+            numOrcamento (int): The orcamento
+            item (str): The item
+            servico (str): The servico
+            periodo (str): The periodo
+            quantidade (int): The quantidade
+        
+        Parameter Structure:
+        
+            {
+                "usuario": "string",
+                "empresa": 0,
+                "obra": "string",
+                "numOrcamento": 0,
+                "item": "string",
+                "servico": "string",
+                "periodo": "string",
+                "quantidade": 0
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Orcamento()
+            >>> response = api._excluir_planilha_cronograma(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Orcamento/ExcluirPlanilhaCronograma"
-        return self.api.post(
-            path,
-            json={
-                "usuario": usuario,
-                "empresa": empresa,
-                "obra": obra,
-                "numOrcamento": num_orcamento,
-                "item": item,
-                "servico": servico,
-                "periodo": periodo,
-                "quantidade": quantidade,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "usuario": usuario,
+                    "empresa": empresa,
+                    "obra": obra,
+                    "numOrcamento": num_orcamento,
+                    "item": item,
+                    "servico": servico,
+                    "periodo": periodo,
+                    "quantidade": quantidade,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def inserir_planilha_cronograma(
         self,
@@ -329,30 +736,76 @@ Preencher os parâmetros de request para uso do método.
         periodo: Optional[str] = None,
         quantidade: Optional[int] = None
     ) -> dict:
-        """Inserir cronograma no orçamento.
-
+        """
+        
+        Endpoint: `Orcamento/InserirPlanilhaCronograma`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request para uso do método.
-
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        
+        
+        
+        Args:
+            usuario (str): The usuario
+            empresa (int): The empresa
+            obra (str): The obra
+            numOrcamento (int): The orcamento
+            item (str): The item
+            servico (str): The servico
+            periodo (str): The periodo
+            quantidade (int): The quantidade
+        
+        Parameter Structure:
+        
+            {
+                "usuario": "string",
+                "empresa": 0,
+                "obra": "string",
+                "numOrcamento": 0,
+                "item": "string",
+                "servico": "string",
+                "periodo": "string",
+                "quantidade": 0
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Orcamento()
+            >>> response = api._inserir_planilha_cronograma(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Orcamento/InserirPlanilhaCronograma"
-        return self.api.post(
-            path,
-            json={
-                "usuario": usuario,
-                "empresa": empresa,
-                "obra": obra,
-                "numOrcamento": num_orcamento,
-                "item": item,
-                "servico": servico,
-                "periodo": periodo,
-                "quantidade": quantidade,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "usuario": usuario,
+                    "empresa": empresa,
+                    "obra": obra,
+                    "numOrcamento": num_orcamento,
+                    "item": item,
+                    "servico": servico,
+                    "periodo": periodo,
+                    "quantidade": quantidade,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def exportar_orcamento_estrutura(
         self,
@@ -360,25 +813,61 @@ Preencher os parâmetros de request para uso do método.
         obra: Optional[str] = None,
         orcamento: Optional[int] = None
     ) -> dict:
-        """Exportar orçamento com suas estruturas
-
+        """
+        
+        Endpoint: `Orcamento/ExportarOrcamentoEstrutura`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request para uso do método.
-
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        
+        
+        
+        Args:
+            empresa (int): The empresa
+            obra (str): The obra
+            orcamento (int): The orcamento
+        
+        Parameter Structure:
+        
+            {
+                "empresa": 0,
+                "obra": "string",
+                "orcamento": 0
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Orcamento()
+            >>> response = api._exportar_orcamento_estrutura(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Orcamento/ExportarOrcamentoEstrutura"
-        return self.api.post(
-            path,
-            json={
-                "empresa": empresa,
-                "obra": obra,
-                "orcamento": orcamento,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "empresa": empresa,
+                    "obra": obra,
+                    "orcamento": orcamento,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def consultar_estrutura_orca_por_chave(
         self,
@@ -390,29 +879,73 @@ Preencher os parâmetros de request para uso do método.
         servico: Optional[str] = None,
         cod_externo_integracao: Optional[str] = None
     ) -> dict:
-        """Consultar estrutura de serviço do orçamento de acordo com a chave do orçamento.
-
+        """
+        
+        Endpoint: `Orcamento/ConsultarEstruturaOrcaPorChave`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request para uso do método.
-
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        
+        
+        
+        Args:
+            sequencia (str): The sequencia
+            empresa (int): The empresa
+            obra (str): The obra
+            numOrcamento (int): The orcamento
+            item (str): The item
+            servico (str): The servico
+            codExternoIntegracao (str): The externo integracao
+        
+        Parameter Structure:
+        
+            {
+                "sequencia": "string",
+                "empresa": 0,
+                "obra": "string",
+                "numOrcamento": 0,
+                "item": "string",
+                "servico": "string",
+                "codExternoIntegracao": "string"
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Orcamento()
+            >>> response = api._consultar_estrutura_orca_por_chave(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Orcamento/ConsultarEstruturaOrcaPorChave"
-        return self.api.post(
-            path,
-            json={
-                "sequencia": sequencia,
-                "empresa": empresa,
-                "obra": obra,
-                "numOrcamento": num_orcamento,
-                "item": item,
-                "servico": servico,
-                "codExternoIntegracao": cod_externo_integracao,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "sequencia": sequencia,
+                    "empresa": empresa,
+                    "obra": obra,
+                    "numOrcamento": num_orcamento,
+                    "item": item,
+                    "servico": servico,
+                    "codExternoIntegracao": cod_externo_integracao,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def consultar_estrutura_orca_por_servico(
         self,
@@ -423,28 +956,70 @@ Preencher os parâmetros de request para uso do método.
         servico: Optional[str] = None,
         cod_externo_integracao: Optional[str] = None
     ) -> dict:
-        """Consultar as estruturas do orçamento para um determinado serviço.
-
+        """
+        
+        Endpoint: `Orcamento/ConsultarEstruturaOrcaPorServico`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request para uso do método.
-
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        
+        
+        
+        Args:
+            empresa (int): The empresa
+            obra (str): The obra
+            numOrcamento (int): The orcamento
+            item (str): The item
+            servico (str): The servico
+            codExternoIntegracao (str): The externo integracao
+        
+        Parameter Structure:
+        
+            {
+                "empresa": 0,
+                "obra": "string",
+                "numOrcamento": 0,
+                "item": "string",
+                "servico": "string",
+                "codExternoIntegracao": "string"
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Orcamento()
+            >>> response = api._consultar_estrutura_orca_por_servico(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Orcamento/ConsultarEstruturaOrcaPorServico"
-        return self.api.post(
-            path,
-            json={
-                "empresa": empresa,
-                "obra": obra,
-                "numOrcamento": num_orcamento,
-                "item": item,
-                "servico": servico,
-                "codExternoIntegracao": cod_externo_integracao,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "empresa": empresa,
+                    "obra": obra,
+                    "numOrcamento": num_orcamento,
+                    "item": item,
+                    "servico": servico,
+                    "codExternoIntegracao": cod_externo_integracao,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def consultar_servico_orcamento_por_chave(
         self,
@@ -455,28 +1030,70 @@ Preencher os parâmetros de request para uso do método.
         servico: Optional[str] = None,
         cod_externo_integracao: Optional[str] = None
     ) -> dict:
-        """Buscar os serviços do orçamento de acordo com a chave do orçamento.
-
+        """
+        
+        Endpoint: `Orcamento/ConsultarServicoOrcamentoPorChave`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request para uso do método.
-
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        
+        
+        
+        Args:
+            empresa (int): The empresa
+            obra (str): The obra
+            numOrcamento (int): The orcamento
+            item (str): The item
+            servico (str): The servico
+            codExternoIntegracao (str): The externo integracao
+        
+        Parameter Structure:
+        
+            {
+                "empresa": 0,
+                "obra": "string",
+                "numOrcamento": 0,
+                "item": "string",
+                "servico": "string",
+                "codExternoIntegracao": "string"
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Orcamento()
+            >>> response = api._consultar_servico_orcamento_por_chave(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Orcamento/ConsultarServicoOrcamentoPorChave"
-        return self.api.post(
-            path,
-            json={
-                "empresa": empresa,
-                "obra": obra,
-                "numOrcamento": num_orcamento,
-                "item": item,
-                "servico": servico,
-                "codExternoIntegracao": cod_externo_integracao,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "empresa": empresa,
+                    "obra": obra,
+                    "numOrcamento": num_orcamento,
+                    "item": item,
+                    "servico": servico,
+                    "codExternoIntegracao": cod_externo_integracao,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def consultar_servico_orcado_desintegrado(
         self,
@@ -484,95 +1101,220 @@ Preencher os parâmetros de request para uso do método.
         obra: Optional[str] = None,
         num_orcamento: Optional[int] = None
     ) -> dict:
-        """Consultar serviço orçado desintegrado.
-
+        """
+        
+        Endpoint: `Orcamento/ConsultarServicoOrcadoDesintegrado`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request para uso do método.
-
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        
+        
+        
+        Args:
+            empresa (int): The empresa
+            obra (str): The obra
+            numOrcamento (int): The orcamento
+        
+        Parameter Structure:
+        
+            {
+                "empresa": 0,
+                "obra": "string",
+                "numOrcamento": 0
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Orcamento()
+            >>> response = api._consultar_servico_orcado_desintegrado(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Orcamento/ConsultarServicoOrcadoDesintegrado"
-        return self.api.post(
-            path,
-            json={
-                "empresa": empresa,
-                "obra": obra,
-                "numOrcamento": num_orcamento,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "empresa": empresa,
+                    "obra": obra,
+                    "numOrcamento": num_orcamento,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def excluir_estrutura_servico_de_orcamento(
         self,
         estruturas_de_servico_de_orcamento: Optional[List[Dict]] = None
     ) -> dict:
-        """Excluir uma determinada estrutura de serviço no orçamento.
-
+        """
+        
+        Endpoint: `Orcamento/ExcluirEstruturaServicoDeOrcamento`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request para uso do método.
-
-Definição de Negócio:
-  Permite excluir níveis ou itens de estruturas do serviço do orçamento.
-
-Deve preencher os parâmetros de acordo com a estrutura que deseja excluir.
-  1.1 Informar se é nível ou item que esta excluindo, a sequencia e os dados do orçamento e serviço.
-Valida se a estrutura poderá ser excluída.
-Valida campos obrigatórios.
-Permite que as estruturas sejam informadas em lote, em um formato de lista de estruturas para serem excluídas.
-
-Anexos:
-
-Exemplo Postman: https://ajuda.globaltec.com.br/download/776140/
-
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        
+        Definição de Negócio:
+          Permite excluir níveis ou itens de estruturas do serviço do orçamento.
+        
+        Deve preencher os parâmetros de acordo com a estrutura que deseja excluir.
+          1.1 Informar se é nível ou item que esta excluindo, a sequencia e os dados do orçamento e serviço.
+        Valida se a estrutura poderá ser excluída.
+        Valida campos obrigatórios.
+        Permite que as estruturas sejam informadas em lote, em um formato de lista de estruturas para serem excluídas.
+        
+        Anexos:
+        
+        Exemplo Postman: https://ajuda.globaltec.com.br/download/776140/
+        
+        
+        
+        Args:
+            EstruturasDeServicoDeOrcamento (List[Dict[str, Any]]): The estruturas de servico de orcamento
+        
+        Parameter Structure:
+        
+            {
+                "EstruturasDeServicoDeOrcamento": [
+                    {
+                        "sequencia": "string",
+                        "empresa": 0,
+                        "obra": "string",
+                        "numOrcamento": 0,
+                        "item": "string",
+                        "servico": "string",
+                        "codExternoIntegracao": "string"
+                    }
+                ]
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Orcamento()
+            >>> response = api._excluir_estrutura_servico_de_orcamento(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Orcamento/ExcluirEstruturaServicoDeOrcamento"
-        return self.api.post(
-            path,
-            json={
-                "EstruturasDeServicoDeOrcamento": estruturas_de_servico_de_orcamento,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "EstruturasDeServicoDeOrcamento": estruturas_de_servico_de_orcamento,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def inserir_estrutura_servico_de_orcamento(
         self,
         estruturas_de_servico_de_orcamento: Optional[List[Dict]] = None
     ) -> dict:
-        """Inserir estrutura para um determinado serviço no orçamento.
-
+        """
+        
+        Endpoint: `Orcamento/InserirEstruturaServicoDeOrcamento`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request para uso do método.
-
-Definição de Negócio:
-  Permite inserir níveis ou itens de estruturas no serviço existente no orçamento.
-
-Deve preencher os parâmetros de acordo com a estrutura que deseja inserir.
-  1.1 Informar se é nível ou item que esta inserindo, a sequencia e os dados do orçamento e serviço.
-Valida se a estrutura poderá ser inserida.
-Valida campos obrigatórios.
-Permite que as estruturas sejam informadas em lote, em um formato de lista de estruturas para serem inseridas.
-
-Anexos:
-
-Exemplo Postman: https://ajuda.globaltec.com.br/download/776144/
-
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        
+        Definição de Negócio:
+          Permite inserir níveis ou itens de estruturas no serviço existente no orçamento.
+        
+        Deve preencher os parâmetros de acordo com a estrutura que deseja inserir.
+          1.1 Informar se é nível ou item que esta inserindo, a sequencia e os dados do orçamento e serviço.
+        Valida se a estrutura poderá ser inserida.
+        Valida campos obrigatórios.
+        Permite que as estruturas sejam informadas em lote, em um formato de lista de estruturas para serem inseridas.
+        
+        Anexos:
+        
+        Exemplo Postman: https://ajuda.globaltec.com.br/download/776144/
+        
+        
+        
+        Args:
+            EstruturasDeServicoDeOrcamento (List[Dict[str, Any]]): The estruturas de servico de orcamento
+        
+        Parameter Structure:
+        
+            {
+                "EstruturasDeServicoDeOrcamento": [
+                    {
+                        "tipoEstrutura": 0,
+                        "codigo": "string",
+                        "qtde": 0,
+                        "valor": 0,
+                        "usuario": "string",
+                        "sequencia": "string",
+                        "empresa": 0,
+                        "obra": "string",
+                        "numOrcamento": 0,
+                        "item": "string",
+                        "servico": "string",
+                        "codExternoIntegracao": "string"
+                    }
+                ]
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Orcamento()
+            >>> response = api._inserir_estrutura_servico_de_orcamento(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Orcamento/InserirEstruturaServicoDeOrcamento"
-        return self.api.post(
-            path,
-            json={
-                "EstruturasDeServicoDeOrcamento": estruturas_de_servico_de_orcamento,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "EstruturasDeServicoDeOrcamento": estruturas_de_servico_de_orcamento,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def consultar_planilha_cronograma_por_chave(
         self,
@@ -584,64 +1326,155 @@ Exemplo Postman: https://ajuda.globaltec.com.br/download/776144/
         servico: Optional[str] = None,
         periodo: Optional[str] = None
     ) -> dict:
-        """Consultar a tabela PlanilhaCronograma pela sua chave
-
+        """
+        
+        Endpoint: `Orcamento/ConsultarPlanilhaCronogramaPorChave`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request para uso do método.
-
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        
+        
+        
+        Args:
+            usuario (str): The usuario
+            empresa (int): The empresa
+            obra (str): The obra
+            numOrcamento (int): The orcamento
+            item (str): The item
+            servico (str): The servico
+            periodo (str): The periodo
+        
+        Parameter Structure:
+        
+            {
+                "usuario": "string",
+                "empresa": 0,
+                "obra": "string",
+                "numOrcamento": 0,
+                "item": "string",
+                "servico": "string",
+                "periodo": "string"
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Orcamento()
+            >>> response = api._consultar_planilha_cronograma_por_chave(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Orcamento/ConsultarPlanilhaCronogramaPorChave"
-        return self.api.post(
-            path,
-            json={
-                "usuario": usuario,
-                "empresa": empresa,
-                "obra": obra,
-                "numOrcamento": num_orcamento,
-                "item": item,
-                "servico": servico,
-                "periodo": periodo,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "usuario": usuario,
+                    "empresa": empresa,
+                    "obra": obra,
+                    "numOrcamento": num_orcamento,
+                    "item": item,
+                    "servico": servico,
+                    "periodo": periodo,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def atualizar_estrutura_servico_de_orcamento(
         self,
         estruturas_de_servico_de_orcamento: Optional[List[Dict]] = None
     ) -> dict:
-        """Atualizar a quantidade e/ou preço de uma lista de estruturas de serviço no orçamento.
-
+        """
+        
+        Endpoint: `Orcamento/AtualizarEstruturaServicoDeOrcamento`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request para uso do método.
-
-Definição de Negócio:
-  Permite alterar níveis ou itens de uma estrutura do serviço existente no orçamento
-
-Deve preencher os parâmetros de acordo com a estrutura que deseja alterar .
-  1.1 Informar se é nível ou item que esta inserindo, a sequencia e os dados do orçamento e serviço.
-Valida se a estrutura poderá ser alterada.
-Valida campos obrigatórios.
-Permite que as estruturas sejam informadas em lote, em um formato de lista de estruturas para serem inseridas.
-
-Anexos:
-
-Exemplo Postman: https://ajuda.globaltec.com.br/download/776147/
-
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        
+        Definição de Negócio:
+          Permite alterar níveis ou itens de uma estrutura do serviço existente no orçamento
+        
+        Deve preencher os parâmetros de acordo com a estrutura que deseja alterar .
+          1.1 Informar se é nível ou item que esta inserindo, a sequencia e os dados do orçamento e serviço.
+        Valida se a estrutura poderá ser alterada.
+        Valida campos obrigatórios.
+        Permite que as estruturas sejam informadas em lote, em um formato de lista de estruturas para serem inseridas.
+        
+        Anexos:
+        
+        Exemplo Postman: https://ajuda.globaltec.com.br/download/776147/
+        
+        
+        
+        Args:
+            EstruturasDeServicoDeOrcamento (List[Dict[str, Any]]): The estruturas de servico de orcamento
+        
+        Parameter Structure:
+        
+            {
+                "EstruturasDeServicoDeOrcamento": [
+                    {
+                        "tipoEstrutura": 0,
+                        "codigo": "string",
+                        "qtde": 0,
+                        "valor": 0,
+                        "usuario": "string",
+                        "sequencia": "string",
+                        "empresa": 0,
+                        "obra": "string",
+                        "numOrcamento": 0,
+                        "item": "string",
+                        "servico": "string",
+                        "codExternoIntegracao": "string"
+                    }
+                ]
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Orcamento()
+            >>> response = api._atualizar_estrutura_servico_de_orcamento(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Orcamento/AtualizarEstruturaServicoDeOrcamento"
-        return self.api.post(
-            path,
-            json={
-                "EstruturasDeServicoDeOrcamento": estruturas_de_servico_de_orcamento,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "EstruturasDeServicoDeOrcamento": estruturas_de_servico_de_orcamento,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def consultar_servico_orcamento_por_orcamento(
         self,
@@ -650,24 +1483,62 @@ Exemplo Postman: https://ajuda.globaltec.com.br/download/776147/
         num_orcamento: Optional[int] = None,
         tipo_item: Optional[int] = None
     ) -> dict:
-        """Buscar os serviços do orçamento de acordo com o código do orçamento.
-
+        """
+        
+        Endpoint: `Orcamento/ConsultarServicoOrcamentoPorOrcamento`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request para uso do método.
-
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        
+        
+        
+        Args:
+            empresa (int): The empresa
+            obra (str): The obra
+            numOrcamento (int): The orcamento
+            tipoItem (int): The item
+        
+        Parameter Structure:
+        
+            {
+                "empresa": 0,
+                "obra": "string",
+                "numOrcamento": 0,
+                "tipoItem": 0
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Orcamento()
+            >>> response = api._consultar_servico_orcamento_por_orcamento(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Orcamento/ConsultarServicoOrcamentoPorOrcamento"
-        return self.api.post(
-            path,
-            json={
-                "empresa": empresa,
-                "obra": obra,
-                "numOrcamento": num_orcamento,
-                "tipoItem": tipo_item,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "empresa": empresa,
+                    "obra": obra,
+                    "numOrcamento": num_orcamento,
+                    "tipoItem": tipo_item,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 

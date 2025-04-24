@@ -1,24 +1,16 @@
-"""This module contains auto-generated API class.
-
-DO NOT EDIT MANUALLY.
-"""
-
 from typing import Dict, Any, List, Optional
 from datetime import datetime
 from ..requestsapi import RequestsApi
 
+import requests
 class Atendimento:
-    """Auto-generated API class"""
-
-    def __init__(self, api):
+    def __init__(self, api: RequestsApi):
         """Initialize with API client
 
         Args:
-            api: The authenticated API client instance
+            api: The API client instance
         """
-        if not hasattr(api, "is_authenticated") or not api.is_authenticated:
-            raise ValueError("API client must be authenticated")
-        self.api = RequestsApi(api.base_url, session=api.get_session())
+        self.api = api
 
     def gerar_pendencia(
         self,
@@ -32,66 +24,162 @@ class Atendimento:
         gerar_aviso: Optional[bool] = None,
         categoria: Optional[str] = None
     ) -> dict:
-        """Criar uma pendência do UAU com as informações informada
-
+        """
+        
+        Endpoint: `Atendimento/GerarPendencia`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request para uso do método.
-
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        
+        
+        
+        Args:
+            usuariouau_destino (str): The usuariouau_destino
+            data_prevista (datetime): The data_prevista
+            data_aviso (datetime): The data_aviso
+            hora_aviso (datetime): The hora_aviso
+            mensagem (str): The mensagem
+            geraremail_interno (int): The geraremail_interno
+            gerar_email_externo (int): The gerar_email_externo
+            gerar_aviso (int): The gerar_aviso
+            categoria (str): The categoria
+        
+        Parameter Structure:
+        
+            {
+                "usuariouau_destino": "string",
+                "data_prevista": "2025-04-23T13:46:12.537Z",
+                "data_aviso": "2025-04-23T13:46:12.537Z",
+                "hora_aviso": "2025-04-23T13:46:12.537Z",
+                "mensagem": "string",
+                "geraremail_interno": true,
+                "gerar_email_externo": true,
+                "gerar_aviso": true,
+                "categoria": "string"
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Atendimento()
+            >>> response = api._gerar_pendencia(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Atendimento/GerarPendencia"
-        return self.api.post(
-            path,
-            json={
-                "usuariouau_destino": usuariouau_destino,
-                "data_prevista": data_prevista,
-                "data_aviso": data_aviso,
-                "hora_aviso": hora_aviso,
-                "mensagem": mensagem,
-                "geraremail_interno": geraremail_interno,
-                "gerar_email_externo": gerar_email_externo,
-                "gerar_aviso": gerar_aviso,
-                "categoria": categoria,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "usuariouau_destino": usuariouau_destino,
+                    "data_prevista": data_prevista,
+                    "data_aviso": data_aviso,
+                    "hora_aviso": hora_aviso,
+                    "mensagem": mensagem,
+                    "geraremail_interno": geraremail_interno,
+                    "gerar_email_externo": gerar_email_externo,
+                    "gerar_aviso": gerar_aviso,
+                    "categoria": categoria,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def gravar_atendimento(
         self,
         atendimento: Optional[Dict] = None
     ) -> dict:
-        """Gravar atendimento no Uau.
-
+        """
+        
+        Endpoint: `Atendimento/GravarAtendimento`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Consultar os dados do usuário logado para obter o código do cliente URI + /api/v{version}/Atendimento/GravarAtendimento
-Preencher os parâmetros de request para uso do método.
-
-Definição de Negócio:
-  Permite Gravar o Atendimento.
-
-Deve montar uma estrutura com as informações do Atendimento verificando os parâmetros obrigatórios.
-Será apenas registrado Atendimentos com o status [0 - Em Aberto].
-Caso não seja informado: usrrespon_atd, numccm_atd e usrcad_atd, será obrigatório ter configurado o serviço atendimento uauweb no CRM. CRM - Utilitários - Configurações de serviço
-Para informar a unidade do atendimento é obrigatório informar a empresa, obra e produto. Caso não informe a empresa, vamos desconsiderar essa informação e gravar o atendimento.
-
-VirtUau:
-
-https://ajuda.globaltec.com.br/virtuau/configuracao-de-atendimento-do-uau-web/
-
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Consultar os dados do usuário logado para obter o código do cliente URI + /api/v{version}/Atendimento/GravarAtendimento
+        Preencher os parâmetros de request para uso do método.
+        
+        Definição de Negócio:
+          Permite Gravar o Atendimento.
+        
+        Deve montar uma estrutura com as informações do Atendimento verificando os parâmetros obrigatórios.
+        Será apenas registrado Atendimentos com o status [0 - Em Aberto].
+        Caso não seja informado: usrrespon_atd, numccm_atd e usrcad_atd, será obrigatório ter configurado o serviço atendimento uauweb no CRM. CRM - Utilitários - Configurações de serviço
+        Para informar a unidade do atendimento é obrigatório informar a empresa, obra e produto. Caso não informe a empresa, vamos desconsiderar essa informação e gravar o atendimento.
+        
+        VirtUau:
+        
+        https://ajuda.globaltec.com.br/virtuau/configuracao-de-atendimento-do-uau-web/
+        
+        
+        
+        Args:
+            atendimento (Dict[str, Any]): The atendimento
+        
+        Parameter Structure:
+        
+            {
+                "atendimento": {
+                    "codcateg_atd": "string",
+                    "descr_atd": "string",
+                    "usrrespon_atd": "string",
+                    "usrcad_atd": "string",
+                    "numccm_atd": 0,
+                    "codpes_atd": 0,
+                    "retoraten_atd": 0,
+                    "empresa_atd": 0,
+                    "obra_atd": "string",
+                    "produnid_atd": 0,
+                    "numper_atd": 0,
+                    "datacad_atd": "2025-04-23T13:46:12.540Z",
+                    "reincidente_atd": true,
+                    "vlrmaoobra_atd": 0,
+                    "tipo_atd": 0
+                }
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Atendimento()
+            >>> response = api._gravar_atendimento(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Atendimento/GravarAtendimento"
-        return self.api.post(
-            path,
-            json={
-                "atendimento": atendimento,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "atendimento": atendimento,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def consultar_pendencia(
         self,
@@ -99,47 +187,115 @@ https://ajuda.globaltec.com.br/virtuau/configuracao-de-atendimento-do-uau-web/
         data_lancamento: Optional[datetime] = None,
         responsavel_resolucao: Optional[str] = None
     ) -> dict:
-        """Consulta as pendências
-
+        """
+        
+        Endpoint: `Atendimento/ConsultarPendencia`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request para uso do método.
-
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        
+        
+        
+        Args:
+            numero (int): The numero
+            data_lancamento (datetime): The data_lancamento
+            responsavel_resolucao (str): The responsavel_resolucao
+        
+        Parameter Structure:
+        
+            {
+                "numero": 0,
+                "data_lancamento": "2025-04-23T13:46:12.545Z",
+                "responsavel_resolucao": "string"
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Atendimento()
+            >>> response = api._consultar_pendencia(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Atendimento/ConsultarPendencia"
-        return self.api.post(
-            path,
-            json={
-                "numero": numero,
-                "data_lancamento": data_lancamento,
-                "responsavel_resolucao": responsavel_resolucao,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "numero": numero,
+                    "data_lancamento": data_lancamento,
+                    "responsavel_resolucao": responsavel_resolucao,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def consultar_atendimento(
         self,
         codigo_atendimento: Optional[int] = None
     ) -> dict:
-        """Método que consulta atendimento.
-
+        """
+        
+        Endpoint: `Atendimento/ConsultarAtendimento`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request para uso do método.
-
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        
+        
+        
+        Args:
+            codigo_atendimento (int): The codigo_atendimento
+        
+        Parameter Structure:
+        
+            {
+                "codigo_atendimento": 0
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Atendimento()
+            >>> response = api._consultar_atendimento(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Atendimento/ConsultarAtendimento"
-        return self.api.post(
-            path,
-            json={
-                "codigo_atendimento": codigo_atendimento,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "codigo_atendimento": codigo_atendimento,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def consultar_categ_de_coment_ativas(
         self,
@@ -147,25 +303,61 @@ Preencher os parâmetros de request para uso do método.
         mensagem: Optional[str] = None,
         descricao: Optional[str] = None
     ) -> dict:
-        """Consulta as categorias de comentários ativas.
-
+        """
+        
+        Endpoint: `Atendimento/ConsultarCategDeComentAtivas`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request para uso do método.
-
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        
+        
+        
+        Args:
+            Detalhe (str): The detalhe
+            Mensagem (str): The mensagem
+            Descricao (str): The descricao
+        
+        Parameter Structure:
+        
+            {
+                "Detalhe": "string",
+                "Mensagem": "string",
+                "Descricao": "string"
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Atendimento()
+            >>> response = api._consultar_categ_de_coment_ativas(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Atendimento/ConsultarCategDeComentAtivas"
-        return self.api.post(
-            path,
-            json={
-                "Detalhe": detalhe,
-                "Mensagem": mensagem,
-                "Descricao": descricao,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "Detalhe": detalhe,
+                    "Mensagem": mensagem,
+                    "Descricao": descricao,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def consultar_pendencia_observacao(
         self,
@@ -173,25 +365,61 @@ Preencher os parâmetros de request para uso do método.
         dataquando_lancou: Optional[datetime] = None,
         usuario_resolve: Optional[str] = None
     ) -> dict:
-        """Consulta as etapas (pendências).
-
+        """
+        
+        Endpoint: `Atendimento/ConsultarPendenciaObservacao`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request para uso do método.
-
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        
+        
+        
+        Args:
+            numero_pendencia (int): The numero_pendencia
+            dataquando_lancou (datetime): The dataquando_lancou
+            usuario_resolve (str): The usuario_resolve
+        
+        Parameter Structure:
+        
+            {
+                "numero_pendencia": 0,
+                "dataquando_lancou": "2025-04-23T13:46:12.564Z",
+                "usuario_resolve": "string"
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Atendimento()
+            >>> response = api._consultar_pendencia_observacao(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Atendimento/ConsultarPendenciaObservacao"
-        return self.api.post(
-            path,
-            json={
-                "numero_pendencia": numero_pendencia,
-                "dataquando_lancou": dataquando_lancou,
-                "usuario_resolve": usuario_resolve,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "numero_pendencia": numero_pendencia,
+                    "dataquando_lancou": dataquando_lancou,
+                    "usuario_resolve": usuario_resolve,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def vincular_arquivo_ao_atendimento(
         self,
@@ -200,92 +428,226 @@ Preencher os parâmetros de request para uso do método.
         num_atendimento: Optional[int] = None,
         usuario: Optional[str] = None
     ) -> dict:
-        """Vincular arquivo ao atendimento.
-
+        """
+        
+        Endpoint: `Atendimento/VincularArquivoAoAtendimento`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request para uso do método.
-
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        
+        
+        
+        Args:
+            arquivo (str): The arquivo
+            nome_arquivo (str): The nome_arquivo
+            num_atendimento (int): The num_atendimento
+            usuario (str): The usuario
+        
+        Parameter Structure:
+        
+            {
+                "arquivo": "string",
+                "nome_arquivo": "string",
+                "num_atendimento": 0,
+                "usuario": "string"
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Atendimento()
+            >>> response = api._vincular_arquivo_ao_atendimento(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Atendimento/VincularArquivoAoAtendimento"
-        return self.api.post(
-            path,
-            json={
-                "arquivo": arquivo,
-                "nome_arquivo": nome_arquivo,
-                "num_atendimento": num_atendimento,
-                "usuario": usuario,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "arquivo": arquivo,
+                    "nome_arquivo": nome_arquivo,
+                    "num_atendimento": num_atendimento,
+                    "usuario": usuario,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def consultar_atendimento_por_pessoa(
         self,
         codigo_pessoa: Optional[int] = None
     ) -> dict:
-        """Realiza consulta de atendimentos do cliente independente de categorias configuradas para o Uau Web.
-
+        """
+        
+        Endpoint: `Atendimento/ConsultarAtendimentoPorPessoa`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request para uso do método.
-
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        
+        
+        
+        Args:
+            codigo_pessoa (int): The codigo_pessoa
+        
+        Parameter Structure:
+        
+            {
+                "codigo_pessoa": 0
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Atendimento()
+            >>> response = api._consultar_atendimento_por_pessoa(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Atendimento/ConsultarAtendimentoPorPessoa"
-        return self.api.post(
-            path,
-            json={
-                "codigo_pessoa": codigo_pessoa,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "codigo_pessoa": codigo_pessoa,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def consultar_empreendimentos_cliente(
         self,
         cod_pessoa: Optional[int] = None
     ) -> dict:
-        """Consultar todos os empreendimentos do cliente do qual ele é titular da venda.
-
+        """
+        
+        Endpoint: `Atendimento/ConsultarEmpreendimentosCliente`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request para uso do método.
-
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        
+        
+        
+        Args:
+            cod_pessoa (int): The cod_pessoa
+        
+        Parameter Structure:
+        
+            {
+                "cod_pessoa": 0
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Atendimento()
+            >>> response = api._consultar_empreendimentos_cliente(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Atendimento/ConsultarEmpreendimentosCliente"
-        return self.api.post(
-            path,
-            json={
-                "cod_pessoa": cod_pessoa,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "cod_pessoa": cod_pessoa,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def consultar_categoria_atendimento_web(
         self,
         tipo_atend: Optional[str] = None
     ) -> dict:
-        """Consulta as categorias de atendimento web.
-
+        """
+        
+        Endpoint: `Atendimento/ConsultarCategoriaAtendimentoWeb`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request para uso do método.
-
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        
+        
+        
+        Args:
+            tipo_atend (str): The tipo_atend
+        
+        Parameter Structure:
+        
+            {
+                "tipo_atend": "string"
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Atendimento()
+            >>> response = api._consultar_categoria_atendimento_web(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Atendimento/ConsultarCategoriaAtendimentoWeb"
-        return self.api.post(
-            path,
-            json={
-                "tipo_atend": tipo_atend,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "tipo_atend": tipo_atend,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def consultar_numero_work_flow_vinculado(
         self,
@@ -293,91 +655,233 @@ Preencher os parâmetros de request para uso do método.
         empresa: Optional[int] = None,
         obra: Optional[str] = None
     ) -> dict:
-        """Consulta o número do workflow vinculado.
-
+        """
+        
+        Endpoint: `Atendimento/ConsultarNumeroWorkFlowVinculado`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request para uso do método.
-
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        
+        
+        
+        Args:
+            numerovinculo_workflow (int): The numerovinculo_workflow
+            empresa (int): The empresa
+            obra (str): The obra
+        
+        Parameter Structure:
+        
+            {
+                "numerovinculo_workflow": 0,
+                "empresa": 0,
+                "obra": "string"
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Atendimento()
+            >>> response = api._consultar_numero_work_flow_vinculado(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Atendimento/ConsultarNumeroWorkFlowVinculado"
-        return self.api.post(
-            path,
-            json={
-                "numerovinculo_workflow": numerovinculo_workflow,
-                "empresa": empresa,
-                "obra": obra,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "numerovinculo_workflow": numerovinculo_workflow,
+                    "empresa": empresa,
+                    "obra": obra,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def consultar_pendencias_por_numero_vinculo(
         self,
         numero_vinculo: Optional[int] = None
     ) -> dict:
-        """Consulta as etapas(pendências) de um atendimento.
-
+        """
+        
+        Endpoint: `Atendimento/ConsultarPendenciasPorNumeroVinculo`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request para uso do método.
-
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        
+        
+        
+        Args:
+            numero_vinculo (int): The numero_vinculo
+        
+        Parameter Structure:
+        
+            {
+                "numero_vinculo": 0
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Atendimento()
+            >>> response = api._consultar_pendencias_por_numero_vinculo(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Atendimento/ConsultarPendenciasPorNumeroVinculo"
-        return self.api.post(
-            path,
-            json={
-                "numero_vinculo": numero_vinculo,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "numero_vinculo": numero_vinculo,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def gerar_atendimento_por_chat_online_cliente(
         self,
         dados_atendimento: Optional[Dict] = None
     ) -> dict:
-        """Gerar o atendimento para um cliente do atendimento online do cliente.
-
+        """
+        
+        Endpoint: `Atendimento/GerarAtendimentoPorChatOnlineCliente`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request para uso do método.
-
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        
+        
+        
+        Args:
+            dados_atendimento (Dict[str, Any]): The dados_atendimento
+        
+        Parameter Structure:
+        
+            {
+                "dados_atendimento": {
+                    "CPF": "string",
+                    "NomeCliente": "string",
+                    "CodCategoria": "string",
+                    "DescAtendimento": "string",
+                    "DescChat": "string",
+                    "UsrAtendente": "string",
+                    "CanalComunicacao": "string",
+                    "Email": "string",
+                    "CodAtd": "string"
+                }
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Atendimento()
+            >>> response = api._gerar_atendimento_por_chat_online_cliente(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Atendimento/GerarAtendimentoPorChatOnlineCliente"
-        return self.api.post(
-            path,
-            json={
-                "dados_atendimento": dados_atendimento,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "dados_atendimento": dados_atendimento,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def consultar_atendimento_detalhado_por_chave(
         self,
         codigo_atendimento: Optional[int] = None
     ) -> dict:
-        """Consulta atendimento detalhado por código do atendimento.
-
+        """
+        
+        Endpoint: `Atendimento/ConsultarAtendimentoDetalhadoPorChave`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request para uso do método.
-
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        
+        
+        
+        Args:
+            codigo_atendimento (int): The codigo_atendimento
+        
+        Parameter Structure:
+        
+            {
+                "codigo_atendimento": 0
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Atendimento()
+            >>> response = api._consultar_atendimento_detalhado_por_chave(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Atendimento/ConsultarAtendimentoDetalhadoPorChave"
-        return self.api.post(
-            path,
-            json={
-                "codigo_atendimento": codigo_atendimento,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "codigo_atendimento": codigo_atendimento,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def consultar_configuracao_atendimento_uauweb(
         self,
@@ -385,47 +889,115 @@ Preencher os parâmetros de request para uso do método.
         mensagem: Optional[str] = None,
         descricao: Optional[str] = None
     ) -> dict:
-        """Método que consulta as configurações do uauweb.
-
+        """
+        
+        Endpoint: `Atendimento/ConsultarConfiguracaoAtendimentoUAUWEB`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request para uso do método.
-
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        
+        
+        
+        Args:
+            Detalhe (str): The detalhe
+            Mensagem (str): The mensagem
+            Descricao (str): The descricao
+        
+        Parameter Structure:
+        
+            {
+                "Detalhe": "string",
+                "Mensagem": "string",
+                "Descricao": "string"
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Atendimento()
+            >>> response = api._consultar_configuracao_atendimentouauweb(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Atendimento/ConsultarConfiguracaoAtendimentoUAUWEB"
-        return self.api.post(
-            path,
-            json={
-                "Detalhe": detalhe,
-                "Mensagem": mensagem,
-                "Descricao": descricao,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "Detalhe": detalhe,
+                    "Mensagem": mensagem,
+                    "Descricao": descricao,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def consultar_atendimento_por_categorias_uau_web(
         self,
         codigo_pessoa: Optional[int] = None
     ) -> dict:
-        """Realiza consulta de atendimentos do cliente por categorias de comentários configuradas para o Uau Web.
-
+        """
+        
+        Endpoint: `Atendimento/ConsultarAtendimentoPorCategoriasUauWeb`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request para uso do método.
-
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        
+        
+        
+        Args:
+            codigo_pessoa (int): The codigo_pessoa
+        
+        Parameter Structure:
+        
+            {
+                "codigo_pessoa": 0
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Atendimento()
+            >>> response = api._consultar_atendimento_por_categorias_uau_web(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Atendimento/ConsultarAtendimentoPorCategoriasUauWeb"
-        return self.api.post(
-            path,
-            json={
-                "codigo_pessoa": codigo_pessoa,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "codigo_pessoa": codigo_pessoa,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def consultar_atendimento_por_pessoa_comentario(
         self,
@@ -434,26 +1006,66 @@ Preencher os parâmetros de request para uso do método.
         periodo_incio: Optional[datetime] = None,
         periodo_fim: Optional[datetime] = None
     ) -> dict:
-        """Consulta atendimento pelo pessoa e código da categoria de comentário
-
+        """
+        
+        Endpoint: `Atendimento/ConsultarAtendimentoPorPessoaComentario`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request para uso do método.
-
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        
+        
+        
+        Args:
+            codigo_pessoa (int): The codigo_pessoa
+            lista_categoria (List[Dict[str, Any]]): The lista_categoria
+            periodo_incio (datetime): The periodo_incio
+            periodo_fim (datetime): The periodo_fim
+        
+        Parameter Structure:
+        
+            {
+                "codigo_pessoa": 0,
+                "lista_categoria": [
+                    "string"
+                ],
+                "periodo_incio": "2025-04-23T13:46:12.606Z",
+                "periodo_fim": "2025-04-23T13:46:12.606Z"
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Atendimento()
+            >>> response = api._consultar_atendimento_por_pessoa_comentario(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Atendimento/ConsultarAtendimentoPorPessoaComentario"
-        return self.api.post(
-            path,
-            json={
-                "codigo_pessoa": codigo_pessoa,
-                "lista_categoria": lista_categoria,
-                "periodo_incio": periodo_incio,
-                "periodo_fim": periodo_fim,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "codigo_pessoa": codigo_pessoa,
+                    "lista_categoria": lista_categoria,
+                    "periodo_incio": periodo_incio,
+                    "periodo_fim": periodo_fim,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def consultar_unidades_do_empreendimento_cliente(
         self,
@@ -461,69 +1073,171 @@ Preencher os parâmetros de request para uso do método.
         empresa: Optional[int] = None,
         cod_pessoa: Optional[int] = None
     ) -> dict:
-        """Método que consulta a data prevista para término do atendimento.
-
+        """
+        
+        Endpoint: `Atendimento/ConsultarUnidadesDoEmpreendimentoCliente`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request para uso do método.
-
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        
+        
+        
+        Args:
+            obra (str): The obra
+            empresa (int): The empresa
+            cod_pessoa (int): The cod_pessoa
+        
+        Parameter Structure:
+        
+            {
+                "obra": "string",
+                "empresa": 0,
+                "cod_pessoa": 0
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Atendimento()
+            >>> response = api._consultar_unidades_do_empreendimento_cliente(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Atendimento/ConsultarUnidadesDoEmpreendimentoCliente"
-        return self.api.post(
-            path,
-            json={
-                "obra": obra,
-                "empresa": empresa,
-                "cod_pessoa": cod_pessoa,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "obra": obra,
+                    "empresa": empresa,
+                    "cod_pessoa": cod_pessoa,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def consultar_data_prevista_de_termino_atendimento(
         self,
         numerovinculo_workflow: Optional[int] = None,
         numero_workflow: Optional[int] = None
     ) -> dict:
-        """Método que consulta a data prevista para término do atendimento.
-
+        """
+        
+        Endpoint: `Atendimento/ConsultarDataPrevistaDeTerminoAtendimento`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request para uso do método.
-
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        
+        
+        
+        Args:
+            numerovinculo_workflow (int): The numerovinculo_workflow
+            numero_workflow (int): The numero_workflow
+        
+        Parameter Structure:
+        
+            {
+                "numerovinculo_workflow": 0,
+                "numero_workflow": 0
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Atendimento()
+            >>> response = api._consultar_data_prevista_de_termino_atendimento(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Atendimento/ConsultarDataPrevistaDeTerminoAtendimento"
-        return self.api.post(
-            path,
-            json={
-                "numerovinculo_workflow": numerovinculo_workflow,
-                "numero_workflow": numero_workflow,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "numerovinculo_workflow": numerovinculo_workflow,
+                    "numero_workflow": numero_workflow,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def consultar_numero_vinculo_categoria_de_comentario_com_work_flow(
         self,
         codigo_categoria: Optional[str] = None
     ) -> dict:
-        """Método que consulta o número do vinculo da categoria de comentário com o workflow.
-
+        """
+        
+        Endpoint: `Atendimento/ConsultarNumeroVinculoCategoriaDeComentarioComWorkFlow`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request para uso do método.
-
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        
+        
+        
+        Args:
+            codigo_categoria (str): The codigo_categoria
+        
+        Parameter Structure:
+        
+            {
+                "codigo_categoria": "string"
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Atendimento()
+            >>> response = api._consultar_numero_vinculo_categoria_de_comentario_com_work_flow(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Atendimento/ConsultarNumeroVinculoCategoriaDeComentarioComWorkFlow"
-        return self.api.post(
-            path,
-            json={
-                "codigo_categoria": codigo_categoria,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "codigo_categoria": codigo_categoria,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 

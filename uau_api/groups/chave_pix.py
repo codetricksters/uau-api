@@ -1,24 +1,16 @@
-"""This module contains auto-generated API class.
-
-DO NOT EDIT MANUALLY.
-"""
-
 from typing import Dict, Any, List, Optional
 from datetime import datetime
 from ..requestsapi import RequestsApi
 
+import requests
 class ChavePix:
-    """Auto-generated API class"""
-
-    def __init__(self, api):
+    def __init__(self, api: RequestsApi):
         """Initialize with API client
 
         Args:
-            api: The authenticated API client instance
+            api: The API client instance
         """
-        if not hasattr(api, "is_authenticated") or not api.is_authenticated:
-            raise ValueError("API client must be authenticated")
-        self.api = RequestsApi(api.base_url, session=api.get_session())
+        self.api = api
 
     def by_cpfcnpj(
         self,
@@ -27,29 +19,65 @@ class ChavePix:
         mensagem: Optional[str] = None,
         descricao: Optional[str] = None
     ) -> dict:
-        """Retorna as chaves pix cadastradas ao CPF/CNPJ informado.
-
+        """
+        
+        Endpoint: `ChavePix/Pessoas/Consultar/{cpfCnpj}`
+        HTTP Method: `GET`
+        
         Implementation Notes:
         Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request com os dados do usuário para uso do método.
-
-Regras de Negócio:
-
-É necessário que exista uma pessoa cadastrada no sistema com o CPF/CNPJ informado.
-
-
-        """
-        path = f"ChavePix/Pessoas/Consultar/{cpfcnpj}"
-        return self.api.get(
-            path,
-            json={
-                "Detalhe": detalhe,
-                "Mensagem": mensagem,
-                "Descricao": descricao,
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request com os dados do usuário para uso do método.
+        
+        Regras de Negócio:
+        
+        É necessário que exista uma pessoa cadastrada no sistema com o CPF/CNPJ informado.
+        
+        
+        
+        Args:
+            Detalhe (str): The detalhe
+            Mensagem (str): The mensagem
+            Descricao (str): The descricao
+        
+        Parameter Structure:
+        
+            {
+                "Detalhe": "string",
+                "Mensagem": "string",
+                "Descricao": "string"
             }
-        )
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = ChavePix()
+            >>> response = api.{cpf_cnpj}(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
+        """
+        path = f"ChavePix/Pessoas/Consultar/{cpfCnpj}"
+        try:
+            response = self.api.get(
+                path,
+                json={
+                    "Detalhe": detalhe,
+                    "Mensagem": mensagem,
+                    "Descricao": descricao,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def deletar(
         self,
@@ -57,31 +85,67 @@ Regras de Negócio:
         chave_pix: Optional[str] = None,
         tipo_chave_pix: Optional[int] = None
     ) -> dict:
-        """Remove uma chave pix de pessoa.
-
+        """
+        
+        Endpoint: `ChavePix/Pessoas/Deletar`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request com os dados do usuário para uso do método.
-
-Regras de Negócio:
-
-É necessário que exista uma pessoa cadastrada no sistema com o CPF/CNPJ informado.
-O tipo de chave pix deve ser: 1 - Celular, 2 - E-mail, 3 - CPF/CNPJ, 4 - Chave aleatória.
-A chave pix deve ter no máximo 77 caracteres.
-
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request com os dados do usuário para uso do método.
+        
+        Regras de Negócio:
+        
+        É necessário que exista uma pessoa cadastrada no sistema com o CPF/CNPJ informado.
+        O tipo de chave pix deve ser: 1 - Celular, 2 - E-mail, 3 - CPF/CNPJ, 4 - Chave aleatória.
+        A chave pix deve ter no máximo 77 caracteres.
+        
+        
+        
+        Args:
+            cpfCnpj (str): The cnpj
+            chavePix (str): The pix
+            tipoChavePix (int): The chave pix
+        
+        Parameter Structure:
+        
+            {
+                "cpfCnpj": "string",
+                "chavePix": "string",
+                "tipoChavePix": 0
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = ChavePix()
+            >>> response = api._deletar(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "ChavePix/Pessoas/Deletar"
-        return self.api.post(
-            path,
-            json={
-                "cpfCnpj": cpf_cnpj,
-                "chavePix": chave_pix,
-                "tipoChavePix": tipo_chave_pix,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "cpfCnpj": cpf_cnpj,
+                    "chavePix": chave_pix,
+                    "tipoChavePix": tipo_chave_pix,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def atualizar(
         self,
@@ -91,35 +155,75 @@ A chave pix deve ter no máximo 77 caracteres.
         chave_pix_padrao: Optional[int] = None,
         ativo_inativo: Optional[int] = None
     ) -> dict:
-        """Atualiza a chave pix de uma pessoa.
-
+        """
+        
+        Endpoint: `ChavePix/Pessoas/Atualizar`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request com os dados do usuário para uso do método.
-
-Regras de Negócio:
-
-É necessário que exista uma pessoa cadastrada no sistema com o CPF/CNPJ informado.
-O tipo de chave pix deve ser: 1 - Celular, 2 - E-mail, 3 - CPF/CNPJ, 4 - Chave aleatória.
-A chave pix deve ter no máximo 77 caracteres.
-A chave padrão deve ser: 0 - NÃO, 1 - SIM.
-O campo ativo inativo deve ser: 0 - ATIVO, 1 - INATIVO.
-
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request com os dados do usuário para uso do método.
+        
+        Regras de Negócio:
+        
+        É necessário que exista uma pessoa cadastrada no sistema com o CPF/CNPJ informado.
+        O tipo de chave pix deve ser: 1 - Celular, 2 - E-mail, 3 - CPF/CNPJ, 4 - Chave aleatória.
+        A chave pix deve ter no máximo 77 caracteres.
+        A chave padrão deve ser: 0 - NÃO, 1 - SIM.
+        O campo ativo inativo deve ser: 0 - ATIVO, 1 - INATIVO.
+        
+        
+        
+        Args:
+            cpfCnpj (str): The cnpj
+            chavePix (str): The pix
+            tipoChavePix (int): The chave pix
+            chavePixPadrao (int): The pix padrao
+            ativoInativo (int): The inativo
+        
+        Parameter Structure:
+        
+            {
+                "cpfCnpj": "string",
+                "chavePix": "string",
+                "tipoChavePix": 0,
+                "chavePixPadrao": 0,
+                "ativoInativo": 0
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = ChavePix()
+            >>> response = api._atualizar(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "ChavePix/Pessoas/Atualizar"
-        return self.api.post(
-            path,
-            json={
-                "cpfCnpj": cpf_cnpj,
-                "chavePix": chave_pix,
-                "tipoChavePix": tipo_chave_pix,
-                "chavePixPadrao": chave_pix_padrao,
-                "ativoInativo": ativo_inativo,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "cpfCnpj": cpf_cnpj,
+                    "chavePix": chave_pix,
+                    "tipoChavePix": tipo_chave_pix,
+                    "chavePixPadrao": chave_pix_padrao,
+                    "ativoInativo": ativo_inativo,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def cadastrar(
         self,
@@ -129,33 +233,73 @@ O campo ativo inativo deve ser: 0 - ATIVO, 1 - INATIVO.
         chave_pix_padrao: Optional[int] = None,
         ativo_inativo: Optional[int] = None
     ) -> dict:
-        """Cadastra uma nova chave pix para a pessoa.
-
+        """
+        
+        Endpoint: `ChavePix/Pessoas/Cadastrar`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request com os dados do usuário para uso do método.
-
-Regras de Negócio:
-
-É necessário que exista uma pessoa cadastrada no sistema com o CPF/CNPJ informado.
-O tipo de chave pix deve ser: 1 - Celular, 2 - E-mail, 3 - CPF/CNPJ, 4 - Chave aleatória.
-A chave pix deve ter no máximo 77 caracteres.
-A chave padrão deve ser: 0 - NÃO, 1 - SIM.
-O campo ativo inativo deve ser: 0 - ATIVO, 1 - INATIVO.
-
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request com os dados do usuário para uso do método.
+        
+        Regras de Negócio:
+        
+        É necessário que exista uma pessoa cadastrada no sistema com o CPF/CNPJ informado.
+        O tipo de chave pix deve ser: 1 - Celular, 2 - E-mail, 3 - CPF/CNPJ, 4 - Chave aleatória.
+        A chave pix deve ter no máximo 77 caracteres.
+        A chave padrão deve ser: 0 - NÃO, 1 - SIM.
+        O campo ativo inativo deve ser: 0 - ATIVO, 1 - INATIVO.
+        
+        
+        
+        Args:
+            cpfCnpj (str): The cnpj
+            chavePix (str): The pix
+            tipoChavePix (int): The chave pix
+            chavePixPadrao (int): The pix padrao
+            ativoInativo (int): The inativo
+        
+        Parameter Structure:
+        
+            {
+                "cpfCnpj": "string",
+                "chavePix": "string",
+                "tipoChavePix": 0,
+                "chavePixPadrao": 0,
+                "ativoInativo": 0
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = ChavePix()
+            >>> response = api._cadastrar(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "ChavePix/Pessoas/Cadastrar"
-        return self.api.post(
-            path,
-            json={
-                "cpfCnpj": cpf_cnpj,
-                "chavePix": chave_pix,
-                "tipoChavePix": tipo_chave_pix,
-                "chavePixPadrao": chave_pix_padrao,
-                "ativoInativo": ativo_inativo,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "cpfCnpj": cpf_cnpj,
+                    "chavePix": chave_pix,
+                    "tipoChavePix": tipo_chave_pix,
+                    "chavePixPadrao": chave_pix_padrao,
+                    "ativoInativo": ativo_inativo,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 

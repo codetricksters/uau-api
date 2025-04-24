@@ -1,24 +1,16 @@
-"""This module contains auto-generated API class.
-
-DO NOT EDIT MANUALLY.
-"""
-
 from typing import Dict, Any, List, Optional
 from datetime import datetime
 from ..requestsapi import RequestsApi
 
+import requests
 class Anexo:
-    """Auto-generated API class"""
-
-    def __init__(self, api):
+    def __init__(self, api: RequestsApi):
         """Initialize with API client
 
         Args:
-            api: The authenticated API client instance
+            api: The API client instance
         """
-        if not hasattr(api, "is_authenticated") or not api.is_authenticated:
-            raise ValueError("API client must be authenticated")
-        self.api = RequestsApi(api.base_url, session=api.get_session())
+        self.api = api
 
     def anexar_arquivo(
         self,
@@ -30,42 +22,86 @@ class Anexo:
         caminho_exclusivo: Optional[str] = None,
         controla_anexouau_web: Optional[bool] = None
     ) -> dict:
-        """Anexa um arquivo
-
+        """
+        
+        Endpoint: `Anexo/AnexarArquivo`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request para uso do método.
-
-Definição de Negócio:
-
-Anexa arquivo dentro do UAU, utilizando a chave identificadora para fazer o vinculo desse arquivo com algum parametro dentro do sistema. 
-
-Parâmetros da request
-
-arquivo: Conteúdo do arquivo em base 64
-nome:  Chave identificadora Do arquivo no formato "STRING STRING"
-caminho: Caminho do arquivo
-identificador: Nome Identificador do arquivo
-usuario: Login do usuário
-caminhoExclusivo: String correspondente a configuração em configGerais do caminho exclusivo
-
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        
+        Definição de Negócio:
+        
+        Anexa arquivo dentro do UAU, utilizando a chave identificadora para fazer o vinculo desse arquivo com algum parametro dentro do sistema. 
+        
+        Parâmetros da request
+        
+        arquivo: Conteúdo do arquivo em base 64
+        nome:  Chave identificadora Do arquivo no formato "STRING STRING"
+        caminho: Caminho do arquivo
+        identificador: Nome Identificador do arquivo
+        usuario: Login do usuário
+        caminhoExclusivo: String correspondente a configuração em configGerais do caminho exclusivo
+        
+        
+        
+        Args:
+            arquivo (str): The arquivo
+            nome (str): The nome
+            caminho (str): The caminho
+            identificador (str): The identificador
+            usuario (str): The usuario
+            caminhoExclusivo (str): The exclusivo
+            controlaAnexoUAUWeb (int): The anexo u a u web
+        
+        Parameter Structure:
+        
+            {
+                "arquivo": "string",
+                "nome": "string",
+                "caminho": "string",
+                "identificador": "string",
+                "usuario": "string",
+                "caminhoExclusivo": "string",
+                "controlaAnexoUAUWeb": true
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Anexo()
+            >>> response = api._anexar_arquivo(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Anexo/AnexarArquivo"
-        return self.api.post(
-            path,
-            json={
-                "arquivo": arquivo,
-                "nome": nome,
-                "caminho": caminho,
-                "identificador": identificador,
-                "usuario": usuario,
-                "caminhoExclusivo": caminho_exclusivo,
-                "controlaAnexoUAUWeb": controla_anexouau_web,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "arquivo": arquivo,
+                    "nome": nome,
+                    "caminho": caminho,
+                    "identificador": identificador,
+                    "usuario": usuario,
+                    "caminhoExclusivo": caminho_exclusivo,
+                    "controlaAnexoUAUWeb": controla_anexouau_web,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def excluir_anexos(
         self,
@@ -73,45 +109,120 @@ caminhoExclusivo: String correspondente a configuração em configGerais do cami
         nome_arquivo: Optional[str] = None,
         origem: Optional[int] = None
     ) -> dict:
-        """Exclui o vinculo do anexo ao arquivo.
-
+        """
+        
+        Endpoint: `Anexo/ExcluirAnexos`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request para uso do método.       
-
-Parâmetros da request
-
-identificador: Chave identificadora do arquivo no formato "STRING STRING".
-nome_arquivo: Nome do arquivo + extensão. ( Exemplo: nomeDoArquivo.png )
-origem: Indica o tipo de armazenamento será utilizado para excluir o vinculo ao arquivo. Pode ser 1-Local ou 2-AWS S3. Caso não informe será obtido da configuração padrão.
-
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.       
+        
+        Parâmetros da request
+        
+        identificador: Chave identificadora do arquivo no formato "STRING STRING".
+        nome_arquivo: Nome do arquivo + extensão. ( Exemplo: nomeDoArquivo.png )
+        origem: Indica o tipo de armazenamento será utilizado para excluir o vinculo ao arquivo. Pode ser 1-Local ou 2-AWS S3. Caso não informe será obtido da configuração padrão.
+        
+        
+        
+        Args:
+            identificador (str): The identificador
+            nome_arquivo (str): The nome_arquivo
+            origem (int): The origem
+        
+        Parameter Structure:
+        
+            {
+                "identificador": "string",
+                "nome_arquivo": "string",
+                "origem": 0
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Anexo()
+            >>> response = api._excluir_anexos(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Anexo/ExcluirAnexos"
-        return self.api.post(
-            path,
-            json={
-                "identificador": identificador,
-                "nome_arquivo": nome_arquivo,
-                "origem": origem,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "identificador": identificador,
+                    "nome_arquivo": nome_arquivo,
+                    "origem": origem,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def listar_diretorios(
         self,
         caminho: Optional[str] = None,
         origem: Optional[int] = None
     ) -> dict:
-        path = "Anexo/ListarDiretorios"
-        return self.api.post(
-            path,
-            json={
-                "Caminho": caminho,
-                "Origem": origem,
+        """
+        HTTP Method: `POST`
+        
+        Implementation Notes:
+        DEFINIÇÕES TÉCNICAS
+        * Status 200 - Retorna uma lista de diretórios
+          
+        
+        Args:
+            Caminho (str): The caminho
+            Origem (int): The origem
+        
+        Parameter Structure:
+        
+            {
+                "Caminho": "string",
+                "Origem": 0
             }
-        )
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Anexo()
+            >>> response = api._listar_diretorios(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
+        """
+        path = "Anexo/ListarDiretorios"
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "Caminho": caminho,
+                    "Origem": origem,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def anexar_base64_imagem(
         self,
@@ -125,33 +236,81 @@ origem: Indica o tipo de armazenamento será utilizado para excluir o vinculo ao
         controla_anexouau_web: Optional[bool] = None,
         origem: Optional[int] = None
     ) -> dict:
-        """Anexa uma imagem na base64
-
+        """
+        
+        Endpoint: `Anexo/AnexarBase64Imagem`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request para uso do método.
-
-Definição de Negócio:
-  Possibilita anexar imagem no formato Base64
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        
+        Definição de Negócio:
+          Possibilita anexar imagem no formato Base64
+        
+        
+        Args:
+            arquivo (str): The arquivo
+            nome (str): The nome
+            caminho (str): The caminho
+            identificador (str): The identificador
+            usuario (str): The usuario
+            extensaoImagem (str): The imagem
+            caminhoExclusivo (str): The exclusivo
+            controlaAnexoUAUWeb (int): The anexo u a u web
+            origem (int): The origem
+        
+        Parameter Structure:
+        
+            {
+                "arquivo": "string",
+                "nome": "string",
+                "caminho": "string",
+                "identificador": "string",
+                "usuario": "string",
+                "extensaoImagem": "string",
+                "caminhoExclusivo": "string",
+                "controlaAnexoUAUWeb": true,
+                "origem": 0
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Anexo()
+            >>> response = api._anexar_base64_imagem(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Anexo/AnexarBase64Imagem"
-        return self.api.post(
-            path,
-            json={
-                "arquivo": arquivo,
-                "nome": nome,
-                "caminho": caminho,
-                "identificador": identificador,
-                "usuario": usuario,
-                "extensaoImagem": extensao_imagem,
-                "caminhoExclusivo": caminho_exclusivo,
-                "controlaAnexoUAUWeb": controla_anexouau_web,
-                "origem": origem,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "arquivo": arquivo,
+                    "nome": nome,
+                    "caminho": caminho,
+                    "identificador": identificador,
+                    "usuario": usuario,
+                    "extensaoImagem": extensao_imagem,
+                    "caminhoExclusivo": caminho_exclusivo,
+                    "controlaAnexoUAUWeb": controla_anexouau_web,
+                    "origem": origem,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def listar_armazenamentos(
         self,
@@ -159,17 +318,53 @@ Definição de Negócio:
         mensagem: Optional[str] = None,
         descricao: Optional[str] = None
     ) -> dict:
-        """Retorna a lista de armazenamentos ativos
+        """
+        
+        Endpoint: `Anexo/ListarArmazenamentos`
+        HTTP Method: `POST`
+        
+        Args:
+            Detalhe (str): The detalhe
+            Mensagem (str): The mensagem
+            Descricao (str): The descricao
+        
+        Parameter Structure:
+        
+            {
+                "Detalhe": "string",
+                "Mensagem": "string",
+                "Descricao": "string"
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Anexo()
+            >>> response = api._listar_armazenamentos(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Anexo/ListarArmazenamentos"
-        return self.api.post(
-            path,
-            json={
-                "Detalhe": detalhe,
-                "Mensagem": mensagem,
-                "Descricao": descricao,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "Detalhe": detalhe,
+                    "Mensagem": mensagem,
+                    "Descricao": descricao,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def gravar_comentario_anexo(
         self,
@@ -181,75 +376,161 @@ Definição de Negócio:
         usuario_privado: Optional[List[Dict]] = None,
         grupo_privado: Optional[List[Dict]] = None
     ) -> dict:
-        """Anexar um comentario
-
+        """
+        
+        Endpoint: `Anexo/GravarComentarioAnexo`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição técnica:
-
-Adiciona comentário anexo de acordo com os parâmetros passados na requisição.
-
-Pré requisito:
-
-Verifique o endpoint abaixo para obter informações dos parametros de entrada aceitos:
-URL + /api/v{version}/Anexo/ConsultarChavesComentario
-
-
-
-Parâmetros da request
-
-Chave: Chave para consulta.
-Campos: Campos obrigatórios para a chave="Venda" (empresa, obra, venda). Campos obrigatórios para a chave="Contrato" (Empresa, Contrato) Deve ser inserido juntos, separados por virgula.
-Usuario: Usuário logado.
-Comentario: Comentário a ser anexado.
-TipoComentario: Armazena o tipo do comentário ( 0-Publico, 1-Privado, 2-Interna).
-UsuarioPrivado: Armazena a lista de usuários que podem visualizar o comentário. ( Rota que retorna as informações necessárias -> /Usuarios/ConsultarUsuariosAtivos ).
-GrupoPrivado: Armazena a lista de grupos de usuários que podem visualizar o comentário. ( Rota que retorna as informações necessárias -> /Usuarios/ConsultarGruposDeUsuario ).
-
-
+        
+        Adiciona comentário anexo de acordo com os parâmetros passados na requisição.
+        
+        Pré requisito:
+        
+        Verifique o endpoint abaixo para obter informações dos parametros de entrada aceitos:
+        URL + /api/v{version}/Anexo/ConsultarChavesComentario
+        
+        
+        
+        Parâmetros da request
+        
+        Chave: Chave para consulta.
+        Campos: Campos obrigatórios para a chave="Venda" (empresa, obra, venda). Campos obrigatórios para a chave="Contrato" (Empresa, Contrato) Deve ser inserido juntos, separados por virgula.
+        Usuario: Usuário logado.
+        Comentario: Comentário a ser anexado.
+        TipoComentario: Armazena o tipo do comentário ( 0-Publico, 1-Privado, 2-Interna).
+        UsuarioPrivado: Armazena a lista de usuários que podem visualizar o comentário. ( Rota que retorna as informações necessárias -> /Usuarios/ConsultarUsuariosAtivos ).
+        GrupoPrivado: Armazena a lista de grupos de usuários que podem visualizar o comentário. ( Rota que retorna as informações necessárias -> /Usuarios/ConsultarGruposDeUsuario ).
+        
+        
+        
+        Args:
+            Chave (str): The chave
+            Campos (str): The campos
+            Usuario (str): The usuario
+            Comentario (str): The comentario
+            TipoComentario (str): The tipo comentario
+            UsuarioPrivado (List[Dict[str, Any]]): The usuario privado
+            GrupoPrivado (List[Dict[str, Any]]): The grupo privado
+        
+        Parameter Structure:
+        
+            {
+                "Chave": "string",
+                "Campos": "string",
+                "Usuario": "string",
+                "Comentario": "string",
+                "TipoComentario": "string",
+                "UsuarioPrivado": [
+                    {
+                        "Login_usr": "string"
+                    }
+                ],
+                "GrupoPrivado": [
+                    {
+                        "Cod_cad": "string"
+                    }
+                ]
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Anexo()
+            >>> response = api._gravar_comentario_anexo(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Anexo/GravarComentarioAnexo"
-        return self.api.post(
-            path,
-            json={
-                "Chave": chave,
-                "Campos": campos,
-                "Usuario": usuario,
-                "Comentario": comentario,
-                "TipoComentario": tipo_comentario,
-                "UsuarioPrivado": usuario_privado,
-                "GrupoPrivado": grupo_privado,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "Chave": chave,
+                    "Campos": campos,
+                    "Usuario": usuario,
+                    "Comentario": comentario,
+                    "TipoComentario": tipo_comentario,
+                    "UsuarioPrivado": usuario_privado,
+                    "GrupoPrivado": grupo_privado,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def retorna_arquivo_em_bytes(
         self,
         nome_arquivo: Optional[str] = None,
         origem: Optional[int] = None
     ) -> dict:
-        """Retorna um determinado arquivo em base64.
-
+        """
+        
+        Endpoint: `Anexo/RetornaArquivoEmBytes`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Em Modulo UAU >> Utilitários >> Configurações do sistema >> ( Em "Arquivo" >> Arquivos(Anexos): ) Esse e o caminho padrão que a rota usar na consulta para retorna o arquivo em base64.
-Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request para uso do método.
-
-Parâmetros da request
-
-nome_arquivo: Nome do arquivo + extensão. ( Exemplo: nomeDoArquivo.png )
-origem: Indica o tipo de armazenamento será utilizado para buscar o arquivo. Pode ser 1-Local ou 2-AWS S3. Caso não informe será obtido da configuração padrão.
-
-
+        Definição Técnica:
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        
+        Parâmetros da request
+        
+        nome_arquivo: Nome do arquivo + extensão. ( Exemplo: nomeDoArquivo.png )
+        origem: Indica o tipo de armazenamento será utilizado para buscar o arquivo. Pode ser 1-Local ou 2-AWS S3. Caso não informe será obtido da configuração padrão.
+        
+        
+        
+        Args:
+            nome_arquivo (str): The nome_arquivo
+            origem (int): The origem
+        
+        Parameter Structure:
+        
+            {
+                "nome_arquivo": "string",
+                "origem": 0
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Anexo()
+            >>> response = api._retorna_arquivo_em_bytes(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Anexo/RetornaArquivoEmBytes"
-        return self.api.post(
-            path,
-            json={
-                "nome_arquivo": nome_arquivo,
-                "origem": origem,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "nome_arquivo": nome_arquivo,
+                    "origem": origem,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def consultar_chaves_comentario(
         self,
@@ -257,32 +538,68 @@ origem: Indica o tipo de armazenamento será utilizado para buscar o arquivo. Po
         mensagem: Optional[str] = None,
         descricao: Optional[str] = None
     ) -> dict:
-        """Retorna as chaves, seus campos e exemplo, que podem ser utilizadas para gravação de comentario em anexo.
-
+        """
+        
+        Endpoint: `Anexo/ConsultarChavesComentario`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição técnica:
-
-Este endpoint oferece suporte para o seguinte endpoint: [URI + /api/v{version}/Anexo/GravarComentarioAnexo]
-Retorna objetos com:
-Possíveis chaves que podem ser utilizadas.
-Ordem dos parâmetros aceitos.
-Exemplo de utilização e formatação dos parâmetros.
-  Anexos:
-
-
-Exemplo Postman: https://ajuda.globaltec.com.br/download/777152/
-
-
+        
+        Este endpoint oferece suporte para o seguinte endpoint: [URI + /api/v{version}/Anexo/GravarComentarioAnexo]
+        Retorna objetos com:
+        Possíveis chaves que podem ser utilizadas.
+        Ordem dos parâmetros aceitos.
+        Exemplo de utilização e formatação dos parâmetros.
+          Anexos:
+        
+        
+        Exemplo Postman: https://ajuda.globaltec.com.br/download/777152/
+        
+        
+        
+        Args:
+            Detalhe (str): The detalhe
+            Mensagem (str): The mensagem
+            Descricao (str): The descricao
+        
+        Parameter Structure:
+        
+            {
+                "Detalhe": "string",
+                "Mensagem": "string",
+                "Descricao": "string"
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Anexo()
+            >>> response = api._consultar_chaves_comentario(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Anexo/ConsultarChavesComentario"
-        return self.api.post(
-            path,
-            json={
-                "Detalhe": detalhe,
-                "Mensagem": mensagem,
-                "Descricao": descricao,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "Detalhe": detalhe,
+                    "Mensagem": mensagem,
+                    "Descricao": descricao,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def anexar_arquivos_base64_request(
         self,
@@ -290,22 +607,68 @@ Exemplo Postman: https://ajuda.globaltec.com.br/download/777152/
         empresa: Optional[int] = None,
         usuario: Optional[str] = None
     ) -> dict:
-        """Anexa um arquivo
-
+        """
+        
+        Endpoint: `Anexo/AnexarArquivosBase64Request`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Criação   : Diogo Rodrigues Gonçalves             Data: 11/12/2018
-  Projeto   : FVS Mobile
-
+          Projeto   : FVS Mobile
+        
+        
+        Args:
+            lista_arquivos (List[Dict[str, Any]]): The lista_arquivos
+            empresa (int): The empresa
+            usuario (str): The usuario
+        
+        Parameter Structure:
+        
+            {
+                "lista_arquivos": [
+                    {
+                        "ConteudoArquivo": "string",
+                        "NomeArquivo": "string",
+                        "CaminhoArquivo": "string",
+                        "Extension": "string",
+                        "Identificador": "string",
+                        "Origem": 0,
+                        "CaminhoPadrao": "string"
+                    }
+                ],
+                "empresa": 0,
+                "usuario": "string"
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Anexo()
+            >>> response = api._anexar_arquivos_base64_request(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Anexo/AnexarArquivosBase64Request"
-        return self.api.post(
-            path,
-            json={
-                "lista_arquivos": lista_arquivos,
-                "empresa": empresa,
-                "usuario": usuario,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "lista_arquivos": lista_arquivos,
+                    "empresa": empresa,
+                    "usuario": usuario,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def retornar_arquivos_em_lista_bytes(
         self,
@@ -313,30 +676,68 @@ Exemplo Postman: https://ajuda.globaltec.com.br/download/777152/
         identificador: Optional[str] = None,
         listanomes_arquivos: Optional[List[Dict]] = None
     ) -> dict:
-        """Retorna uma lista com os dados dos arquivos e o conteúdo do mesmo em base64.
-
+        """
+        
+        Endpoint: `Anexo/RetornarArquivosEmListaBytes`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Baseado no ‘’código identificador do documento’’ passado ele já retorna os arquivos tanto disponível localmente e na nuvem, sem a necessidade de passar o parâmetro “origem” no body do request.
-Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request para uso do método.       
-
-Parâmetros da request
-
-empresa: Número da empresa.
-identificador: Chave identificadora do arquivo no formato "STRING STRING".
-listanomes_arquivos:  Lista de 'string' com o nome do arquivo + extensão. ( Exemplo: nomeDoArquivo.png )
-
-
+        Definição Técnica:
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.       
+        
+        Parâmetros da request
+        
+        empresa: Número da empresa.
+        identificador: Chave identificadora do arquivo no formato "STRING STRING".
+        listanomes_arquivos:  Lista de 'string' com o nome do arquivo + extensão. ( Exemplo: nomeDoArquivo.png )
+        
+        
+        
+        Args:
+            empresa (str): The empresa
+            identificador (str): The identificador
+            listanomes_arquivos (List[Dict[str, Any]]): The listanomes_arquivos
+        
+        Parameter Structure:
+        
+            {
+                "empresa": "string",
+                "identificador": "string",
+                "listanomes_arquivos": [
+                    "string"
+                ]
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Anexo()
+            >>> response = api._retornar_arquivos_em_lista_bytes(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Anexo/RetornarArquivosEmListaBytes"
-        return self.api.post(
-            path,
-            json={
-                "empresa": empresa,
-                "identificador": identificador,
-                "listanomes_arquivos": listanomes_arquivos,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "empresa": empresa,
+                    "identificador": identificador,
+                    "listanomes_arquivos": listanomes_arquivos,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 

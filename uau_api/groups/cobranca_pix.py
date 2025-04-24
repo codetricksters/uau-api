@@ -1,116 +1,213 @@
-"""This module contains auto-generated API class.
-
-DO NOT EDIT MANUALLY.
-"""
-
 from typing import Dict, Any, List, Optional
 from datetime import datetime
 from ..requestsapi import RequestsApi
 
+import requests
 class CobrancaPix:
-    """Auto-generated API class"""
-
-    def __init__(self, api):
+    def __init__(self, api: RequestsApi):
         """Initialize with API client
 
         Args:
-            api: The authenticated API client instance
+            api: The API client instance
         """
-        if not hasattr(api, "is_authenticated") or not api.is_authenticated:
-            raise ValueError("API client must be authenticated")
-        self.api = RequestsApi(api.base_url, session=api.get_session())
+        self.api = api
 
     def pix_por_parcelas(
         self,
         parameters: Optional[List[Dict]] = None
     ) -> dict:
-        """Retorna as informações do PIX com base na chave de uma ou mais parcelas
-
+        """
+        
+        Endpoint: `Pix/PixPorParcelas`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição técnica:
-
-O objetivo desta rota de API é permitir a consulta e retorno das informações dos PIX gerados para uma determinada parcela ou lista de parcelas
-Serão retornados os dados do PIX, caso tenha sido gerado para a(s) parcela(s) requisitada(s)
-Limite máximo de 50 parcelas por requisição
-
-
+        
+        O objetivo desta rota de API é permitir a consulta e retorno das informações dos PIX gerados para uma determinada parcela ou lista de parcelas
+        Serão retornados os dados do PIX, caso tenha sido gerado para a(s) parcela(s) requisitada(s)
+        Limite máximo de 50 parcelas por requisição
+        
+        
+        
+        Args:
+            parameters (List[Dict]): List of parameter dictionaries for the request
+        
+        Parameter Structure:
+        
+            [
+                {
+                    "Empresa": 0,
+                    "Obra": "string",
+                    "NumeroVenda": 0,
+                    "NumeroParcela": 0,
+                    "TipoParcela": "string",
+                    "NumeroParcelaGeral": 0
+                }
+            ]
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = CobrancaPix()
+            >>> response = api._pix_por_parcelas(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Pix/PixPorParcelas"
-        return self.api.post(
-            path,
-            json=parameters if parameters is not None else {}
-        )
+        try:
+            response = self.api.post(
+                path,
+                json=parameters if parameters is not None else {}
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def reimpressao_pix(
         self,
         tx_id: Optional[str] = None
     ) -> dict:
-        """Retorna as informações de impreesão do PIX com o PDF, QRCode e Pix Copia e Cola
-
+        """
+        
+        Endpoint: `Pix/ReimpressaoPix`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição técnica:
-
-O objetivo desta rota de API é permitir a consulta e retorno das informações do pix de modo que o usuário possa fazer a impressão 
-  dos dados de cobrança.
-Será retornado o PDF completo e o QRCode em base64.
-Será retornado o texto do Pix Copia e Cola.
-
-Instituições bancárias suportadas: 
-
-341 = Banco Itaú
-
-756 = Banco Sicoob
-
-237 = Banco Bradesco
-
-246 = Banco Abc
-
-
-
+        
+        O objetivo desta rota de API é permitir a consulta e retorno das informações do pix de modo que o usuário possa fazer a impressão 
+          dos dados de cobrança.
+        Será retornado o PDF completo e o QRCode em base64.
+        Será retornado o texto do Pix Copia e Cola.
+        
+        Instituições bancárias suportadas: 
+        
+        341 = Banco Itaú
+        
+        756 = Banco Sicoob
+        
+        237 = Banco Bradesco
+        
+        246 = Banco Abc
+        
+        
+        
+        
+        Args:
+            TxId (str): The tx id
+        
+        Parameter Structure:
+        
+            {
+                "TxId": "string"
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = CobrancaPix()
+            >>> response = api._reimpressao_pix(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Pix/ReimpressaoPix"
-        return self.api.post(
-            path,
-            json={
-                "TxId": tx_id,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "TxId": tx_id,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def consultar_pix_status(
         self,
         parameters: Optional[List[Dict]] = None
     ) -> dict:
-        """Consulta o status do registro PIX junto a instituição bancária
-
+        """
+        
+        Endpoint: `Pix/ConsultarPixStatus`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição técnica:
-
-O objetivo desta rota de API e permitir a consulta do status do PIX 
-
-Instituições bancárias suportadas: 
-
-341 = Banco Itaú
-246 = Banco Abc
-341 = Banco Itaú
-756 = Banco Sicoob
-237 = Banco Bradesco
-
-Pré requisito:
-
-Verifique o endpoint abaixo para obter informações dos parametros de entrada aceitos:
-URL + /api/v{version}/Pix/GerarCobrancaPIX 
-  Anexos:
-
-
-Exemplo Postman: [ALTERAR EXEMPLO]
-
-
+        
+        O objetivo desta rota de API e permitir a consulta do status do PIX 
+        
+        Instituições bancárias suportadas: 
+        
+        341 = Banco Itaú
+        246 = Banco Abc
+        341 = Banco Itaú
+        756 = Banco Sicoob
+        237 = Banco Bradesco
+        
+        Pré requisito:
+        
+        Verifique o endpoint abaixo para obter informações dos parametros de entrada aceitos:
+        URL + /api/v{version}/Pix/GerarCobrancaPIX 
+          Anexos:
+        
+        
+        Exemplo Postman: [ALTERAR EXEMPLO]
+        
+        
+        
+        Args:
+            parameters (List[Dict]): List of parameter dictionaries for the request
+        
+        Parameter Structure:
+        
+            [
+                {
+                    "TxId": "string"
+                }
+            ]
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = CobrancaPix()
+            >>> response = api._consultar_pix_status(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Pix/ConsultarPixStatus"
-        return self.api.post(
-            path,
-            json=parameters if parameters is not None else {}
-        )
+        try:
+            response = self.api.post(
+                path,
+                json=parameters if parameters is not None else {}
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def gerar_cobranca_venda(
         self,
@@ -121,42 +218,94 @@ Exemplo Postman: [ALTERAR EXEMPLO]
         padrao_cobranca: Optional[int] = None,
         parcelas: Optional[List[Dict]] = None
     ) -> dict:
-        """Solicita o registro de cobrança por PIX de uma ou mais parcelas da venda junto a instituição bancária.
-
+        """
+        
+        Endpoint: `Pix/GerarCobrancaVenda`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição Técnica:
-
-O objetivo desta rota de API é permitir o registro de cobrança por PIX junto à instituição financeira.
-O BASE64 gerado é somente o QR Code do PIX.
-Instituições bancárias suportadas:
-
-341 Banco Itaú
-756 Banco Sicoob
-237 Banco Bradesco
-246 Banco ABC
-
-
-
-Pré Requisitos:
-
-Verifique o endpoint abaixo para obter informações dos parametros de entrada aceitos:
-URL + /api/v{version}/Venda/GerarCobrancaPIX
-
-
-
+        
+        O objetivo desta rota de API é permitir o registro de cobrança por PIX junto à instituição financeira.
+        O BASE64 gerado é somente o QR Code do PIX.
+        Instituições bancárias suportadas:
+        
+        341 Banco Itaú
+        756 Banco Sicoob
+        237 Banco Bradesco
+        246 Banco ABC
+        
+        
+        
+        Pré Requisitos:
+        
+        Verifique o endpoint abaixo para obter informações dos parametros de entrada aceitos:
+        URL + /api/v{version}/Venda/GerarCobrancaPIX
+        
+        
+        
+        
+        Args:
+            DataDeCalculo (datetime): The data de calculo
+            Antecipar (int): The antecipar
+            UsarPadraoPixAvulso (int): The usar padrao pix avulso
+            AgruparParcelas (int): The agrupar parcelas
+            PadraoCobranca (int): The padrao cobranca
+            Parcelas (List[Dict[str, Any]]): The parcelas
+        
+        Parameter Structure:
+        
+            {
+                "DataDeCalculo": "2025-04-23T13:46:12.715Z",
+                "Antecipar": true,
+                "UsarPadraoPixAvulso": true,
+                "AgruparParcelas": true,
+                "PadraoCobranca": 0,
+                "Parcelas": [
+                    {
+                        "Empresa": 0,
+                        "Obra": "string",
+                        "NumeroVenda": 0,
+                        "NumeroParcela": 0,
+                        "TipoParcela": "string",
+                        "NumeroParcelaGeral": 0,
+                        "ValorDesconto": 0
+                    }
+                ]
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = CobrancaPix()
+            >>> response = api._gerar_cobranca_venda(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Pix/GerarCobrancaVenda"
-        return self.api.post(
-            path,
-            json={
-                "DataDeCalculo": data_de_calculo,
-                "Antecipar": antecipar,
-                "UsarPadraoPixAvulso": usar_padrao_pix_avulso,
-                "AgruparParcelas": agrupar_parcelas,
-                "PadraoCobranca": padrao_cobranca,
-                "Parcelas": parcelas,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "DataDeCalculo": data_de_calculo,
+                    "Antecipar": antecipar,
+                    "UsarPadraoPixAvulso": usar_padrao_pix_avulso,
+                    "AgruparParcelas": agrupar_parcelas,
+                    "PadraoCobranca": padrao_cobranca,
+                    "Parcelas": parcelas,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def gerar_cobranca_proposta(
         self,
@@ -167,40 +316,92 @@ URL + /api/v{version}/Venda/GerarCobrancaPIX
         padrao_cobranca: Optional[int] = None,
         parcelas: Optional[List[Dict]] = None
     ) -> dict:
-        """Solicita o registro de cobrança por PIX de uma ou mais parcelas da venda junto a instituição bancária
-
+        """
+        
+        Endpoint: `Pix/GerarCobrancaProposta`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição técnica:
-
-O objetivo desta rota de API é permitir o registro de cobrança por PIX junto a instituição financeira 
-O BASE64 gerado é somente o QRCODE do PIX
-
-Instituições bancárias suportadas: 
-
-341 = Banco Itaú
-756 = Banco Sicoob
-237 = Banco Bradesco
-246 = Banco Abc
-
-Pré requisito:
-
-Verifique o endpoint abaixo para obter informações dos parametros de entrada aceitos:
-URL + /api/v{version}/Venda/GerarCobrancaPIX
-
-
-
-
+        
+        O objetivo desta rota de API é permitir o registro de cobrança por PIX junto a instituição financeira 
+        O BASE64 gerado é somente o QRCODE do PIX
+        
+        Instituições bancárias suportadas: 
+        
+        341 = Banco Itaú
+        756 = Banco Sicoob
+        237 = Banco Bradesco
+        246 = Banco Abc
+        
+        Pré requisito:
+        
+        Verifique o endpoint abaixo para obter informações dos parametros de entrada aceitos:
+        URL + /api/v{version}/Venda/GerarCobrancaPIX
+        
+        
+        
+        
+        
+        Args:
+            DataDeCalculo (datetime): The data de calculo
+            Antecipar (int): The antecipar
+            UsarPadraoPixAvulso (int): The usar padrao pix avulso
+            AgruparParcelas (int): The agrupar parcelas
+            PadraoCobranca (int): The padrao cobranca
+            Parcelas (List[Dict[str, Any]]): The parcelas
+        
+        Parameter Structure:
+        
+            {
+                "DataDeCalculo": "2025-04-23T13:46:12.721Z",
+                "Antecipar": true,
+                "UsarPadraoPixAvulso": true,
+                "AgruparParcelas": true,
+                "PadraoCobranca": 0,
+                "Parcelas": [
+                    {
+                        "Empresa": 0,
+                        "Obra": "string",
+                        "NumeroProposta": 0,
+                        "NumeroParcela": 0,
+                        "TipoParcela": "string",
+                        "NumeroParcelaGeral": 0,
+                        "ValorDesconto": 0
+                    }
+                ]
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = CobrancaPix()
+            >>> response = api._gerar_cobranca_proposta(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Pix/GerarCobrancaProposta"
-        return self.api.post(
-            path,
-            json={
-                "DataDeCalculo": data_de_calculo,
-                "Antecipar": antecipar,
-                "UsarPadraoPixAvulso": usar_padrao_pix_avulso,
-                "AgruparParcelas": agrupar_parcelas,
-                "PadraoCobranca": padrao_cobranca,
-                "Parcelas": parcelas,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "DataDeCalculo": data_de_calculo,
+                    "Antecipar": antecipar,
+                    "UsarPadraoPixAvulso": usar_padrao_pix_avulso,
+                    "AgruparParcelas": agrupar_parcelas,
+                    "PadraoCobranca": padrao_cobranca,
+                    "Parcelas": parcelas,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 

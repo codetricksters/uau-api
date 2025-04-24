@@ -1,24 +1,16 @@
-"""This module contains auto-generated API class.
-
-DO NOT EDIT MANUALLY.
-"""
-
 from typing import Dict, Any, List, Optional
 from datetime import datetime
 from ..requestsapi import RequestsApi
 
+import requests
 class Composicoes:
-    """Auto-generated API class"""
-
-    def __init__(self, api):
+    def __init__(self, api: RequestsApi):
         """Initialize with API client
 
         Args:
-            api: The authenticated API client instance
+            api: The API client instance
         """
-        if not hasattr(api, "is_authenticated") or not api.is_authenticated:
-            raise ValueError("API client must be authenticated")
-        self.api = RequestsApi(api.base_url, session=api.get_session())
+        self.api = api
 
     def inserir_composicoes(
         self,
@@ -44,45 +36,190 @@ class Composicoes:
         porc_preco_excedido_entrega: Optional[str] = None,
         porc_preco_reduzido_entrega: Optional[str] = None
     ) -> dict:
-        path = "Composicoes/InserirComposicoes"
-        return self.api.post(
-            path,
-            json={
-                "codigo": codigo,
-                "descricao": descricao,
-                "unidade": unidade,
-                "prodEquipe": prod_equipe,
-                "tipoCusto": tipo_custo,
-                "civilPes": civil_pes,
-                "status": status,
-                "categoria": categoria,
-                "categoriaMovFin": categoria_mov_fin,
-                "CAP": cap,
-                "CAPEstorno": cap_estorno,
-                "CAPTransacaoFinanceira": cap_transacao_financeira,
-                "NCM": ncm,
-                "CEST": cest,
-                "aplicacao": aplicacao,
-                "codigoServicoFiscal": codigo_servico_fiscal,
-                "controlaFVS": controlafvs,
-                "confirmado": confirmado,
-                "porcQtdeExcedidaEntrega": porc_qtde_excedida_entrega,
-                "porcPrecoExcedidoEntrega": porc_preco_excedido_entrega,
-                "porcPrecoReduzidoEntrega": porc_preco_reduzido_entrega,
+        """
+        HTTP Method: `POST`
+        
+        Implementation Notes:
+        Definição Técnica:
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        
+        
+        
+        Args:
+            codigo (str): The codigo
+            descricao (str): The descricao
+            unidade (str): The unidade
+            prodEquipe (int): The equipe
+            tipoCusto (str): The custo
+            civilPes (int): The pes
+            status (int): The status
+            categoria (str): The categoria
+            categoriaMovFin (str): The mov fin
+            CAP (str): The c a p
+            CAPEstorno (str): The c a p estorno
+            CAPTransacaoFinanceira (str): The c a p transacao financeira
+            NCM (str): The n c m
+            CEST (str): The c e s t
+            aplicacao (str): The aplicacao
+            codigoServicoFiscal (str): The servico fiscal
+            controlaFVS (int): The f v s
+            confirmado (int): The confirmado
+            porcQtdeExcedidaEntrega (str): The qtde excedida entrega
+            porcPrecoExcedidoEntrega (str): The preco excedido entrega
+            porcPrecoReduzidoEntrega (str): The preco reduzido entrega
+        
+        Parameter Structure:
+        
+            {
+                "codigo": "string",
+                "descricao": "string",
+                "unidade": "string",
+                "prodEquipe": 0,
+                "tipoCusto": "string",
+                "civilPes": 0,
+                "status": 0,
+                "categoria": "string",
+                "categoriaMovFin": "string",
+                "CAP": "string",
+                "CAPEstorno": "string",
+                "CAPTransacaoFinanceira": "string",
+                "NCM": "string",
+                "CEST": "string",
+                "aplicacao": "string",
+                "codigoServicoFiscal": "string",
+                "controlaFVS": true,
+                "confirmado": 0,
+                "porcQtdeExcedidaEntrega": "string",
+                "porcPrecoExcedidoEntrega": "string",
+                "porcPrecoReduzidoEntrega": "string"
             }
-        )
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Composicoes()
+            >>> response = api._inserir_composicoes(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
+        """
+        path = "Composicoes/InserirComposicoes"
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "codigo": codigo,
+                    "descricao": descricao,
+                    "unidade": unidade,
+                    "prodEquipe": prod_equipe,
+                    "tipoCusto": tipo_custo,
+                    "civilPes": civil_pes,
+                    "status": status,
+                    "categoria": categoria,
+                    "categoriaMovFin": categoria_mov_fin,
+                    "CAP": cap,
+                    "CAPEstorno": cap_estorno,
+                    "CAPTransacaoFinanceira": cap_transacao_financeira,
+                    "NCM": ncm,
+                    "CEST": cest,
+                    "aplicacao": aplicacao,
+                    "codigoServicoFiscal": codigo_servico_fiscal,
+                    "controlaFVS": controlafvs,
+                    "confirmado": confirmado,
+                    "porcQtdeExcedidaEntrega": porc_qtde_excedida_entrega,
+                    "porcPrecoExcedidoEntrega": porc_preco_excedido_entrega,
+                    "porcPrecoReduzidoEntrega": porc_preco_reduzido_entrega,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def atualizar_composicoes(
         self,
         lista_composicoes_atualizar: Optional[List[Dict]] = None
     ) -> dict:
-        path = "Composicoes/AtualizarComposicoes"
-        return self.api.post(
-            path,
-            json={
-                "listaComposicoesAtualizar": lista_composicoes_atualizar,
+        """
+        HTTP Method: `POST`
+        
+        Implementation Notes:
+        Definição Técnica:
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        
+        Utilize "" (vazio) caso queira limpar os campos do cadastro sendo que, código, descrição e unidade padrão, não podem ficar vazios.
+        
+        
+        Args:
+            listaComposicoesAtualizar (List[Dict[str, Any]]): The composicoes atualizar
+        
+        Parameter Structure:
+        
+            {
+                "listaComposicoesAtualizar": [
+                    {
+                        "codigo": "string",
+                        "descricao": "string",
+                        "unidade": "string",
+                        "status": 0,
+                        "prodEquipe": 0,
+                        "tipoCusto": "string",
+                        "civilPes": 0,
+                        "categoria": "string",
+                        "categoriaMovFin": "string",
+                        "CAP": "string",
+                        "CAPEstorno": "string",
+                        "CAPTransacaoFinanceira": "string",
+                        "NCM": "string",
+                        "CEST": "string",
+                        "aplicacao": "string",
+                        "codigoServicoFiscal": "string",
+                        "controlaFVS": true,
+                        "confirmado": 0,
+                        "porcQtdeExcedidaEntrega": "string",
+                        "porcPrecoExcedidoEntrega": "string",
+                        "porcPrecoReduzidoEntrega": "string"
+                    }
+                ]
             }
-        )
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Composicoes()
+            >>> response = api._atualizar_composicoes(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
+        """
+        path = "Composicoes/AtualizarComposicoes"
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "listaComposicoesAtualizar": lista_composicoes_atualizar,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def consultar_todas_composicoes(
         self,
@@ -90,25 +227,61 @@ class Composicoes:
         mensagem: Optional[str] = None,
         descricao: Optional[str] = None
     ) -> dict:
-        """Método responsável por retornar todas as composições gerais.
-
+        """
+        
+        Endpoint: `Composicoes/ConsultarTodasComposicoes`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request para uso do método.
-
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        
+        
+        
+        Args:
+            Detalhe (str): The detalhe
+            Mensagem (str): The mensagem
+            Descricao (str): The descricao
+        
+        Parameter Structure:
+        
+            {
+                "Detalhe": "string",
+                "Mensagem": "string",
+                "Descricao": "string"
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Composicoes()
+            >>> response = api._consultar_todas_composicoes(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Composicoes/ConsultarTodasComposicoes"
-        return self.api.post(
-            path,
-            json={
-                "Detalhe": detalhe,
-                "Mensagem": mensagem,
-                "Descricao": descricao,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "Detalhe": detalhe,
+                    "Mensagem": mensagem,
+                    "Descricao": descricao,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def consultar_composicoes_por_chave(
         self,
@@ -134,33 +307,113 @@ Preencher os parâmetros de request para uso do método.
         porc_preco_excedido_entrega: Optional[str] = None,
         porc_preco_reduzido_entrega: Optional[str] = None
     ) -> dict:
-        path = "Composicoes/ConsultarComposicoesPorChave"
-        return self.api.post(
-            path,
-            json={
-                "codigo": codigo,
-                "descricao": descricao,
-                "unidade": unidade,
-                "status": status,
-                "prodEquipe": prod_equipe,
-                "tipoCusto": tipo_custo,
-                "civilPes": civil_pes,
-                "categoria": categoria,
-                "categoriaMovFin": categoria_mov_fin,
-                "CAP": cap,
-                "CAPEstorno": cap_estorno,
-                "CAPTransacaoFinanceira": cap_transacao_financeira,
-                "NCM": ncm,
-                "CEST": cest,
-                "aplicacao": aplicacao,
-                "codigoServicoFiscal": codigo_servico_fiscal,
-                "controlaFVS": controlafvs,
-                "confirmado": confirmado,
-                "porcQtdeExcedidaEntrega": porc_qtde_excedida_entrega,
-                "porcPrecoExcedidoEntrega": porc_preco_excedido_entrega,
-                "porcPrecoReduzidoEntrega": porc_preco_reduzido_entrega,
+        """
+        HTTP Method: `POST`
+        
+        Implementation Notes:
+        Definição Técnica:
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        
+        
+        
+        Args:
+            codigo (str): The codigo
+            descricao (str): The descricao
+            unidade (str): The unidade
+            status (int): The status
+            prodEquipe (int): The equipe
+            tipoCusto (str): The custo
+            civilPes (int): The pes
+            categoria (str): The categoria
+            categoriaMovFin (str): The mov fin
+            CAP (str): The c a p
+            CAPEstorno (str): The c a p estorno
+            CAPTransacaoFinanceira (str): The c a p transacao financeira
+            NCM (str): The n c m
+            CEST (str): The c e s t
+            aplicacao (str): The aplicacao
+            codigoServicoFiscal (str): The servico fiscal
+            controlaFVS (int): The f v s
+            confirmado (int): The confirmado
+            porcQtdeExcedidaEntrega (str): The qtde excedida entrega
+            porcPrecoExcedidoEntrega (str): The preco excedido entrega
+            porcPrecoReduzidoEntrega (str): The preco reduzido entrega
+        
+        Parameter Structure:
+        
+            {
+                "codigo": "string",
+                "descricao": "string",
+                "unidade": "string",
+                "status": 0,
+                "prodEquipe": 0,
+                "tipoCusto": "string",
+                "civilPes": 0,
+                "categoria": "string",
+                "categoriaMovFin": "string",
+                "CAP": "string",
+                "CAPEstorno": "string",
+                "CAPTransacaoFinanceira": "string",
+                "NCM": "string",
+                "CEST": "string",
+                "aplicacao": "string",
+                "codigoServicoFiscal": "string",
+                "controlaFVS": true,
+                "confirmado": 0,
+                "porcQtdeExcedidaEntrega": "string",
+                "porcPrecoExcedidoEntrega": "string",
+                "porcPrecoReduzidoEntrega": "string"
             }
-        )
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Composicoes()
+            >>> response = api._consultar_composicoes_por_chave(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
+        """
+        path = "Composicoes/ConsultarComposicoesPorChave"
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "codigo": codigo,
+                    "descricao": descricao,
+                    "unidade": unidade,
+                    "status": status,
+                    "prodEquipe": prod_equipe,
+                    "tipoCusto": tipo_custo,
+                    "civilPes": civil_pes,
+                    "categoria": categoria,
+                    "categoriaMovFin": categoria_mov_fin,
+                    "CAP": cap,
+                    "CAPEstorno": cap_estorno,
+                    "CAPTransacaoFinanceira": cap_transacao_financeira,
+                    "NCM": ncm,
+                    "CEST": cest,
+                    "aplicacao": aplicacao,
+                    "codigoServicoFiscal": codigo_servico_fiscal,
+                    "controlaFVS": controlafvs,
+                    "confirmado": confirmado,
+                    "porcQtdeExcedidaEntrega": porc_qtde_excedida_entrega,
+                    "porcPrecoExcedidoEntrega": porc_preco_excedido_entrega,
+                    "porcPrecoReduzidoEntrega": porc_preco_reduzido_entrega,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def consultar_insumos_da_composicao(
         self,
@@ -186,33 +439,113 @@ Preencher os parâmetros de request para uso do método.
         porc_preco_excedido_entrega: Optional[str] = None,
         porc_preco_reduzido_entrega: Optional[str] = None
     ) -> dict:
-        path = "Composicoes/ConsultarInsumosDaComposicao"
-        return self.api.post(
-            path,
-            json={
-                "codigo": codigo,
-                "descricao": descricao,
-                "unidade": unidade,
-                "status": status,
-                "prodEquipe": prod_equipe,
-                "tipoCusto": tipo_custo,
-                "civilPes": civil_pes,
-                "categoria": categoria,
-                "categoriaMovFin": categoria_mov_fin,
-                "CAP": cap,
-                "CAPEstorno": cap_estorno,
-                "CAPTransacaoFinanceira": cap_transacao_financeira,
-                "NCM": ncm,
-                "CEST": cest,
-                "aplicacao": aplicacao,
-                "codigoServicoFiscal": codigo_servico_fiscal,
-                "controlaFVS": controlafvs,
-                "confirmado": confirmado,
-                "porcQtdeExcedidaEntrega": porc_qtde_excedida_entrega,
-                "porcPrecoExcedidoEntrega": porc_preco_excedido_entrega,
-                "porcPrecoReduzidoEntrega": porc_preco_reduzido_entrega,
+        """
+        HTTP Method: `POST`
+        
+        Implementation Notes:
+        Definição Técnica:
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        
+        
+        
+        Args:
+            codigo (str): The codigo
+            descricao (str): The descricao
+            unidade (str): The unidade
+            status (int): The status
+            prodEquipe (int): The equipe
+            tipoCusto (str): The custo
+            civilPes (int): The pes
+            categoria (str): The categoria
+            categoriaMovFin (str): The mov fin
+            CAP (str): The c a p
+            CAPEstorno (str): The c a p estorno
+            CAPTransacaoFinanceira (str): The c a p transacao financeira
+            NCM (str): The n c m
+            CEST (str): The c e s t
+            aplicacao (str): The aplicacao
+            codigoServicoFiscal (str): The servico fiscal
+            controlaFVS (int): The f v s
+            confirmado (int): The confirmado
+            porcQtdeExcedidaEntrega (str): The qtde excedida entrega
+            porcPrecoExcedidoEntrega (str): The preco excedido entrega
+            porcPrecoReduzidoEntrega (str): The preco reduzido entrega
+        
+        Parameter Structure:
+        
+            {
+                "codigo": "string",
+                "descricao": "string",
+                "unidade": "string",
+                "status": 0,
+                "prodEquipe": 0,
+                "tipoCusto": "string",
+                "civilPes": 0,
+                "categoria": "string",
+                "categoriaMovFin": "string",
+                "CAP": "string",
+                "CAPEstorno": "string",
+                "CAPTransacaoFinanceira": "string",
+                "NCM": "string",
+                "CEST": "string",
+                "aplicacao": "string",
+                "codigoServicoFiscal": "string",
+                "controlaFVS": true,
+                "confirmado": 0,
+                "porcQtdeExcedidaEntrega": "string",
+                "porcPrecoExcedidoEntrega": "string",
+                "porcPrecoReduzidoEntrega": "string"
             }
-        )
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Composicoes()
+            >>> response = api._consultar_insumos_da_composicao(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
+        """
+        path = "Composicoes/ConsultarInsumosDaComposicao"
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "codigo": codigo,
+                    "descricao": descricao,
+                    "unidade": unidade,
+                    "status": status,
+                    "prodEquipe": prod_equipe,
+                    "tipoCusto": tipo_custo,
+                    "civilPes": civil_pes,
+                    "categoria": categoria,
+                    "categoriaMovFin": categoria_mov_fin,
+                    "CAP": cap,
+                    "CAPEstorno": cap_estorno,
+                    "CAPTransacaoFinanceira": cap_transacao_financeira,
+                    "NCM": ncm,
+                    "CEST": cest,
+                    "aplicacao": aplicacao,
+                    "codigoServicoFiscal": codigo_servico_fiscal,
+                    "controlaFVS": controlafvs,
+                    "confirmado": confirmado,
+                    "porcQtdeExcedidaEntrega": porc_qtde_excedida_entrega,
+                    "porcPrecoExcedidoEntrega": porc_preco_excedido_entrega,
+                    "porcPrecoReduzidoEntrega": porc_preco_reduzido_entrega,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def alterar_insumo_composicoes_geral(
         self,
@@ -222,17 +555,65 @@ Preencher os parâmetros de request para uso do método.
         coeficiente: Optional[int] = None,
         preco: Optional[int] = None
     ) -> dict:
-        path = "Composicoes/AlterarInsumoComposicoesGeral"
-        return self.api.post(
-            path,
-            json={
-                "codComposicao": cod_composicao,
-                "codInsumo": cod_insumo,
-                "tipoItem": tipo_item,
-                "coeficiente": coeficiente,
-                "preco": preco,
+        """
+        HTTP Method: `POST`
+        
+        Implementation Notes:
+        Definição Técnica:
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        
+        
+        
+        Args:
+            codComposicao (str): The composicao
+            codInsumo (str): The insumo
+            tipoItem (int): The item
+            coeficiente (int): The coeficiente
+            preco (int): The preco
+        
+        Parameter Structure:
+        
+            {
+                "codComposicao": "string",
+                "codInsumo": "string",
+                "tipoItem": 0,
+                "coeficiente": 0,
+                "preco": 0
             }
-        )
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Composicoes()
+            >>> response = api._alterar_insumo_composicoes_geral(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
+        """
+        path = "Composicoes/AlterarInsumoComposicoesGeral"
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "codComposicao": cod_composicao,
+                    "codInsumo": cod_insumo,
+                    "tipoItem": tipo_item,
+                    "coeficiente": coeficiente,
+                    "preco": preco,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def inserir_insumo_composicoes_geral(
         self,
@@ -242,70 +623,182 @@ Preencher os parâmetros de request para uso do método.
         coeficiente: Optional[int] = None,
         preco: Optional[int] = None
     ) -> dict:
-        path = "Composicoes/InserirInsumoComposicoesGeral"
-        return self.api.post(
-            path,
-            json={
-                "codComposicao": cod_composicao,
-                "codInsumo": cod_insumo,
-                "tipoItem": tipo_item,
-                "coeficiente": coeficiente,
-                "preco": preco,
+        """
+        HTTP Method: `POST`
+        
+        Implementation Notes:
+        Definição Técnica:
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        
+        
+        
+        Args:
+            codComposicao (str): The composicao
+            codInsumo (str): The insumo
+            tipoItem (int): The item
+            coeficiente (int): The coeficiente
+            preco (int): The preco
+        
+        Parameter Structure:
+        
+            {
+                "codComposicao": "string",
+                "codInsumo": "string",
+                "tipoItem": 0,
+                "coeficiente": 0,
+                "preco": 0
             }
-        )
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Composicoes()
+            >>> response = api._inserir_insumo_composicoes_geral(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
+        """
+        path = "Composicoes/InserirInsumoComposicoesGeral"
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "codComposicao": cod_composicao,
+                    "codInsumo": cod_insumo,
+                    "tipoItem": tipo_item,
+                    "coeficiente": coeficiente,
+                    "preco": preco,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def consultar_composicoes_por_descricao(
         self,
         descricao: Optional[str] = None
     ) -> dict:
-        """Consultar a tabela Composicoes pela sua descrição
-
+        """
+        
+        Endpoint: `Composicoes/ConsultarComposicoesPorDescricao`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request para uso do método.
-
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        
+        
+        
+        Args:
+            descricao (str): The descricao
+        
+        Parameter Structure:
+        
+            {
+                "descricao": "string"
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Composicoes()
+            >>> response = api._consultar_composicoes_por_descricao(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Composicoes/ConsultarComposicoesPorDescricao"
-        return self.api.post(
-            path,
-            json={
-                "descricao": descricao,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "descricao": descricao,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def consultar_composicoes_com_filtro_livre(
         self,
         filtro: Optional[str] = None
     ) -> dict:
-        """Consultar registros de composições gerais utilizando um filtro livre com qualquer um dos campos desta
-
+        """
+        
+        Endpoint: `Composicoes/ConsultarComposicoesComFiltroLivre`
+        HTTP Method: `POST`
+        
         Implementation Notes:
         Definição Técnica:
-
-Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-Preencher os parâmetros de request para uso do método.
-
-Definição de negócio:
-  Permite consultar os registros de composições gerais utilizando um filtro livre com qualquer um dos campos existentes
-Exemplo de filtro a ser utilizado: 
-
-"filtro": "Cod_comp = '10.50'"
-"filtro": "Descr_comp LIKE 'TERRAPLANAGEM%'" 
-"filtro": "Cod_comp = '10.50' AND Descr_comp LIKE 'TERRAPLANAGEM%'" 
-"filtro": "Cod_comp = '10.50' OR Descr_comp LIKE 'TERRAPLANAGEM%'"
-
-
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        
+        Definição de negócio:
+          Permite consultar os registros de composições gerais utilizando um filtro livre com qualquer um dos campos existentes
+        Exemplo de filtro a ser utilizado: 
+        
+        "filtro": "Cod_comp = '10.50'"
+        "filtro": "Descr_comp LIKE 'TERRAPLANAGEM%'" 
+        "filtro": "Cod_comp = '10.50' AND Descr_comp LIKE 'TERRAPLANAGEM%'" 
+        "filtro": "Cod_comp = '10.50' OR Descr_comp LIKE 'TERRAPLANAGEM%'"
+        
+        
+        
+        Args:
+            filtro (str): The filtro
+        
+        Parameter Structure:
+        
+            {
+                "filtro": "string"
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Composicoes()
+            >>> response = api._consultar_composicoes_com_filtro_livre(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
         """
         path = "Composicoes/ConsultarComposicoesComFiltroLivre"
-        return self.api.post(
-            path,
-            json={
-                "filtro": filtro,
-            }
-        )
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "filtro": filtro,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def alterar_insumo_composicoes_geral_pesada(
         self,
@@ -318,20 +811,74 @@ Exemplo de filtro a ser utilizado:
         coef_im_prod: Optional[int] = None,
         dmt: Optional[int] = None
     ) -> dict:
-        path = "Composicoes/AlterarInsumoComposicoesGeralPesada"
-        return self.api.post(
-            path,
-            json={
-                "codComposicao": cod_composicao,
-                "codInsumo": cod_insumo,
-                "tipoItem": tipo_item,
-                "coeficiente": coeficiente,
-                "preco": preco,
-                "coefProd": coef_prod,
-                "coefImProd": coef_im_prod,
-                "dMT": dmt,
+        """
+        HTTP Method: `POST`
+        
+        Implementation Notes:
+        Definição Técnica:
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        
+        
+        
+        Args:
+            codComposicao (str): The composicao
+            codInsumo (str): The insumo
+            tipoItem (int): The item
+            coeficiente (int): The coeficiente
+            preco (int): The preco
+            coefProd (int): The prod
+            coefImProd (int): The im prod
+            dMT (int): The m t
+        
+        Parameter Structure:
+        
+            {
+                "codComposicao": "string",
+                "codInsumo": "string",
+                "tipoItem": 0,
+                "coeficiente": 0,
+                "preco": 0,
+                "coefProd": 0,
+                "coefImProd": 0,
+                "dMT": 0
             }
-        )
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Composicoes()
+            >>> response = api._alterar_insumo_composicoes_geral_pesada(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
+        """
+        path = "Composicoes/AlterarInsumoComposicoesGeralPesada"
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "codComposicao": cod_composicao,
+                    "codInsumo": cod_insumo,
+                    "tipoItem": tipo_item,
+                    "coeficiente": coeficiente,
+                    "preco": preco,
+                    "coefProd": coef_prod,
+                    "coefImProd": coef_im_prod,
+                    "dMT": dmt,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
     def inserir_insumo_composicoes_geral_pesada(
         self,
@@ -344,18 +891,72 @@ Exemplo de filtro a ser utilizado:
         coef_im_prod: Optional[int] = None,
         dmt: Optional[int] = None
     ) -> dict:
-        path = "Composicoes/InserirInsumoComposicoesGeralPesada"
-        return self.api.post(
-            path,
-            json={
-                "codComposicao": cod_composicao,
-                "codInsumo": cod_insumo,
-                "tipoItem": tipo_item,
-                "coeficiente": coeficiente,
-                "preco": preco,
-                "coefProd": coef_prod,
-                "coefImProd": coef_im_prod,
-                "dMT": dmt,
+        """
+        HTTP Method: `POST`
+        
+        Implementation Notes:
+        Definição Técnica:
+        
+        Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
+        Preencher os parâmetros de request para uso do método.
+        
+        
+        
+        Args:
+            codComposicao (str): The composicao
+            codInsumo (str): The insumo
+            tipoItem (int): The item
+            coeficiente (int): The coeficiente
+            preco (int): The preco
+            coefProd (int): The prod
+            coefImProd (int): The im prod
+            dMT (int): The m t
+        
+        Parameter Structure:
+        
+            {
+                "codComposicao": "string",
+                "codInsumo": "string",
+                "tipoItem": 0,
+                "coeficiente": 0,
+                "preco": 0,
+                "coefProd": 0,
+                "coefImProd": 0,
+                "dMT": 0
             }
-        )
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Composicoes()
+            >>> response = api._inserir_insumo_composicoes_geral_pesada(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
+        """
+        path = "Composicoes/InserirInsumoComposicoesGeralPesada"
+        try:
+            response = self.api.post(
+                path,
+                json={
+                    "codComposicao": cod_composicao,
+                    "codInsumo": cod_insumo,
+                    "tipoItem": tipo_item,
+                    "coeficiente": coeficiente,
+                    "preco": preco,
+                    "coefProd": coef_prod,
+                    "coefImProd": coef_im_prod,
+                    "dMT": dmt,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
+            return None
 
