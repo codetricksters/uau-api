@@ -1,27 +1,4 @@
-from pydantic import BaseModel, SecretStr
-
-
 from pydantic_settings import BaseSettings, SettingsConfigDict
-
-
-class UserSettings(BaseModel):
-    Login: str
-    Senha: str
-    UsuarioUAUSite: str
-
-
-class User(BaseModel):
-    name: str
-    config: UserSettings
-
-class DatabaseUrl(BaseModel):
-    drivername: str
-    username: str
-    password: str
-    host: str
-    port: int
-    database: str
-
 
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(
@@ -30,5 +7,5 @@ class Settings(BaseSettings):
 
     API_URL: str
     API_KEY: str
-    USERS: list[User]
-    DATABASE_URL: DatabaseUrl
+    USERNAME: str
+    PASSWORD: str

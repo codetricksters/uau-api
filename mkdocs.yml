@@ -1,0 +1,22 @@
+site_name: UAU API
+repo_url: https://github.com/codetricksters/uau-api.git
+repo_name: codetricksters/uau-api
+edit_uri: tree/main/docs
+
+theme:
+  name: material
+  language: pt-BR
+  logo: assets/logo.png
+  favicon: assets/favicon.png
+
+markdown_extensions:
+ - attr_list
+
+extra_css:
+  - css/main.css
+
+plugins:
+- mkdocstrings:
+    handlers:
+      python:
+        paths: [uau_api]

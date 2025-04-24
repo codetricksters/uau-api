@@ -5,7 +5,7 @@ from sqlalchemy.engine import URL
 from uau_api.models import Base
 from uau_api.settings import Settings
 
-url = URL.create(**Settings().DATABASE_URL.model_dump())
+url = URL.create(**Settings().DATABASE_URL)
 
 engine = create_engine(url)
 
