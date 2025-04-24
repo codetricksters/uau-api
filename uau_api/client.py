@@ -135,7 +135,7 @@ class UauAPI(RequestsApi):
         """
         auth_response = self.post(
             "Autenticador/AutenticarUsuario",
-            json={"Login": username, "Senha": password}
+            json={"Login": username, "Senha": password, 'UsuarioUAUSite': username}
         )
         
         if auth_response.status_code == 401:

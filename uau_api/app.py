@@ -1,18 +1,20 @@
-import pandas as pd
-import numpy as np
-from uau_api.models import Process, User
-from uau_api.schemas import ProcessSchema, UserSchema
-from uau_api.database import get_session
+from rich.console import Console
+from rich.table import Table
+from typer import Argument, run
 from uau_api.settings import Settings
 from uau_api import UauAPI
-from datetime import timedelta
-from dateutil.relativedelta import relativedelta
-from sqlalchemy import text, select
-
-import locale
-import logging
+import functools
 
 
 uau = UauAPI(Settings().API_URL, Settings().API_KEY)
+uau.authenticate("leonardo", "hybr01")
 
-uau.authenticate(Settings().API_URL, Settings().API_KEY)
+
+def consulta_api(class_name: str, function_name: str):
+    result = functools.reduce(
+        getattr, [class_name, function_name], uau
+    )()
+    
+    return result
+
+run(consulta_api)
