@@ -1,3 +1,4 @@
 {
-    "taipyStudio.config.mainPythonFile": "git-filter-repo.py"
+    "taipyStudio.config.mainPythonFile": "git-filter-repo.py",
+    "taipyStudio.gUI.elementsFilePaths": []
 }
