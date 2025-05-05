@@ -1,4 +1,10 @@
 {
     "taipyStudio.config.mainPythonFile": "git-filter-repo.py",
-    "taipyStudio.gUI.elementsFilePaths": []
+    "taipyStudio.gUI.elementsFilePaths": [],
+    "github.copilot.enable": {
+        "*": false,
+        "plaintext": false,
+        "markdown": false,
+        "scminput": false
+    }
 }

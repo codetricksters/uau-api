@@ -9,3 +9,4 @@ class Settings(BaseSettings):
     API_KEY: str
     USERNAME: str
     PASSWORD: str
+    WORKDIR:str
