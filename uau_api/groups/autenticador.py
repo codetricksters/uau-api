@@ -66,9 +66,8 @@ class Autenticador:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def autenticar_usuario(
         self,
@@ -147,9 +146,8 @@ class Autenticador:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def autenticar_usuario_app(
         self,
@@ -203,9 +201,8 @@ class Autenticador:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def verifica_usuario_logado(
         self,
@@ -257,9 +254,8 @@ class Autenticador:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def consultar_dados_usr_logado(
         self,
@@ -369,9 +365,8 @@ class Autenticador:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def autentificar_usuario_titanium(
         self,
@@ -419,9 +414,8 @@ class Autenticador:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def autenticar_usuario_corporativo(
         self,
@@ -504,7 +498,6 @@ class Autenticador:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 

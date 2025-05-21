@@ -140,9 +140,8 @@ class Composicoes:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def atualizar_composicoes(
         self,
@@ -217,9 +216,8 @@ class Composicoes:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def consultar_todas_composicoes(
         self,
@@ -279,9 +277,8 @@ class Composicoes:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def consultar_composicoes_por_chave(
         self,
@@ -411,9 +408,8 @@ class Composicoes:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def consultar_insumos_da_composicao(
         self,
@@ -543,9 +539,8 @@ class Composicoes:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def alterar_insumo_composicoes_geral(
         self,
@@ -611,9 +606,8 @@ class Composicoes:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def inserir_insumo_composicoes_geral(
         self,
@@ -679,9 +673,8 @@ class Composicoes:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def consultar_composicoes_por_descricao(
         self,
@@ -733,9 +726,8 @@ class Composicoes:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def consultar_composicoes_com_filtro_livre(
         self,
@@ -796,9 +788,8 @@ class Composicoes:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def alterar_insumo_composicoes_geral_pesada(
         self,
@@ -876,9 +867,8 @@ class Composicoes:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def inserir_insumo_composicoes_geral_pesada(
         self,
@@ -956,7 +946,6 @@ class Composicoes:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 

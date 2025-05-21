@@ -38,7 +38,6 @@ mkdocstrings-python = "^1.16.10"
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
-
 [tool.pytest.ini_options]
 pythonpath = "."
 addopts = "--doctest-modules"
@@ -53,3 +52,6 @@ docs = "mkdocs serve"
 pre_test = "task lint"
 test = "pytest -s -x --cov=uau_api -vv"
 post_test = "coverage html"
+
+[tool.ruff.format]
+quote-style = "single"

@@ -94,9 +94,8 @@ class Atendimento:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def gravar_atendimento(
         self,
@@ -177,9 +176,8 @@ class Atendimento:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def consultar_pendencia(
         self,
@@ -239,9 +237,8 @@ class Atendimento:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def consultar_atendimento(
         self,
@@ -293,9 +290,8 @@ class Atendimento:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def consultar_categ_de_coment_ativas(
         self,
@@ -355,9 +351,8 @@ class Atendimento:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def consultar_pendencia_observacao(
         self,
@@ -417,9 +412,8 @@ class Atendimento:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def vincular_arquivo_ao_atendimento(
         self,
@@ -483,9 +477,8 @@ class Atendimento:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def consultar_atendimento_por_pessoa(
         self,
@@ -537,9 +530,8 @@ class Atendimento:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def consultar_empreendimentos_cliente(
         self,
@@ -591,9 +583,8 @@ class Atendimento:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def consultar_categoria_atendimento_web(
         self,
@@ -645,9 +636,8 @@ class Atendimento:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def consultar_numero_work_flow_vinculado(
         self,
@@ -707,9 +697,8 @@ class Atendimento:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def consultar_pendencias_por_numero_vinculo(
         self,
@@ -761,9 +750,8 @@ class Atendimento:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def gerar_atendimento_por_chat_online_cliente(
         self,
@@ -825,9 +813,8 @@ class Atendimento:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def consultar_atendimento_detalhado_por_chave(
         self,
@@ -879,9 +866,8 @@ class Atendimento:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def consultar_configuracao_atendimento_uauweb(
         self,
@@ -941,9 +927,8 @@ class Atendimento:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def consultar_atendimento_por_categorias_uau_web(
         self,
@@ -995,9 +980,8 @@ class Atendimento:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def consultar_atendimento_por_pessoa_comentario(
         self,
@@ -1063,9 +1047,8 @@ class Atendimento:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def consultar_unidades_do_empreendimento_cliente(
         self,
@@ -1125,9 +1108,8 @@ class Atendimento:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def consultar_data_prevista_de_termino_atendimento(
         self,
@@ -1183,9 +1165,8 @@ class Atendimento:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def consultar_numero_vinculo_categoria_de_comentario_com_work_flow(
         self,
@@ -1237,7 +1218,6 @@ class Atendimento:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 

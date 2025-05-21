@@ -86,9 +86,8 @@ class Planejamento:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def consultar_item_planejamento(
         self,
@@ -156,9 +155,8 @@ class Planejamento:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def consultar_saldo_siplanejada(
         self,
@@ -239,9 +237,8 @@ class Planejamento:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def inserir_servico_planejamento(
         self,
@@ -321,9 +318,8 @@ class Planejamento:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def exportar_planejamento_produto(
         self,
@@ -387,9 +383,8 @@ class Planejamento:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def atualizar_insumos_planejamento(
         self,
@@ -459,9 +454,8 @@ class Planejamento:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def atualizar_servico_planejamento(
         self,
@@ -549,9 +543,8 @@ class Planejamento:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def consultar_servico_planejamento(
         self,
@@ -623,9 +616,8 @@ class Planejamento:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def consultar_solicitacao_insumo_pl(
         self,
@@ -677,9 +669,8 @@ class Planejamento:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def inserir_estrutura_planejamento(
         self,
@@ -771,9 +762,8 @@ class Planejamento:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def consultar_solicitacao_servico_pl(
         self,
@@ -825,9 +815,8 @@ class Planejamento:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def inserir_servico_planejamento_mes(
         self,
@@ -911,9 +900,8 @@ class Planejamento:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def aprovar_solicitacao_planejamento(
         self,
@@ -985,9 +973,8 @@ class Planejamento:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def atualizar_estrutura_planejamento(
         self,
@@ -1071,9 +1058,8 @@ class Planejamento:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def consultar_estrutura_planejamento(
         self,
@@ -1149,9 +1135,8 @@ class Planejamento:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def atualizar_servico_planejamento_mes(
         self,
@@ -1235,9 +1220,8 @@ class Planejamento:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def consultar_desembolso_planejamento(
         self,
@@ -1309,9 +1293,8 @@ class Planejamento:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def consultar_servico_planejamento_mes(
         self,
@@ -1387,9 +1370,8 @@ class Planejamento:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def consultar_servico_planejamento_por_obra(
         self,
@@ -1445,9 +1427,8 @@ class Planejamento:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def inserir_servico_planejamento_integrado(
         self,
@@ -1531,9 +1512,8 @@ class Planejamento:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def recusar_solicitacao_planejamento_geral(
         self,
@@ -1609,9 +1589,8 @@ class Planejamento:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def aprovar_solicitacao_planejamento_em_lote(
         self,
@@ -1687,9 +1666,8 @@ class Planejamento:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def atualizar_servico_planejamento_integrado(
         self,
@@ -1757,9 +1735,8 @@ class Planejamento:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def consultar_servico_planejado_desintegrado(
         self,
@@ -1815,9 +1792,8 @@ class Planejamento:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def consultar_servico_planejamento_integrado(
         self,
@@ -1869,9 +1845,8 @@ class Planejamento:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def consultar_aprovacao_pl_pendente_por_usuario(
         self,
@@ -1943,9 +1918,8 @@ class Planejamento:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def recusar_solicitacao_planejamento_geral_em_lote(
         self,
@@ -2021,9 +1995,8 @@ class Planejamento:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def aprovar_solicitacao_planejamento_insumos_em_lote(
         self,
@@ -2099,9 +2072,8 @@ class Planejamento:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def aprovar_solicitacao_planejamento_servicos_em_lote(
         self,
@@ -2207,9 +2179,8 @@ class Planejamento:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def consultar_quantidade_aprovacao_pl_pendente_por_usuario(
         self,
@@ -2281,7 +2252,6 @@ class Planejamento:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 

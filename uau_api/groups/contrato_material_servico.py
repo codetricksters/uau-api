@@ -70,9 +70,8 @@ class ContratoMaterialServico:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def consultar_contrato_por_chave(
         self,
@@ -134,9 +133,8 @@ class ContratoMaterialServico:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def consultar_contrato_por_fornecedor(
         self,
@@ -193,9 +191,8 @@ class ContratoMaterialServico:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def consultar_contrato_por_servico_material(
         self,
@@ -260,9 +257,8 @@ class ContratoMaterialServico:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def consultar_itens_vinculo_orcamento_servico(
         self,
@@ -341,9 +337,8 @@ class ContratoMaterialServico:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def consultar_saldo_reajustado_por_item_contrato(
         self,
@@ -428,9 +423,8 @@ class ContratoMaterialServico:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def consultar_itens_vinculo_planejamento_servico(
         self,
@@ -494,9 +488,8 @@ class ContratoMaterialServico:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def consultar_contratos_itens_vinculado_orcamento(
         self,
@@ -567,7 +560,6 @@ class ContratoMaterialServico:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 

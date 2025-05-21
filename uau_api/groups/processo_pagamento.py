@@ -3,6 +3,8 @@ from datetime import datetime
 from ..requestsapi import RequestsApi
 
 import requests
+
+
 class ProcessoPagamento:
     def __init__(self, api: RequestsApi):
         """Initialize with API client
@@ -28,27 +30,27 @@ class ProcessoPagamento:
         numero_contrato: Optional[Any] = None,
         parametro: Optional[Dict] = None,
         parcelas: Optional[List[Dict]] = None,
-        itens: Optional[List[Dict]] = None
+        itens: Optional[List[Dict]] = None,
     ) -> dict:
         """
-        
+
         Endpoint: `ProcessoPagamento/GerarProcesso`
         HTTP Method: `POST`
-        
+
         Implementation Notes:
         Definição Técnica:
         Dados básicos para o funcionamento da API.
-        
+
         Autenticar o usuário cliente: URI + /api/v{version}/Autenticador/AutenticarUsuario
         Preencher os parâmetros de request para uso do método.
-        
+
         Definição de Negócio:
         Gera um processo de pagamento.
-        
+
         É obrigatório informar os dados básicos do processo de pagamento.
         O usuário autenticado precisa ter acesso à empresa e obra que está fazendo a requisição.
         O usuário autenticado precisa ter acesso aos programas de permissão necessários para fazer a inserção.
-        
+
         Args:
             Empresa (Any): The empresa
             Obra (str): The obra
@@ -65,9 +67,9 @@ class ProcessoPagamento:
             Parametro (Dict[str, Any]): The parametro
             Parcelas (List[Dict[str, Any]]): The parcelas
             Itens (List[Dict[str, Any]]): The itens
-        
+
         Parameter Structure:
-        
+
             {
                 "Empresa": "int",
                 "Obra": "string",
@@ -134,14 +136,14 @@ class ProcessoPagamento:
                     }
                 ]
             }
-        
+
         Returns:
             dict: The API response
-        
+
         Raises:
             requests.HTTPError: If the API request fails
             ValueError: If required parameters are missing or invalid
-        
+
         Examples:
             >>> api = ProcessoPagamento()
             >>> response = api._gerar_processo(
@@ -149,53 +151,52 @@ class ProcessoPagamento:
             ...     parameter2='value2'
             ... )
         """
-        path = "ProcessoPagamento/GerarProcesso"
+        path = 'ProcessoPagamento/GerarProcesso'
         try:
             response = self.api.post(
                 path,
                 json={
-                    "Empresa": empresa,
-                    "Obra": obra,
-                    "CodigoFornecedor": codigo_fornecedor,
-                    "TipoProcesso": tipo_processo,
-                    "ControlarEstoque": controlar_estoque,
-                    "AcompanhaEntrega": acompanha_entrega,
-                    "DataPrevisaoEntrega": data_previsao_entrega,
-                    "TipoItem": tipo_item,
-                    "HistoricoLancContabil": historico_lanc_contabil,
-                    "HistoricoLancContabilPago": historico_lanc_contabil_pago,
-                    "CategoriaMovimentacaoFinanceira": categoria_movimentacao_financeira,
-                    "NumeroContrato": numero_contrato,
-                    "Parametro": parametro,
-                    "Parcelas": parcelas,
-                    "Itens": itens,
-                }
+                    'Empresa': empresa,
+                    'Obra': obra,
+                    'CodigoFornecedor': codigo_fornecedor,
+                    'TipoProcesso': tipo_processo,
+                    'ControlarEstoque': controlar_estoque,
+                    'AcompanhaEntrega': acompanha_entrega,
+                    'DataPrevisaoEntrega': data_previsao_entrega,
+                    'TipoItem': tipo_item,
+                    'HistoricoLancContabil': historico_lanc_contabil,
+                    'HistoricoLancContabilPago': historico_lanc_contabil_pago,
+                    'CategoriaMovimentacaoFinanceira': categoria_movimentacao_financeira,
+                    'NumeroContrato': numero_contrato,
+                    'Parametro': parametro,
+                    'Parcelas': parcelas,
+                    'Itens': itens,
+                },
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def consultar_processos(
         self,
         processos: Optional[List[Dict]] = None,
-        empresa_obra_periodo: Optional[Dict] = None
+        empresa_obra_periodo: Optional[Dict] = None,
     ) -> dict:
         """
-        
+
         Endpoint: `ProcessoPagamento/ConsultarProcessos`
         HTTP Method: `POST`
-        
+
         Implementation Notes:
         Permite consultar processos por diversos filtros.
-        
+
         Args:
             Processos (List[Dict[str, Any]]): The processos
             EmpresaObraPeriodo (Dict[str, Any]): The empresa obra periodo
-        
+
         Parameter Structure:
-        
+
             {
                 "Processos": [
                     {
@@ -215,14 +216,14 @@ class ProcessoPagamento:
                     "PeriodoFinal": "2025-04-23T14:40:27.862Z"
                 }
             }
-        
+
         Returns:
             dict: The API response
-        
+
         Raises:
             requests.HTTPError: If the API request fails
             ValueError: If required parameters are missing or invalid
-        
+
         Examples:
             >>> api = ProcessoPagamento()
             >>> response = api._consultar_processos(
@@ -230,20 +231,19 @@ class ProcessoPagamento:
             ...     parameter2='value2'
             ... )
         """
-        path = "ProcessoPagamento/ConsultarProcessos"
+        path = 'ProcessoPagamento/ConsultarProcessos'
         try:
             response = self.api.post(
                 path,
                 json={
-                    "Processos": processos,
-                    "EmpresaObraPeriodo": empresa_obra_periodo,
-                }
+                    'Processos': processos,
+                    'EmpresaObraPeriodo': empresa_obra_periodo,
+                },
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def aprovar_dvq(
         self,
@@ -251,30 +251,30 @@ class ProcessoPagamento:
         aprovar: Optional[bool] = None,
         usuario: Optional[str] = None,
         sobrepor_aprovacoes_de_outros_usuarios: Optional[bool] = None,
-        parcelas: Optional[List[Dict]] = None
+        parcelas: Optional[List[Dict]] = None,
     ) -> dict:
         """
-        
+
         Endpoint: `ProcessoPagamento/AprovarDVQ`
         HTTP Method: `POST`
-        
+
         Implementation Notes:
         Definição Técnica:
-        
+
         Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-        
+
         Definição de Negócio:
           Permite a aprovação DVQ de parcelas específicas.
-        
+
         No request [dvq] deve ser informado qual a letra que será aprovada ou não.
         Os seguintes parâmetros obrigatórios para aprovação da letra "D":  Confirmação de data
         usrConfirmou
         codigoEmpresa
         codigoObra
         numeroProcesso
-        numeroParcela 
-        
-        
+        numeroParcela
+
+
         Os seguintes parâmetros obrigatórios para aprovação da letra "V" : Confirmação do valor
         usrConfirmou
         codigo_empresa
@@ -283,9 +283,9 @@ class ProcessoPagamento:
         codigo_departamento
         numero_parcela
         status_processo
-        valor_parcela      
-        
-        
+        valor_parcela
+
+
         Os seguintes parâmetros obrigatórios para aprovação da letra "Q" : Confirmação da quantidade
         usrConfirmou
         codigo_empresa
@@ -294,31 +294,31 @@ class ProcessoPagamento:
         numero_parcela
         status_processo
         tipo_Docprocesso
-        adiantamento_parcela       
-        
-        
-        
-        
+        adiantamento_parcela
+
+
+
+
         Será validado as permissões do usuário informado. Verifique as permissões caso esteja sendo retornado erro na requisição;
         FID : Permissão para aprovar "D"
         FIV : Permissão para aprovar "V"
         FIQ : Permissão para aprovar "Q"
-        
-        
-        O usuário autenticado precisa ter acesso a empresa e a obra da qual está fazendo a requisição.   
+
+
+        O usuário autenticado precisa ter acesso a empresa e a obra da qual está fazendo a requisição.
         Será apenas validado a aprovação DVQ das parcelas informadas. Recomendado utilizar a API [RetornarParcelasDVQ] para retornar as informações das parcelas.
-        
-        
-        
+
+
+
         Args:
             dvq (str): The dvq
             aprovar (int): The aprovar
             usuario (str): The usuario
             sobreporAprovacoesDeOutrosUsuarios (int): The aprovacoes de outros usuarios
             parcelas (List[Dict[str, Any]]): The parcelas
-        
+
         Parameter Structure:
-        
+
             {
                 "dvq": "string",
                 "aprovar": true,
@@ -344,14 +344,14 @@ class ProcessoPagamento:
                     }
                 ]
             }
-        
+
         Returns:
             dict: The API response
-        
+
         Raises:
             requests.HTTPError: If the API request fails
             ValueError: If required parameters are missing or invalid
-        
+
         Examples:
             >>> api = ProcessoPagamento()
             >>> response = api._aprovardvq(
@@ -359,23 +359,22 @@ class ProcessoPagamento:
             ...     parameter2='value2'
             ... )
         """
-        path = "ProcessoPagamento/AprovarDVQ"
+        path = 'ProcessoPagamento/AprovarDVQ'
         try:
             response = self.api.post(
                 path,
                 json={
-                    "dvq": dvq,
-                    "aprovar": aprovar,
-                    "usuario": usuario,
-                    "sobreporAprovacoesDeOutrosUsuarios": sobrepor_aprovacoes_de_outros_usuarios,
-                    "parcelas": parcelas,
-                }
+                    'dvq': dvq,
+                    'aprovar': aprovar,
+                    'usuario': usuario,
+                    'sobreporAprovacoesDeOutrosUsuarios': sobrepor_aprovacoes_de_outros_usuarios,
+                    'parcelas': parcelas,
+                },
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def gerar_processo(
         self,
@@ -396,24 +395,24 @@ class ProcessoPagamento:
         itens: Optional[List[Dict]] = None,
         desconto_vinculado: Optional[List[Dict]] = None,
         solicitacao_caixa_obra: Optional[Dict] = None,
-        permite_boleto_vencido: Optional[bool] = None
+        permite_boleto_vencido: Optional[bool] = None,
     ) -> dict:
         """
-        
+
         Endpoint: `ProcessoPagamento/GerarProcesso`
         HTTP Method: `POST`
-        
+
         Implementation Notes:
         Definição Técnica:
         Dados básicos para o funcionamento da API.
-        
+
         Autenticar o usuário cliente: URI + /api/v{version}/Autenticador/AutenticarUsuario
         Preencher os parâmetros de request para uso do método.
         Documentação API - Gerar Processo (Clique Aqui)
-        
+
         Definição de Negócio:
         Gera um processo de pagamento.
-        
+
         É obrigatório informar os dados básicos do processo de pagamento.
         O usuário autenticado precisa ter acesso à empresa e obra que está fazendo a requisição.
         O usuário autenticado precisa ter acesso aos programas de permissão necessários para fazer a inserção.
@@ -427,9 +426,9 @@ class ProcessoPagamento:
         Categoria de movimentação financeira na propriedade de Item:
           Deve adicionar a propriedade CategoriaMovimentacaoFinanceira na propriedade de Item, para armazenar o código da categoria de movimentação financeira.Não é obrigatório informar o parâmetro CategoriaMovimentacaoFinanceira.
         Caso não seja informado o tipo de pagamento TipoPagamento ou tipo de emissão TipoEmissao, será considerada a configuração padrão do processo de pagamento.
-        
-        
-        
+
+
+
         Args:
             Empresa (int): The empresa
             Obra (str): The obra
@@ -449,9 +448,9 @@ class ProcessoPagamento:
             DescontoVinculado (List[Dict[str, Any]]): The desconto vinculado
             SolicitacaoCaixaObra (Dict[str, Any]): The solicitacao caixa obra
             PermiteBoletoVencido (int): The permite boleto vencido
-        
+
         Parameter Structure:
-        
+
             {
                 "Empresa": 0,
                 "Obra": "string",
@@ -557,14 +556,14 @@ class ProcessoPagamento:
                 },
                 "PermiteBoletoVencido": true
             }
-        
+
         Returns:
             dict: The API response
-        
+
         Raises:
             requests.HTTPError: If the API request fails
             ValueError: If required parameters are missing or invalid
-        
+
         Examples:
             >>> api = ProcessoPagamento()
             >>> response = api._gerar_processo(
@@ -572,36 +571,35 @@ class ProcessoPagamento:
             ...     parameter2='value2'
             ... )
         """
-        path = "ProcessoPagamento/GerarProcesso"
+        path = 'ProcessoPagamento/GerarProcesso'
         try:
             response = self.api.post(
                 path,
                 json={
-                    "Empresa": empresa,
-                    "Obra": obra,
-                    "CodigoFornecedor": codigo_fornecedor,
-                    "TipoProcesso": tipo_processo,
-                    "ControlarEstoque": controlar_estoque,
-                    "AcompanhaEntrega": acompanha_entrega,
-                    "DataPrevisaoEntrega": data_previsao_entrega,
-                    "TipoItem": tipo_item,
-                    "HistoricoLancContabil": historico_lanc_contabil,
-                    "HistoricoLancContabilPago": historico_lanc_contabil_pago,
-                    "CategoriaMovimentacaoFinanceira": categoria_movimentacao_financeira,
-                    "NumeroContrato": numero_contrato,
-                    "Parametro": parametro,
-                    "Parcelas": parcelas,
-                    "Itens": itens,
-                    "DescontoVinculado": desconto_vinculado,
-                    "SolicitacaoCaixaObra": solicitacao_caixa_obra,
-                    "PermiteBoletoVencido": permite_boleto_vencido,
-                }
+                    'Empresa': empresa,
+                    'Obra': obra,
+                    'CodigoFornecedor': codigo_fornecedor,
+                    'TipoProcesso': tipo_processo,
+                    'ControlarEstoque': controlar_estoque,
+                    'AcompanhaEntrega': acompanha_entrega,
+                    'DataPrevisaoEntrega': data_previsao_entrega,
+                    'TipoItem': tipo_item,
+                    'HistoricoLancContabil': historico_lanc_contabil,
+                    'HistoricoLancContabilPago': historico_lanc_contabil_pago,
+                    'CategoriaMovimentacaoFinanceira': categoria_movimentacao_financeira,
+                    'NumeroContrato': numero_contrato,
+                    'Parametro': parametro,
+                    'Parcelas': parcelas,
+                    'Itens': itens,
+                    'DescontoVinculado': desconto_vinculado,
+                    'SolicitacaoCaixaObra': solicitacao_caixa_obra,
+                    'PermiteBoletoVencido': permite_boleto_vencido,
+                },
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def gerar_nota_fiscal(
         self,
@@ -626,30 +624,30 @@ class ProcessoPagamento:
         caminho_destino_arquivo: Optional[str] = None,
         nome_arquivo: Optional[str] = None,
         copiar_arquivo: Optional[bool] = None,
-        vinculara_descontos: Optional[bool] = None
+        vinculara_descontos: Optional[bool] = None,
     ) -> dict:
         """
-        
+
         Endpoint: `ProcessoPagamento/GerarNotaFiscal`
         HTTP Method: `POST`
-        
+
         Implementation Notes:
         Definição Técnica:
-        
+
         Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
         Preencher os parâmetros de request para uso do método.
-        
+
         Definição de Negócio:
           Gerar nota fiscal de entrada de acordo com os dados do processo
-        
+
         É obrigatório informar os dados básicos da nota fiscal.
         O usuário autenticado precisa ter acesso a empresa e obra que está fazendo a requisição;
         O usuário autenticado precisa ter acesso aos programas de permissão necessários para fazer a inserção;
         Serão utilizadas as informações fiscais de tributo cadastradas no produto ou na empresa.
         Especies disponíveis para geração do documento fiscal (NF - Nota fiscal, CT - Conhecimento de transporte, RE - Recibo, OU - Outros, CF - Cupom fiscal)
-        
-        
-        
+
+
+
         Args:
             Empresa (int): The empresa
             Obra (str): The obra
@@ -673,9 +671,9 @@ class ProcessoPagamento:
             NomeArquivo (str): The nome arquivo
             CopiarArquivo (int): The copiar arquivo
             VincularADescontos (int): The vincular a descontos
-        
+
         Parameter Structure:
-        
+
             {
                 "Empresa": 0,
                 "Obra": "string",
@@ -700,14 +698,14 @@ class ProcessoPagamento:
                 "CopiarArquivo": true,
                 "VincularADescontos": true
             }
-        
+
         Returns:
             dict: The API response
-        
+
         Raises:
             requests.HTTPError: If the API request fails
             ValueError: If required parameters are missing or invalid
-        
+
         Examples:
             >>> api = ProcessoPagamento()
             >>> response = api._gerar_nota_fiscal(
@@ -715,68 +713,65 @@ class ProcessoPagamento:
             ...     parameter2='value2'
             ... )
         """
-        path = "ProcessoPagamento/GerarNotaFiscal"
+        path = 'ProcessoPagamento/GerarNotaFiscal'
         try:
             response = self.api.post(
                 path,
                 json={
-                    "Empresa": empresa,
-                    "Obra": obra,
-                    "NumeroProcesso": numero_processo,
-                    "Parcela": parcela,
-                    "TipoNF": tiponf,
-                    "Especie": especie,
-                    "Serie": serie,
-                    "NFEletronica": nf_eletronica,
-                    "ChaveNfe": chave_nfe,
-                    "NumeroNotaFiscal": numero_nota_fiscal,
-                    "CodigoRemetente": codigo_remetente,
-                    "DataEmissao": data_emissao,
-                    "DataDeEmissaoMaiorQueCadastro": data_de_emissao_maior_que_cadastro,
-                    "DataEntrada": data_entrada,
-                    "DataDeEntradaMaiorQueCadastro": data_de_entrada_maior_que_cadastro,
-                    "ModeloNF": modelonf,
-                    "ArqNotaFiscal": arq_nota_fiscal,
-                    "CaminhoOrigemArquivoLocal": caminho_origem_arquivo_local,
-                    "CaminhoDestinoArquivo": caminho_destino_arquivo,
-                    "NomeArquivo": nome_arquivo,
-                    "CopiarArquivo": copiar_arquivo,
-                    "VincularADescontos": vinculara_descontos,
-                }
+                    'Empresa': empresa,
+                    'Obra': obra,
+                    'NumeroProcesso': numero_processo,
+                    'Parcela': parcela,
+                    'TipoNF': tiponf,
+                    'Especie': especie,
+                    'Serie': serie,
+                    'NFEletronica': nf_eletronica,
+                    'ChaveNfe': chave_nfe,
+                    'NumeroNotaFiscal': numero_nota_fiscal,
+                    'CodigoRemetente': codigo_remetente,
+                    'DataEmissao': data_emissao,
+                    'DataDeEmissaoMaiorQueCadastro': data_de_emissao_maior_que_cadastro,
+                    'DataEntrada': data_entrada,
+                    'DataDeEntradaMaiorQueCadastro': data_de_entrada_maior_que_cadastro,
+                    'ModeloNF': modelonf,
+                    'ArqNotaFiscal': arq_nota_fiscal,
+                    'CaminhoOrigemArquivoLocal': caminho_origem_arquivo_local,
+                    'CaminhoDestinoArquivo': caminho_destino_arquivo,
+                    'NomeArquivo': nome_arquivo,
+                    'CopiarArquivo': copiar_arquivo,
+                    'VincularADescontos': vinculara_descontos,
+                },
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
 
-    def aprovar_processos(
-        self,
-        processos: Optional[List[Dict]] = None
-    ) -> dict:
+        except requests.exceptions.RequestException:
+            return response.text
+
+    def aprovar_processos(self, processos: Optional[List[Dict]] = None) -> dict:
         """
-        
+
         Endpoint: `ProcessoPagamento/AprovarProcessos`
         HTTP Method: `POST`
-        
+
         Implementation Notes:
         Definição Técnica:
-        
+
         Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-        
+
         Definição de Negócio:
-        
+
         O Usuário informado precisa ter a permissão [FICHEQUE] para aprovar as parcelas do processo.
         A(s) parcela(s) precisam estar no "Emissão de Pagamentos" para serem aprovadas.
         Todos os parâmetros são obrigatórios.
-        
-        
-        
+
+
+
         Args:
             processos (List[Dict[str, Any]]): The processos
-        
+
         Parameter Structure:
-        
+
             {
                 "processos": [
                     {
@@ -794,14 +789,14 @@ class ProcessoPagamento:
                     }
                 ]
             }
-        
+
         Returns:
             dict: The API response
-        
+
         Raises:
             requests.HTTPError: If the API request fails
             ValueError: If required parameters are missing or invalid
-        
+
         Examples:
             >>> api = ProcessoPagamento()
             >>> response = api._aprovar_processos(
@@ -809,57 +804,56 @@ class ProcessoPagamento:
             ...     parameter2='value2'
             ... )
         """
-        path = "ProcessoPagamento/AprovarProcessos"
+        path = 'ProcessoPagamento/AprovarProcessos'
         try:
             response = self.api.post(
                 path,
                 json={
-                    "processos": processos,
-                }
+                    'processos': processos,
+                },
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def consultar_processos(
         self,
         processos: Optional[List[Dict]] = None,
         empresa_obra_periodo: Optional[Dict] = None,
-        fornecedor_periodo: Optional[Dict] = None
+        fornecedor_periodo: Optional[Dict] = None,
     ) -> dict:
         """
-        
+
         Endpoint: `ProcessoPagamento/ConsultarProcessos`
         HTTP Method: `POST`
-        
+
         Implementation Notes:
         Definição Técnica:
-        
+
         Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-        
+
         Definição de Negócio:
           Permite que você consulte o(s) processo(s) de pagamento por um número e/ou período específico.
-        
+
         Você pode consultar informando uma lista dos números dos processos de pagamento, código da empresa e código da obra cadastrados no UAU.
         Você pode consultar processos de pagamento informado uma lista de código da empresa e código da obra cadastrado no UAU por um determinado período.
         Você pode consultar processos de pagamento informado uma lista de fornecedores cadastrado no UAU por um determinado período.
-        O usuário autenticado precisa ter acesso as empresas e obras das quais ele está fazendo a requisição.   
-        Caso consulte vários processos ou informe um longo período, sugerimos que consulte o serviço de maneira assíncrona. 
+        O usuário autenticado precisa ter acesso as empresas e obras das quais ele está fazendo a requisição.
+        Caso consulte vários processos ou informe um longo período, sugerimos que consulte o serviço de maneira assíncrona.
         NovoBeneficiario: O campo Parametro/NovoBeneficiario sempre retornará o valor null. A informação é retornada no campo Parcelas/NovoBeneficiario.
         Caso passe uma mistura de todos os filtros, o filtro de data que será utilizado será o do busca por cnpj a frente do busca por empresas e obras.
           7.1 Caso queria buscar por períodos diferentes recomendamos utilizar requests separados para respeitar os períodos por grupo separado.
-        
-        
-        
+
+
+
         Args:
             Processos (List[Dict[str, Any]]): The processos
             EmpresaObraPeriodo (Dict[str, Any]): The empresa obra periodo
             FornecedorPeriodo (Dict[str, Any]): The fornecedor periodo
-        
+
         Parameter Structure:
-        
+
             {
                 "Processos": [
                     {
@@ -888,14 +882,14 @@ class ProcessoPagamento:
                     "PeriodoFinal": "2025-04-23T13:46:14.060Z"
                 }
             }
-        
+
         Returns:
             dict: The API response
-        
+
         Raises:
             requests.HTTPError: If the API request fails
             ValueError: If required parameters are missing or invalid
-        
+
         Examples:
             >>> api = ProcessoPagamento()
             >>> response = api._consultar_processos(
@@ -903,21 +897,20 @@ class ProcessoPagamento:
             ...     parameter2='value2'
             ... )
         """
-        path = "ProcessoPagamento/ConsultarProcessos"
+        path = 'ProcessoPagamento/ConsultarProcessos'
         try:
             response = self.api.post(
                 path,
                 json={
-                    "Processos": processos,
-                    "EmpresaObraPeriodo": empresa_obra_periodo,
-                    "FornecedorPeriodo": fornecedor_periodo,
-                }
+                    'Processos': processos,
+                    'EmpresaObraPeriodo': empresa_obra_periodo,
+                    'FornecedorPeriodo': fornecedor_periodo,
+                },
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def manutencao_processo(
         self,
@@ -935,26 +928,26 @@ class ProcessoPagamento:
         chave_nfe: Optional[str] = None,
         parcela: Optional[Dict] = None,
         numero_protocolo: Optional[int] = None,
-        permite_boleto_vencido: Optional[bool] = None
+        permite_boleto_vencido: Optional[bool] = None,
     ) -> dict:
         """
-        
+
         Endpoint: `ProcessoPagamento/ManutencaoProcesso`
         HTTP Method: `POST`
-        
+
         Implementation Notes:
         Definição Técnica:
         Dados básicos para o funcionamento da API.
-        
+
         Autenticar o usuário cliente: URI + /api/v{version}/Autenticador/AutenticarUsuario
         Consultar os dados de um processo de pagamento: URI + /api/v{version}/ProcessoPagamento/ConsultarProcessos
         Preencher os parâmetros de request para uso do método.
         Documentação API - Manutenção de Processo (Clique Aqui)
-        
+
         Definição de Negócio:
         Permite ajustar informações básicas do processo de pagamento, como vencimento, data de prorrogação, novo beneficiário, fornecedor, etc.
            Consulte a documentação do objeto de request.
-        
+
         É obrigatório informar os dados básicos do processo de pagamento.
         Para alterar informações da parcela do processo, preencha o objeto de Parcelas.
         Todas as alterações gerarão um comentário de alteração no processo.
@@ -964,9 +957,9 @@ class ProcessoPagamento:
         O parâmetro NovoBeneficiario altera apenas a parcela informada, se ela estiver a pagar.
           Se preencher o parâmetro de beneficiário no processo e na parcela, o parâmetro do processo será desconsiderado, alterando apenas os beneficiários das parcelas informadas.
         Se preencher o valor zero ou vazio para o novo beneficiário, a alteração não será considerada. A API não limpa valores de novo beneficiário.
-        
-        
-        
+
+
+
         Args:
             Numero (int): The numero
             Empresa (int): The empresa
@@ -983,9 +976,9 @@ class ProcessoPagamento:
             Parcela (Dict[str, Any]): The parcela
             NumeroProtocolo (int): The numero protocolo
             PermiteBoletoVencido (int): The permite boleto vencido
-        
+
         Parameter Structure:
-        
+
             {
                 "Numero": 0,
                 "Empresa": 0,
@@ -1027,14 +1020,14 @@ class ProcessoPagamento:
                 "NumeroProtocolo": 0,
                 "PermiteBoletoVencido": true
             }
-        
+
         Returns:
             dict: The API response
-        
+
         Raises:
             requests.HTTPError: If the API request fails
             ValueError: If required parameters are missing or invalid
-        
+
         Examples:
             >>> api = ProcessoPagamento()
             >>> response = api._manutencao_processo(
@@ -1042,33 +1035,32 @@ class ProcessoPagamento:
             ...     parameter2='value2'
             ... )
         """
-        path = "ProcessoPagamento/ManutencaoProcesso"
+        path = 'ProcessoPagamento/ManutencaoProcesso'
         try:
             response = self.api.post(
                 path,
                 json={
-                    "Numero": numero,
-                    "Empresa": empresa,
-                    "Obra": obra,
-                    "CodigoFornecedor": codigo_fornecedor,
-                    "CodigoNovoBeneficiario": codigo_novo_beneficiario,
-                    "Antecipado": antecipado,
-                    "Retroacao": retroacao,
-                    "CodigoDepartamento": codigo_departamento,
-                    "TipoJuros": tipo_juros,
-                    "TaxaJurosAtraso": taxa_juros_atraso,
-                    "TaxaMultaAtraso": taxa_multa_atraso,
-                    "ChaveNfe": chave_nfe,
-                    "Parcela": parcela,
-                    "NumeroProtocolo": numero_protocolo,
-                    "PermiteBoletoVencido": permite_boleto_vencido,
-                }
+                    'Numero': numero,
+                    'Empresa': empresa,
+                    'Obra': obra,
+                    'CodigoFornecedor': codigo_fornecedor,
+                    'CodigoNovoBeneficiario': codigo_novo_beneficiario,
+                    'Antecipado': antecipado,
+                    'Retroacao': retroacao,
+                    'CodigoDepartamento': codigo_departamento,
+                    'TipoJuros': tipo_juros,
+                    'TaxaJurosAtraso': taxa_juros_atraso,
+                    'TaxaMultaAtraso': taxa_multa_atraso,
+                    'ChaveNfe': chave_nfe,
+                    'Parcela': parcela,
+                    'NumeroProtocolo': numero_protocolo,
+                    'PermiteBoletoVencido': permite_boleto_vencido,
+                },
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def retornar_parcelas_dvq(
         self,
@@ -1079,21 +1071,21 @@ class ProcessoPagamento:
         fornecedor: Optional[str] = None,
         notafiscal: Optional[int] = None,
         inicial: Optional[str] = None,
-        final: Optional[str] = None
+        final: Optional[str] = None,
     ) -> dict:
         """
-        
+
         Endpoint: `ProcessoPagamento/RetornarParcelasDVQ`
         HTTP Method: `POST`
-        
+
         Implementation Notes:
         Definição Técnica:
-        
+
         Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
         Preencher os parâmetros de request para uso do método.
-        
+
         Definição de Negócio:
-        
+
         Os campos empresa, obra e usuário são obrigatórios.
         É validado se o usuário existe no banco de dados, e se tem permissão na empresa e obra informada.
         Data e Fornecedor devem está vazio ou sem o parâmetro informado na requisição para não serem considerados na consulta.
@@ -1102,11 +1094,11 @@ class ProcessoPagamento:
         Status atual da aprovação status_d, status_v e status_q.
         Valor [A]: aprovado
         Valor [D]: não aprovado
-        
-        
-        
-        
-        
+
+
+
+
+
         Args:
             Usuario (str): The usuario
             Empresa (int): The empresa
@@ -1116,9 +1108,9 @@ class ProcessoPagamento:
             notafiscal (int): The notafiscal
             inicial (str): The inicial
             final (str): The final
-        
+
         Parameter Structure:
-        
+
             {
                 "Usuario": "string",
                 "Empresa": 0,
@@ -1129,14 +1121,14 @@ class ProcessoPagamento:
                 "inicial": "string",
                 "final": "string"
             }
-        
+
         Returns:
             dict: The API response
-        
+
         Raises:
             requests.HTTPError: If the API request fails
             ValueError: If required parameters are missing or invalid
-        
+
         Examples:
             >>> api = ProcessoPagamento()
             >>> response = api._retornar_parcelasdvq(
@@ -1144,26 +1136,25 @@ class ProcessoPagamento:
             ...     parameter2='value2'
             ... )
         """
-        path = "ProcessoPagamento/RetornarParcelasDVQ"
+        path = 'ProcessoPagamento/RetornarParcelasDVQ'
         try:
             response = self.api.post(
                 path,
                 json={
-                    "Usuario": usuario,
-                    "Empresa": empresa,
-                    "Obra": obra,
-                    "numeroproc": numeroproc,
-                    "fornecedor": fornecedor,
-                    "notafiscal": notafiscal,
-                    "inicial": inicial,
-                    "final": final,
-                }
+                    'Usuario': usuario,
+                    'Empresa': empresa,
+                    'Obra': obra,
+                    'numeroproc': numeroproc,
+                    'fornecedor': fornecedor,
+                    'notafiscal': notafiscal,
+                    'inicial': inicial,
+                    'final': final,
+                },
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def gerar_processo_medicao(
         self,
@@ -1181,22 +1172,22 @@ class ProcessoPagamento:
         parametro: Optional[Dict] = None,
         documento_fiscal: Optional[Dict] = None,
         parcelas: Optional[List[Dict]] = None,
-        itens: Optional[List[Dict]] = None
+        itens: Optional[List[Dict]] = None,
     ) -> dict:
         """
-        
+
         Endpoint: `ProcessoPagamento/GerarProcessoMedicao`
         HTTP Method: `POST`
-        
+
         Implementation Notes:
         Definição Técnica:
-        
+
         Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
         Preencher os parâmetros de request para uso do método.
-        
+
         Definição de Negócio:
           Gerar processo de pagamento de medição de contrato de material/serviço
-        
+
         É obrigatório informar os dados básicos do processo de pagamento;
         O usuário autenticado precisa ter acesso a empresa e obra que está fazendo a requisição;
         O usuário autenticado precisa ter acesso a aos programas de permissão necessários para fazer a inserção;
@@ -1204,9 +1195,9 @@ class ProcessoPagamento:
         Você pode vincular documento fiscal ao processo de pagamento, informe os dados da nota no objeto de “DocumentoFiscal”, o documento deve existir;
         Você pode aplicar desconto normal a parcela, informe os dados de desconto no objeto “Descontos”;
         Quando o insumo PL for do tipo 1 - quantidade será considerado o preço do item;
-        
-        
-        
+
+
+
         Args:
             Empresa (int): The empresa
             Contrato (int): The contrato
@@ -1223,9 +1214,9 @@ class ProcessoPagamento:
             DocumentoFiscal (Dict[str, Any]): The documento fiscal
             Parcelas (List[Dict[str, Any]]): The parcelas
             Itens (List[Dict[str, Any]]): The itens
-        
+
         Parameter Structure:
-        
+
             {
                 "Empresa": 0,
                 "Contrato": 0,
@@ -1311,14 +1302,14 @@ class ProcessoPagamento:
                     }
                 ]
             }
-        
+
         Returns:
             dict: The API response
-        
+
         Raises:
             requests.HTTPError: If the API request fails
             ValueError: If required parameters are missing or invalid
-        
+
         Examples:
             >>> api = ProcessoPagamento()
             >>> response = api._gerar_processo_medicao(
@@ -1326,33 +1317,32 @@ class ProcessoPagamento:
             ...     parameter2='value2'
             ... )
         """
-        path = "ProcessoPagamento/GerarProcessoMedicao"
+        path = 'ProcessoPagamento/GerarProcessoMedicao'
         try:
             response = self.api.post(
                 path,
                 json={
-                    "Empresa": empresa,
-                    "Contrato": contrato,
-                    "Medicao": medicao,
-                    "MesPlanejamento": mes_planejamento,
-                    "ControlarEstoque": controlar_estoque,
-                    "AcompanhaEntrega": acompanha_entrega,
-                    "DataPrevisaoEntrega": data_previsao_entrega,
-                    "HistoricoLancContabilApagar": historico_lanc_contabil_apagar,
-                    "HistoricoLancContabilPago": historico_lanc_contabil_pago,
-                    "HistoricoLancContabilDescNormalMed": historico_lanc_contabil_desc_normal_med,
-                    "CategoriaMovimentacaoFinanceira": categoria_movimentacao_financeira,
-                    "Parametro": parametro,
-                    "DocumentoFiscal": documento_fiscal,
-                    "Parcelas": parcelas,
-                    "Itens": itens,
-                }
+                    'Empresa': empresa,
+                    'Contrato': contrato,
+                    'Medicao': medicao,
+                    'MesPlanejamento': mes_planejamento,
+                    'ControlarEstoque': controlar_estoque,
+                    'AcompanhaEntrega': acompanha_entrega,
+                    'DataPrevisaoEntrega': data_previsao_entrega,
+                    'HistoricoLancContabilApagar': historico_lanc_contabil_apagar,
+                    'HistoricoLancContabilPago': historico_lanc_contabil_pago,
+                    'HistoricoLancContabilDescNormalMed': historico_lanc_contabil_desc_normal_med,
+                    'CategoriaMovimentacaoFinanceira': categoria_movimentacao_financeira,
+                    'Parametro': parametro,
+                    'DocumentoFiscal': documento_fiscal,
+                    'Parcelas': parcelas,
+                    'Itens': itens,
+                },
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def manutencao_parcelas_processo(
         self,
@@ -1365,28 +1355,28 @@ class ProcessoPagamento:
         lista_parcelas_manutencao: Optional[List[Dict]] = None,
         lista_valores_novas_parcelas: Optional[List[Dict]] = None,
         lista_valores_acrescimo_novas_parcelas: Optional[List[Dict]] = None,
-        lista_data_vencimento_novas_parcelas: Optional[List[Dict]] = None
+        lista_data_vencimento_novas_parcelas: Optional[List[Dict]] = None,
     ) -> dict:
         """
-        
+
         Endpoint: `ProcessoPagamento/ManutencaoParcelasProcesso`
         HTTP Method: `POST`
-        
+
         Implementation Notes:
         Definição Técnica:
-        
+
         Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
         Preencher os parâmetros de request para uso do método.
-        
+
         Definição de Negócio:
           Permite dar manutenção nas parcelas do processo de pagamento. Ao informar os dados para as novas parcelas, será simulado e gerado automaticamente as novas parcelas
           com novas numerações, valores e data de vencimento. Será excluido a(s) parcela(s) informadas no request, pois foram substituídas pelas novas parcelas geradas.
-        
+
         É obrigatório informar os dados básicos da parcela e do processo de pagamento;
         O usuário autenticado precisa ter acesso aos programas de permissão necessários (FIANALISE) para fazer a alteração.
-        
-        
-        
+
+
+
         Args:
             codigoEmpresa (int): The empresa
             codigoObra (str): The obra
@@ -1398,9 +1388,9 @@ class ProcessoPagamento:
             listaValoresNovasParcelas (List[Dict[str, Any]]): The valores novas parcelas
             listaValoresAcrescimoNovasParcelas (List[Dict[str, Any]]): The valores acrescimo novas parcelas
             listaDataVencimentoNovasParcelas (List[Dict[str, Any]]): The data vencimento novas parcelas
-        
+
         Parameter Structure:
-        
+
             {
                 "codigoEmpresa": 0,
                 "codigoObra": "string",
@@ -1431,14 +1421,14 @@ class ProcessoPagamento:
                     }
                 ]
             }
-        
+
         Returns:
             dict: The API response
-        
+
         Raises:
             requests.HTTPError: If the API request fails
             ValueError: If required parameters are missing or invalid
-        
+
         Examples:
             >>> api = ProcessoPagamento()
             >>> response = api._manutencao_parcelas_processo(
@@ -1446,28 +1436,27 @@ class ProcessoPagamento:
             ...     parameter2='value2'
             ... )
         """
-        path = "ProcessoPagamento/ManutencaoParcelasProcesso"
+        path = 'ProcessoPagamento/ManutencaoParcelasProcesso'
         try:
             response = self.api.post(
                 path,
                 json={
-                    "codigoEmpresa": codigo_empresa,
-                    "codigoObra": codigo_obra,
-                    "numeroProcesso": numero_processo,
-                    "dataVencimento": data_vencimento,
-                    "qtdeParcelas": qtde_parcelas,
-                    "intervaloParcelas": intervalo_parcelas,
-                    "listaParcelasManutencao": lista_parcelas_manutencao,
-                    "listaValoresNovasParcelas": lista_valores_novas_parcelas,
-                    "listaValoresAcrescimoNovasParcelas": lista_valores_acrescimo_novas_parcelas,
-                    "listaDataVencimentoNovasParcelas": lista_data_vencimento_novas_parcelas,
-                }
+                    'codigoEmpresa': codigo_empresa,
+                    'codigoObra': codigo_obra,
+                    'numeroProcesso': numero_processo,
+                    'dataVencimento': data_vencimento,
+                    'qtdeParcelas': qtde_parcelas,
+                    'intervaloParcelas': intervalo_parcelas,
+                    'listaParcelasManutencao': lista_parcelas_manutencao,
+                    'listaValoresNovasParcelas': lista_valores_novas_parcelas,
+                    'listaValoresAcrescimoNovasParcelas': lista_valores_acrescimo_novas_parcelas,
+                    'listaDataVencimentoNovasParcelas': lista_data_vencimento_novas_parcelas,
+                },
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def gerar_nota_fiscal_produto_pelo_xml(
         self,
@@ -1477,13 +1466,13 @@ class ProcessoPagamento:
         obra: Optional[str] = None,
         processo: Optional[int] = None,
         parcela: Optional[int] = None,
-        vinculara_descontos: Optional[bool] = None
+        vinculara_descontos: Optional[bool] = None,
     ) -> dict:
         """
-        
+
         Endpoint: `ProcessoPagamento/GerarNotaFiscalProdutoPeloXML`
         HTTP Method: `POST`
-        
+
         Implementation Notes:
         Criação   : Augusto Rabelo Barbosa                 Data: 28/05/2022
           Projeto   : 442112
@@ -1502,8 +1491,8 @@ class ProcessoPagamento:
         Alteração : João Henrique Ribeiro Leite                         Data: 23/10/2024
           Projeto   : 442322 - SPT 10-2024 - US 359545
           Manutenção: Alterada a classe da chamada do método [BuscarChaveArquivoXML].
-        
-        
+
+
         Args:
             ChaveNFe (str): The chave n fe
             ArquivoXML (str): The arquivo x m l
@@ -1512,9 +1501,9 @@ class ProcessoPagamento:
             Processo (int): The processo
             Parcela (int): The parcela
             VincularADescontos (int): The vincular a descontos
-        
+
         Parameter Structure:
-        
+
             {
                 "ChaveNFe": "string",
                 "ArquivoXML": "string",
@@ -1524,14 +1513,14 @@ class ProcessoPagamento:
                 "Parcela": 0,
                 "VincularADescontos": true
             }
-        
+
         Returns:
             dict: The API response
-        
+
         Raises:
             requests.HTTPError: If the API request fails
             ValueError: If required parameters are missing or invalid
-        
+
         Examples:
             >>> api = ProcessoPagamento()
             >>> response = api._gerar_nota_fiscal_produto_peloxml(
@@ -1539,25 +1528,24 @@ class ProcessoPagamento:
             ...     parameter2='value2'
             ... )
         """
-        path = "ProcessoPagamento/GerarNotaFiscalProdutoPeloXML"
+        path = 'ProcessoPagamento/GerarNotaFiscalProdutoPeloXML'
         try:
             response = self.api.post(
                 path,
                 json={
-                    "ChaveNFe": chaven_fe,
-                    "ArquivoXML": arquivoxml,
-                    "Empresa": empresa,
-                    "Obra": obra,
-                    "Processo": processo,
-                    "Parcela": parcela,
-                    "VincularADescontos": vinculara_descontos,
-                }
+                    'ChaveNFe': chaven_fe,
+                    'ArquivoXML': arquivoxml,
+                    'Empresa': empresa,
+                    'Obra': obra,
+                    'Processo': processo,
+                    'Parcela': parcela,
+                    'VincularADescontos': vinculara_descontos,
+                },
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def gerar_nota_fiscal_servico_pelo_xml(
         self,
@@ -1569,13 +1557,13 @@ class ProcessoPagamento:
         obra: Optional[str] = None,
         processo: Optional[int] = None,
         parcela: Optional[int] = None,
-        vinculara_descontos: Optional[bool] = None
+        vinculara_descontos: Optional[bool] = None,
     ) -> dict:
         """
-        
+
         Endpoint: `ProcessoPagamento/GerarNotaFiscalServicoPeloXML`
         HTTP Method: `POST`
-        
+
         Implementation Notes:
         Criação   : Augusto Rabelo Barbosa                 Data: 03/11/2022
           Projeto   : 442112
@@ -1595,8 +1583,8 @@ class ProcessoPagamento:
         Alteração : João Henrique Ribeiro Leite                         Data: 23/10/2024
           Projeto   : 442322 - SPT 10-2024 - US 359545
           Manutenção: Alterada a classe da chamada do método [BuscarChaveArquivoXML].
-        
-        
+
+
         Args:
             CodigoFornecedor (int): The codigo fornecedor
             Numero (str): The numero
@@ -1607,9 +1595,9 @@ class ProcessoPagamento:
             Processo (int): The processo
             Parcela (int): The parcela
             VincularADescontos (int): The vincular a descontos
-        
+
         Parameter Structure:
-        
+
             {
                 "CodigoFornecedor": 0,
                 "Numero": "string",
@@ -1621,14 +1609,14 @@ class ProcessoPagamento:
                 "Parcela": 0,
                 "VincularADescontos": true
             }
-        
+
         Returns:
             dict: The API response
-        
+
         Raises:
             requests.HTTPError: If the API request fails
             ValueError: If required parameters are missing or invalid
-        
+
         Examples:
             >>> api = ProcessoPagamento()
             >>> response = api._gerar_nota_fiscal_servico_peloxml(
@@ -1636,75 +1624,71 @@ class ProcessoPagamento:
             ...     parameter2='value2'
             ... )
         """
-        path = "ProcessoPagamento/GerarNotaFiscalServicoPeloXML"
+        path = 'ProcessoPagamento/GerarNotaFiscalServicoPeloXML'
         try:
             response = self.api.post(
                 path,
                 json={
-                    "CodigoFornecedor": codigo_fornecedor,
-                    "Numero": numero,
-                    "ChaveNFSe": chavenf_se,
-                    "ArquivoXML": arquivoxml,
-                    "Empresa": empresa,
-                    "Obra": obra,
-                    "Processo": processo,
-                    "Parcela": parcela,
-                    "VincularADescontos": vinculara_descontos,
-                }
+                    'CodigoFornecedor': codigo_fornecedor,
+                    'Numero': numero,
+                    'ChaveNFSe': chavenf_se,
+                    'ArquivoXML': arquivoxml,
+                    'Empresa': empresa,
+                    'Obra': obra,
+                    'Processo': processo,
+                    'Parcela': parcela,
+                    'VincularADescontos': vinculara_descontos,
+                },
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
-    def integrar_processo_pagamento_uauws(
-        self,
-        xml_proc: Optional[str] = None
-    ) -> dict:
+    def integrar_processo_pagamento_uauws(self, xml_proc: Optional[str] = None) -> dict:
         """
-        
+
         Endpoint: `ProcessoPagamento/IntegrarProcessoPagamentoUAUWS`
         HTTP Method: `POST`
-        
+
         Implementation Notes:
         Definição Técnica:
-        
+
         Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
         Preencher os parâmetros de request para uso do método.
         Deve seguir arquivo XSD como formato aceito.
         Os campos do tipo data devem obedecer o formato específico (yyyy-MM-dd).
-        
+
         Definição de negócio:
-        
+
         Realiza a importação dos dados de processo de pagamento para o UAU de acordo com o arquivo XML.
-        Será validado os dados do XML para realizar a importação, bem como tipagem de dados, dados obrigatórios, entre outros. 
+        Será validado os dados do XML para realizar a importação, bem como tipagem de dados, dados obrigatórios, entre outros.
         Virtuau: https://ajuda.globaltec.com.br/virtuau/como-integrar-meus-processos-de-pagamento/
-        
+
         Anexos:
-        
+
         XML: https://ajuda.globaltec.com.br/download/777734/
         XSD: https://ajuda.globaltec.com.br/download/777719/
         Postman: https://ajuda.globaltec.com.br/download/777737/
-        
-        
-        
+
+
+
         Args:
             xml_proc (str): The xml_proc
-        
+
         Parameter Structure:
-        
+
             {
                 "xml_proc": "string"
             }
-        
+
         Returns:
             dict: The API response
-        
+
         Raises:
             requests.HTTPError: If the API request fails
             ValueError: If required parameters are missing or invalid
-        
+
         Examples:
             >>> api = ProcessoPagamento()
             >>> response = api._integrar_processo_pagamentouauws(
@@ -1712,19 +1696,18 @@ class ProcessoPagamento:
             ...     parameter2='value2'
             ... )
         """
-        path = "ProcessoPagamento/IntegrarProcessoPagamentoUAUWS"
+        path = 'ProcessoPagamento/IntegrarProcessoPagamentoUAUWS'
         try:
             response = self.api.post(
                 path,
                 json={
-                    "xml_proc": xml_proc,
-                }
+                    'xml_proc': xml_proc,
+                },
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def gerar_nota_fiscal_transporte_pelo_xml(
         self,
@@ -1734,13 +1717,13 @@ class ProcessoPagamento:
         obra: Optional[str] = None,
         processo: Optional[int] = None,
         parcela: Optional[int] = None,
-        vinculara_descontos: Optional[bool] = None
+        vinculara_descontos: Optional[bool] = None,
     ) -> dict:
         """
-        
+
         Endpoint: `ProcessoPagamento/GerarNotaFiscalTransportePeloXML`
         HTTP Method: `POST`
-        
+
         Implementation Notes:
         Criação   : Augusto Rabelo Barbosa                 Data: 03/11/2022
           Projeto   : 442112
@@ -1759,8 +1742,8 @@ class ProcessoPagamento:
         Alteração : João Henrique Ribeiro Leite                         Data: 23/10/2024
           Projeto   : 442322 - SPT 10-2024 - US 359545
           Manutenção: Alterada a classe da chamada do método [BuscarChaveArquivoXML].
-        
-        
+
+
         Args:
             ChaveCTe (str): The chave c te
             ArquivoXML (str): The arquivo x m l
@@ -1769,9 +1752,9 @@ class ProcessoPagamento:
             Processo (int): The processo
             Parcela (int): The parcela
             VincularADescontos (int): The vincular a descontos
-        
+
         Parameter Structure:
-        
+
             {
                 "ChaveCTe": "string",
                 "ArquivoXML": "string",
@@ -1781,14 +1764,14 @@ class ProcessoPagamento:
                 "Parcela": 0,
                 "VincularADescontos": true
             }
-        
+
         Returns:
             dict: The API response
-        
+
         Raises:
             requests.HTTPError: If the API request fails
             ValueError: If required parameters are missing or invalid
-        
+
         Examples:
             >>> api = ProcessoPagamento()
             >>> response = api._gerar_nota_fiscal_transporte_peloxml(
@@ -1796,23 +1779,21 @@ class ProcessoPagamento:
             ...     parameter2='value2'
             ... )
         """
-        path = "ProcessoPagamento/GerarNotaFiscalTransportePeloXML"
+        path = 'ProcessoPagamento/GerarNotaFiscalTransportePeloXML'
         try:
             response = self.api.post(
                 path,
                 json={
-                    "ChaveCTe": chavec_te,
-                    "ArquivoXML": arquivoxml,
-                    "Empresa": empresa,
-                    "Obra": obra,
-                    "Processo": processo,
-                    "Parcela": parcela,
-                    "VincularADescontos": vinculara_descontos,
-                }
+                    'ChaveCTe': chavec_te,
+                    'ArquivoXML': arquivoxml,
+                    'Empresa': empresa,
+                    'Obra': obra,
+                    'Processo': processo,
+                    'Parcela': parcela,
+                    'VincularADescontos': vinculara_descontos,
+                },
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
-
+        except requests.exceptions.RequestException:
+            return response.text

@@ -99,9 +99,8 @@ class PedidoCompra:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def aprovar_pedido_compra_material_app(
         self,
@@ -194,9 +193,8 @@ class PedidoCompra:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def gravar_pedido_de_compra_do_tipo_servico(
         self,
@@ -301,9 +299,8 @@ class PedidoCompra:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def gravar_pedido_de_compra_do_tipo_material(
         self,
@@ -404,9 +401,8 @@ class PedidoCompra:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def gravar_pedido_de_compra_do_tipo_patrimonio(
         self,
@@ -507,9 +503,8 @@ class PedidoCompra:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def gravar_pedido_de_compra_do_tipo_complemento(
         self,
@@ -610,9 +605,8 @@ class PedidoCompra:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def gravar_pedido_de_compra_do_tipo_emergencial(
         self,
@@ -713,9 +707,8 @@ class PedidoCompra:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def gravar_pedido_de_compra_do_tipo_adiantamento(
         self,
@@ -820,9 +813,8 @@ class PedidoCompra:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def gravar_pedido_de_compra_do_tipo_regularizacao(
         self,
@@ -923,9 +915,8 @@ class PedidoCompra:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def confirmar_recebimento_ordem_compra_fornecedor(
         self,
@@ -998,9 +989,8 @@ class PedidoCompra:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def gravar_pedido_de_compra_do_tipo_servico_contrato(
         self,
@@ -1085,9 +1075,8 @@ class PedidoCompra:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def gravar_pedido_de_compra_do_tipo_contrato_material(
         self,
@@ -1176,9 +1165,8 @@ class PedidoCompra:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def gravar_pedido_de_compra_do_tipo_servico_complemento(
         self,
@@ -1283,9 +1271,8 @@ class PedidoCompra:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def gravar_pedido_de_compra_do_tipo_servico_emergencial(
         self,
@@ -1390,9 +1377,8 @@ class PedidoCompra:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def gravar_pedido_de_compra_do_tipo_servico_adiantamento(
         self,
@@ -1501,9 +1487,8 @@ class PedidoCompra:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def gravar_pedido_de_compra_do_tipo_servico_regularizacao(
         self,
@@ -1608,7 +1593,6 @@ class PedidoCompra:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 

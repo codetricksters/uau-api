@@ -85,9 +85,8 @@ class Cotacao:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def conta_cotacoes_aprov_mob(
         self,
@@ -143,9 +142,8 @@ class Cotacao:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def aprovar_simulacoes_compra(
         self,
@@ -212,9 +210,8 @@ class Cotacao:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def adicionar_fornecedor_cotacao(
         self,
@@ -289,9 +286,8 @@ class Cotacao:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def buscar_itens_cotacao_fornecedor(
         self,
@@ -360,9 +356,8 @@ class Cotacao:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def consultar_itens_cotacao_por_obra(
         self,
@@ -426,9 +421,8 @@ class Cotacao:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def buscar_cotacao_aberta_fornecedor(
         self,
@@ -501,9 +495,8 @@ class Cotacao:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def aprovar_confirmacao_cotacao_por_obra(
         self,
@@ -573,9 +566,8 @@ class Cotacao:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def remover_aprovacao_simulacoes_compra(
         self,
@@ -638,9 +630,8 @@ class Cotacao:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def atualizar_condicao_pagamento_entrega(
         self,
@@ -747,9 +738,8 @@ class Cotacao:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def consultar_aprovacao_da_cotacao_por_obra(
         self,
@@ -817,9 +807,8 @@ class Cotacao:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def reprovar_confirmacoes_cotacao_por_obra(
         self,
@@ -886,9 +875,8 @@ class Cotacao:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def consultar_cotacoes_confirmacao_pendente(
         self,
@@ -965,9 +953,8 @@ class Cotacao:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def consultar_quantidade_cotacao_pendente_por_obra(
         self,
@@ -1040,9 +1027,8 @@ class Cotacao:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def consultar_quantidade_cotacao_pendente_por_obra_mob(
         self,
@@ -1115,9 +1101,8 @@ class Cotacao:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def consultar_justificativas_aprovacao_fora_sequencia(
         self,
@@ -1181,9 +1166,8 @@ class Cotacao:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def inserir_altera_coment_forn_frete(
         self,
@@ -1303,7 +1287,6 @@ class Cotacao:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 

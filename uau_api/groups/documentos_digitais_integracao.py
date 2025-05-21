@@ -107,9 +107,8 @@ class DocumentosDigitaisIntegracao:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def consultar_documentos_enviados(
         self,
@@ -164,9 +163,8 @@ class DocumentosDigitaisIntegracao:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def consultar_assinaturas_enviadas(
         self,
@@ -222,9 +220,8 @@ class DocumentosDigitaisIntegracao:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def consulta_documentos_digitais_ativos(
         self,
@@ -285,9 +282,8 @@ class DocumentosDigitaisIntegracao:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def consultar_envelope_documentos_codigo_externo(
         self,
@@ -344,7 +340,6 @@ class DocumentosDigitaisIntegracao:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 

@@ -71,9 +71,8 @@ class RotinasGerais:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def busca_capvenda_empresa(
         self,
@@ -134,9 +133,8 @@ class RotinasGerais:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def inserir_consulta_geral(
         self,
@@ -228,9 +226,8 @@ class RotinasGerais:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def executar_consulta_geral(
         self,
@@ -328,9 +325,8 @@ class RotinasGerais:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def buscar_indices_de_reajuste(
         self,
@@ -394,9 +390,8 @@ class RotinasGerais:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def buscar_tipos_de_vencimento(
         self,
@@ -460,9 +455,8 @@ class RotinasGerais:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def consultar_padroes_cobranca(
         self,
@@ -528,9 +522,8 @@ class RotinasGerais:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def buscar_categorias_de_produto(
         self,
@@ -594,9 +587,8 @@ class RotinasGerais:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def buscar_finalidades_de_compra(
         self,
@@ -660,9 +652,8 @@ class RotinasGerais:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def buscar_veiculos_de_divulgacao(
         self,
@@ -726,9 +717,8 @@ class RotinasGerais:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def consultar_param_consulta_geral(
         self,
@@ -804,7 +794,6 @@ class RotinasGerais:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 

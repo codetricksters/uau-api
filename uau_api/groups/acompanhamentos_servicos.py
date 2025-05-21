@@ -148,9 +148,8 @@ class AcompanhamentosServicos:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def acompanhar_servico_pl(
         self,
@@ -273,9 +272,8 @@ class AcompanhamentosServicos:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def acompanhar_servico_orcado(
         self,
@@ -408,9 +406,8 @@ class AcompanhamentosServicos:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def acompanhar_servico_contrato(
         self,
@@ -545,9 +542,8 @@ class AcompanhamentosServicos:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def excluir_acompanhamento_servico_pl(
         self,
@@ -648,9 +644,8 @@ class AcompanhamentosServicos:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def excluir_acompanhamento_servico_orcado(
         self,
@@ -743,9 +738,8 @@ class AcompanhamentosServicos:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def alterar_acompanhamento_servico_contrato(
         self,
@@ -884,9 +878,8 @@ class AcompanhamentosServicos:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def excluir_acompanhamento_servico_de_contrato(
         self,
@@ -976,9 +969,8 @@ class AcompanhamentosServicos:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def excluir_acompanhamento_servico_orcado_por_chave(
         self,
@@ -1072,9 +1064,8 @@ class AcompanhamentosServicos:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def consultar_acompanhamento_contrato_servico_por_servico(
         self,
@@ -1132,9 +1123,8 @@ class AcompanhamentosServicos:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
     def consultar_acompanhamento_contrato_servico_por_contrato_eservico(
         self,
@@ -1201,7 +1191,6 @@ class AcompanhamentosServicos:
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return None
+        except requests.exceptions.RequestException:
+            return response.text
 
