@@ -1,6 +1,6 @@
 from typing import Dict, Any, List, Optional
 from datetime import datetime
-from ..requestsapi import RequestsApi
+from uau_api.requestsapi import RequestsApi
 
 import requests
 class Pessoas:
@@ -292,8 +292,10 @@ class Pessoas:
                     "infopesendereco_comercial": infopesendereco_comercial,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -371,8 +373,10 @@ class Pessoas:
                     "Telefones": telefones,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -443,8 +447,10 @@ class Pessoas:
                     "Telefones": telefones,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -507,8 +513,10 @@ class Pessoas:
                     "CpfCnpj": cpf_cnpj,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -566,8 +574,10 @@ class Pessoas:
                     "Numero": numero,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -639,8 +649,10 @@ class Pessoas:
                     "senha": senha,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -729,8 +741,10 @@ class Pessoas:
                     "debitoAutomatico": debito_automatico,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -774,8 +788,10 @@ class Pessoas:
                     "codigoPessoa": codigo_pessoa,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -851,8 +867,10 @@ class Pessoas:
                     "Email": email,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -912,8 +930,10 @@ class Pessoas:
                     "codigo_pessoa": codigo_pessoa,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -970,8 +990,10 @@ class Pessoas:
                     "codigo": codigo,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -1036,8 +1058,10 @@ class Pessoas:
                     "Descricao": descricao,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -1117,8 +1141,10 @@ class Pessoas:
                     "email": email,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -1196,8 +1222,10 @@ class Pessoas:
                     "status": status,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -1275,8 +1303,10 @@ class Pessoas:
                     "agencia": agencia,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -1342,8 +1372,10 @@ class Pessoas:
                     "Email": email,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -1409,8 +1441,10 @@ class Pessoas:
                     "condicaoConsultarPessoa": condicao_consultar_pessoa,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -1481,8 +1515,10 @@ class Pessoas:
                     "xml": xml,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -1543,8 +1579,10 @@ class Pessoas:
                     "codigoPessoa": codigo_pessoa,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -1604,8 +1642,10 @@ class Pessoas:
                     "tipoEndereco": tipo_endereco,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -1664,8 +1704,10 @@ class Pessoas:
                     "SearchText": search_text,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -1725,8 +1767,10 @@ class Pessoas:
                     "codigopessoa_fis": codigopessoa_fis,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -1795,8 +1839,10 @@ class Pessoas:
                     "status": status,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -1856,8 +1902,10 @@ class Pessoas:
                     "codigo_pessoa": codigo_pessoa,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 

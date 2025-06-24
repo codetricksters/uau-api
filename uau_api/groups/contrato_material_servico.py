@@ -1,6 +1,6 @@
 from typing import Dict, Any, List, Optional
 from datetime import datetime
-from ..requestsapi import RequestsApi
+from uau_api.requestsapi import RequestsApi
 
 import requests
 class ContratoMaterialServico:
@@ -68,8 +68,10 @@ class ContratoMaterialServico:
                     "contrato": contrato,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -131,8 +133,10 @@ class ContratoMaterialServico:
                     "contrato": contrato,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -189,8 +193,10 @@ class ContratoMaterialServico:
                     "fornecedor": fornecedor,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -255,8 +261,10 @@ class ContratoMaterialServico:
                     "servicoMaterial": servico_material,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -335,8 +343,10 @@ class ContratoMaterialServico:
                     "somenteContratosAprovados": somente_contratos_aprovados,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -421,8 +431,10 @@ class ContratoMaterialServico:
                     "situacoes": situacoes,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -486,8 +498,10 @@ class ContratoMaterialServico:
                     "contrato": contrato,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -558,8 +572,10 @@ class ContratoMaterialServico:
                     "somenteContratosAprovados": somente_contratos_aprovados,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 

@@ -1,6 +1,6 @@
 from typing import Dict, Any, List, Optional
 from datetime import datetime
-from ..requestsapi import RequestsApi
+from uau_api.requestsapi import RequestsApi
 
 import requests
 class Prospect:
@@ -281,8 +281,10 @@ class Prospect:
                     "prospectDoc": prospect_doc,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -344,8 +346,10 @@ class Prospect:
                     "xml": xml,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -395,8 +399,10 @@ class Prospect:
                     "Descricao": descricao,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -456,8 +462,10 @@ class Prospect:
                     "numeroProspect": numero_prospect,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -525,8 +533,10 @@ class Prospect:
                     "codigoVendedor": codigo_vendedor,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -586,8 +596,10 @@ class Prospect:
                     "codigoProspect": codigo_prospect,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -660,8 +672,10 @@ class Prospect:
                     "numProspect": num_prospect,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -753,8 +767,10 @@ class Prospect:
                     "ufProsp": uf_prosp,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -796,8 +812,10 @@ class Prospect:
                     "Codigo": codigo,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 

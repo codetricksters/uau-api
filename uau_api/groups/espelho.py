@@ -1,6 +1,6 @@
 from typing import Dict, Any, List, Optional
 from datetime import datetime
-from ..requestsapi import RequestsApi
+from uau_api.requestsapi import RequestsApi
 
 import requests
 class Espelho:
@@ -80,8 +80,10 @@ class Espelho:
                     "categoriaStatusPersonalizacao": categoria_status_personalizacao,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -133,8 +135,10 @@ class Espelho:
                     "usuario_logado": usuario_logado,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -210,8 +214,10 @@ class Espelho:
                     "porcPrecoMinimo": porc_preco_minimo,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -278,8 +284,10 @@ class Espelho:
                     "campos_custom": campos_custom,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -339,8 +347,10 @@ class Espelho:
                     "numeroPersonalizacao": numero_personalizacao,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -396,8 +406,10 @@ class Espelho:
                     "retorna_venda": retorna_venda,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -465,8 +477,10 @@ class Espelho:
                     "observacao": observacao,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -562,8 +576,10 @@ class Espelho:
                     "tipocontrato_grafico": tipocontrato_grafico,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -621,8 +637,10 @@ class Espelho:
                     "data_tabela_preco": data_tabela_preco,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 

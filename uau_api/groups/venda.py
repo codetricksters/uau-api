@@ -1,6 +1,6 @@
 from typing import Dict, Any, List, Optional
 from datetime import datetime
-from ..requestsapi import RequestsApi
+from uau_api.requestsapi import RequestsApi
 
 import requests
 class Venda:
@@ -210,8 +210,10 @@ class Venda:
                     "DataCalculo": data_calculo,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -285,8 +287,10 @@ class Venda:
                     "parcelasenviadas_banco": parcelasenviadas_banco,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -348,8 +352,10 @@ class Venda:
                     "listaBoletosExcluir": lista_boletos_excluir,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -431,8 +437,10 @@ class Venda:
                     "dados_vendas": dados_vendas,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -506,8 +514,10 @@ class Venda:
                     "alterarnumerodas_vendas": alterarnumerodas_vendas,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -586,8 +596,10 @@ class Venda:
                     "aprovDesaprov": aprov_desaprov,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -656,8 +668,10 @@ class Venda:
                     "Descricao": descricao,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -745,8 +759,10 @@ class Venda:
                     "TipoManutencao": tipo_manutencao,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -803,8 +819,10 @@ class Venda:
                     "Lista": lista,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -990,8 +1008,10 @@ class Venda:
                     "ValorTaxaBoleto": valor_taxa_boleto,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -1099,8 +1119,10 @@ class Venda:
                     "descontoAntecipacao": desconto_antecipacao,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -1169,8 +1191,10 @@ class Venda:
                     "Descricao": descricao,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -1274,8 +1298,10 @@ class Venda:
                     "descontoAntecipacao": desconto_antecipacao,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -1412,8 +1438,10 @@ class Venda:
                     "listaNaoTitularAvalista": lista_nao_titular_avalista,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -1482,8 +1510,10 @@ class Venda:
                     "Descricao": descricao,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -1581,8 +1611,10 @@ class Venda:
                     "tabelaplano_idx_json": tabelaplano_idx_json,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -1659,8 +1691,10 @@ class Venda:
                     "Ocorrencias": ocorrencias,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -1713,8 +1747,10 @@ class Venda:
                     "dados_prorrogacao": dados_prorrogacao,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -1784,8 +1820,10 @@ class Venda:
                     "valor_presente": valor_presente,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -1861,8 +1899,10 @@ class Venda:
                     "banco": banco,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -1924,8 +1964,10 @@ class Venda:
                     "num_ven": num_ven,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -1994,8 +2036,10 @@ class Venda:
                     "Descricao": descricao,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -2077,8 +2121,10 @@ class Venda:
                     "somenteParcelasAptasBoleto": somente_parcelas_aptas_boleto,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -2144,8 +2190,10 @@ class Venda:
                     "numeroVenda": numero_venda,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -2214,8 +2262,10 @@ class Venda:
                     "parcelasnao_conciliadas": parcelasnao_conciliadas,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -2278,8 +2328,10 @@ class Venda:
                     "lista_vendas": lista_vendas,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -2384,8 +2436,10 @@ class Venda:
                     "Parcelas": parcelas,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -2448,8 +2502,10 @@ class Venda:
                     "alterarnumerodas_vendas": alterarnumerodas_vendas,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -2539,8 +2595,10 @@ class Venda:
                     "statusCobranca": status_cobranca,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -2613,8 +2671,10 @@ class Venda:
                     "mensagem_securitizacao": mensagem_securitizacao,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -2693,8 +2753,10 @@ class Venda:
                     "Vendas": vendas,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -2809,8 +2871,10 @@ class Venda:
                     "custas": custas,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -2895,8 +2959,10 @@ class Venda:
                     "DataCalculo": data_calculo,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -2961,8 +3027,10 @@ class Venda:
                     "Pedido": pedido,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -3028,8 +3096,10 @@ class Venda:
                     "Pedido": pedido,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -3095,8 +3165,10 @@ class Venda:
                     "Pedido": pedido,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -3248,8 +3320,10 @@ class Venda:
                     "formaPagamento": forma_pagamento,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -3321,8 +3395,10 @@ class Venda:
                     "statusEscrituracao": status_escrituracao,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -3405,8 +3481,10 @@ class Venda:
                     "listaEmpresaObra": lista_empresa_obra,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -3497,8 +3575,10 @@ class Venda:
                     "valorAntecipado": valor_antecipado,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -3560,8 +3640,10 @@ class Venda:
                     "venda": venda,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -3637,8 +3719,10 @@ class Venda:
                     "numContrato": num_contrato,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -3692,8 +3776,10 @@ class Venda:
                     "codigo_usuario": codigo_usuario,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -3754,8 +3840,10 @@ class Venda:
                     "NumeroPedido": numero_pedido,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -3812,8 +3900,10 @@ class Venda:
                     "CpfCnpj": cpf_cnpj,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -3934,8 +4024,10 @@ class Venda:
                     "DataCalculo": data_calculo,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -4008,8 +4100,10 @@ class Venda:
                     "dataCorrecao": data_correcao,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -4111,8 +4205,10 @@ class Venda:
                     "totalpara_quitacao": totalpara_quitacao,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -4178,8 +4274,10 @@ class Venda:
                     "Descricao": descricao,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -4236,8 +4334,10 @@ class Venda:
                     "CpfCnpj": cpf_cnpj,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -4304,8 +4404,10 @@ class Venda:
                     "tipoRelatorio": tipo_relatorio,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 

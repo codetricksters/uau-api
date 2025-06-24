@@ -73,7 +73,7 @@ def generate_api_classes(
             # Write file header and imports
             f.write('from typing import Dict, Any, List, Optional\n')
             f.write('from datetime import datetime\n')
-            f.write('from ..requestsapi import RequestsApi\n\n')
+            f.write('from uau_api.requestsapi import RequestsApi\n\n')
             f.write('import requests\n')
 
             # Write class definition

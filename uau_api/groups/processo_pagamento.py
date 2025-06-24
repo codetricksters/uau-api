@@ -1,6 +1,6 @@
 from typing import Dict, Any, List, Optional
 from datetime import datetime
-from ..requestsapi import RequestsApi
+from uau_api.requestsapi import RequestsApi
 
 import requests
 
@@ -173,8 +173,10 @@ class ProcessoPagamento:
                     'Itens': itens,
                 },
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -240,8 +242,10 @@ class ProcessoPagamento:
                     'EmpresaObraPeriodo': empresa_obra_periodo,
                 },
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -371,11 +375,13 @@ class ProcessoPagamento:
                     'parcelas': parcelas,
                 },
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
-
+    
     def gerar_processo(
         self,
         empresa: Optional[int] = None,
@@ -572,10 +578,7 @@ class ProcessoPagamento:
             ... )
         """
         path = 'ProcessoPagamento/GerarProcesso'
-        try:
-            response = self.api.post(
-                path,
-                json={
+        kwargs = {
                     'Empresa': empresa,
                     'Obra': obra,
                     'CodigoFornecedor': codigo_fornecedor,
@@ -594,12 +597,22 @@ class ProcessoPagamento:
                     'DescontoVinculado': desconto_vinculado,
                     'SolicitacaoCaixaObra': solicitacao_caixa_obra,
                     'PermiteBoletoVencido': permite_boleto_vencido,
-                },
+                }
+        params = {k: v for k, v in kwargs.items() if v is not None}
+        try:
+            response = self.api.post(
+                path,
+                json=params,
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
+        
+            
+        
 
     def gerar_nota_fiscal(
         self,
@@ -742,9 +755,10 @@ class ProcessoPagamento:
                     'VincularADescontos': vinculara_descontos,
                 },
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
-
         except requests.exceptions.RequestException:
             return response.text
 
@@ -812,8 +826,10 @@ class ProcessoPagamento:
                     'processos': processos,
                 },
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -907,8 +923,10 @@ class ProcessoPagamento:
                     'FornecedorPeriodo': fornecedor_periodo,
                 },
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -1036,10 +1054,7 @@ class ProcessoPagamento:
             ... )
         """
         path = 'ProcessoPagamento/ManutencaoProcesso'
-        try:
-            response = self.api.post(
-                path,
-                json={
+        kwargs = {
                     'Numero': numero,
                     'Empresa': empresa,
                     'Obra': obra,
@@ -1055,10 +1070,17 @@ class ProcessoPagamento:
                     'Parcela': parcela,
                     'NumeroProtocolo': numero_protocolo,
                     'PermiteBoletoVencido': permite_boleto_vencido,
-                },
+                }
+        params = {k: v for k, v in kwargs.items() if v is not None}
+        try:
+            response = self.api.post(
+                path,
+                json=params
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -1151,8 +1173,10 @@ class ProcessoPagamento:
                     'final': final,
                 },
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -1339,8 +1363,10 @@ class ProcessoPagamento:
                     'Itens': itens,
                 },
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -1453,8 +1479,10 @@ class ProcessoPagamento:
                     'listaDataVencimentoNovasParcelas': lista_data_vencimento_novas_parcelas,
                 },
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -1542,8 +1570,10 @@ class ProcessoPagamento:
                     'VincularADescontos': vinculara_descontos,
                 },
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -1640,8 +1670,10 @@ class ProcessoPagamento:
                     'VincularADescontos': vinculara_descontos,
                 },
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -1704,8 +1736,10 @@ class ProcessoPagamento:
                     'xml_proc': xml_proc,
                 },
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -1793,7 +1827,9 @@ class ProcessoPagamento:
                     'VincularADescontos': vinculara_descontos,
                 },
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text

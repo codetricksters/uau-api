@@ -5,6 +5,7 @@ from urllib3.util import Retry
 
 
 class RequestsApi:
+    """Cls doc"""
     def __init__(self, base_url, api_key: str, session=None, **kwargs):
         self.base_url = base_url
         self.api_key = api_key

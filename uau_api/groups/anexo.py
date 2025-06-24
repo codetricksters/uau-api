@@ -1,6 +1,6 @@
 from typing import Dict, Any, List, Optional
 from datetime import datetime
-from ..requestsapi import RequestsApi
+from uau_api.requestsapi import RequestsApi
 
 import requests
 
@@ -85,24 +85,25 @@ class Anexo:
             ...     parameter2='value2'
             ... )
         """
-        path = "Anexo/AnexarArquivo"
+        path = 'Anexo/AnexarArquivo'
+        kwargs = {
+            'arquivo': arquivo,
+            'nome': nome,
+            'caminho': caminho,
+            'identificador': identificador,
+            'usuario': usuario,
+            'caminhoExclusivo': caminho_exclusivo,
+            'controlaAnexoUAUWeb': controla_anexouau_web,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
-            response = self.api.post(
-                path,
-                json={
-                    "arquivo": arquivo,
-                    "nome": nome,
-                    "caminho": caminho,
-                    "identificador": identificador,
-                    "usuario": usuario,
-                    "caminhoExclusivo": caminho_exclusivo,
-                    "controlaAnexoUAUWeb": controla_anexouau_web,
-                },
-            )
+            response = self.api.post(path, json=params)
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
-        except requests.exceptions.RequestException as e:
-            return None
+        except Exception as e:
+            return response.text
 
     def excluir_anexos(
         self,
@@ -156,20 +157,21 @@ class Anexo:
             ...     parameter2='value2'
             ... )
         """
-        path = "Anexo/ExcluirAnexos"
+        path = 'Anexo/ExcluirAnexos'
+        kwargs = {
+            'identificador': identificador,
+            'nome_arquivo': nome_arquivo,
+            'origem': origem,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
-            response = self.api.post(
-                path,
-                json={
-                    "identificador": identificador,
-                    "nome_arquivo": nome_arquivo,
-                    "origem": origem,
-                },
-            )
+            response = self.api.post(path, json=params)
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
-        except requests.exceptions.RequestException as e:
-            return None
+        except Exception:
+            return response.text
 
     def listar_diretorios(
         self, caminho: Optional[str] = None, origem: Optional[int] = None
@@ -207,19 +209,19 @@ class Anexo:
             ...     parameter2='value2'
             ... )
         """
-        path = "Anexo/ListarDiretorios"
+        path = 'Anexo/ListarDiretorios'
         try:
             response = self.api.post(
                 path,
                 json={
-                    "Caminho": caminho,
-                    "Origem": origem,
+                    'Caminho': caminho,
+                    'Origem': origem,
                 },
             )
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
-            return None
+        except Exception as e:
+            return response.text
 
     def anexar_base64_imagem(
         self,
@@ -287,26 +289,27 @@ class Anexo:
             ...     parameter2='value2'
             ... )
         """
-        path = "Anexo/AnexarBase64Imagem"
+        path = 'Anexo/AnexarBase64Imagem'
+        kwargs = {
+            'arquivo': arquivo,
+            'nome': nome,
+            'caminho': caminho,
+            'identificador': identificador,
+            'usuario': usuario,
+            'extensaoImagem': extensao_imagem,
+            'caminhoExclusivo': caminho_exclusivo,
+            'controlaAnexoUAUWeb': controla_anexouau_web,
+            'origem': origem,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
-            response = self.api.post(
-                path,
-                json={
-                    "arquivo": arquivo,
-                    "nome": nome,
-                    "caminho": caminho,
-                    "identificador": identificador,
-                    "usuario": usuario,
-                    "extensaoImagem": extensao_imagem,
-                    "caminhoExclusivo": caminho_exclusivo,
-                    "controlaAnexoUAUWeb": controla_anexouau_web,
-                    "origem": origem,
-                },
-            )
+            response = self.api.post(path, json=params)
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
-        except requests.exceptions.RequestException as e:
-            return None
+        except Exception as e:
+            return response.text
 
     def listar_armazenamentos(
         self,
@@ -346,20 +349,21 @@ class Anexo:
             ...     parameter2='value2'
             ... )
         """
-        path = "Anexo/ListarArmazenamentos"
+        path = 'Anexo/ListarArmazenamentos'
+        kwargs = {
+            'Detalhe': detalhe,
+            'Mensagem': mensagem,
+            'Descricao': descricao,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
-            response = self.api.post(
-                path,
-                json={
-                    "Detalhe": detalhe,
-                    "Mensagem": mensagem,
-                    "Descricao": descricao,
-                },
-            )
+            response = self.api.post(path, json=params)
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
-        except requests.exceptions.RequestException as e:
-            return None
+        except Exception as e:
+            return response.text
 
     def gravar_comentario_anexo(
         self,
@@ -443,24 +447,25 @@ class Anexo:
             ...     parameter2='value2'
             ... )
         """
-        path = "Anexo/GravarComentarioAnexo"
+        path = 'Anexo/GravarComentarioAnexo'
+        kwargs = {
+            'Chave': chave,
+            'Campos': campos,
+            'Usuario': usuario,
+            'Comentario': comentario,
+            'TipoComentario': tipo_comentario,
+            'UsuarioPrivado': usuario_privado,
+            'GrupoPrivado': grupo_privado,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
-            response = self.api.post(
-                path,
-                json={
-                    "Chave": chave,
-                    "Campos": campos,
-                    "Usuario": usuario,
-                    "Comentario": comentario,
-                    "TipoComentario": tipo_comentario,
-                    "UsuarioPrivado": usuario_privado,
-                    "GrupoPrivado": grupo_privado,
-                },
-            )
+            response = self.api.post(path, json=params)
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
-        except requests.exceptions.RequestException as e:
-            return None
+        except Exception as e:
+            return response.text
 
     def retorna_arquivo_em_bytes(
         self, nome_arquivo: Optional[str] = None, origem: Optional[int] = None
@@ -509,17 +514,16 @@ class Anexo:
             ...     parameter2='value2'
             ... )
         """
-        path = "Anexo/RetornaArquivoEmBytes"
+        path = 'Anexo/RetornaArquivoEmBytes'
+        kwargs = {
+            'nome_arquivo': nome_arquivo,
+            'origem': origem,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
-            response = self.api.post(
-                path,
-                json={
-                    "nome_arquivo": nome_arquivo,
-                    "origem": origem,
-                },
-            )
+            response = self.api.post(path, json=params)
             return response.json()
-        except requests.exceptions.RequestException as e:
+        except Exception as e:
             return e
 
     def consultar_chaves_comentario(
@@ -575,19 +579,18 @@ class Anexo:
             ...     parameter2='value2'
             ... )
         """
-        path = "Anexo/ConsultarChavesComentario"
+        path = 'Anexo/ConsultarChavesComentario'
+        kwargs = {
+            'Detalhe': detalhe,
+            'Mensagem': mensagem,
+            'Descricao': descricao,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
-            response = self.api.post(
-                path,
-                json={
-                    "Detalhe": detalhe,
-                    "Mensagem": mensagem,
-                    "Descricao": descricao,
-                },
-            )
+            response = self.api.post(path, json=params)
             return response.json()
-        except requests.exceptions.RequestException as e:
-            return None
+        except Exception as e:
+            return response.text
 
     def anexar_arquivos_base64_request(
         self,
@@ -642,19 +645,18 @@ class Anexo:
             ...     parameter2='value2'
             ... )
         """
-        path = "Anexo/AnexarArquivosBase64Request"
+        path = 'Anexo/AnexarArquivosBase64Request'
+        kwargs = {
+            'lista_arquivos': lista_arquivos,
+            'empresa': empresa,
+            'usuario': usuario,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
-            response = self.api.post(
-                path,
-                json={
-                    "lista_arquivos": lista_arquivos,
-                    "empresa": empresa,
-                    "usuario": usuario,
-                },
-            )
+            response = self.api.post(path, json=params)
             return response.json()
-        except requests.exceptions.RequestException as e:
-            return None
+        except Exception as e:
+            return response.text
 
     def retornar_arquivos_em_lista_bytes(
         self,
@@ -711,17 +713,18 @@ class Anexo:
             ...     parameter2='value2'
             ... )
         """
-        path = "Anexo/RetornarArquivosEmListaBytes"
+        path = 'Anexo/RetornarArquivosEmListaBytes'
+        kwargs = {
+            'empresa': empresa,
+            'identificador': identificador,
+            'listanomes_arquivos': listanomes_arquivos,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
-            response = self.api.post(
-                path,
-                json={
-                    "empresa": empresa,
-                    "identificador": identificador,
-                    "listanomes_arquivos": listanomes_arquivos,
-                },
-            )
+            response = self.api.post(path, json=params)
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
-        except requests.exceptions.RequestException as e:
-            return None
+        except Exception as e:
+            return response.text

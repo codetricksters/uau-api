@@ -1,9 +1,8 @@
-from typing import Dict, Any, List, Optional
-from datetime import datetime
-from ..requestsapi import RequestsApi
-
+from typing import Optional
+from uau_api.requestsapi import RequestsApi
 import requests
 class Obras:
+    """"""
     def __init__(self, api: RequestsApi):
         """Initialize with API client
 
@@ -72,8 +71,10 @@ class Obras:
                     "Descricao": descricao,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -134,8 +135,10 @@ class Obras:
                     "obra": obra,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
@@ -177,8 +180,10 @@ class Obras:
                     "empresaObra": empresa_obra,
                 }
             )
+            content_type = response.headers.get('Content-Type', '')
+            if 'application/json' in content_type:
+                return response.json()
             response.raise_for_status()
-            return response.json()
         except requests.exceptions.RequestException:
             return response.text
 
