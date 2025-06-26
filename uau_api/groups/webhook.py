@@ -58,20 +58,23 @@ class Webhook:
             ... )
         """
         path = f"Webhook/ConfirmarRecebimentoOrdemCompra/{token}"
+        kwargs = {
+            "Detalhe": detalhe,
+            "Mensagem": mensagem,
+            "Descricao": descricao,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
             response = self.api.get(
                 path,
-                json={
-                    "Detalhe": detalhe,
-                    "Mensagem": mensagem,
-                    "Descricao": descricao,
-                }
+                json=params
             )
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
             return response.text
 
     def atualizar_recebimento_pix(
@@ -142,24 +145,27 @@ class Webhook:
             ... )
         """
         path = "Webhook/AtualizarRecebimentoPix"
+        kwargs = {
+            "endToEndId": end_to_end_id,
+            "txid": txid,
+            "valor": valor,
+            "horario": horario,
+            "infoPagador": info_pagador,
+            "devolucoes": devolucoes,
+            "pagador": pagador,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
             response = self.api.post(
                 path,
-                json={
-                    "endToEndId": end_to_end_id,
-                    "txid": txid,
-                    "valor": valor,
-                    "horario": horario,
-                    "infoPagador": info_pagador,
-                    "devolucoes": devolucoes,
-                    "pagador": pagador,
-                }
+                json=params
             )
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
             return response.text
 
     def atualizar_pedido_rec(
@@ -201,19 +207,22 @@ class Webhook:
             ... )
         """
         path = "Webhook/AtualizarPedidoRec"
+        kwargs = {
+            "Detalhe": detalhe,
+            "Mensagem": mensagem,
+            "Descricao": descricao,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
             response = self.api.post(
                 path,
-                json={
-                    "Detalhe": detalhe,
-                    "Mensagem": mensagem,
-                    "Descricao": descricao,
-                }
+                json=params
             )
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
             return response.text
 

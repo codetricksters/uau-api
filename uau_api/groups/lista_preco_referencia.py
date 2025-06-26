@@ -93,26 +93,29 @@ class ListaPrecoReferencia:
             ... )
         """
         path = "ListaPrecoReferencia/InserirFornecedores"
+        kwargs = {
+            "NumeroLista": numero_lista,
+            "CodigoFornecedor": codigo_fornecedor,
+            "CPFCNPJ": cpfcnpj,
+            "ValorMinimoPedFOB": valor_minimo_pedfob,
+            "ValorMinimoPedCIF": valor_minimo_pedcif,
+            "DataInicio": data_inicio,
+            "DataTermino": data_termino,
+            "Contato": contato,
+            "ItensPorFornecedor": itens_por_fornecedor,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
             response = self.api.post(
                 path,
-                json={
-                    "NumeroLista": numero_lista,
-                    "CodigoFornecedor": codigo_fornecedor,
-                    "CPFCNPJ": cpfcnpj,
-                    "ValorMinimoPedFOB": valor_minimo_pedfob,
-                    "ValorMinimoPedCIF": valor_minimo_pedcif,
-                    "DataInicio": data_inicio,
-                    "DataTermino": data_termino,
-                    "Contato": contato,
-                    "ItensPorFornecedor": itens_por_fornecedor,
-                }
+                json=params
             )
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
             return response.text
 
     def atualizar_item_fornecedor(
@@ -196,26 +199,29 @@ class ListaPrecoReferencia:
             ... )
         """
         path = "ListaPrecoReferencia/AtualizarItemFornecedor"
+        kwargs = {
+            "NumeroLista": numero_lista,
+            "CodigoFornecedor": codigo_fornecedor,
+            "CPFCNPJ": cpfcnpj,
+            "ValorMinimoPedFOB": valor_minimo_pedfob,
+            "ValorMinimoPedCIF": valor_minimo_pedcif,
+            "DataInicio": data_inicio,
+            "DataTermino": data_termino,
+            "Contato": contato,
+            "ItensPorFornecedor": itens_por_fornecedor,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
             response = self.api.post(
                 path,
-                json={
-                    "NumeroLista": numero_lista,
-                    "CodigoFornecedor": codigo_fornecedor,
-                    "CPFCNPJ": cpfcnpj,
-                    "ValorMinimoPedFOB": valor_minimo_pedfob,
-                    "ValorMinimoPedCIF": valor_minimo_pedcif,
-                    "DataInicio": data_inicio,
-                    "DataTermino": data_termino,
-                    "Contato": contato,
-                    "ItensPorFornecedor": itens_por_fornecedor,
-                }
+                json=params
             )
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
             return response.text
 
     def consultar_lista_preco_referencia(
@@ -289,21 +295,24 @@ class ListaPrecoReferencia:
             ... )
         """
         path = "ListaPrecoReferencia/ConsultarListaPrecoReferencia"
+        kwargs = {
+            "NumeroLista": numero_lista,
+            "DataValidade": data_validade,
+            "Status": status,
+            "FornecedorCNPJ": fornecedorcnpj,
+            "FornecedorCodigo": fornecedor_codigo,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
             response = self.api.post(
                 path,
-                json={
-                    "NumeroLista": numero_lista,
-                    "DataValidade": data_validade,
-                    "Status": status,
-                    "FornecedorCNPJ": fornecedorcnpj,
-                    "FornecedorCodigo": fornecedor_codigo,
-                }
+                json=params
             )
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
             return response.text
 

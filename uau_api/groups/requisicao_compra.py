@@ -75,22 +75,25 @@ class RequisicaoCompra:
             ... )
         """
         path = "RequisicaoCompra/AprovarRequisicoesCompra"
+        kwargs = {
+            "Requisicoes": requisicoes,
+            "Departamento": departamento,
+            "Cargo": cargo,
+            "CodJustificativa": cod_justificativa,
+            "ObsJustificativa": obs_justificativa,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
             response = self.api.post(
                 path,
-                json={
-                    "Requisicoes": requisicoes,
-                    "Departamento": departamento,
-                    "Cargo": cargo,
-                    "CodJustificativa": cod_justificativa,
-                    "ObsJustificativa": obs_justificativa,
-                }
+                json=params
             )
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
             return response.text
 
     def desaprovar_requisicoes_compra(
@@ -151,19 +154,22 @@ class RequisicaoCompra:
             ... )
         """
         path = "RequisicaoCompra/DesaprovarRequisicoesCompra"
+        kwargs = {
+            "Requisicoes": requisicoes,
+            "CodJustificativaDesaprovacao": cod_justificativa_desaprovacao,
+            "ObsJustificativaDesaprovacao": obs_justificativa_desaprovacao,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
             response = self.api.post(
                 path,
-                json={
-                    "Requisicoes": requisicoes,
-                    "CodJustificativaDesaprovacao": cod_justificativa_desaprovacao,
-                    "ObsJustificativaDesaprovacao": obs_justificativa_desaprovacao,
-                }
+                json=params
             )
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
             return response.text
 

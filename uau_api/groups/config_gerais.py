@@ -61,20 +61,23 @@ class ConfigGerais:
             ... )
         """
         path = "ConfigGerais/RetornarVersaoBD"
+        kwargs = {
+            "Detalhe": detalhe,
+            "Mensagem": mensagem,
+            "Descricao": descricao,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
             response = self.api.post(
                 path,
-                json={
-                    "Detalhe": detalhe,
-                    "Mensagem": mensagem,
-                    "Descricao": descricao,
-                }
+                json=params
             )
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
             return response.text
 
     def retornar_versao_ws(
@@ -126,20 +129,23 @@ class ConfigGerais:
             ... )
         """
         path = "ConfigGerais/RetornarVersaoWS"
+        kwargs = {
+            "Detalhe": detalhe,
+            "Mensagem": mensagem,
+            "Descricao": descricao,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
             response = self.api.post(
                 path,
-                json={
-                    "Detalhe": detalhe,
-                    "Mensagem": mensagem,
-                    "Descricao": descricao,
-                }
+                json=params
             )
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
             return response.text
 
     def obter_configuracao_de_casas_decimais(
@@ -191,19 +197,22 @@ class ConfigGerais:
             ... )
         """
         path = "ConfigGerais/ObterConfiguracaoDeCasasDecimais"
+        kwargs = {
+            "Detalhe": detalhe,
+            "Mensagem": mensagem,
+            "Descricao": descricao,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
             response = self.api.post(
                 path,
-                json={
-                    "Detalhe": detalhe,
-                    "Mensagem": mensagem,
-                    "Descricao": descricao,
-                }
+                json=params
             )
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
             return response.text
 

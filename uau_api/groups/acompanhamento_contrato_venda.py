@@ -103,29 +103,32 @@ class AcompanhamentoContratoVenda:
             ... )
         """
         path = "AcompanhamentoContratoVenda/GravarAcompanhamento"
+        kwargs = {
+            "NumAcompanhamento": num_acompanhamento,
+            "Empresa": empresa,
+            "Obra": obra,
+            "NumContrato": num_contrato,
+            "PeriodoInicio": periodo_inicio,
+            "PeriodoFim": periodo_fim,
+            "ListaDeProdutos": lista_de_produtos,
+            "Responsavel": responsavel,
+            "Status": status,
+            "ObservacaoParaEntrega": observacao_para_entrega,
+            "Motorista": motorista,
+            "CaminhaoPlaca": caminhao_placa,
+            "UFPlaca": uf_placa,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
             response = self.api.post(
                 path,
-                json={
-                    "NumAcompanhamento": num_acompanhamento,
-                    "Empresa": empresa,
-                    "Obra": obra,
-                    "NumContrato": num_contrato,
-                    "PeriodoInicio": periodo_inicio,
-                    "PeriodoFim": periodo_fim,
-                    "ListaDeProdutos": lista_de_produtos,
-                    "Responsavel": responsavel,
-                    "Status": status,
-                    "ObservacaoParaEntrega": observacao_para_entrega,
-                    "Motorista": motorista,
-                    "CaminhaoPlaca": caminhao_placa,
-                    "UFPlaca": uf_placa,
-                }
+                json=params
             )
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
             return response.text
 

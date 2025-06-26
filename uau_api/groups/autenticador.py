@@ -55,20 +55,23 @@ class Autenticador:
             ... )
         """
         path = "Autenticador/LogoutUsuario"
+        kwargs = {
+            "Detalhe": detalhe,
+            "Mensagem": mensagem,
+            "Descricao": descricao,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
             response = self.api.post(
                 path,
-                json={
-                    "Detalhe": detalhe,
-                    "Mensagem": mensagem,
-                    "Descricao": descricao,
-                }
+                json=params
             )
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
             return response.text
 
     def autenticar_usuario(
@@ -137,20 +140,23 @@ class Autenticador:
             ... )
         """
         path = "Autenticador/AutenticarUsuario"
+        kwargs = {
+            "Login": login,
+            "Senha": senha,
+            "UsuarioUAUSite": usuariouau_site,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
             response = self.api.post(
                 path,
-                json={
-                    "Login": login,
-                    "Senha": senha,
-                    "UsuarioUAUSite": usuariouau_site,
-                }
+                json=params
             )
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
             return response.text
 
     def autenticar_usuario_app(
@@ -194,20 +200,23 @@ class Autenticador:
             ... )
         """
         path = "Autenticador/AutenticarUsuarioApp"
+        kwargs = {
+            "Login": login,
+            "Senha": senha,
+            "UsuarioUAUSite": usuariouau_site,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
             response = self.api.post(
                 path,
-                json={
-                    "Login": login,
-                    "Senha": senha,
-                    "UsuarioUAUSite": usuariouau_site,
-                }
+                json=params
             )
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
             return response.text
 
     def verifica_usuario_logado(
@@ -249,20 +258,23 @@ class Autenticador:
             ... )
         """
         path = "Autenticador/VerificaUsuarioLogado"
+        kwargs = {
+            "Detalhe": detalhe,
+            "Mensagem": mensagem,
+            "Descricao": descricao,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
             response = self.api.post(
                 path,
-                json={
-                    "Detalhe": detalhe,
-                    "Mensagem": mensagem,
-                    "Descricao": descricao,
-                }
+                json=params
             )
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
             return response.text
 
     def consultar_dados_usr_logado(
@@ -362,20 +374,23 @@ class Autenticador:
             ... )
         """
         path = "Autenticador/ConsultarDadosUsrLogado"
+        kwargs = {
+            "Detalhe": detalhe,
+            "Mensagem": mensagem,
+            "Descricao": descricao,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
             response = self.api.post(
                 path,
-                json={
-                    "Detalhe": detalhe,
-                    "Mensagem": mensagem,
-                    "Descricao": descricao,
-                }
+                json=params
             )
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
             return response.text
 
     def autentificar_usuario_titanium(
@@ -414,19 +429,22 @@ class Autenticador:
             ... )
         """
         path = "Autenticador/AutentificarUsuarioTitanium"
+        kwargs = {
+            "usuario": usuario,
+            "senha": senha,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
             response = self.api.post(
                 path,
-                json={
-                    "usuario": usuario,
-                    "senha": senha,
-                }
+                json=params
             )
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
             return response.text
 
     def autenticar_usuario_corporativo(
@@ -499,19 +517,22 @@ class Autenticador:
             ... )
         """
         path = "Autenticador/AutenticarUsuarioCorporativo"
+        kwargs = {
+            "login_ad": login_ad,
+            "senha": senha,
+            "login_uau": login_uau,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
             response = self.api.post(
                 path,
-                json={
-                    "login_ad": login_ad,
-                    "senha": senha,
-                    "login_uau": login_uau,
-                }
+                json=params
             )
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
             return response.text
 

@@ -67,20 +67,23 @@ class CorreioEletronico:
             ... )
         """
         path = "CorreioEletronico/EnviarMailInternoUau"
+        kwargs = {
+            "mensagem_envio": mensagem_envio,
+            "usuariosuau_destino": usuariosuau_destino,
+            "usuariouau_envio": usuariouau_envio,
+            "assunto": assunto,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
             response = self.api.post(
                 path,
-                json={
-                    "mensagem_envio": mensagem_envio,
-                    "usuariosuau_destino": usuariosuau_destino,
-                    "usuariouau_envio": usuariouau_envio,
-                    "assunto": assunto,
-                }
+                json=params
             )
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
             return response.text
 

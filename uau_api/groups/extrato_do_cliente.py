@@ -82,27 +82,30 @@ class ExtratoDoCliente:
             ... )
         """
         path = "ExtratoDoCliente/GerarPDFExtratoCliente"
+        kwargs = {
+            "empresa": empresa,
+            "obra": obra,
+            "numVenda": num_venda,
+            "tipoOrdenacao": tipo_ordenacao,
+            "valorAntecipado": valor_antecipado,
+            "dataProrrogacao": data_prorrogacao,
+            "ocultarPersonalizacao": ocultar_personalizacao,
+            "ocultarUsuario": ocultar_usuario,
+            "dataCalculo": data_calculo,
+            "residuoIraComporValorTotal": residuo_ira_compor_valor_total,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
             response = self.api.post(
                 path,
-                json={
-                    "empresa": empresa,
-                    "obra": obra,
-                    "numVenda": num_venda,
-                    "tipoOrdenacao": tipo_ordenacao,
-                    "valorAntecipado": valor_antecipado,
-                    "dataProrrogacao": data_prorrogacao,
-                    "ocultarPersonalizacao": ocultar_personalizacao,
-                    "ocultarUsuario": ocultar_usuario,
-                    "dataCalculo": data_calculo,
-                    "residuoIraComporValorTotal": residuo_ira_compor_valor_total,
-                }
+                json=params
             )
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
             return response.text
 
     def gerar_pdfextrato_cliente_v2(
@@ -175,27 +178,30 @@ class ExtratoDoCliente:
             ... )
         """
         path = "ExtratoDoCliente/GerarPDFExtratoClienteV2"
+        kwargs = {
+            "empresa": empresa,
+            "obra": obra,
+            "numVenda": num_venda,
+            "tipoOrdenacao": tipo_ordenacao,
+            "valorAntecipado": valor_antecipado,
+            "dataProrrogacao": data_prorrogacao,
+            "ocultarPersonalizacao": ocultar_personalizacao,
+            "ocultarUsuario": ocultar_usuario,
+            "dataCalculo": data_calculo,
+            "residuoIraComporValorTotal": residuo_ira_compor_valor_total,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
             response = self.api.post(
                 path,
-                json={
-                    "empresa": empresa,
-                    "obra": obra,
-                    "numVenda": num_venda,
-                    "tipoOrdenacao": tipo_ordenacao,
-                    "valorAntecipado": valor_antecipado,
-                    "dataProrrogacao": data_prorrogacao,
-                    "ocultarPersonalizacao": ocultar_personalizacao,
-                    "ocultarUsuario": ocultar_usuario,
-                    "dataCalculo": data_calculo,
-                    "residuoIraComporValorTotal": residuo_ira_compor_valor_total,
-                }
+                json=params
             )
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
             return response.text
 
     def consultar_saldo_cessoes_direito_anteriores(
@@ -241,20 +247,23 @@ class ExtratoDoCliente:
             ... )
         """
         path = "ExtratoDoCliente/ConsultarSaldoCessoesDireitoAnteriores"
+        kwargs = {
+            "empresa": empresa,
+            "obra": obra,
+            "num_venda": num_venda,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
             response = self.api.post(
                 path,
-                json={
-                    "empresa": empresa,
-                    "obra": obra,
-                    "num_venda": num_venda,
-                }
+                json=params
             )
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
             return response.text
 
     def consultar_dados_demonstrativo_pagto_cliente(
@@ -332,29 +341,32 @@ class ExtratoDoCliente:
             ... )
         """
         path = "ExtratoDoCliente/ConsultarDadosDemonstrativoPagtoCliente"
+        kwargs = {
+            "empresa": empresa,
+            "obra": obra,
+            "num_venda": num_venda,
+            "tipos_parc": tipos_parc,
+            "tipo_ordenacao": tipo_ordenacao,
+            "mostrara_pagas": mostrara_pagas,
+            "princ_juros": princ_juros,
+            "descontopor_adiantamento": descontopor_adiantamento,
+            "valor_antecipado": valor_antecipado,
+            "nome_fantasia": nome_fantasia,
+            "ocultapref_custas": ocultapref_custas,
+            "dataCalculo": data_calculo,
+            "exibirDataDeposito": exibir_data_deposito,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
             response = self.api.post(
                 path,
-                json={
-                    "empresa": empresa,
-                    "obra": obra,
-                    "num_venda": num_venda,
-                    "tipos_parc": tipos_parc,
-                    "tipo_ordenacao": tipo_ordenacao,
-                    "mostrara_pagas": mostrara_pagas,
-                    "princ_juros": princ_juros,
-                    "descontopor_adiantamento": descontopor_adiantamento,
-                    "valor_antecipado": valor_antecipado,
-                    "nome_fantasia": nome_fantasia,
-                    "ocultapref_custas": ocultapref_custas,
-                    "dataCalculo": data_calculo,
-                    "exibirDataDeposito": exibir_data_deposito,
-                }
+                json=params
             )
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
             return response.text
 

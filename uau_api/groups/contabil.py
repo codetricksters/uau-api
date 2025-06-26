@@ -74,20 +74,23 @@ class Contabil:
             ... )
         """
         path = "Contabil/ConsultarSaldoDeContas"
+        kwargs = {
+            "Empresa": empresa,
+            "MesAno": mes_ano,
+            "Tipo": tipo,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
             response = self.api.post(
                 path,
-                json={
-                    "Empresa": empresa,
-                    "MesAno": mes_ano,
-                    "Tipo": tipo,
-                }
+                json=params
             )
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
             return response.text
 
     def consultar_contas_contabeis(
@@ -161,21 +164,24 @@ class Contabil:
             ... )
         """
         path = "Contabil/ConsultarContasContabeis"
+        kwargs = {
+            "Empresa": empresa,
+            "Ano": ano,
+            "Conta": conta,
+            "DescricaoConta": descricao_conta,
+            "LimitarRetornoEm": limitar_retorno_em,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
             response = self.api.post(
                 path,
-                json={
-                    "Empresa": empresa,
-                    "Ano": ano,
-                    "Conta": conta,
-                    "DescricaoConta": descricao_conta,
-                    "LimitarRetornoEm": limitar_retorno_em,
-                }
+                json=params
             )
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
             return response.text
 

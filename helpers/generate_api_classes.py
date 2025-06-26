@@ -141,29 +141,32 @@ def generate_api_classes(
                 # Write method implementation
                 path = method['path']
                 f.write('        path = ' + (f'f"{path}"\n' if path_params else f'"{path}"\n'))
-                f.write('        try:\n')
-                f.write('            response = self.api.' + (method.get('http_method', 'post')).lower() + '(\n')
-                f.write('                path,\n')
-                
                 if isinstance(params, dict):
-                    f.write('                json={\n')
+                    f.write('        kwargs = {\n')
                     for param_name in params:
                         if param_name not in path_params:
                             snake_name = re.sub('([A-Z][a-z]+)', r'_\1', param_name).lower().strip('_')
                             snake_name = re.sub(r'[^a-zA-Z0-9_]', '_', snake_name)
                             snake_name = re.sub(r'_+', '_', snake_name)
-                            f.write(f'                    "{param_name}": {snake_name},\n')
-                    f.write('                }\n')
+                            f.write(f'            "{param_name}": {snake_name},\n')
+                    f.write('        }\n')
                 elif isinstance(params, list):
-                    f.write('                json=parameters if parameters is not None else {}\n')
+                    f.write('        kwargs = parameters if parameters is not None else {}\n')
                 else:
-                    f.write('                json={}\n')
+                    f.write('        kwargs = {}\n')
+                f.write('        params = {k: v for k, v in kwargs.items() if v is not None}\n')
+                f.write('        try:\n')
+                f.write('            response = self.api.' + (method.get('http_method', 'post')).lower() + '(\n')
+                f.write('                path,\n')
+                f.write('                json=params\n')
                 f.write('            )\n')
+                f.write("            content_type = response.headers.get('Content-Type', '')\n")
+                f.write("            if 'application/json' in content_type:\n")
+                f.write('                return response.json()\n')
                 f.write('            response.raise_for_status()\n')
-                f.write('            return response.json()\n')
                 f.write('        except requests.exceptions.RequestException as e:\n')
                 f.write('            print(f"An error occurred: {e}")\n')
-                f.write('            return None\n\n')
+                f.write('            return response.text\n\n')
 
 if __name__ == '__main__':
     typer.run(generate_api_classes)

@@ -59,19 +59,22 @@ class Estrutura:
             ... )
         """
         path = "Estrutura/ExcluirEstrutura"
+        kwargs = {
+            "codigoEstrutura": codigo_estrutura,
+            "sequencia": sequencia,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
             response = self.api.post(
                 path,
-                json={
-                    "codigoEstrutura": codigo_estrutura,
-                    "sequencia": sequencia,
-                }
+                json=params
             )
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
             return response.text
 
     def inserir_estrutura(
@@ -118,18 +121,21 @@ class Estrutura:
             ... )
         """
         path = "Estrutura/InserirEstrutura"
+        kwargs = {
+            "descricao": descricao,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
             response = self.api.post(
                 path,
-                json={
-                    "descricao": descricao,
-                }
+                json=params
             )
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
             return response.text
 
     def excluir_item_de_estrutura(
@@ -176,18 +182,21 @@ class Estrutura:
             ... )
         """
         path = "Estrutura/ExcluirItemDeEstrutura"
+        kwargs = {
+            "codigoItem": codigo_item,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
             response = self.api.post(
                 path,
-                json={
-                    "codigoItem": codigo_item,
-                }
+                json=params
             )
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
             return response.text
 
     def inserir_item_de_estrutura(
@@ -237,19 +246,22 @@ class Estrutura:
             ... )
         """
         path = "Estrutura/InserirItemDeEstrutura"
+        kwargs = {
+            "codigoItem": codigo_item,
+            "descricaoItem": descricao_item,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
             response = self.api.post(
                 path,
-                json={
-                    "codigoItem": codigo_item,
-                    "descricaoItem": descricao_item,
-                }
+                json=params
             )
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
             return response.text
 
     def inserir_item_na_estrutura(
@@ -305,20 +317,23 @@ class Estrutura:
             ... )
         """
         path = "Estrutura/InserirItemNaEstrutura"
+        kwargs = {
+            "codigoEstrutura": codigo_estrutura,
+            "tipoEstrutura": tipo_estrutura,
+            "sequencia": sequencia,
+            "codigoItem": codigo_item,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
             response = self.api.post(
                 path,
-                json={
-                    "codigoEstrutura": codigo_estrutura,
-                    "tipoEstrutura": tipo_estrutura,
-                    "sequencia": sequencia,
-                    "codigoItem": codigo_item,
-                }
+                json=params
             )
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
             return response.text
 

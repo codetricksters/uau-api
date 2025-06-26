@@ -81,21 +81,24 @@ class BoletoServices:
             ... )
         """
         path = "BoletoServices/GerarPDFCarne"
+        kwargs = {
+            "filtroChavesBoleto": filtro_chaves_boleto,
+            "filtroVendaRemessa": filtro_venda_remessa,
+            "CarneTresBoletosPaginaNaVertical": carne_tres_boletos_pagina_na_vertical,
+            "CarneDoisBoletosPaginaNaHorizontal": carne_dois_boletos_pagina_na_horizontal,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
             response = self.api.post(
                 path,
-                json={
-                    "filtroChavesBoleto": filtro_chaves_boleto,
-                    "filtroVendaRemessa": filtro_venda_remessa,
-                    "CarneTresBoletosPaginaNaVertical": carne_tres_boletos_pagina_na_vertical,
-                    "CarneDoisBoletosPaginaNaHorizontal": carne_dois_boletos_pagina_na_horizontal,
-                }
+                json=params
             )
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
             return response.text
 
     def gerar_pdfboleto(
@@ -153,20 +156,23 @@ class BoletoServices:
             ... )
         """
         path = "BoletoServices/GerarPDFBoleto"
+        kwargs = {
+            "cod_banco": cod_banco,
+            "seu_numero": seu_numero,
+            "ocultar_dados_pessoais": ocultar_dados_pessoais,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
             response = self.api.post(
                 path,
-                json={
-                    "cod_banco": cod_banco,
-                    "seu_numero": seu_numero,
-                    "ocultar_dados_pessoais": ocultar_dados_pessoais,
-                }
+                json=params
             )
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
             return response.text
 
     def obter_codigo_de_barras(
@@ -227,22 +233,25 @@ class BoletoServices:
             ... )
         """
         path = "BoletoServices/ObterCodigoDeBarras"
+        kwargs = {
+            "cod_banco": cod_banco,
+            "seu_numero": seu_numero,
+            "data_venc": data_venc,
+            "valor_nominal": valor_nominal,
+            "campo_livre": campo_livre,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
             response = self.api.post(
                 path,
-                json={
-                    "cod_banco": cod_banco,
-                    "seu_numero": seu_numero,
-                    "data_venc": data_venc,
-                    "valor_nominal": valor_nominal,
-                    "campo_livre": campo_livre,
-                }
+                json=params
             )
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
             return response.text
 
     def obter_linha_digitavel(
@@ -290,18 +299,21 @@ class BoletoServices:
             ... )
         """
         path = "BoletoServices/ObterLinhaDigitavel"
+        kwargs = {
+            "codigode_barras": codigode_barras,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
             response = self.api.post(
                 path,
-                json={
-                    "codigode_barras": codigode_barras,
-                }
+                json=params
             )
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
             return response.text
 
     def alterar_data_vencimento(
@@ -371,21 +383,24 @@ class BoletoServices:
             ... )
         """
         path = "BoletoServices/AlterarDataVencimento"
+        kwargs = {
+            "seuNumero": seu_numero,
+            "codBanco": cod_banco,
+            "codEmpresa": cod_empresa,
+            "novaDataVenc": nova_data_venc,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
             response = self.api.post(
                 path,
-                json={
-                    "seuNumero": seu_numero,
-                    "codBanco": cod_banco,
-                    "codEmpresa": cod_empresa,
-                    "novaDataVenc": nova_data_venc,
-                }
+                json=params
             )
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
             return response.text
 
     def consultar_status_boleto(
@@ -436,19 +451,22 @@ class BoletoServices:
             ... )
         """
         path = "BoletoServices/ConsultarStatusBoleto"
+        kwargs = {
+            "codigoBanco": codigo_banco,
+            "seuNumero": seu_numero,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
             response = self.api.post(
                 path,
-                json={
-                    "codigoBanco": codigo_banco,
-                    "seuNumero": seu_numero,
-                }
+                json=params
             )
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
             return response.text
 
     def obter_mensagem_do_boleto(
@@ -508,22 +526,25 @@ class BoletoServices:
             ... )
         """
         path = "BoletoServices/ObterMensagemDoBoleto"
+        kwargs = {
+            "seu_numero": seu_numero,
+            "cod_banco": cod_banco,
+            "cod_empresa": cod_empresa,
+            "instrucao": instrucao,
+            "carteira": carteira,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
             response = self.api.post(
                 path,
-                json={
-                    "seu_numero": seu_numero,
-                    "cod_banco": cod_banco,
-                    "cod_empresa": cod_empresa,
-                    "instrucao": instrucao,
-                    "carteira": carteira,
-                }
+                json=params
             )
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
             return response.text
 
     def consultar_dados_do_boleto(
@@ -574,19 +595,22 @@ class BoletoServices:
             ... )
         """
         path = "BoletoServices/ConsultarDadosDoBoleto"
+        kwargs = {
+            "cod_banco": cod_banco,
+            "seu_numero": seu_numero,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
             response = self.api.post(
                 path,
-                json={
-                    "cod_banco": cod_banco,
-                    "seu_numero": seu_numero,
-                }
+                json=params
             )
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
             return response.text
 
     def consultar_boletos_do_cliente(
@@ -663,21 +687,24 @@ class BoletoServices:
             ... )
         """
         path = "BoletoServices/ConsultarBoletosDoCliente"
+        kwargs = {
+            "codPessoa": cod_pessoa,
+            "naoMostraBoletoVencido": nao_mostra_boleto_vencido,
+            "usuario": usuario,
+            "tipo_usuario": tipo_usuario,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
             response = self.api.post(
                 path,
-                json={
-                    "codPessoa": cod_pessoa,
-                    "naoMostraBoletoVencido": nao_mostra_boleto_vencido,
-                    "usuario": usuario,
-                    "tipo_usuario": tipo_usuario,
-                }
+                json=params
             )
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
             return response.text
 
     def consultar_boletos_reimpressao(
@@ -742,21 +769,24 @@ class BoletoServices:
             ... )
         """
         path = "BoletoServices/ConsultarBoletosReimpressao"
+        kwargs = {
+            "empresa": empresa,
+            "obra": obra,
+            "num_venda": num_venda,
+            "naomostraboleto_vencido": naomostraboleto_vencido,
+            "mostrarApenasUltimoBoleto": mostrar_apenas_ultimo_boleto,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
             response = self.api.post(
                 path,
-                json={
-                    "empresa": empresa,
-                    "obra": obra,
-                    "num_venda": num_venda,
-                    "naomostraboleto_vencido": naomostraboleto_vencido,
-                    "mostrarApenasUltimoBoleto": mostrar_apenas_ultimo_boleto,
-                }
+                json=params
             )
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
             return response.text
 

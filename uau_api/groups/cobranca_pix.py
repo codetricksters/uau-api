@@ -61,16 +61,19 @@ class CobrancaPix:
             ... )
         """
         path = "Pix/PixPorParcelas"
+        kwargs = parameters if parameters is not None else {}
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
             response = self.api.post(
                 path,
-                json=parameters if parameters is not None else {}
+                json=params
             )
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
             return response.text
 
     def reimpressao_pix(
@@ -127,18 +130,21 @@ class CobrancaPix:
             ... )
         """
         path = "Pix/ReimpressaoPix"
+        kwargs = {
+            "TxId": tx_id,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
             response = self.api.post(
                 path,
-                json={
-                    "TxId": tx_id,
-                }
+                json=params
             )
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
             return response.text
 
     def consultar_pix_status(
@@ -200,16 +206,19 @@ class CobrancaPix:
             ... )
         """
         path = "Pix/ConsultarPixStatus"
+        kwargs = parameters if parameters is not None else {}
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
             response = self.api.post(
                 path,
-                json=parameters if parameters is not None else {}
+                json=params
             )
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
             return response.text
 
     def gerar_cobranca_venda(
@@ -292,23 +301,26 @@ class CobrancaPix:
             ... )
         """
         path = "Pix/GerarCobrancaVenda"
+        kwargs = {
+            "DataDeCalculo": data_de_calculo,
+            "Antecipar": antecipar,
+            "UsarPadraoPixAvulso": usar_padrao_pix_avulso,
+            "AgruparParcelas": agrupar_parcelas,
+            "PadraoCobranca": padrao_cobranca,
+            "Parcelas": parcelas,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
             response = self.api.post(
                 path,
-                json={
-                    "DataDeCalculo": data_de_calculo,
-                    "Antecipar": antecipar,
-                    "UsarPadraoPixAvulso": usar_padrao_pix_avulso,
-                    "AgruparParcelas": agrupar_parcelas,
-                    "PadraoCobranca": padrao_cobranca,
-                    "Parcelas": parcelas,
-                }
+                json=params
             )
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
             return response.text
 
     def gerar_cobranca_proposta(
@@ -391,22 +403,25 @@ class CobrancaPix:
             ... )
         """
         path = "Pix/GerarCobrancaProposta"
+        kwargs = {
+            "DataDeCalculo": data_de_calculo,
+            "Antecipar": antecipar,
+            "UsarPadraoPixAvulso": usar_padrao_pix_avulso,
+            "AgruparParcelas": agrupar_parcelas,
+            "PadraoCobranca": padrao_cobranca,
+            "Parcelas": parcelas,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
             response = self.api.post(
                 path,
-                json={
-                    "DataDeCalculo": data_de_calculo,
-                    "Antecipar": antecipar,
-                    "UsarPadraoPixAvulso": usar_padrao_pix_avulso,
-                    "AgruparParcelas": agrupar_parcelas,
-                    "PadraoCobranca": padrao_cobranca,
-                    "Parcelas": parcelas,
-                }
+                json=params
             )
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
             return response.text
 

@@ -76,18 +76,21 @@ class Cotacao:
             ... )
         """
         path = "Cotacao/AtualizarItemCotacao"
+        kwargs = {
+            "listaItensCotacao": lista_itens_cotacao,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
             response = self.api.post(
                 path,
-                json={
-                    "listaItensCotacao": lista_itens_cotacao,
-                }
+                json=params
             )
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
             return response.text
 
     def conta_cotacoes_aprov_mob(
@@ -135,18 +138,21 @@ class Cotacao:
             ... )
         """
         path = "Cotacao/ContaCotacoesAprovMob"
+        kwargs = {
+            "usuario": usuario,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
             response = self.api.post(
                 path,
-                json={
-                    "usuario": usuario,
-                }
+                json=params
             )
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
             return response.text
 
     def aprovar_simulacoes_compra(
@@ -205,18 +211,21 @@ class Cotacao:
             ... )
         """
         path = "Cotacao/AprovarSimulacoesCompra"
+        kwargs = {
+            "Simulacoes": simulacoes,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
             response = self.api.post(
                 path,
-                json={
-                    "Simulacoes": simulacoes,
-                }
+                json=params
             )
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
             return response.text
 
     def adicionar_fornecedor_cotacao(
@@ -279,22 +288,25 @@ class Cotacao:
             ... )
         """
         path = "Cotacao/AdicionarFornecedorCotacao"
+        kwargs = {
+            "codFornecedor": cod_fornecedor,
+            "CNPJFornecedor": cnpj_fornecedor,
+            "numeroCotacao": numero_cotacao,
+            "numeroCotacaoGeral": numero_cotacao_geral,
+            "empresa": empresa,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
             response = self.api.post(
                 path,
-                json={
-                    "codFornecedor": cod_fornecedor,
-                    "CNPJFornecedor": cnpj_fornecedor,
-                    "numeroCotacao": numero_cotacao,
-                    "numeroCotacaoGeral": numero_cotacao_geral,
-                    "empresa": empresa,
-                }
+                json=params
             )
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
             return response.text
 
     def buscar_itens_cotacao_fornecedor(
@@ -352,21 +364,24 @@ class Cotacao:
             ... )
         """
         path = "Cotacao/BuscarItensCotacaoFornecedor"
+        kwargs = {
+            "empresa": empresa,
+            "cotacao": cotacao,
+            "fornecedor": fornecedor,
+            "origem": origem,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
             response = self.api.post(
                 path,
-                json={
-                    "empresa": empresa,
-                    "cotacao": cotacao,
-                    "fornecedor": fornecedor,
-                    "origem": origem,
-                }
+                json=params
             )
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
             return response.text
 
     def consultar_itens_cotacao_por_obra(
@@ -420,20 +435,23 @@ class Cotacao:
             ... )
         """
         path = "Cotacao/ConsultarItensCotacaoPorObra"
+        kwargs = {
+            "empresa": empresa,
+            "obra": obra,
+            "cotacao": cotacao,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
             response = self.api.post(
                 path,
-                json={
-                    "empresa": empresa,
-                    "obra": obra,
-                    "cotacao": cotacao,
-                }
+                json=params
             )
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
             return response.text
 
     def buscar_cotacao_aberta_fornecedor(
@@ -498,18 +516,21 @@ class Cotacao:
             ... )
         """
         path = "Cotacao/BuscarCotacaoAbertaFornecedor"
+        kwargs = {
+            "cnpj": cnpj,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
             response = self.api.post(
                 path,
-                json={
-                    "cnpj": cnpj,
-                }
+                json=params
             )
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
             return response.text
 
     def aprovar_confirmacao_cotacao_por_obra(
@@ -571,18 +592,21 @@ class Cotacao:
             ... )
         """
         path = "Cotacao/AprovarConfirmacaoCotacaoPorObra"
+        kwargs = {
+            "listaConfirmarAprovacaoCotacao": lista_confirmar_aprovacao_cotacao,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
             response = self.api.post(
                 path,
-                json={
-                    "listaConfirmarAprovacaoCotacao": lista_confirmar_aprovacao_cotacao,
-                }
+                json=params
             )
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
             return response.text
 
     def remover_aprovacao_simulacoes_compra(
@@ -637,18 +661,21 @@ class Cotacao:
             ... )
         """
         path = "Cotacao/RemoverAprovacaoSimulacoesCompra"
+        kwargs = {
+            "Simulacoes": simulacoes,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
             response = self.api.post(
                 path,
-                json={
-                    "Simulacoes": simulacoes,
-                }
+                json=params
             )
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
             return response.text
 
     def atualizar_condicao_pagamento_entrega(
@@ -735,30 +762,33 @@ class Cotacao:
             ... )
         """
         path = "Cotacao/AtualizarCondicaoPagamentoEntrega"
+        kwargs = {
+            "empresa": empresa,
+            "cotacao": cotacao,
+            "numeroCotacaoGeral": numero_cotacao_geral,
+            "fornecedor": fornecedor,
+            "diasEntrega": dias_entrega,
+            "quantidadeEntrega": quantidade_entrega,
+            "intervaloEntrega": intervalo_entrega,
+            "diasPagamento": dias_pagamento,
+            "quantidadeParcela": quantidade_parcela,
+            "intervaloParcela": intervalo_parcela,
+            "tipoFrete": tipo_frete,
+            "tipoPagamento": tipo_pagamento,
+            "CondicaoPagamento": condicao_pagamento,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
             response = self.api.post(
                 path,
-                json={
-                    "empresa": empresa,
-                    "cotacao": cotacao,
-                    "numeroCotacaoGeral": numero_cotacao_geral,
-                    "fornecedor": fornecedor,
-                    "diasEntrega": dias_entrega,
-                    "quantidadeEntrega": quantidade_entrega,
-                    "intervaloEntrega": intervalo_entrega,
-                    "diasPagamento": dias_pagamento,
-                    "quantidadeParcela": quantidade_parcela,
-                    "intervaloParcela": intervalo_parcela,
-                    "tipoFrete": tipo_frete,
-                    "tipoPagamento": tipo_pagamento,
-                    "CondicaoPagamento": condicao_pagamento,
-                }
+                json=params
             )
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
             return response.text
 
     def consultar_aprovacao_da_cotacao_por_obra(
@@ -815,21 +845,24 @@ class Cotacao:
             ... )
         """
         path = "Cotacao/ConsultarAprovacaoDaCotacaoPorObra"
+        kwargs = {
+            "codigoEmpresa": codigo_empresa,
+            "codigoObra": codigo_obra,
+            "numeroSimulacao": numero_simulacao,
+            "numeroCotacao": numero_cotacao,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
             response = self.api.post(
                 path,
-                json={
-                    "codigoEmpresa": codigo_empresa,
-                    "codigoObra": codigo_obra,
-                    "numeroSimulacao": numero_simulacao,
-                    "numeroCotacao": numero_cotacao,
-                }
+                json=params
             )
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
             return response.text
 
     def reprovar_confirmacoes_cotacao_por_obra(
@@ -887,19 +920,22 @@ class Cotacao:
             ... )
         """
         path = "Cotacao/ReprovarConfirmacoesCotacaoPorObra"
+        kwargs = {
+            "ConfirmacoesCotacao": confirmacoes_cotacao,
+            "justificativaReprovacao": justificativa_reprovacao,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
             response = self.api.post(
                 path,
-                json={
-                    "ConfirmacoesCotacao": confirmacoes_cotacao,
-                    "justificativaReprovacao": justificativa_reprovacao,
-                }
+                json=params
             )
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
             return response.text
 
     def consultar_cotacoes_confirmacao_pendente(
@@ -964,22 +1000,25 @@ class Cotacao:
             ... )
         """
         path = "Cotacao/ConsultarCotacoesConfirmacaoPendente"
+        kwargs = {
+            "usuario": usuario,
+            "departamento": departamento,
+            "cargo": cargo,
+            "listaEmpObras": lista_emp_obras,
+            "cotacao": cotacao,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
             response = self.api.post(
                 path,
-                json={
-                    "usuario": usuario,
-                    "departamento": departamento,
-                    "cargo": cargo,
-                    "listaEmpObras": lista_emp_obras,
-                    "cotacao": cotacao,
-                }
+                json=params
             )
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
             return response.text
 
     def consultar_quantidade_cotacao_pendente_por_obra(
@@ -1041,21 +1080,24 @@ class Cotacao:
             ... )
         """
         path = "Cotacao/ConsultarQuantidadeCotacaoPendentePorObra"
+        kwargs = {
+            "loginUsuario": login_usuario,
+            "codigoDepartamento": codigo_departamento,
+            "codigoCargo": codigo_cargo,
+            "listaEmpObras": lista_emp_obras,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
             response = self.api.post(
                 path,
-                json={
-                    "loginUsuario": login_usuario,
-                    "codigoDepartamento": codigo_departamento,
-                    "codigoCargo": codigo_cargo,
-                    "listaEmpObras": lista_emp_obras,
-                }
+                json=params
             )
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
             return response.text
 
     def consultar_quantidade_cotacao_pendente_por_obra_mob(
@@ -1117,21 +1159,24 @@ class Cotacao:
             ... )
         """
         path = "Cotacao/ConsultarQuantidadeCotacaoPendentePorObraMob"
+        kwargs = {
+            "loginUsuario": login_usuario,
+            "codigoDepartamento": codigo_departamento,
+            "codigoCargo": codigo_cargo,
+            "listaEmpObras": lista_emp_obras,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
             response = self.api.post(
                 path,
-                json={
-                    "loginUsuario": login_usuario,
-                    "codigoDepartamento": codigo_departamento,
-                    "codigoCargo": codigo_cargo,
-                    "listaEmpObras": lista_emp_obras,
-                }
+                json=params
             )
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
             return response.text
 
     def consultar_justificativas_aprovacao_fora_sequencia(
@@ -1185,20 +1230,23 @@ class Cotacao:
             ... )
         """
         path = "Cotacao/ConsultarJustificativasAprovacaoForaSequencia"
+        kwargs = {
+            "Detalhe": detalhe,
+            "Mensagem": mensagem,
+            "Descricao": descricao,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
             response = self.api.post(
                 path,
-                json={
-                    "Detalhe": detalhe,
-                    "Mensagem": mensagem,
-                    "Descricao": descricao,
-                }
+                json=params
             )
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
             return response.text
 
     def inserir_altera_coment_forn_frete(
@@ -1294,33 +1342,36 @@ class Cotacao:
             ... )
         """
         path = "Cotacao/InserirAlteraComentFornFrete"
+        kwargs = {
+            "empresa": empresa,
+            "codigo_fornecedor": codigo_fornecedor,
+            "cotacao": cotacao,
+            "cond_pagto": cond_pagto,
+            "tipo_coment": tipo_coment,
+            "efet_pgto_parc": efet_pgto_parc,
+            "dtvenc_ini": dtvenc_ini,
+            "qtde_parc": qtde_parc,
+            "intev_parc": intev_parc,
+            "obs_pgto": obs_pgto,
+            "obs_entrega": obs_entrega,
+            "tipo_pgto": tipo_pgto,
+            "tem_frete": tem_frete,
+            "diaini_venc": diaini_venc,
+            "freteqtde_ent": freteqtde_ent,
+            "interv_ent": interv_ent,
+            "diasEntrega": dias_entrega,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
             response = self.api.post(
                 path,
-                json={
-                    "empresa": empresa,
-                    "codigo_fornecedor": codigo_fornecedor,
-                    "cotacao": cotacao,
-                    "cond_pagto": cond_pagto,
-                    "tipo_coment": tipo_coment,
-                    "efet_pgto_parc": efet_pgto_parc,
-                    "dtvenc_ini": dtvenc_ini,
-                    "qtde_parc": qtde_parc,
-                    "intev_parc": intev_parc,
-                    "obs_pgto": obs_pgto,
-                    "obs_entrega": obs_entrega,
-                    "tipo_pgto": tipo_pgto,
-                    "tem_frete": tem_frete,
-                    "diaini_venc": diaini_venc,
-                    "freteqtde_ent": freteqtde_ent,
-                    "interv_ent": interv_ent,
-                    "diasEntrega": dias_entrega,
-                }
+                json=params
             )
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
             return response.text
 

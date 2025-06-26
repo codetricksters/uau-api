@@ -64,20 +64,23 @@ class ChavePix:
             ... )
         """
         path = f"ChavePix/Pessoas/Consultar/{cpfCnpj}"
+        kwargs = {
+            "Detalhe": detalhe,
+            "Mensagem": mensagem,
+            "Descricao": descricao,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
             response = self.api.get(
                 path,
-                json={
-                    "Detalhe": detalhe,
-                    "Mensagem": mensagem,
-                    "Descricao": descricao,
-                }
+                json=params
             )
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
             return response.text
 
     def deletar(
@@ -133,20 +136,23 @@ class ChavePix:
             ... )
         """
         path = "ChavePix/Pessoas/Deletar"
+        kwargs = {
+            "cpfCnpj": cpf_cnpj,
+            "chavePix": chave_pix,
+            "tipoChavePix": tipo_chave_pix,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
             response = self.api.post(
                 path,
-                json={
-                    "cpfCnpj": cpf_cnpj,
-                    "chavePix": chave_pix,
-                    "tipoChavePix": tipo_chave_pix,
-                }
+                json=params
             )
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
             return response.text
 
     def atualizar(
@@ -210,22 +216,25 @@ class ChavePix:
             ... )
         """
         path = "ChavePix/Pessoas/Atualizar"
+        kwargs = {
+            "cpfCnpj": cpf_cnpj,
+            "chavePix": chave_pix,
+            "tipoChavePix": tipo_chave_pix,
+            "chavePixPadrao": chave_pix_padrao,
+            "ativoInativo": ativo_inativo,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
             response = self.api.post(
                 path,
-                json={
-                    "cpfCnpj": cpf_cnpj,
-                    "chavePix": chave_pix,
-                    "tipoChavePix": tipo_chave_pix,
-                    "chavePixPadrao": chave_pix_padrao,
-                    "ativoInativo": ativo_inativo,
-                }
+                json=params
             )
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
             return response.text
 
     def cadastrar(
@@ -289,21 +298,24 @@ class ChavePix:
             ... )
         """
         path = "ChavePix/Pessoas/Cadastrar"
+        kwargs = {
+            "cpfCnpj": cpf_cnpj,
+            "chavePix": chave_pix,
+            "tipoChavePix": tipo_chave_pix,
+            "chavePixPadrao": chave_pix_padrao,
+            "ativoInativo": ativo_inativo,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
             response = self.api.post(
                 path,
-                json={
-                    "cpfCnpj": cpf_cnpj,
-                    "chavePix": chave_pix,
-                    "tipoChavePix": tipo_chave_pix,
-                    "chavePixPadrao": chave_pix_padrao,
-                    "ativoInativo": ativo_inativo,
-                }
+                json=params
             )
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
             return response.text
 

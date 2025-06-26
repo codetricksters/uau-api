@@ -53,18 +53,21 @@ class Empresa:
             ... )
         """
         path = "Empresa/ConsultarEmpresa"
+        kwargs = {
+            "codigoEmpresa": codigo_empresa,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
             response = self.api.post(
                 path,
-                json={
-                    "codigoEmpresa": codigo_empresa,
-                }
+                json=params
             )
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
             return response.text
 
     def obter_empresas_ativas(
@@ -114,20 +117,23 @@ class Empresa:
             ... )
         """
         path = "Empresa/ObterEmpresasAtivas"
+        kwargs = {
+            "Detalhe": detalhe,
+            "Mensagem": mensagem,
+            "Descricao": descricao,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
             response = self.api.post(
                 path,
-                json={
-                    "Detalhe": detalhe,
-                    "Mensagem": mensagem,
-                    "Descricao": descricao,
-                }
+                json=params
             )
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
             return response.text
 
     def consultar_dados_basicos_empresas_por_filtro(
@@ -199,20 +205,23 @@ class Empresa:
             ... )
         """
         path = "Empresa/ConsultarDadosBasicosEmpresasPorFiltro"
+        kwargs = {
+            "Empresa": empresa,
+            "DescricaoEmpresa": descricao_empresa,
+            "Cnpj": cnpj,
+            "LimitarRetornoEm": limitar_retorno_em,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
             response = self.api.post(
                 path,
-                json={
-                    "Empresa": empresa,
-                    "DescricaoEmpresa": descricao_empresa,
-                    "Cnpj": cnpj,
-                    "LimitarRetornoEm": limitar_retorno_em,
-                }
+                json=params
             )
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
             return response.text
 

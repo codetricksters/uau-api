@@ -95,21 +95,24 @@ class DocumentosDigitaisIntegracao:
             ... )
         """
         path = "DocumentosDigitais/EnviarEnvelopeDeDocumento"
+        kwargs = {
+            "ListaDePessoas": lista_de_pessoas,
+            "ListaDeDocumentos": lista_de_documentos,
+            "Mensagem": mensagem,
+            "CodigoDoSistema": codigo_do_sistema,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
             response = self.api.post(
                 path,
-                json={
-                    "ListaDePessoas": lista_de_pessoas,
-                    "ListaDeDocumentos": lista_de_documentos,
-                    "Mensagem": mensagem,
-                    "CodigoDoSistema": codigo_do_sistema,
-                }
+                json=params
             )
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
             return response.text
 
     def consultar_documentos_enviados(
@@ -156,18 +159,21 @@ class DocumentosDigitaisIntegracao:
             ... )
         """
         path = "DocumentosDigitais/ConsultarDocumentosEnviados"
+        kwargs = {
+            "NumeroDoEnvelope": numero_do_envelope,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
             response = self.api.post(
                 path,
-                json={
-                    "NumeroDoEnvelope": numero_do_envelope,
-                }
+                json=params
             )
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
             return response.text
 
     def consultar_assinaturas_enviadas(
@@ -215,18 +221,21 @@ class DocumentosDigitaisIntegracao:
             ... )
         """
         path = "DocumentosDigitais/ConsultarAssinaturasEnviadas"
+        kwargs = {
+            "NumeroDoEnvelope": numero_do_envelope,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
             response = self.api.post(
                 path,
-                json={
-                    "NumeroDoEnvelope": numero_do_envelope,
-                }
+                json=params
             )
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
             return response.text
 
     def consulta_documentos_digitais_ativos(
@@ -277,20 +286,23 @@ class DocumentosDigitaisIntegracao:
             ... )
         """
         path = "DocumentosDigitais/ConsultaDocumentosDigitaisAtivos"
+        kwargs = {
+            "Detalhe": detalhe,
+            "Mensagem": mensagem,
+            "Descricao": descricao,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
             response = self.api.post(
                 path,
-                json={
-                    "Detalhe": detalhe,
-                    "Mensagem": mensagem,
-                    "Descricao": descricao,
-                }
+                json=params
             )
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
             return response.text
 
     def consultar_envelope_documentos_codigo_externo(
@@ -339,17 +351,20 @@ class DocumentosDigitaisIntegracao:
             ... )
         """
         path = "DocumentosDigitais/ConsultarEnvelopeDocumentosCodigoExterno"
+        kwargs = {
+            "EnvelopeId": envelope_id,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
             response = self.api.post(
                 path,
-                json={
-                    "EnvelopeId": envelope_id,
-                }
+                json=params
             )
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
             return response.text
 

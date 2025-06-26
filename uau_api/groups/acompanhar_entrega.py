@@ -60,19 +60,22 @@ class AcompanharEntrega:
             ... )
         """
         path = "AcompanharEntrega/ConsultarProcessos"
+        kwargs = {
+            "empresa": empresa,
+            "obra": obra,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
             response = self.api.post(
                 path,
-                json={
-                    "empresa": empresa,
-                    "obra": obra,
-                }
+                json=params
             )
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
             return response.text
 
     def acompanhar_pre_entrega(
@@ -151,24 +154,27 @@ class AcompanharEntrega:
             ... )
         """
         path = "AcompanharEntrega/AcompanharPreEntrega"
+        kwargs = {
+            "Empresa": empresa,
+            "Obra": obra,
+            "Processo": processo,
+            "ChaveNotaFiscal": chave_nota_fiscal,
+            "ChaveNotaFiscalFrete": chave_nota_fiscal_frete,
+            "CodigoDoBoleto": codigo_do_boleto,
+            "CodigoDoBoletoFrete": codigo_do_boleto_frete,
+            "Itens": itens,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
             response = self.api.post(
                 path,
-                json={
-                    "Empresa": empresa,
-                    "Obra": obra,
-                    "Processo": processo,
-                    "ChaveNotaFiscal": chave_nota_fiscal,
-                    "ChaveNotaFiscalFrete": chave_nota_fiscal_frete,
-                    "CodigoDoBoleto": codigo_do_boleto,
-                    "CodigoDoBoletoFrete": codigo_do_boleto_frete,
-                    "Itens": itens,
-                }
+                json=params
             )
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
             return response.text
 

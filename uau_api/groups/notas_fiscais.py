@@ -92,25 +92,28 @@ class NotasFiscais:
             ... )
         """
         path = "NotasFiscais/ConsultarNFEntrada"
+        kwargs = {
+            "ListaNFEntrada": listanf_entrada,
+            "CodigoEmpresa": codigo_empresa,
+            "CodigoObra": codigo_obra,
+            "CnpjFornecedor": cnpj_fornecedor,
+            "CodigoFornecedor": codigo_fornecedor,
+            "DataInicial": data_inicial,
+            "DataFinal": data_final,
+            "TipoPeriodo": tipo_periodo,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
             response = self.api.post(
                 path,
-                json={
-                    "ListaNFEntrada": listanf_entrada,
-                    "CodigoEmpresa": codigo_empresa,
-                    "CodigoObra": codigo_obra,
-                    "CnpjFornecedor": cnpj_fornecedor,
-                    "CodigoFornecedor": codigo_fornecedor,
-                    "DataInicial": data_inicial,
-                    "DataFinal": data_final,
-                    "TipoPeriodo": tipo_periodo,
-                }
+                json=params
             )
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
             return response.text
 
     def salvar_arquivo_xmlnotafiscal_entrada(
@@ -167,15 +170,18 @@ class NotasFiscais:
             ... )
         """
         path = "NotasFiscais/SalvarArquivoXMLnotafiscalEntrada"
+        kwargs = parameters if parameters is not None else {}
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
             response = self.api.post(
                 path,
-                json=parameters if parameters is not None else {}
+                json=params
             )
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
             return response.text
 

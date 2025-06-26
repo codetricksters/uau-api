@@ -180,59 +180,62 @@ class InsumosGeral:
             ... )
         """
         path = "InsumosGeral/InserirInsumosGeral"
+        kwargs = {
+            "codigo": codigo,
+            "descricao": descricao,
+            "unidade": unidade,
+            "unidadesInsumo": unidades_insumo,
+            "usuario": usuario,
+            "status": status,
+            "confirmado": confirmado,
+            "controlarPrecoMeta": controlar_preco_meta,
+            "diasDeCompra": dias_de_compra,
+            "diasUtilizacao": dias_utilizacao,
+            "numeroDeCompras": numero_de_compras,
+            "diasEntrega": dias_entrega,
+            "numeroPagamentos": numero_pagamentos,
+            "tipoPagamento": tipo_pagamento,
+            "controle": controle,
+            "controlaEstoque": controla_estoque,
+            "pagamentoSobre": pagamento_sobre,
+            "preco": preco,
+            "dataCotacao": data_cotacao,
+            "frequenciaCompra": frequencia_compra,
+            "comoPagar": como_pagar,
+            "CAP": cap,
+            "categoriaMovFin": categoria_mov_fin,
+            "CAPAplicacaoMaterial": cap_aplicacao_material,
+            "CAPEstorno": cap_estorno,
+            "CAPTransacaoFinanceira": cap_transacao_financeira,
+            "CategoriaDoInsumo": categoria_do_insumo,
+            "NCM": ncm,
+            "CEST": cest,
+            "Aplicacao": aplicacao,
+            "grupo": grupo,
+            "calcEncargo": calc_encargo,
+            "controlaFVM": controlafvm,
+            "patrimonio": patrimonio,
+            "depreciacao": depreciacao,
+            "grupoDeInsumos": grupo_de_insumos,
+            "rateioParaMecanicos": rateio_para_mecanicos,
+            "indicadorUtilBem": indicador_util_bem,
+            "capacidadeDiariaTrabalho": capacidade_diaria_trabalho,
+            "marcaModelo": marca_modelo,
+            "subgrupo": subgrupo,
+            "itemManutencao": item_manutencao,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
             response = self.api.post(
                 path,
-                json={
-                    "codigo": codigo,
-                    "descricao": descricao,
-                    "unidade": unidade,
-                    "unidadesInsumo": unidades_insumo,
-                    "usuario": usuario,
-                    "status": status,
-                    "confirmado": confirmado,
-                    "controlarPrecoMeta": controlar_preco_meta,
-                    "diasDeCompra": dias_de_compra,
-                    "diasUtilizacao": dias_utilizacao,
-                    "numeroDeCompras": numero_de_compras,
-                    "diasEntrega": dias_entrega,
-                    "numeroPagamentos": numero_pagamentos,
-                    "tipoPagamento": tipo_pagamento,
-                    "controle": controle,
-                    "controlaEstoque": controla_estoque,
-                    "pagamentoSobre": pagamento_sobre,
-                    "preco": preco,
-                    "dataCotacao": data_cotacao,
-                    "frequenciaCompra": frequencia_compra,
-                    "comoPagar": como_pagar,
-                    "CAP": cap,
-                    "categoriaMovFin": categoria_mov_fin,
-                    "CAPAplicacaoMaterial": cap_aplicacao_material,
-                    "CAPEstorno": cap_estorno,
-                    "CAPTransacaoFinanceira": cap_transacao_financeira,
-                    "CategoriaDoInsumo": categoria_do_insumo,
-                    "NCM": ncm,
-                    "CEST": cest,
-                    "Aplicacao": aplicacao,
-                    "grupo": grupo,
-                    "calcEncargo": calc_encargo,
-                    "controlaFVM": controlafvm,
-                    "patrimonio": patrimonio,
-                    "depreciacao": depreciacao,
-                    "grupoDeInsumos": grupo_de_insumos,
-                    "rateioParaMecanicos": rateio_para_mecanicos,
-                    "indicadorUtilBem": indicador_util_bem,
-                    "capacidadeDiariaTrabalho": capacidade_diaria_trabalho,
-                    "marcaModelo": marca_modelo,
-                    "subgrupo": subgrupo,
-                    "itemManutencao": item_manutencao,
-                }
+                json=params
             )
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
             return response.text
 
     def atualizar_insumos_geral(
@@ -343,18 +346,21 @@ class InsumosGeral:
             ... )
         """
         path = "InsumosGeral/AtualizarInsumosGeral"
+        kwargs = {
+            "listaInsumosAtualizar": lista_insumos_atualizar,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
             response = self.api.post(
                 path,
-                json={
-                    "listaInsumosAtualizar": lista_insumos_atualizar,
-                }
+                json=params
             )
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
             return response.text
 
     def consultar_insumos_geral(
@@ -411,22 +417,25 @@ class InsumosGeral:
             ... )
         """
         path = "InsumosGeral/ConsultarInsumosGeral"
+        kwargs = {
+            "codigo_insumo": codigo_insumo,
+            "descricao_insumo": descricao_insumo,
+            "codigosub_grupo": codigosub_grupo,
+            "item_manutencao": item_manutencao,
+            "patrimonio": patrimonio,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
             response = self.api.post(
                 path,
-                json={
-                    "codigo_insumo": codigo_insumo,
-                    "descricao_insumo": descricao_insumo,
-                    "codigosub_grupo": codigosub_grupo,
-                    "item_manutencao": item_manutencao,
-                    "patrimonio": patrimonio,
-                }
+                json=params
             )
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
             return response.text
 
     def consultar_insumos_geral_por_chave(
@@ -597,59 +606,62 @@ class InsumosGeral:
             ... )
         """
         path = "InsumosGeral/ConsultarInsumosGeralPorChave"
+        kwargs = {
+            "codigo": codigo,
+            "descricao": descricao,
+            "unidade": unidade,
+            "unidadesInsumo": unidades_insumo,
+            "usuario": usuario,
+            "status": status,
+            "confirmado": confirmado,
+            "controlarPrecoMeta": controlar_preco_meta,
+            "diasDeCompra": dias_de_compra,
+            "diasUtilizacao": dias_utilizacao,
+            "numeroDeCompras": numero_de_compras,
+            "diasEntrega": dias_entrega,
+            "numeroPagamentos": numero_pagamentos,
+            "tipoPagamento": tipo_pagamento,
+            "controle": controle,
+            "controlaEstoque": controla_estoque,
+            "pagamentoSobre": pagamento_sobre,
+            "preco": preco,
+            "dataCotacao": data_cotacao,
+            "frequenciaCompra": frequencia_compra,
+            "comoPagar": como_pagar,
+            "CAP": cap,
+            "categoriaMovFin": categoria_mov_fin,
+            "CAPAplicacaoMaterial": cap_aplicacao_material,
+            "CAPEstorno": cap_estorno,
+            "CAPTransacaoFinanceira": cap_transacao_financeira,
+            "CategoriaDoInsumo": categoria_do_insumo,
+            "NCM": ncm,
+            "CEST": cest,
+            "Aplicacao": aplicacao,
+            "grupo": grupo,
+            "calcEncargo": calc_encargo,
+            "controlaFVM": controlafvm,
+            "patrimonio": patrimonio,
+            "depreciacao": depreciacao,
+            "grupoDeInsumos": grupo_de_insumos,
+            "rateioParaMecanicos": rateio_para_mecanicos,
+            "indicadorUtilBem": indicador_util_bem,
+            "capacidadeDiariaTrabalho": capacidade_diaria_trabalho,
+            "marcaModelo": marca_modelo,
+            "subgrupo": subgrupo,
+            "itemManutencao": item_manutencao,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
             response = self.api.post(
                 path,
-                json={
-                    "codigo": codigo,
-                    "descricao": descricao,
-                    "unidade": unidade,
-                    "unidadesInsumo": unidades_insumo,
-                    "usuario": usuario,
-                    "status": status,
-                    "confirmado": confirmado,
-                    "controlarPrecoMeta": controlar_preco_meta,
-                    "diasDeCompra": dias_de_compra,
-                    "diasUtilizacao": dias_utilizacao,
-                    "numeroDeCompras": numero_de_compras,
-                    "diasEntrega": dias_entrega,
-                    "numeroPagamentos": numero_pagamentos,
-                    "tipoPagamento": tipo_pagamento,
-                    "controle": controle,
-                    "controlaEstoque": controla_estoque,
-                    "pagamentoSobre": pagamento_sobre,
-                    "preco": preco,
-                    "dataCotacao": data_cotacao,
-                    "frequenciaCompra": frequencia_compra,
-                    "comoPagar": como_pagar,
-                    "CAP": cap,
-                    "categoriaMovFin": categoria_mov_fin,
-                    "CAPAplicacaoMaterial": cap_aplicacao_material,
-                    "CAPEstorno": cap_estorno,
-                    "CAPTransacaoFinanceira": cap_transacao_financeira,
-                    "CategoriaDoInsumo": categoria_do_insumo,
-                    "NCM": ncm,
-                    "CEST": cest,
-                    "Aplicacao": aplicacao,
-                    "grupo": grupo,
-                    "calcEncargo": calc_encargo,
-                    "controlaFVM": controlafvm,
-                    "patrimonio": patrimonio,
-                    "depreciacao": depreciacao,
-                    "grupoDeInsumos": grupo_de_insumos,
-                    "rateioParaMecanicos": rateio_para_mecanicos,
-                    "indicadorUtilBem": indicador_util_bem,
-                    "capacidadeDiariaTrabalho": capacidade_diaria_trabalho,
-                    "marcaModelo": marca_modelo,
-                    "subgrupo": subgrupo,
-                    "itemManutencao": item_manutencao,
-                }
+                json=params
             )
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
             return response.text
 
     def consultar_insumos_geral_por_descricao(
@@ -691,17 +703,20 @@ class InsumosGeral:
             ... )
         """
         path = "InsumosGeral/ConsultarInsumosGeralPorDescricao"
+        kwargs = {
+            "Descricao": descricao,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
         try:
             response = self.api.post(
                 path,
-                json={
-                    "Descricao": descricao,
-                }
+                json=params
             )
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred: {e}")
             return response.text
 
