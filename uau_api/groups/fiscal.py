@@ -75,18 +75,16 @@ class Fiscal:
             "Descricao": descricao,
         }
         params = {k: v for k, v in kwargs.items() if v is not None}
-        try:
-            response = self.api.post(
-                path,
-                json=params
-            )
-            content_type = response.headers.get('Content-Type', '')
-            if 'application/json' in content_type:
-                return response.json()
-            response.raise_for_status()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
+        response = self.api.post(
+            path,
+            json=params
+        )
+        content_type = response.headers.get('Content-Type', '')
+        if 'application/json' in content_type:
+            return response.json()
+        if response.text:
             return response.text
+        return None
 
     def buscar_codigo_servico_fiscal(
         self,
@@ -145,18 +143,16 @@ class Fiscal:
             "Descricao": descricao,
         }
         params = {k: v for k, v in kwargs.items() if v is not None}
-        try:
-            response = self.api.post(
-                path,
-                json=params
-            )
-            content_type = response.headers.get('Content-Type', '')
-            if 'application/json' in content_type:
-                return response.json()
-            response.raise_for_status()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
+        response = self.api.post(
+            path,
+            json=params
+        )
+        content_type = response.headers.get('Content-Type', '')
+        if 'application/json' in content_type:
+            return response.json()
+        if response.text:
             return response.text
+        return None
 
     def importar_lancamentos_fiscais(
         self,
@@ -211,18 +207,16 @@ class Fiscal:
             "dadoslacamentos_xml": dadoslacamentos_xml,
         }
         params = {k: v for k, v in kwargs.items() if v is not None}
-        try:
-            response = self.api.post(
-                path,
-                json=params
-            )
-            content_type = response.headers.get('Content-Type', '')
-            if 'application/json' in content_type:
-                return response.json()
-            response.raise_for_status()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
+        response = self.api.post(
+            path,
+            json=params
+        )
+        content_type = response.headers.get('Content-Type', '')
+        if 'application/json' in content_type:
+            return response.json()
+        if response.text:
             return response.text
+        return None
 
     def importar_lancamentos_contabeis(
         self,
@@ -276,16 +270,14 @@ class Fiscal:
             "dadoslacamentos_xml": dadoslacamentos_xml,
         }
         params = {k: v for k, v in kwargs.items() if v is not None}
-        try:
-            response = self.api.post(
-                path,
-                json=params
-            )
-            content_type = response.headers.get('Content-Type', '')
-            if 'application/json' in content_type:
-                return response.json()
-            response.raise_for_status()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
+        response = self.api.post(
+            path,
+            json=params
+        )
+        content_type = response.headers.get('Content-Type', '')
+        if 'application/json' in content_type:
+            return response.json()
+        if response.text:
             return response.text
+        return None
 
