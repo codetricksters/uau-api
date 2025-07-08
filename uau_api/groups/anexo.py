@@ -779,5 +779,4 @@ class Anexo:
             response.raise_for_status()
         except requests.exceptions.RequestException as e:
             print(f"An error occurred: {e}")
-            return response.text
 
