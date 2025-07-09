@@ -3,6 +3,8 @@ from datetime import datetime
 from uau_api.requestsapi import RequestsApi
 
 import requests
+from http import HTTPStatus
+
 class Medicao:
     def __init__(self, api: RequestsApi):
         """Initialize with API client
@@ -142,13 +144,14 @@ class Medicao:
                 path,
                 json=params
             )
+            if response.status_code == HTTPStatus.BAD_REQUEST:
+                return response.json()
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return response.text
+        except requests.exceptions.HTTPError as e:
+            return e.response.text
 
     def excluir_medicao(
         self,
@@ -215,13 +218,14 @@ class Medicao:
                 path,
                 json=params
             )
+            if response.status_code == HTTPStatus.BAD_REQUEST:
+                return response.json()
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return response.text
+        except requests.exceptions.HTTPError as e:
+            return e.response.text
 
     def consultar_medicao(
         self,
@@ -281,13 +285,14 @@ class Medicao:
                 path,
                 json=params
             )
+            if response.status_code == HTTPStatus.BAD_REQUEST:
+                return response.json()
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return response.text
+        except requests.exceptions.HTTPError as e:
+            return e.response.text
 
     def consultar_itens_medicao(
         self,
@@ -351,13 +356,14 @@ class Medicao:
                 path,
                 json=params
             )
+            if response.status_code == HTTPStatus.BAD_REQUEST:
+                return response.json()
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return response.text
+        except requests.exceptions.HTTPError as e:
+            return e.response.text
 
     def aprovar_medicoes_contrato(
         self,
@@ -424,13 +430,14 @@ class Medicao:
                 path,
                 json=params
             )
+            if response.status_code == HTTPStatus.BAD_REQUEST:
+                return response.json()
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return response.text
+        except requests.exceptions.HTTPError as e:
+            return e.response.text
 
     def consultar_boletim_medicao(
         self,
@@ -498,13 +505,14 @@ class Medicao:
                 path,
                 json=params
             )
+            if response.status_code == HTTPStatus.BAD_REQUEST:
+                return response.json()
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return response.text
+        except requests.exceptions.HTTPError as e:
+            return e.response.text
 
     def consultar_medicao_completa(
         self,
@@ -585,13 +593,14 @@ class Medicao:
                 path,
                 json=params
             )
+            if response.status_code == HTTPStatus.BAD_REQUEST:
+                return response.json()
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return response.text
+        except requests.exceptions.HTTPError as e:
+            return e.response.text
 
     def consultar_medicao_por_serv_mat(
         self,
@@ -647,13 +656,14 @@ class Medicao:
                 path,
                 json=params
             )
+            if response.status_code == HTTPStatus.BAD_REQUEST:
+                return response.json()
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return response.text
+        except requests.exceptions.HTTPError as e:
+            return e.response.text
 
     def consultar_medicoes_por_status(
         self,
@@ -719,13 +729,14 @@ class Medicao:
                 path,
                 json=params
             )
+            if response.status_code == HTTPStatus.BAD_REQUEST:
+                return response.json()
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return response.text
+        except requests.exceptions.HTTPError as e:
+            return e.response.text
 
     def validar_cnpjao_gravar_medicao(
         self,
@@ -756,13 +767,14 @@ class Medicao:
                 path,
                 json=params
             )
+            if response.status_code == HTTPStatus.BAD_REQUEST:
+                return response.json()
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return response.text
+        except requests.exceptions.HTTPError as e:
+            return e.response.text
 
     def consultar_medicao_por_contrato(
         self,
@@ -818,13 +830,14 @@ class Medicao:
                 path,
                 json=params
             )
+            if response.status_code == HTTPStatus.BAD_REQUEST:
+                return response.json()
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return response.text
+        except requests.exceptions.HTTPError as e:
+            return e.response.text
 
     def consultar_itens_medicao_por_medicao(
         self,
@@ -884,13 +897,14 @@ class Medicao:
                 path,
                 json=params
             )
+            if response.status_code == HTTPStatus.BAD_REQUEST:
+                return response.json()
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return response.text
+        except requests.exceptions.HTTPError as e:
+            return e.response.text
 
     def consultar_itens_medicao_por_serv_mat(
         self,
@@ -946,13 +960,14 @@ class Medicao:
                 path,
                 json=params
             )
+            if response.status_code == HTTPStatus.BAD_REQUEST:
+                return response.json()
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return response.text
+        except requests.exceptions.HTTPError as e:
+            return e.response.text
 
     def consultar_itens_medicao_por_contrato(
         self,
@@ -1008,13 +1023,14 @@ class Medicao:
                 path,
                 json=params
             )
+            if response.status_code == HTTPStatus.BAD_REQUEST:
+                return response.json()
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return response.text
+        except requests.exceptions.HTTPError as e:
+            return e.response.text
 
     def consultar_itens_medicao_por_item_contrato(
         self,
@@ -1078,11 +1094,12 @@ class Medicao:
                 path,
                 json=params
             )
+            if response.status_code == HTTPStatus.BAD_REQUEST:
+                return response.json()
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return response.text
+        except requests.exceptions.HTTPError as e:
+            return e.response.text
 

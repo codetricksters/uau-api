@@ -75,7 +75,7 @@ def generate_api_classes(
             f.write('from datetime import datetime\n')
             f.write('from uau_api.requestsapi import RequestsApi\n\n')
             f.write('import requests\n')
-
+            f.write('from http import HTTPStatus\n\n')
             # Write class definition
             f.write(f'class {class_name}:\n')
             
@@ -160,13 +160,14 @@ def generate_api_classes(
                 f.write('                path,\n')
                 f.write('                json=params\n')
                 f.write('            )\n')
+                f.write('            if response.status_code == HTTPStatus.BAD_REQUEST:\n')
+                f.write('                return response.json()\n')
                 f.write("            content_type = response.headers.get('Content-Type', '')\n")
                 f.write("            if 'application/json' in content_type:\n")
                 f.write('                return response.json()\n')
                 f.write('            response.raise_for_status()\n')
-                f.write('        except requests.exceptions.RequestException as e:\n')
-                f.write('            print(f"An error occurred: {e}")\n')
-                f.write('            return response.text\n\n')
+                f.write('        except requests.exceptions.HTTPError as e:\n')
+                f.write('            return e.response.text\n\n')
 
 if __name__ == '__main__':
     typer.run(generate_api_classes)

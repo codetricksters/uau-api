@@ -3,6 +3,8 @@ from datetime import datetime
 from uau_api.requestsapi import RequestsApi
 
 import requests
+from http import HTTPStatus
+
 class CobrancaPix:
     def __init__(self, api: RequestsApi):
         """Initialize with API client
@@ -68,13 +70,14 @@ class CobrancaPix:
                 path,
                 json=params
             )
+            if response.status_code == HTTPStatus.BAD_REQUEST:
+                return response.json()
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return response.text
+        except requests.exceptions.HTTPError as e:
+            return e.response.text
 
     def reimpressao_pix(
         self,
@@ -139,13 +142,14 @@ class CobrancaPix:
                 path,
                 json=params
             )
+            if response.status_code == HTTPStatus.BAD_REQUEST:
+                return response.json()
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return response.text
+        except requests.exceptions.HTTPError as e:
+            return e.response.text
 
     def consultar_pix_status(
         self,
@@ -213,13 +217,14 @@ class CobrancaPix:
                 path,
                 json=params
             )
+            if response.status_code == HTTPStatus.BAD_REQUEST:
+                return response.json()
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return response.text
+        except requests.exceptions.HTTPError as e:
+            return e.response.text
 
     def gerar_cobranca_venda(
         self,
@@ -315,13 +320,14 @@ class CobrancaPix:
                 path,
                 json=params
             )
+            if response.status_code == HTTPStatus.BAD_REQUEST:
+                return response.json()
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return response.text
+        except requests.exceptions.HTTPError as e:
+            return e.response.text
 
     def gerar_cobranca_proposta(
         self,
@@ -417,11 +423,12 @@ class CobrancaPix:
                 path,
                 json=params
             )
+            if response.status_code == HTTPStatus.BAD_REQUEST:
+                return response.json()
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return response.text
+        except requests.exceptions.HTTPError as e:
+            return e.response.text
 

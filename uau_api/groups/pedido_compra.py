@@ -3,6 +3,8 @@ from datetime import datetime
 from uau_api.requestsapi import RequestsApi
 
 import requests
+from http import HTTPStatus
+
 class PedidoCompra:
     def __init__(self, api: RequestsApi):
         """Initialize with API client
@@ -99,13 +101,14 @@ class PedidoCompra:
                 path,
                 json=params
             )
+            if response.status_code == HTTPStatus.BAD_REQUEST:
+                return response.json()
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return response.text
+        except requests.exceptions.HTTPError as e:
+            return e.response.text
 
     def aprovar_pedido_compra_material_app(
         self,
@@ -198,13 +201,14 @@ class PedidoCompra:
                 path,
                 json=params
             )
+            if response.status_code == HTTPStatus.BAD_REQUEST:
+                return response.json()
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return response.text
+        except requests.exceptions.HTTPError as e:
+            return e.response.text
 
     def gravar_pedido_de_compra_do_tipo_servico(
         self,
@@ -309,13 +313,14 @@ class PedidoCompra:
                 path,
                 json=params
             )
+            if response.status_code == HTTPStatus.BAD_REQUEST:
+                return response.json()
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return response.text
+        except requests.exceptions.HTTPError as e:
+            return e.response.text
 
     def gravar_pedido_de_compra_do_tipo_material(
         self,
@@ -416,13 +421,14 @@ class PedidoCompra:
                 path,
                 json=params
             )
+            if response.status_code == HTTPStatus.BAD_REQUEST:
+                return response.json()
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return response.text
+        except requests.exceptions.HTTPError as e:
+            return e.response.text
 
     def gravar_pedido_de_compra_do_tipo_patrimonio(
         self,
@@ -523,13 +529,14 @@ class PedidoCompra:
                 path,
                 json=params
             )
+            if response.status_code == HTTPStatus.BAD_REQUEST:
+                return response.json()
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return response.text
+        except requests.exceptions.HTTPError as e:
+            return e.response.text
 
     def gravar_pedido_de_compra_do_tipo_complemento(
         self,
@@ -630,13 +637,14 @@ class PedidoCompra:
                 path,
                 json=params
             )
+            if response.status_code == HTTPStatus.BAD_REQUEST:
+                return response.json()
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return response.text
+        except requests.exceptions.HTTPError as e:
+            return e.response.text
 
     def gravar_pedido_de_compra_do_tipo_emergencial(
         self,
@@ -737,13 +745,14 @@ class PedidoCompra:
                 path,
                 json=params
             )
+            if response.status_code == HTTPStatus.BAD_REQUEST:
+                return response.json()
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return response.text
+        except requests.exceptions.HTTPError as e:
+            return e.response.text
 
     def gravar_pedido_de_compra_do_tipo_adiantamento(
         self,
@@ -848,13 +857,14 @@ class PedidoCompra:
                 path,
                 json=params
             )
+            if response.status_code == HTTPStatus.BAD_REQUEST:
+                return response.json()
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return response.text
+        except requests.exceptions.HTTPError as e:
+            return e.response.text
 
     def gravar_pedido_de_compra_do_tipo_regularizacao(
         self,
@@ -955,13 +965,14 @@ class PedidoCompra:
                 path,
                 json=params
             )
+            if response.status_code == HTTPStatus.BAD_REQUEST:
+                return response.json()
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return response.text
+        except requests.exceptions.HTTPError as e:
+            return e.response.text
 
     def confirmar_recebimento_ordem_compra_fornecedor(
         self,
@@ -1034,13 +1045,14 @@ class PedidoCompra:
                 path,
                 json=params
             )
+            if response.status_code == HTTPStatus.BAD_REQUEST:
+                return response.json()
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return response.text
+        except requests.exceptions.HTTPError as e:
+            return e.response.text
 
     def gravar_pedido_de_compra_do_tipo_servico_contrato(
         self,
@@ -1125,13 +1137,14 @@ class PedidoCompra:
                 path,
                 json=params
             )
+            if response.status_code == HTTPStatus.BAD_REQUEST:
+                return response.json()
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return response.text
+        except requests.exceptions.HTTPError as e:
+            return e.response.text
 
     def gravar_pedido_de_compra_do_tipo_contrato_material(
         self,
@@ -1220,13 +1233,14 @@ class PedidoCompra:
                 path,
                 json=params
             )
+            if response.status_code == HTTPStatus.BAD_REQUEST:
+                return response.json()
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return response.text
+        except requests.exceptions.HTTPError as e:
+            return e.response.text
 
     def gravar_pedido_de_compra_do_tipo_servico_complemento(
         self,
@@ -1331,13 +1345,14 @@ class PedidoCompra:
                 path,
                 json=params
             )
+            if response.status_code == HTTPStatus.BAD_REQUEST:
+                return response.json()
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return response.text
+        except requests.exceptions.HTTPError as e:
+            return e.response.text
 
     def gravar_pedido_de_compra_do_tipo_servico_emergencial(
         self,
@@ -1442,13 +1457,14 @@ class PedidoCompra:
                 path,
                 json=params
             )
+            if response.status_code == HTTPStatus.BAD_REQUEST:
+                return response.json()
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return response.text
+        except requests.exceptions.HTTPError as e:
+            return e.response.text
 
     def gravar_pedido_de_compra_do_tipo_servico_adiantamento(
         self,
@@ -1557,13 +1573,14 @@ class PedidoCompra:
                 path,
                 json=params
             )
+            if response.status_code == HTTPStatus.BAD_REQUEST:
+                return response.json()
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return response.text
+        except requests.exceptions.HTTPError as e:
+            return e.response.text
 
     def gravar_pedido_de_compra_do_tipo_servico_regularizacao(
         self,
@@ -1668,11 +1685,12 @@ class PedidoCompra:
                 path,
                 json=params
             )
+            if response.status_code == HTTPStatus.BAD_REQUEST:
+                return response.json()
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return response.text
+        except requests.exceptions.HTTPError as e:
+            return e.response.text
 

@@ -3,6 +3,8 @@ from datetime import datetime
 from uau_api.requestsapi import RequestsApi
 
 import requests
+from http import HTTPStatus
+
 class Planejamento:
     def __init__(self, api: RequestsApi):
         """Initialize with API client
@@ -86,13 +88,14 @@ class Planejamento:
                 path,
                 json=params
             )
+            if response.status_code == HTTPStatus.BAD_REQUEST:
+                return response.json()
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return response.text
+        except requests.exceptions.HTTPError as e:
+            return e.response.text
 
     def consultar_item_planejamento(
         self,
@@ -160,13 +163,14 @@ class Planejamento:
                 path,
                 json=params
             )
+            if response.status_code == HTTPStatus.BAD_REQUEST:
+                return response.json()
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return response.text
+        except requests.exceptions.HTTPError as e:
+            return e.response.text
 
     def consultar_saldo_siplanejada(
         self,
@@ -247,13 +251,14 @@ class Planejamento:
                 path,
                 json=params
             )
+            if response.status_code == HTTPStatus.BAD_REQUEST:
+                return response.json()
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return response.text
+        except requests.exceptions.HTTPError as e:
+            return e.response.text
 
     def inserir_servico_planejamento(
         self,
@@ -333,13 +338,14 @@ class Planejamento:
                 path,
                 json=params
             )
+            if response.status_code == HTTPStatus.BAD_REQUEST:
+                return response.json()
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return response.text
+        except requests.exceptions.HTTPError as e:
+            return e.response.text
 
     def exportar_planejamento_produto(
         self,
@@ -403,13 +409,14 @@ class Planejamento:
                 path,
                 json=params
             )
+            if response.status_code == HTTPStatus.BAD_REQUEST:
+                return response.json()
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return response.text
+        except requests.exceptions.HTTPError as e:
+            return e.response.text
 
     def atualizar_insumos_planejamento(
         self,
@@ -479,13 +486,14 @@ class Planejamento:
                 path,
                 json=params
             )
+            if response.status_code == HTTPStatus.BAD_REQUEST:
+                return response.json()
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return response.text
+        except requests.exceptions.HTTPError as e:
+            return e.response.text
 
     def atualizar_servico_planejamento(
         self,
@@ -573,13 +581,14 @@ class Planejamento:
                 path,
                 json=params
             )
+            if response.status_code == HTTPStatus.BAD_REQUEST:
+                return response.json()
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return response.text
+        except requests.exceptions.HTTPError as e:
+            return e.response.text
 
     def consultar_servico_planejamento(
         self,
@@ -651,13 +660,14 @@ class Planejamento:
                 path,
                 json=params
             )
+            if response.status_code == HTTPStatus.BAD_REQUEST:
+                return response.json()
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return response.text
+        except requests.exceptions.HTTPError as e:
+            return e.response.text
 
     def consultar_solicitacao_insumo_pl(
         self,
@@ -709,13 +719,14 @@ class Planejamento:
                 path,
                 json=params
             )
+            if response.status_code == HTTPStatus.BAD_REQUEST:
+                return response.json()
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return response.text
+        except requests.exceptions.HTTPError as e:
+            return e.response.text
 
     def inserir_estrutura_planejamento(
         self,
@@ -807,13 +818,14 @@ class Planejamento:
                 path,
                 json=params
             )
+            if response.status_code == HTTPStatus.BAD_REQUEST:
+                return response.json()
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return response.text
+        except requests.exceptions.HTTPError as e:
+            return e.response.text
 
     def consultar_solicitacao_servico_pl(
         self,
@@ -865,13 +877,14 @@ class Planejamento:
                 path,
                 json=params
             )
+            if response.status_code == HTTPStatus.BAD_REQUEST:
+                return response.json()
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return response.text
+        except requests.exceptions.HTTPError as e:
+            return e.response.text
 
     def inserir_servico_planejamento_mes(
         self,
@@ -955,13 +968,14 @@ class Planejamento:
                 path,
                 json=params
             )
+            if response.status_code == HTTPStatus.BAD_REQUEST:
+                return response.json()
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return response.text
+        except requests.exceptions.HTTPError as e:
+            return e.response.text
 
     def aprovar_solicitacao_planejamento(
         self,
@@ -1033,13 +1047,14 @@ class Planejamento:
                 path,
                 json=params
             )
+            if response.status_code == HTTPStatus.BAD_REQUEST:
+                return response.json()
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return response.text
+        except requests.exceptions.HTTPError as e:
+            return e.response.text
 
     def atualizar_estrutura_planejamento(
         self,
@@ -1123,13 +1138,14 @@ class Planejamento:
                 path,
                 json=params
             )
+            if response.status_code == HTTPStatus.BAD_REQUEST:
+                return response.json()
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return response.text
+        except requests.exceptions.HTTPError as e:
+            return e.response.text
 
     def consultar_estrutura_planejamento(
         self,
@@ -1205,13 +1221,14 @@ class Planejamento:
                 path,
                 json=params
             )
+            if response.status_code == HTTPStatus.BAD_REQUEST:
+                return response.json()
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return response.text
+        except requests.exceptions.HTTPError as e:
+            return e.response.text
 
     def atualizar_servico_planejamento_mes(
         self,
@@ -1295,13 +1312,14 @@ class Planejamento:
                 path,
                 json=params
             )
+            if response.status_code == HTTPStatus.BAD_REQUEST:
+                return response.json()
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return response.text
+        except requests.exceptions.HTTPError as e:
+            return e.response.text
 
     def consultar_desembolso_planejamento(
         self,
@@ -1373,13 +1391,14 @@ class Planejamento:
                 path,
                 json=params
             )
+            if response.status_code == HTTPStatus.BAD_REQUEST:
+                return response.json()
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return response.text
+        except requests.exceptions.HTTPError as e:
+            return e.response.text
 
     def consultar_servico_planejamento_mes(
         self,
@@ -1455,13 +1474,14 @@ class Planejamento:
                 path,
                 json=params
             )
+            if response.status_code == HTTPStatus.BAD_REQUEST:
+                return response.json()
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return response.text
+        except requests.exceptions.HTTPError as e:
+            return e.response.text
 
     def consultar_servico_planejamento_por_obra(
         self,
@@ -1517,13 +1537,14 @@ class Planejamento:
                 path,
                 json=params
             )
+            if response.status_code == HTTPStatus.BAD_REQUEST:
+                return response.json()
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return response.text
+        except requests.exceptions.HTTPError as e:
+            return e.response.text
 
     def inserir_servico_planejamento_integrado(
         self,
@@ -1607,13 +1628,14 @@ class Planejamento:
                 path,
                 json=params
             )
+            if response.status_code == HTTPStatus.BAD_REQUEST:
+                return response.json()
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return response.text
+        except requests.exceptions.HTTPError as e:
+            return e.response.text
 
     def recusar_solicitacao_planejamento_geral(
         self,
@@ -1689,13 +1711,14 @@ class Planejamento:
                 path,
                 json=params
             )
+            if response.status_code == HTTPStatus.BAD_REQUEST:
+                return response.json()
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return response.text
+        except requests.exceptions.HTTPError as e:
+            return e.response.text
 
     def aprovar_solicitacao_planejamento_em_lote(
         self,
@@ -1771,13 +1794,14 @@ class Planejamento:
                 path,
                 json=params
             )
+            if response.status_code == HTTPStatus.BAD_REQUEST:
+                return response.json()
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return response.text
+        except requests.exceptions.HTTPError as e:
+            return e.response.text
 
     def atualizar_servico_planejamento_integrado(
         self,
@@ -1845,13 +1869,14 @@ class Planejamento:
                 path,
                 json=params
             )
+            if response.status_code == HTTPStatus.BAD_REQUEST:
+                return response.json()
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return response.text
+        except requests.exceptions.HTTPError as e:
+            return e.response.text
 
     def consultar_servico_planejado_desintegrado(
         self,
@@ -1907,13 +1932,14 @@ class Planejamento:
                 path,
                 json=params
             )
+            if response.status_code == HTTPStatus.BAD_REQUEST:
+                return response.json()
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return response.text
+        except requests.exceptions.HTTPError as e:
+            return e.response.text
 
     def consultar_servico_planejamento_integrado(
         self,
@@ -1965,13 +1991,14 @@ class Planejamento:
                 path,
                 json=params
             )
+            if response.status_code == HTTPStatus.BAD_REQUEST:
+                return response.json()
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return response.text
+        except requests.exceptions.HTTPError as e:
+            return e.response.text
 
     def consultar_aprovacao_pl_pendente_por_usuario(
         self,
@@ -2043,13 +2070,14 @@ class Planejamento:
                 path,
                 json=params
             )
+            if response.status_code == HTTPStatus.BAD_REQUEST:
+                return response.json()
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return response.text
+        except requests.exceptions.HTTPError as e:
+            return e.response.text
 
     def recusar_solicitacao_planejamento_geral_em_lote(
         self,
@@ -2125,13 +2153,14 @@ class Planejamento:
                 path,
                 json=params
             )
+            if response.status_code == HTTPStatus.BAD_REQUEST:
+                return response.json()
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return response.text
+        except requests.exceptions.HTTPError as e:
+            return e.response.text
 
     def aprovar_solicitacao_planejamento_insumos_em_lote(
         self,
@@ -2207,13 +2236,14 @@ class Planejamento:
                 path,
                 json=params
             )
+            if response.status_code == HTTPStatus.BAD_REQUEST:
+                return response.json()
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return response.text
+        except requests.exceptions.HTTPError as e:
+            return e.response.text
 
     def aprovar_solicitacao_planejamento_servicos_em_lote(
         self,
@@ -2319,13 +2349,14 @@ class Planejamento:
                 path,
                 json=params
             )
+            if response.status_code == HTTPStatus.BAD_REQUEST:
+                return response.json()
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return response.text
+        except requests.exceptions.HTTPError as e:
+            return e.response.text
 
     def consultar_quantidade_aprovacao_pl_pendente_por_usuario(
         self,
@@ -2397,11 +2428,12 @@ class Planejamento:
                 path,
                 json=params
             )
+            if response.status_code == HTTPStatus.BAD_REQUEST:
+                return response.json()
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return response.text
+        except requests.exceptions.HTTPError as e:
+            return e.response.text
 

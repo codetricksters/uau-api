@@ -3,6 +3,8 @@ from datetime import datetime
 from uau_api.requestsapi import RequestsApi
 
 import requests
+from http import HTTPStatus
+
 class Prospect:
     def __init__(self, api: RequestsApi):
         """Initialize with API client
@@ -283,13 +285,14 @@ class Prospect:
                 path,
                 json=params
             )
+            if response.status_code == HTTPStatus.BAD_REQUEST:
+                return response.json()
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return response.text
+        except requests.exceptions.HTTPError as e:
+            return e.response.text
 
     def importar_prospect(
         self,
@@ -351,13 +354,14 @@ class Prospect:
                 path,
                 json=params
             )
+            if response.status_code == HTTPStatus.BAD_REQUEST:
+                return response.json()
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return response.text
+        except requests.exceptions.HTTPError as e:
+            return e.response.text
 
     def listar_grau_parentesco(
         self,
@@ -407,13 +411,14 @@ class Prospect:
                 path,
                 json=params
             )
+            if response.status_code == HTTPStatus.BAD_REQUEST:
+                return response.json()
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return response.text
+        except requests.exceptions.HTTPError as e:
+            return e.response.text
 
     def migrar_prospect_pessoa(
         self,
@@ -473,13 +478,14 @@ class Prospect:
                 path,
                 json=params
             )
+            if response.status_code == HTTPStatus.BAD_REQUEST:
+                return response.json()
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return response.text
+        except requests.exceptions.HTTPError as e:
+            return e.response.text
 
     def consultar_todos_prospects(
         self,
@@ -547,13 +553,14 @@ class Prospect:
                 path,
                 json=params
             )
+            if response.status_code == HTTPStatus.BAD_REQUEST:
+                return response.json()
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return response.text
+        except requests.exceptions.HTTPError as e:
+            return e.response.text
 
     def consultar_prospect_por_chave(
         self,
@@ -613,13 +620,14 @@ class Prospect:
                 path,
                 json=params
             )
+            if response.status_code == HTTPStatus.BAD_REQUEST:
+                return response.json()
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return response.text
+        except requests.exceptions.HTTPError as e:
+            return e.response.text
 
     def alterar_responsavel_prospect(
         self,
@@ -692,13 +700,14 @@ class Prospect:
                 path,
                 json=params
             )
+            if response.status_code == HTTPStatus.BAD_REQUEST:
+                return response.json()
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return response.text
+        except requests.exceptions.HTTPError as e:
+            return e.response.text
 
     def consultar_prospect_com_filtro(
         self,
@@ -790,13 +799,14 @@ class Prospect:
                 path,
                 json=params
             )
+            if response.status_code == HTTPStatus.BAD_REQUEST:
+                return response.json()
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return response.text
+        except requests.exceptions.HTTPError as e:
+            return e.response.text
 
     def buscar_grau_parentesco_por_codigo(
         self,
@@ -838,11 +848,12 @@ class Prospect:
                 path,
                 json=params
             )
+            if response.status_code == HTTPStatus.BAD_REQUEST:
+                return response.json()
             content_type = response.headers.get('Content-Type', '')
             if 'application/json' in content_type:
                 return response.json()
             response.raise_for_status()
-        except requests.exceptions.RequestException as e:
-            print(f"An error occurred: {e}")
-            return response.text
+        except requests.exceptions.HTTPError as e:
+            return e.response.text
 
