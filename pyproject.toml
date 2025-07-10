@@ -1,47 +1,46 @@
-[tool.poetry]
+[project]
+authors = [
+    {name = "codetricksters", email = "leonardo.magic@hotmail.com"},
+]
+requires-python = "<4.0,>=3.11"
+dependencies = [
+    "pandas<3.0.0,>=2.2.1",
+    "requests<3.0.0,>=2.31.0",
+    "openpyxl<4.0.0,>=3.1.2",
+    "ipykernel<7.0.0,>=6.29.4",
+    "xlsxwriter<4.0.0,>=3.2.0",
+    "pydantic<3.0.0,>=2.8.2",
+    "pydantic-settings<3.0.0,>=2.3.4",
+    "sqlalchemy<3.0.0,>=2.0.31",
+    "aiohttp<4.0.0,>=3.11.18",
+    "aiofiles<25.0.0,>=24.1.0",
+    "tqdm<5.0.0,>=4.67.1",
+    "typer<1.0.0,>=0.15.2",
+    "ipywidgets<9.0.0,>=8.1.7",
+    "pillow<12.0.0,>=11.2.1",
+    "defusedxml<1.0.0,>=0.7.1",
+    "olefile<1.0,>=0.47",
+    "numpy==2.2.6",
+]
 name = "uau-api"
-version = "0.1.0"
+version = "1.0.0"
 description = ""
-authors = ["codetricksters <leonardo.magic@hotmail.com>"]
 readme = "README.md"
 
-[tool.poetry.dependencies]
-python = ">=3.11,<4.0"
-pandas = "^2.2.1"
-requests = "^2.31.0"
-openpyxl = "^3.1.2"
-ipykernel = "^6.29.4"
-xlsxwriter = "^3.2.0"
-pydantic = "^2.8.2"
-pydantic-settings = "^2.3.4"
-sqlalchemy = "^2.0.31"
-aiohttp = "^3.11.18"
-aiofiles = "^24.1.0"
-tqdm = "^4.67.1"
-typer = "^0.15.2"
-ipywidgets = "^8.1.7"
-pillow = "^11.2.1"
-defusedxml = "^0.7.1"
-olefile = "^0.47"
-numpy = "2.2.6"
-
-[tool.poetry.group.dev.dependencies]
-pytest = "^8.3.5"
-isort = "^6.0.1"
-blue = "^0.9.1"
-taskipy = "^1.14.1"
-pytest-cov = "^6.1.1"
-bs4 = "^0.0.2"
-
-[tool.poetry.group.doc.dependencies]
-mkdocs-material = "^9.6.12"
-mkdocstrings = "^0.29.1"
-mkdocstrings-python = "^1.16.10"
-
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
-
+[dependency-groups]
+dev = [
+    "pytest<9.0.0,>=8.3.5",
+    "isort<7.0.0,>=6.0.1",
+    "blue<1.0.0,>=0.9.1",
+    "taskipy<2.0.0,>=1.14.1",
+    "pytest-cov<7.0.0,>=6.1.1",
+    "bs4<1.0.0,>=0.0.2",
+]
+doc = [
+    "mkdocs-material<10.0.0,>=9.6.12",
+    "mkdocstrings<1.0.0,>=0.29.1",
+    "mkdocstrings-python<2.0.0,>=1.16.10",
+]
 [tool.pytest.ini_options]
 pythonpath = "."
 addopts = "--doctest-modules"
