@@ -58,3 +58,6 @@ post_test = "coverage html"
 
 [tool.ruff.format]
 quote-style = "single"
+
+[tool.setuptools.packages.find]
+where = ["uau_api"]
