@@ -175,14 +175,65 @@ class ProcessoPagamento:
                 path,
                 json=params
             )
-            if response.status_code == HTTPStatus.BAD_REQUEST:
-                return response.json()
-            content_type = response.headers.get('Content-Type', '')
-            if 'application/json' in content_type:
-                return response.json()
+            
+            # Check for specific error codes (HTTPStatus.BAD_REQUEST and HTTPStatus.INTERNAL_SERVER_ERROR) before raising for status
+            if response.status_code in [HTTPStatus.BAD_REQUEST, HTTPStatus.INTERNAL_SERVER_ERROR]:
+                print(f"Server error occurred - Status Code: {response.status_code}")
+                # Attempt to parse the error JSON response
+                try:
+                    error_data = response.json()
+                    if isinstance(error_data, dict):
+                        # Extract the specific error fields if they exist
+                        detalhe = error_data.get("Detalhe", "N/A")
+                        mensagem = error_data.get("Mensagem", "N/A")
+                        descricao = error_data.get("Descricao", "N/A")
+                        
+                        print("Error Details:")
+                        print(f"  Detalhe: {detalhe}")
+                        print(f"  Mensagem: {mensagem}")
+                        print(f"  Descrição: {descricao}")
+                        
+                        # Return the error data for caller to handle
+                        return error_data
+                    else:
+                        print("Server returned an error, but it's not a JSON object.")
+                        return None
+                except ValueError:
+                    print("Server returned an error, but it's not in JSON format.")
+                    return None
+            
+            # Raise an error for other HTTP error statuses
             response.raise_for_status()
-        except requests.exceptions.HTTPError as e:
-            return e.response.text
+            
+        except requests.exceptions.HTTPError as http_err:
+            print(f"HTTP error occurred: {http_err} - Status Code: {response.status_code}")
+            # Attempt to return server's JSON error details for other HTTP errors
+            try:
+                return response.json()
+            except ValueError:
+                print("Server returned an error, but it's not in JSON format.")
+                return None
+        except requests.exceptions.ConnectionError as conn_err:
+            print(f"Connection error occurred: {conn_err}")
+            return None
+        except requests.exceptions.Timeout as timeout_err:
+            print(f"Timeout error occurred: {timeout_err}")
+            return None
+        except requests.exceptions.RequestException as req_err:
+            print(f"An unknown error occurred: {req_err}")
+            return None
+        
+        # On success, attempt to return JSON response
+        try:
+            json_data = response.json()
+            if isinstance(json_data, dict):
+                return json_data
+            else:
+                print("Success, but response is not a JSON object.")
+                return None
+        except ValueError as json_err:
+            print(f"Failed to parse JSON: {json_err}")
+            return None
 
     def consultar_processos(
         self,
@@ -248,14 +299,65 @@ class ProcessoPagamento:
                 path,
                 json=params
             )
-            if response.status_code == HTTPStatus.BAD_REQUEST:
-                return response.json()
-            content_type = response.headers.get('Content-Type', '')
-            if 'application/json' in content_type:
-                return response.json()
+            
+            # Check for specific error codes (HTTPStatus.BAD_REQUEST and HTTPStatus.INTERNAL_SERVER_ERROR) before raising for status
+            if response.status_code in [HTTPStatus.BAD_REQUEST, HTTPStatus.INTERNAL_SERVER_ERROR]:
+                print(f"Server error occurred - Status Code: {response.status_code}")
+                # Attempt to parse the error JSON response
+                try:
+                    error_data = response.json()
+                    if isinstance(error_data, dict):
+                        # Extract the specific error fields if they exist
+                        detalhe = error_data.get("Detalhe", "N/A")
+                        mensagem = error_data.get("Mensagem", "N/A")
+                        descricao = error_data.get("Descricao", "N/A")
+                        
+                        print("Error Details:")
+                        print(f"  Detalhe: {detalhe}")
+                        print(f"  Mensagem: {mensagem}")
+                        print(f"  Descrição: {descricao}")
+                        
+                        # Return the error data for caller to handle
+                        return error_data
+                    else:
+                        print("Server returned an error, but it's not a JSON object.")
+                        return None
+                except ValueError:
+                    print("Server returned an error, but it's not in JSON format.")
+                    return None
+            
+            # Raise an error for other HTTP error statuses
             response.raise_for_status()
-        except requests.exceptions.HTTPError as e:
-            return e.response.text
+            
+        except requests.exceptions.HTTPError as http_err:
+            print(f"HTTP error occurred: {http_err} - Status Code: {response.status_code}")
+            # Attempt to return server's JSON error details for other HTTP errors
+            try:
+                return response.json()
+            except ValueError:
+                print("Server returned an error, but it's not in JSON format.")
+                return None
+        except requests.exceptions.ConnectionError as conn_err:
+            print(f"Connection error occurred: {conn_err}")
+            return None
+        except requests.exceptions.Timeout as timeout_err:
+            print(f"Timeout error occurred: {timeout_err}")
+            return None
+        except requests.exceptions.RequestException as req_err:
+            print(f"An unknown error occurred: {req_err}")
+            return None
+        
+        # On success, attempt to return JSON response
+        try:
+            json_data = response.json()
+            if isinstance(json_data, dict):
+                return json_data
+            else:
+                print("Success, but response is not a JSON object.")
+                return None
+        except ValueError as json_err:
+            print(f"Failed to parse JSON: {json_err}")
+            return None
 
     def aprovar_dvq(
         self,
@@ -385,14 +487,65 @@ class ProcessoPagamento:
                 path,
                 json=params
             )
-            if response.status_code == HTTPStatus.BAD_REQUEST:
-                return response.json()
-            content_type = response.headers.get('Content-Type', '')
-            if 'application/json' in content_type:
-                return response.json()
+            
+            # Check for specific error codes (HTTPStatus.BAD_REQUEST and HTTPStatus.INTERNAL_SERVER_ERROR) before raising for status
+            if response.status_code in [HTTPStatus.BAD_REQUEST, HTTPStatus.INTERNAL_SERVER_ERROR]:
+                print(f"Server error occurred - Status Code: {response.status_code}")
+                # Attempt to parse the error JSON response
+                try:
+                    error_data = response.json()
+                    if isinstance(error_data, dict):
+                        # Extract the specific error fields if they exist
+                        detalhe = error_data.get("Detalhe", "N/A")
+                        mensagem = error_data.get("Mensagem", "N/A")
+                        descricao = error_data.get("Descricao", "N/A")
+                        
+                        print("Error Details:")
+                        print(f"  Detalhe: {detalhe}")
+                        print(f"  Mensagem: {mensagem}")
+                        print(f"  Descrição: {descricao}")
+                        
+                        # Return the error data for caller to handle
+                        return error_data
+                    else:
+                        print("Server returned an error, but it's not a JSON object.")
+                        return None
+                except ValueError:
+                    print("Server returned an error, but it's not in JSON format.")
+                    return None
+            
+            # Raise an error for other HTTP error statuses
             response.raise_for_status()
-        except requests.exceptions.HTTPError as e:
-            return e.response.text
+            
+        except requests.exceptions.HTTPError as http_err:
+            print(f"HTTP error occurred: {http_err} - Status Code: {response.status_code}")
+            # Attempt to return server's JSON error details for other HTTP errors
+            try:
+                return response.json()
+            except ValueError:
+                print("Server returned an error, but it's not in JSON format.")
+                return None
+        except requests.exceptions.ConnectionError as conn_err:
+            print(f"Connection error occurred: {conn_err}")
+            return None
+        except requests.exceptions.Timeout as timeout_err:
+            print(f"Timeout error occurred: {timeout_err}")
+            return None
+        except requests.exceptions.RequestException as req_err:
+            print(f"An unknown error occurred: {req_err}")
+            return None
+        
+        # On success, attempt to return JSON response
+        try:
+            json_data = response.json()
+            if isinstance(json_data, dict):
+                return json_data
+            else:
+                print("Success, but response is not a JSON object.")
+                return None
+        except ValueError as json_err:
+            print(f"Failed to parse JSON: {json_err}")
+            return None
 
     def gerar_processo(
         self,
@@ -616,14 +769,65 @@ class ProcessoPagamento:
                 path,
                 json=params
             )
-            if response.status_code == HTTPStatus.BAD_REQUEST:
-                return response.json()
-            content_type = response.headers.get('Content-Type', '')
-            if 'application/json' in content_type:
-                return response.json()
+            
+            # Check for specific error codes (HTTPStatus.BAD_REQUEST and HTTPStatus.INTERNAL_SERVER_ERROR) before raising for status
+            if response.status_code in [HTTPStatus.BAD_REQUEST, HTTPStatus.INTERNAL_SERVER_ERROR]:
+                print(f"Server error occurred - Status Code: {response.status_code}")
+                # Attempt to parse the error JSON response
+                try:
+                    error_data = response.json()
+                    if isinstance(error_data, dict):
+                        # Extract the specific error fields if they exist
+                        detalhe = error_data.get("Detalhe", "N/A")
+                        mensagem = error_data.get("Mensagem", "N/A")
+                        descricao = error_data.get("Descricao", "N/A")
+                        
+                        print("Error Details:")
+                        print(f"  Detalhe: {detalhe}")
+                        print(f"  Mensagem: {mensagem}")
+                        print(f"  Descrição: {descricao}")
+                        
+                        # Return the error data for caller to handle
+                        return error_data
+                    else:
+                        print("Server returned an error, but it's not a JSON object.")
+                        return None
+                except ValueError:
+                    print("Server returned an error, but it's not in JSON format.")
+                    return None
+            
+            # Raise an error for other HTTP error statuses
             response.raise_for_status()
-        except requests.exceptions.HTTPError as e:
-            return e.response.text
+            
+        except requests.exceptions.HTTPError as http_err:
+            print(f"HTTP error occurred: {http_err} - Status Code: {response.status_code}")
+            # Attempt to return server's JSON error details for other HTTP errors
+            try:
+                return response.json()
+            except ValueError:
+                print("Server returned an error, but it's not in JSON format.")
+                return None
+        except requests.exceptions.ConnectionError as conn_err:
+            print(f"Connection error occurred: {conn_err}")
+            return None
+        except requests.exceptions.Timeout as timeout_err:
+            print(f"Timeout error occurred: {timeout_err}")
+            return None
+        except requests.exceptions.RequestException as req_err:
+            print(f"An unknown error occurred: {req_err}")
+            return None
+        
+        # On success, attempt to return JSON response
+        try:
+            json_data = response.json()
+            if isinstance(json_data, dict):
+                return json_data
+            else:
+                print("Success, but response is not a JSON object.")
+                return None
+        except ValueError as json_err:
+            print(f"Failed to parse JSON: {json_err}")
+            return None
 
     def gerar_nota_fiscal(
         self,
@@ -768,14 +972,65 @@ class ProcessoPagamento:
                 path,
                 json=params
             )
-            if response.status_code == HTTPStatus.BAD_REQUEST:
-                return response.json()
-            content_type = response.headers.get('Content-Type', '')
-            if 'application/json' in content_type:
-                return response.json()
+            
+            # Check for specific error codes (HTTPStatus.BAD_REQUEST and HTTPStatus.INTERNAL_SERVER_ERROR) before raising for status
+            if response.status_code in [HTTPStatus.BAD_REQUEST, HTTPStatus.INTERNAL_SERVER_ERROR]:
+                print(f"Server error occurred - Status Code: {response.status_code}")
+                # Attempt to parse the error JSON response
+                try:
+                    error_data = response.json()
+                    if isinstance(error_data, dict):
+                        # Extract the specific error fields if they exist
+                        detalhe = error_data.get("Detalhe", "N/A")
+                        mensagem = error_data.get("Mensagem", "N/A")
+                        descricao = error_data.get("Descricao", "N/A")
+                        
+                        print("Error Details:")
+                        print(f"  Detalhe: {detalhe}")
+                        print(f"  Mensagem: {mensagem}")
+                        print(f"  Descrição: {descricao}")
+                        
+                        # Return the error data for caller to handle
+                        return error_data
+                    else:
+                        print("Server returned an error, but it's not a JSON object.")
+                        return None
+                except ValueError:
+                    print("Server returned an error, but it's not in JSON format.")
+                    return None
+            
+            # Raise an error for other HTTP error statuses
             response.raise_for_status()
-        except requests.exceptions.HTTPError as e:
-            return e.response.text
+            
+        except requests.exceptions.HTTPError as http_err:
+            print(f"HTTP error occurred: {http_err} - Status Code: {response.status_code}")
+            # Attempt to return server's JSON error details for other HTTP errors
+            try:
+                return response.json()
+            except ValueError:
+                print("Server returned an error, but it's not in JSON format.")
+                return None
+        except requests.exceptions.ConnectionError as conn_err:
+            print(f"Connection error occurred: {conn_err}")
+            return None
+        except requests.exceptions.Timeout as timeout_err:
+            print(f"Timeout error occurred: {timeout_err}")
+            return None
+        except requests.exceptions.RequestException as req_err:
+            print(f"An unknown error occurred: {req_err}")
+            return None
+        
+        # On success, attempt to return JSON response
+        try:
+            json_data = response.json()
+            if isinstance(json_data, dict):
+                return json_data
+            else:
+                print("Success, but response is not a JSON object.")
+                return None
+        except ValueError as json_err:
+            print(f"Failed to parse JSON: {json_err}")
+            return None
 
     def aprovar_processos(
         self,
@@ -846,14 +1101,65 @@ class ProcessoPagamento:
                 path,
                 json=params
             )
-            if response.status_code == HTTPStatus.BAD_REQUEST:
-                return response.json()
-            content_type = response.headers.get('Content-Type', '')
-            if 'application/json' in content_type:
-                return response.json()
+            
+            # Check for specific error codes (HTTPStatus.BAD_REQUEST and HTTPStatus.INTERNAL_SERVER_ERROR) before raising for status
+            if response.status_code in [HTTPStatus.BAD_REQUEST, HTTPStatus.INTERNAL_SERVER_ERROR]:
+                print(f"Server error occurred - Status Code: {response.status_code}")
+                # Attempt to parse the error JSON response
+                try:
+                    error_data = response.json()
+                    if isinstance(error_data, dict):
+                        # Extract the specific error fields if they exist
+                        detalhe = error_data.get("Detalhe", "N/A")
+                        mensagem = error_data.get("Mensagem", "N/A")
+                        descricao = error_data.get("Descricao", "N/A")
+                        
+                        print("Error Details:")
+                        print(f"  Detalhe: {detalhe}")
+                        print(f"  Mensagem: {mensagem}")
+                        print(f"  Descrição: {descricao}")
+                        
+                        # Return the error data for caller to handle
+                        return error_data
+                    else:
+                        print("Server returned an error, but it's not a JSON object.")
+                        return None
+                except ValueError:
+                    print("Server returned an error, but it's not in JSON format.")
+                    return None
+            
+            # Raise an error for other HTTP error statuses
             response.raise_for_status()
-        except requests.exceptions.HTTPError as e:
-            return e.response.text
+            
+        except requests.exceptions.HTTPError as http_err:
+            print(f"HTTP error occurred: {http_err} - Status Code: {response.status_code}")
+            # Attempt to return server's JSON error details for other HTTP errors
+            try:
+                return response.json()
+            except ValueError:
+                print("Server returned an error, but it's not in JSON format.")
+                return None
+        except requests.exceptions.ConnectionError as conn_err:
+            print(f"Connection error occurred: {conn_err}")
+            return None
+        except requests.exceptions.Timeout as timeout_err:
+            print(f"Timeout error occurred: {timeout_err}")
+            return None
+        except requests.exceptions.RequestException as req_err:
+            print(f"An unknown error occurred: {req_err}")
+            return None
+        
+        # On success, attempt to return JSON response
+        try:
+            json_data = response.json()
+            if isinstance(json_data, dict):
+                return json_data
+            else:
+                print("Success, but response is not a JSON object.")
+                return None
+        except ValueError as json_err:
+            print(f"Failed to parse JSON: {json_err}")
+            return None
 
     def consultar_processos(
         self,
@@ -947,14 +1253,65 @@ class ProcessoPagamento:
                 path,
                 json=params
             )
-            if response.status_code == HTTPStatus.BAD_REQUEST:
-                return response.json()
-            content_type = response.headers.get('Content-Type', '')
-            if 'application/json' in content_type:
-                return response.json()
+            
+            # Check for specific error codes (HTTPStatus.BAD_REQUEST and HTTPStatus.INTERNAL_SERVER_ERROR) before raising for status
+            if response.status_code in [HTTPStatus.BAD_REQUEST, HTTPStatus.INTERNAL_SERVER_ERROR]:
+                print(f"Server error occurred - Status Code: {response.status_code}")
+                # Attempt to parse the error JSON response
+                try:
+                    error_data = response.json()
+                    if isinstance(error_data, dict):
+                        # Extract the specific error fields if they exist
+                        detalhe = error_data.get("Detalhe", "N/A")
+                        mensagem = error_data.get("Mensagem", "N/A")
+                        descricao = error_data.get("Descricao", "N/A")
+                        
+                        print("Error Details:")
+                        print(f"  Detalhe: {detalhe}")
+                        print(f"  Mensagem: {mensagem}")
+                        print(f"  Descrição: {descricao}")
+                        
+                        # Return the error data for caller to handle
+                        return error_data
+                    else:
+                        print("Server returned an error, but it's not a JSON object.")
+                        return None
+                except ValueError:
+                    print("Server returned an error, but it's not in JSON format.")
+                    return None
+            
+            # Raise an error for other HTTP error statuses
             response.raise_for_status()
-        except requests.exceptions.HTTPError as e:
-            return e.response.text
+            
+        except requests.exceptions.HTTPError as http_err:
+            print(f"HTTP error occurred: {http_err} - Status Code: {response.status_code}")
+            # Attempt to return server's JSON error details for other HTTP errors
+            try:
+                return response.json()
+            except ValueError:
+                print("Server returned an error, but it's not in JSON format.")
+                return None
+        except requests.exceptions.ConnectionError as conn_err:
+            print(f"Connection error occurred: {conn_err}")
+            return None
+        except requests.exceptions.Timeout as timeout_err:
+            print(f"Timeout error occurred: {timeout_err}")
+            return None
+        except requests.exceptions.RequestException as req_err:
+            print(f"An unknown error occurred: {req_err}")
+            return None
+        
+        # On success, attempt to return JSON response
+        try:
+            json_data = response.json()
+            if isinstance(json_data, dict):
+                return json_data
+            else:
+                print("Success, but response is not a JSON object.")
+                return None
+        except ValueError as json_err:
+            print(f"Failed to parse JSON: {json_err}")
+            return None
 
     def manutencao_processo(
         self,
@@ -1103,14 +1460,65 @@ class ProcessoPagamento:
                 path,
                 json=params
             )
-            if response.status_code == HTTPStatus.BAD_REQUEST:
-                return response.json()
-            content_type = response.headers.get('Content-Type', '')
-            if 'application/json' in content_type:
-                return response.json()
+            
+            # Check for specific error codes (HTTPStatus.BAD_REQUEST and HTTPStatus.INTERNAL_SERVER_ERROR) before raising for status
+            if response.status_code in [HTTPStatus.BAD_REQUEST, HTTPStatus.INTERNAL_SERVER_ERROR]:
+                print(f"Server error occurred - Status Code: {response.status_code}")
+                # Attempt to parse the error JSON response
+                try:
+                    error_data = response.json()
+                    if isinstance(error_data, dict):
+                        # Extract the specific error fields if they exist
+                        detalhe = error_data.get("Detalhe", "N/A")
+                        mensagem = error_data.get("Mensagem", "N/A")
+                        descricao = error_data.get("Descricao", "N/A")
+                        
+                        print("Error Details:")
+                        print(f"  Detalhe: {detalhe}")
+                        print(f"  Mensagem: {mensagem}")
+                        print(f"  Descrição: {descricao}")
+                        
+                        # Return the error data for caller to handle
+                        return error_data
+                    else:
+                        print("Server returned an error, but it's not a JSON object.")
+                        return None
+                except ValueError:
+                    print("Server returned an error, but it's not in JSON format.")
+                    return None
+            
+            # Raise an error for other HTTP error statuses
             response.raise_for_status()
-        except requests.exceptions.HTTPError as e:
-            return e.response.text
+            
+        except requests.exceptions.HTTPError as http_err:
+            print(f"HTTP error occurred: {http_err} - Status Code: {response.status_code}")
+            # Attempt to return server's JSON error details for other HTTP errors
+            try:
+                return response.json()
+            except ValueError:
+                print("Server returned an error, but it's not in JSON format.")
+                return None
+        except requests.exceptions.ConnectionError as conn_err:
+            print(f"Connection error occurred: {conn_err}")
+            return None
+        except requests.exceptions.Timeout as timeout_err:
+            print(f"Timeout error occurred: {timeout_err}")
+            return None
+        except requests.exceptions.RequestException as req_err:
+            print(f"An unknown error occurred: {req_err}")
+            return None
+        
+        # On success, attempt to return JSON response
+        try:
+            json_data = response.json()
+            if isinstance(json_data, dict):
+                return json_data
+            else:
+                print("Success, but response is not a JSON object.")
+                return None
+        except ValueError as json_err:
+            print(f"Failed to parse JSON: {json_err}")
+            return None
 
     def retornar_parcelas_dvq(
         self,
@@ -1203,14 +1611,65 @@ class ProcessoPagamento:
                 path,
                 json=params
             )
-            if response.status_code == HTTPStatus.BAD_REQUEST:
-                return response.json()
-            content_type = response.headers.get('Content-Type', '')
-            if 'application/json' in content_type:
-                return response.json()
+            
+            # Check for specific error codes (HTTPStatus.BAD_REQUEST and HTTPStatus.INTERNAL_SERVER_ERROR) before raising for status
+            if response.status_code in [HTTPStatus.BAD_REQUEST, HTTPStatus.INTERNAL_SERVER_ERROR]:
+                print(f"Server error occurred - Status Code: {response.status_code}")
+                # Attempt to parse the error JSON response
+                try:
+                    error_data = response.json()
+                    if isinstance(error_data, dict):
+                        # Extract the specific error fields if they exist
+                        detalhe = error_data.get("Detalhe", "N/A")
+                        mensagem = error_data.get("Mensagem", "N/A")
+                        descricao = error_data.get("Descricao", "N/A")
+                        
+                        print("Error Details:")
+                        print(f"  Detalhe: {detalhe}")
+                        print(f"  Mensagem: {mensagem}")
+                        print(f"  Descrição: {descricao}")
+                        
+                        # Return the error data for caller to handle
+                        return error_data
+                    else:
+                        print("Server returned an error, but it's not a JSON object.")
+                        return None
+                except ValueError:
+                    print("Server returned an error, but it's not in JSON format.")
+                    return None
+            
+            # Raise an error for other HTTP error statuses
             response.raise_for_status()
-        except requests.exceptions.HTTPError as e:
-            return e.response.text
+            
+        except requests.exceptions.HTTPError as http_err:
+            print(f"HTTP error occurred: {http_err} - Status Code: {response.status_code}")
+            # Attempt to return server's JSON error details for other HTTP errors
+            try:
+                return response.json()
+            except ValueError:
+                print("Server returned an error, but it's not in JSON format.")
+                return None
+        except requests.exceptions.ConnectionError as conn_err:
+            print(f"Connection error occurred: {conn_err}")
+            return None
+        except requests.exceptions.Timeout as timeout_err:
+            print(f"Timeout error occurred: {timeout_err}")
+            return None
+        except requests.exceptions.RequestException as req_err:
+            print(f"An unknown error occurred: {req_err}")
+            return None
+        
+        # On success, attempt to return JSON response
+        try:
+            json_data = response.json()
+            if isinstance(json_data, dict):
+                return json_data
+            else:
+                print("Success, but response is not a JSON object.")
+                return None
+        except ValueError as json_err:
+            print(f"Failed to parse JSON: {json_err}")
+            return None
 
     def gerar_processo_medicao(
         self,
@@ -1397,14 +1856,65 @@ class ProcessoPagamento:
                 path,
                 json=params
             )
-            if response.status_code == HTTPStatus.BAD_REQUEST:
-                return response.json()
-            content_type = response.headers.get('Content-Type', '')
-            if 'application/json' in content_type:
-                return response.json()
+            
+            # Check for specific error codes (HTTPStatus.BAD_REQUEST and HTTPStatus.INTERNAL_SERVER_ERROR) before raising for status
+            if response.status_code in [HTTPStatus.BAD_REQUEST, HTTPStatus.INTERNAL_SERVER_ERROR]:
+                print(f"Server error occurred - Status Code: {response.status_code}")
+                # Attempt to parse the error JSON response
+                try:
+                    error_data = response.json()
+                    if isinstance(error_data, dict):
+                        # Extract the specific error fields if they exist
+                        detalhe = error_data.get("Detalhe", "N/A")
+                        mensagem = error_data.get("Mensagem", "N/A")
+                        descricao = error_data.get("Descricao", "N/A")
+                        
+                        print("Error Details:")
+                        print(f"  Detalhe: {detalhe}")
+                        print(f"  Mensagem: {mensagem}")
+                        print(f"  Descrição: {descricao}")
+                        
+                        # Return the error data for caller to handle
+                        return error_data
+                    else:
+                        print("Server returned an error, but it's not a JSON object.")
+                        return None
+                except ValueError:
+                    print("Server returned an error, but it's not in JSON format.")
+                    return None
+            
+            # Raise an error for other HTTP error statuses
             response.raise_for_status()
-        except requests.exceptions.HTTPError as e:
-            return e.response.text
+            
+        except requests.exceptions.HTTPError as http_err:
+            print(f"HTTP error occurred: {http_err} - Status Code: {response.status_code}")
+            # Attempt to return server's JSON error details for other HTTP errors
+            try:
+                return response.json()
+            except ValueError:
+                print("Server returned an error, but it's not in JSON format.")
+                return None
+        except requests.exceptions.ConnectionError as conn_err:
+            print(f"Connection error occurred: {conn_err}")
+            return None
+        except requests.exceptions.Timeout as timeout_err:
+            print(f"Timeout error occurred: {timeout_err}")
+            return None
+        except requests.exceptions.RequestException as req_err:
+            print(f"An unknown error occurred: {req_err}")
+            return None
+        
+        # On success, attempt to return JSON response
+        try:
+            json_data = response.json()
+            if isinstance(json_data, dict):
+                return json_data
+            else:
+                print("Success, but response is not a JSON object.")
+                return None
+        except ValueError as json_err:
+            print(f"Failed to parse JSON: {json_err}")
+            return None
 
     def manutencao_parcelas_processo(
         self,
@@ -1517,14 +2027,65 @@ class ProcessoPagamento:
                 path,
                 json=params
             )
-            if response.status_code == HTTPStatus.BAD_REQUEST:
-                return response.json()
-            content_type = response.headers.get('Content-Type', '')
-            if 'application/json' in content_type:
-                return response.json()
+            
+            # Check for specific error codes (HTTPStatus.BAD_REQUEST and HTTPStatus.INTERNAL_SERVER_ERROR) before raising for status
+            if response.status_code in [HTTPStatus.BAD_REQUEST, HTTPStatus.INTERNAL_SERVER_ERROR]:
+                print(f"Server error occurred - Status Code: {response.status_code}")
+                # Attempt to parse the error JSON response
+                try:
+                    error_data = response.json()
+                    if isinstance(error_data, dict):
+                        # Extract the specific error fields if they exist
+                        detalhe = error_data.get("Detalhe", "N/A")
+                        mensagem = error_data.get("Mensagem", "N/A")
+                        descricao = error_data.get("Descricao", "N/A")
+                        
+                        print("Error Details:")
+                        print(f"  Detalhe: {detalhe}")
+                        print(f"  Mensagem: {mensagem}")
+                        print(f"  Descrição: {descricao}")
+                        
+                        # Return the error data for caller to handle
+                        return error_data
+                    else:
+                        print("Server returned an error, but it's not a JSON object.")
+                        return None
+                except ValueError:
+                    print("Server returned an error, but it's not in JSON format.")
+                    return None
+            
+            # Raise an error for other HTTP error statuses
             response.raise_for_status()
-        except requests.exceptions.HTTPError as e:
-            return e.response.text
+            
+        except requests.exceptions.HTTPError as http_err:
+            print(f"HTTP error occurred: {http_err} - Status Code: {response.status_code}")
+            # Attempt to return server's JSON error details for other HTTP errors
+            try:
+                return response.json()
+            except ValueError:
+                print("Server returned an error, but it's not in JSON format.")
+                return None
+        except requests.exceptions.ConnectionError as conn_err:
+            print(f"Connection error occurred: {conn_err}")
+            return None
+        except requests.exceptions.Timeout as timeout_err:
+            print(f"Timeout error occurred: {timeout_err}")
+            return None
+        except requests.exceptions.RequestException as req_err:
+            print(f"An unknown error occurred: {req_err}")
+            return None
+        
+        # On success, attempt to return JSON response
+        try:
+            json_data = response.json()
+            if isinstance(json_data, dict):
+                return json_data
+            else:
+                print("Success, but response is not a JSON object.")
+                return None
+        except ValueError as json_err:
+            print(f"Failed to parse JSON: {json_err}")
+            return None
 
     def gerar_nota_fiscal_produto_pelo_xml(
         self,
@@ -1612,14 +2173,65 @@ class ProcessoPagamento:
                 path,
                 json=params
             )
-            if response.status_code == HTTPStatus.BAD_REQUEST:
-                return response.json()
-            content_type = response.headers.get('Content-Type', '')
-            if 'application/json' in content_type:
-                return response.json()
+            
+            # Check for specific error codes (HTTPStatus.BAD_REQUEST and HTTPStatus.INTERNAL_SERVER_ERROR) before raising for status
+            if response.status_code in [HTTPStatus.BAD_REQUEST, HTTPStatus.INTERNAL_SERVER_ERROR]:
+                print(f"Server error occurred - Status Code: {response.status_code}")
+                # Attempt to parse the error JSON response
+                try:
+                    error_data = response.json()
+                    if isinstance(error_data, dict):
+                        # Extract the specific error fields if they exist
+                        detalhe = error_data.get("Detalhe", "N/A")
+                        mensagem = error_data.get("Mensagem", "N/A")
+                        descricao = error_data.get("Descricao", "N/A")
+                        
+                        print("Error Details:")
+                        print(f"  Detalhe: {detalhe}")
+                        print(f"  Mensagem: {mensagem}")
+                        print(f"  Descrição: {descricao}")
+                        
+                        # Return the error data for caller to handle
+                        return error_data
+                    else:
+                        print("Server returned an error, but it's not a JSON object.")
+                        return None
+                except ValueError:
+                    print("Server returned an error, but it's not in JSON format.")
+                    return None
+            
+            # Raise an error for other HTTP error statuses
             response.raise_for_status()
-        except requests.exceptions.HTTPError as e:
-            return e.response.text
+            
+        except requests.exceptions.HTTPError as http_err:
+            print(f"HTTP error occurred: {http_err} - Status Code: {response.status_code}")
+            # Attempt to return server's JSON error details for other HTTP errors
+            try:
+                return response.json()
+            except ValueError:
+                print("Server returned an error, but it's not in JSON format.")
+                return None
+        except requests.exceptions.ConnectionError as conn_err:
+            print(f"Connection error occurred: {conn_err}")
+            return None
+        except requests.exceptions.Timeout as timeout_err:
+            print(f"Timeout error occurred: {timeout_err}")
+            return None
+        except requests.exceptions.RequestException as req_err:
+            print(f"An unknown error occurred: {req_err}")
+            return None
+        
+        # On success, attempt to return JSON response
+        try:
+            json_data = response.json()
+            if isinstance(json_data, dict):
+                return json_data
+            else:
+                print("Success, but response is not a JSON object.")
+                return None
+        except ValueError as json_err:
+            print(f"Failed to parse JSON: {json_err}")
+            return None
 
     def gerar_nota_fiscal_servico_pelo_xml(
         self,
@@ -1716,14 +2328,65 @@ class ProcessoPagamento:
                 path,
                 json=params
             )
-            if response.status_code == HTTPStatus.BAD_REQUEST:
-                return response.json()
-            content_type = response.headers.get('Content-Type', '')
-            if 'application/json' in content_type:
-                return response.json()
+            
+            # Check for specific error codes (HTTPStatus.BAD_REQUEST and HTTPStatus.INTERNAL_SERVER_ERROR) before raising for status
+            if response.status_code in [HTTPStatus.BAD_REQUEST, HTTPStatus.INTERNAL_SERVER_ERROR]:
+                print(f"Server error occurred - Status Code: {response.status_code}")
+                # Attempt to parse the error JSON response
+                try:
+                    error_data = response.json()
+                    if isinstance(error_data, dict):
+                        # Extract the specific error fields if they exist
+                        detalhe = error_data.get("Detalhe", "N/A")
+                        mensagem = error_data.get("Mensagem", "N/A")
+                        descricao = error_data.get("Descricao", "N/A")
+                        
+                        print("Error Details:")
+                        print(f"  Detalhe: {detalhe}")
+                        print(f"  Mensagem: {mensagem}")
+                        print(f"  Descrição: {descricao}")
+                        
+                        # Return the error data for caller to handle
+                        return error_data
+                    else:
+                        print("Server returned an error, but it's not a JSON object.")
+                        return None
+                except ValueError:
+                    print("Server returned an error, but it's not in JSON format.")
+                    return None
+            
+            # Raise an error for other HTTP error statuses
             response.raise_for_status()
-        except requests.exceptions.HTTPError as e:
-            return e.response.text
+            
+        except requests.exceptions.HTTPError as http_err:
+            print(f"HTTP error occurred: {http_err} - Status Code: {response.status_code}")
+            # Attempt to return server's JSON error details for other HTTP errors
+            try:
+                return response.json()
+            except ValueError:
+                print("Server returned an error, but it's not in JSON format.")
+                return None
+        except requests.exceptions.ConnectionError as conn_err:
+            print(f"Connection error occurred: {conn_err}")
+            return None
+        except requests.exceptions.Timeout as timeout_err:
+            print(f"Timeout error occurred: {timeout_err}")
+            return None
+        except requests.exceptions.RequestException as req_err:
+            print(f"An unknown error occurred: {req_err}")
+            return None
+        
+        # On success, attempt to return JSON response
+        try:
+            json_data = response.json()
+            if isinstance(json_data, dict):
+                return json_data
+            else:
+                print("Success, but response is not a JSON object.")
+                return None
+        except ValueError as json_err:
+            print(f"Failed to parse JSON: {json_err}")
+            return None
 
     def integrar_processo_pagamento_uauws(
         self,
@@ -1789,14 +2452,65 @@ class ProcessoPagamento:
                 path,
                 json=params
             )
-            if response.status_code == HTTPStatus.BAD_REQUEST:
-                return response.json()
-            content_type = response.headers.get('Content-Type', '')
-            if 'application/json' in content_type:
-                return response.json()
+            
+            # Check for specific error codes (HTTPStatus.BAD_REQUEST and HTTPStatus.INTERNAL_SERVER_ERROR) before raising for status
+            if response.status_code in [HTTPStatus.BAD_REQUEST, HTTPStatus.INTERNAL_SERVER_ERROR]:
+                print(f"Server error occurred - Status Code: {response.status_code}")
+                # Attempt to parse the error JSON response
+                try:
+                    error_data = response.json()
+                    if isinstance(error_data, dict):
+                        # Extract the specific error fields if they exist
+                        detalhe = error_data.get("Detalhe", "N/A")
+                        mensagem = error_data.get("Mensagem", "N/A")
+                        descricao = error_data.get("Descricao", "N/A")
+                        
+                        print("Error Details:")
+                        print(f"  Detalhe: {detalhe}")
+                        print(f"  Mensagem: {mensagem}")
+                        print(f"  Descrição: {descricao}")
+                        
+                        # Return the error data for caller to handle
+                        return error_data
+                    else:
+                        print("Server returned an error, but it's not a JSON object.")
+                        return None
+                except ValueError:
+                    print("Server returned an error, but it's not in JSON format.")
+                    return None
+            
+            # Raise an error for other HTTP error statuses
             response.raise_for_status()
-        except requests.exceptions.HTTPError as e:
-            return e.response.text
+            
+        except requests.exceptions.HTTPError as http_err:
+            print(f"HTTP error occurred: {http_err} - Status Code: {response.status_code}")
+            # Attempt to return server's JSON error details for other HTTP errors
+            try:
+                return response.json()
+            except ValueError:
+                print("Server returned an error, but it's not in JSON format.")
+                return None
+        except requests.exceptions.ConnectionError as conn_err:
+            print(f"Connection error occurred: {conn_err}")
+            return None
+        except requests.exceptions.Timeout as timeout_err:
+            print(f"Timeout error occurred: {timeout_err}")
+            return None
+        except requests.exceptions.RequestException as req_err:
+            print(f"An unknown error occurred: {req_err}")
+            return None
+        
+        # On success, attempt to return JSON response
+        try:
+            json_data = response.json()
+            if isinstance(json_data, dict):
+                return json_data
+            else:
+                print("Success, but response is not a JSON object.")
+                return None
+        except ValueError as json_err:
+            print(f"Failed to parse JSON: {json_err}")
+            return None
 
     def gerar_nota_fiscal_transporte_pelo_xml(
         self,
@@ -1884,12 +2598,63 @@ class ProcessoPagamento:
                 path,
                 json=params
             )
-            if response.status_code == HTTPStatus.BAD_REQUEST:
-                return response.json()
-            content_type = response.headers.get('Content-Type', '')
-            if 'application/json' in content_type:
-                return response.json()
+            
+            # Check for specific error codes (HTTPStatus.BAD_REQUEST and HTTPStatus.INTERNAL_SERVER_ERROR) before raising for status
+            if response.status_code in [HTTPStatus.BAD_REQUEST, HTTPStatus.INTERNAL_SERVER_ERROR]:
+                print(f"Server error occurred - Status Code: {response.status_code}")
+                # Attempt to parse the error JSON response
+                try:
+                    error_data = response.json()
+                    if isinstance(error_data, dict):
+                        # Extract the specific error fields if they exist
+                        detalhe = error_data.get("Detalhe", "N/A")
+                        mensagem = error_data.get("Mensagem", "N/A")
+                        descricao = error_data.get("Descricao", "N/A")
+                        
+                        print("Error Details:")
+                        print(f"  Detalhe: {detalhe}")
+                        print(f"  Mensagem: {mensagem}")
+                        print(f"  Descrição: {descricao}")
+                        
+                        # Return the error data for caller to handle
+                        return error_data
+                    else:
+                        print("Server returned an error, but it's not a JSON object.")
+                        return None
+                except ValueError:
+                    print("Server returned an error, but it's not in JSON format.")
+                    return None
+            
+            # Raise an error for other HTTP error statuses
             response.raise_for_status()
-        except requests.exceptions.HTTPError as e:
-            return e.response.text
+            
+        except requests.exceptions.HTTPError as http_err:
+            print(f"HTTP error occurred: {http_err} - Status Code: {response.status_code}")
+            # Attempt to return server's JSON error details for other HTTP errors
+            try:
+                return response.json()
+            except ValueError:
+                print("Server returned an error, but it's not in JSON format.")
+                return None
+        except requests.exceptions.ConnectionError as conn_err:
+            print(f"Connection error occurred: {conn_err}")
+            return None
+        except requests.exceptions.Timeout as timeout_err:
+            print(f"Timeout error occurred: {timeout_err}")
+            return None
+        except requests.exceptions.RequestException as req_err:
+            print(f"An unknown error occurred: {req_err}")
+            return None
+        
+        # On success, attempt to return JSON response
+        try:
+            json_data = response.json()
+            if isinstance(json_data, dict):
+                return json_data
+            else:
+                print("Success, but response is not a JSON object.")
+                return None
+        except ValueError as json_err:
+            print(f"Failed to parse JSON: {json_err}")
+            return None
 
