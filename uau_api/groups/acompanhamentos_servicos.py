@@ -201,7 +201,7 @@ class AcompanhamentosServicos:
         # On success, attempt to return JSON response
         try:
             json_data = response.json()
-            if isinstance(json_data, dict):
+            if isinstance(json_data, (list, dict)):
                 return json_data
             else:
                 print("Success, but response is not a JSON object.")
@@ -382,7 +382,7 @@ class AcompanhamentosServicos:
         # On success, attempt to return JSON response
         try:
             json_data = response.json()
-            if isinstance(json_data, dict):
+            if isinstance(json_data, (list, dict)):
                 return json_data
             else:
                 print("Success, but response is not a JSON object.")
@@ -573,7 +573,7 @@ class AcompanhamentosServicos:
         # On success, attempt to return JSON response
         try:
             json_data = response.json()
-            if isinstance(json_data, dict):
+            if isinstance(json_data, (list, dict)):
                 return json_data
             else:
                 print("Success, but response is not a JSON object.")
@@ -766,7 +766,7 @@ class AcompanhamentosServicos:
         # On success, attempt to return JSON response
         try:
             json_data = response.json()
-            if isinstance(json_data, dict):
+            if isinstance(json_data, (list, dict)):
                 return json_data
             else:
                 print("Success, but response is not a JSON object.")
@@ -925,7 +925,7 @@ class AcompanhamentosServicos:
         # On success, attempt to return JSON response
         try:
             json_data = response.json()
-            if isinstance(json_data, dict):
+            if isinstance(json_data, (list, dict)):
                 return json_data
             else:
                 print("Success, but response is not a JSON object.")
@@ -1076,7 +1076,7 @@ class AcompanhamentosServicos:
         # On success, attempt to return JSON response
         try:
             json_data = response.json()
-            if isinstance(json_data, dict):
+            if isinstance(json_data, (list, dict)):
                 return json_data
             else:
                 print("Success, but response is not a JSON object.")
@@ -1273,7 +1273,7 @@ class AcompanhamentosServicos:
         # On success, attempt to return JSON response
         try:
             json_data = response.json()
-            if isinstance(json_data, dict):
+            if isinstance(json_data, (list, dict)):
                 return json_data
             else:
                 print("Success, but response is not a JSON object.")
@@ -1421,7 +1421,7 @@ class AcompanhamentosServicos:
         # On success, attempt to return JSON response
         try:
             json_data = response.json()
-            if isinstance(json_data, dict):
+            if isinstance(json_data, (list, dict)):
                 return json_data
             else:
                 print("Success, but response is not a JSON object.")
@@ -1573,7 +1573,7 @@ class AcompanhamentosServicos:
         # On success, attempt to return JSON response
         try:
             json_data = response.json()
-            if isinstance(json_data, dict):
+            if isinstance(json_data, (list, dict)):
                 return json_data
             else:
                 print("Success, but response is not a JSON object.")
@@ -1689,7 +1689,7 @@ class AcompanhamentosServicos:
         # On success, attempt to return JSON response
         try:
             json_data = response.json()
-            if isinstance(json_data, dict):
+            if isinstance(json_data, (list, dict)):
                 return json_data
             else:
                 print("Success, but response is not a JSON object.")
@@ -1814,7 +1814,7 @@ class AcompanhamentosServicos:
         # On success, attempt to return JSON response
         try:
             json_data = response.json()
-            if isinstance(json_data, dict):
+            if isinstance(json_data, (list, dict)):
                 return json_data
             else:
                 print("Success, but response is not a JSON object.")

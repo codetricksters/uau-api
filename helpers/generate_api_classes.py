@@ -211,7 +211,7 @@ def generate_api_classes(
                 f.write('        # On success, attempt to return JSON response\n')
                 f.write('        try:\n')
                 f.write('            json_data = response.json()\n')
-                f.write('            if isinstance(json_data, dict):\n')
+                f.write('            if isinstance(json_data, (list, dict)):\n')
                 f.write('                return json_data\n')
                 f.write('            else:\n')
                 f.write('                print("Success, but response is not a JSON object.")\n')
