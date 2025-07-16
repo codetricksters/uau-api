@@ -79,16 +79,18 @@ class ContratoMaterialServico:
                 # Attempt to parse the error JSON response
                 try:
                     error_data = response.json()
-                    if isinstance(error_data, dict):
+                    if isinstance(error_data, (dict, list)):
                         # Extract the specific error fields if they exist
-                        detalhe = error_data.get("Detalhe", "N/A")
-                        mensagem = error_data.get("Mensagem", "N/A")
-                        descricao = error_data.get("Descricao", "N/A")
-                        
-                        print("Error Details:")
-                        print(f"  Detalhe: {detalhe}")
-                        print(f"  Mensagem: {mensagem}")
-                        print(f"  Descrição: {descricao}")
+                        error_data = [error_data] if isinstance(error_data, dict) else error_data
+                        for idx, error_item in enumerate(error_data, start=1):
+                            detalhe = error_item.get("Detalhe", "N/A")
+                            mensagem = error_item.get("Mensagem", "N/A")
+                            descricao = error_item.get("Descricao", "N/A")
+                            
+                            print(f"Error Details: [{idx}]")
+                            print(f"  Detalhe: {detalhe}")
+                            print(f"  Mensagem: {mensagem}")
+                            print(f"  Descrição: {descricao}")
                         
                         # Return the error data for caller to handle
                         return error_data
@@ -199,16 +201,18 @@ class ContratoMaterialServico:
                 # Attempt to parse the error JSON response
                 try:
                     error_data = response.json()
-                    if isinstance(error_data, dict):
+                    if isinstance(error_data, (dict, list)):
                         # Extract the specific error fields if they exist
-                        detalhe = error_data.get("Detalhe", "N/A")
-                        mensagem = error_data.get("Mensagem", "N/A")
-                        descricao = error_data.get("Descricao", "N/A")
-                        
-                        print("Error Details:")
-                        print(f"  Detalhe: {detalhe}")
-                        print(f"  Mensagem: {mensagem}")
-                        print(f"  Descrição: {descricao}")
+                        error_data = [error_data] if isinstance(error_data, dict) else error_data
+                        for idx, error_item in enumerate(error_data, start=1):
+                            detalhe = error_item.get("Detalhe", "N/A")
+                            mensagem = error_item.get("Mensagem", "N/A")
+                            descricao = error_item.get("Descricao", "N/A")
+                            
+                            print(f"Error Details: [{idx}]")
+                            print(f"  Detalhe: {detalhe}")
+                            print(f"  Mensagem: {mensagem}")
+                            print(f"  Descrição: {descricao}")
                         
                         # Return the error data for caller to handle
                         return error_data
@@ -314,16 +318,18 @@ class ContratoMaterialServico:
                 # Attempt to parse the error JSON response
                 try:
                     error_data = response.json()
-                    if isinstance(error_data, dict):
+                    if isinstance(error_data, (dict, list)):
                         # Extract the specific error fields if they exist
-                        detalhe = error_data.get("Detalhe", "N/A")
-                        mensagem = error_data.get("Mensagem", "N/A")
-                        descricao = error_data.get("Descricao", "N/A")
-                        
-                        print("Error Details:")
-                        print(f"  Detalhe: {detalhe}")
-                        print(f"  Mensagem: {mensagem}")
-                        print(f"  Descrição: {descricao}")
+                        error_data = [error_data] if isinstance(error_data, dict) else error_data
+                        for idx, error_item in enumerate(error_data, start=1):
+                            detalhe = error_item.get("Detalhe", "N/A")
+                            mensagem = error_item.get("Mensagem", "N/A")
+                            descricao = error_item.get("Descricao", "N/A")
+                            
+                            print(f"Error Details: [{idx}]")
+                            print(f"  Detalhe: {detalhe}")
+                            print(f"  Mensagem: {mensagem}")
+                            print(f"  Descrição: {descricao}")
                         
                         # Return the error data for caller to handle
                         return error_data
@@ -437,16 +443,18 @@ class ContratoMaterialServico:
                 # Attempt to parse the error JSON response
                 try:
                     error_data = response.json()
-                    if isinstance(error_data, dict):
+                    if isinstance(error_data, (dict, list)):
                         # Extract the specific error fields if they exist
-                        detalhe = error_data.get("Detalhe", "N/A")
-                        mensagem = error_data.get("Mensagem", "N/A")
-                        descricao = error_data.get("Descricao", "N/A")
-                        
-                        print("Error Details:")
-                        print(f"  Detalhe: {detalhe}")
-                        print(f"  Mensagem: {mensagem}")
-                        print(f"  Descrição: {descricao}")
+                        error_data = [error_data] if isinstance(error_data, dict) else error_data
+                        for idx, error_item in enumerate(error_data, start=1):
+                            detalhe = error_item.get("Detalhe", "N/A")
+                            mensagem = error_item.get("Mensagem", "N/A")
+                            descricao = error_item.get("Descricao", "N/A")
+                            
+                            print(f"Error Details: [{idx}]")
+                            print(f"  Detalhe: {detalhe}")
+                            print(f"  Mensagem: {mensagem}")
+                            print(f"  Descrição: {descricao}")
                         
                         # Return the error data for caller to handle
                         return error_data
@@ -574,16 +582,18 @@ class ContratoMaterialServico:
                 # Attempt to parse the error JSON response
                 try:
                     error_data = response.json()
-                    if isinstance(error_data, dict):
+                    if isinstance(error_data, (dict, list)):
                         # Extract the specific error fields if they exist
-                        detalhe = error_data.get("Detalhe", "N/A")
-                        mensagem = error_data.get("Mensagem", "N/A")
-                        descricao = error_data.get("Descricao", "N/A")
-                        
-                        print("Error Details:")
-                        print(f"  Detalhe: {detalhe}")
-                        print(f"  Mensagem: {mensagem}")
-                        print(f"  Descrição: {descricao}")
+                        error_data = [error_data] if isinstance(error_data, dict) else error_data
+                        for idx, error_item in enumerate(error_data, start=1):
+                            detalhe = error_item.get("Detalhe", "N/A")
+                            mensagem = error_item.get("Mensagem", "N/A")
+                            descricao = error_item.get("Descricao", "N/A")
+                            
+                            print(f"Error Details: [{idx}]")
+                            print(f"  Detalhe: {detalhe}")
+                            print(f"  Mensagem: {mensagem}")
+                            print(f"  Descrição: {descricao}")
                         
                         # Return the error data for caller to handle
                         return error_data
@@ -717,16 +727,18 @@ class ContratoMaterialServico:
                 # Attempt to parse the error JSON response
                 try:
                     error_data = response.json()
-                    if isinstance(error_data, dict):
+                    if isinstance(error_data, (dict, list)):
                         # Extract the specific error fields if they exist
-                        detalhe = error_data.get("Detalhe", "N/A")
-                        mensagem = error_data.get("Mensagem", "N/A")
-                        descricao = error_data.get("Descricao", "N/A")
-                        
-                        print("Error Details:")
-                        print(f"  Detalhe: {detalhe}")
-                        print(f"  Mensagem: {mensagem}")
-                        print(f"  Descrição: {descricao}")
+                        error_data = [error_data] if isinstance(error_data, dict) else error_data
+                        for idx, error_item in enumerate(error_data, start=1):
+                            detalhe = error_item.get("Detalhe", "N/A")
+                            mensagem = error_item.get("Mensagem", "N/A")
+                            descricao = error_item.get("Descricao", "N/A")
+                            
+                            print(f"Error Details: [{idx}]")
+                            print(f"  Detalhe: {detalhe}")
+                            print(f"  Mensagem: {mensagem}")
+                            print(f"  Descrição: {descricao}")
                         
                         # Return the error data for caller to handle
                         return error_data
@@ -839,16 +851,18 @@ class ContratoMaterialServico:
                 # Attempt to parse the error JSON response
                 try:
                     error_data = response.json()
-                    if isinstance(error_data, dict):
+                    if isinstance(error_data, (dict, list)):
                         # Extract the specific error fields if they exist
-                        detalhe = error_data.get("Detalhe", "N/A")
-                        mensagem = error_data.get("Mensagem", "N/A")
-                        descricao = error_data.get("Descricao", "N/A")
-                        
-                        print("Error Details:")
-                        print(f"  Detalhe: {detalhe}")
-                        print(f"  Mensagem: {mensagem}")
-                        print(f"  Descrição: {descricao}")
+                        error_data = [error_data] if isinstance(error_data, dict) else error_data
+                        for idx, error_item in enumerate(error_data, start=1):
+                            detalhe = error_item.get("Detalhe", "N/A")
+                            mensagem = error_item.get("Mensagem", "N/A")
+                            descricao = error_item.get("Descricao", "N/A")
+                            
+                            print(f"Error Details: [{idx}]")
+                            print(f"  Detalhe: {detalhe}")
+                            print(f"  Mensagem: {mensagem}")
+                            print(f"  Descrição: {descricao}")
                         
                         # Return the error data for caller to handle
                         return error_data
@@ -968,16 +982,18 @@ class ContratoMaterialServico:
                 # Attempt to parse the error JSON response
                 try:
                     error_data = response.json()
-                    if isinstance(error_data, dict):
+                    if isinstance(error_data, (dict, list)):
                         # Extract the specific error fields if they exist
-                        detalhe = error_data.get("Detalhe", "N/A")
-                        mensagem = error_data.get("Mensagem", "N/A")
-                        descricao = error_data.get("Descricao", "N/A")
-                        
-                        print("Error Details:")
-                        print(f"  Detalhe: {detalhe}")
-                        print(f"  Mensagem: {mensagem}")
-                        print(f"  Descrição: {descricao}")
+                        error_data = [error_data] if isinstance(error_data, dict) else error_data
+                        for idx, error_item in enumerate(error_data, start=1):
+                            detalhe = error_item.get("Detalhe", "N/A")
+                            mensagem = error_item.get("Mensagem", "N/A")
+                            descricao = error_item.get("Descricao", "N/A")
+                            
+                            print(f"Error Details: [{idx}]")
+                            print(f"  Detalhe: {detalhe}")
+                            print(f"  Mensagem: {mensagem}")
+                            print(f"  Descrição: {descricao}")
                         
                         # Return the error data for caller to handle
                         return error_data
