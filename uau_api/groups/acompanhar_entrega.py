@@ -112,8 +112,7 @@ class AcompanharEntrega:
             try:
                 return response.json()
             except ValueError:
-                print("Server returned an error, but it's not in JSON format.")
-                print(http_err)
+                print(f"Server returned {http_err}")
                 return None
         except requests.exceptions.ConnectionError as conn_err:
             print(f"Connection error occurred: {conn_err}")
@@ -131,6 +130,7 @@ class AcompanharEntrega:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
+                print("Success, but response is not a JSON object.")
                 print("Success, but response is not a JSON object.")
                 return None
         except ValueError as json_err:
@@ -269,8 +269,7 @@ class AcompanharEntrega:
             try:
                 return response.json()
             except ValueError:
-                print("Server returned an error, but it's not in JSON format.")
-                print(http_err)
+                print(f"Server returned {http_err}")
                 return None
         except requests.exceptions.ConnectionError as conn_err:
             print(f"Connection error occurred: {conn_err}")
@@ -288,6 +287,7 @@ class AcompanharEntrega:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
+                print("Success, but response is not a JSON object.")
                 print("Success, but response is not a JSON object.")
                 return None
         except ValueError as json_err:
