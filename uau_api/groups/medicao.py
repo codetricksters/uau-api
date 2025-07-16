@@ -167,12 +167,10 @@ class Medicao:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Is not dict or list, but it's not a JSON object.")
-                        print(error_data)
+                        print("manter_medicao::Is not dict or list, but it's not a JSON object.")
                         return None
                 except ValueError:
-                    print("Server returned an error, but it's not in JSON format.")
-                    print(error_data)
+                    print("manter_medicao::Server returned an error")
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -202,8 +200,7 @@ class Medicao:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("Success, but response is not a JSON object.")
-                print("Success, but response is not a JSON object.")
+                print("manter_medicao::Success, but response is not a JSON object.")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -297,12 +294,10 @@ class Medicao:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Is not dict or list, but it's not a JSON object.")
-                        print(error_data)
+                        print("excluir_medicao::Is not dict or list, but it's not a JSON object.")
                         return None
                 except ValueError:
-                    print("Server returned an error, but it's not in JSON format.")
-                    print(error_data)
+                    print("excluir_medicao::Server returned an error")
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -332,8 +327,7 @@ class Medicao:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("Success, but response is not a JSON object.")
-                print("Success, but response is not a JSON object.")
+                print("excluir_medicao::Success, but response is not a JSON object.")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -420,12 +414,10 @@ class Medicao:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Is not dict or list, but it's not a JSON object.")
-                        print(error_data)
+                        print("consultar_medicao::Is not dict or list, but it's not a JSON object.")
                         return None
                 except ValueError:
-                    print("Server returned an error, but it's not in JSON format.")
-                    print(error_data)
+                    print("consultar_medicao::Server returned an error")
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -455,8 +447,7 @@ class Medicao:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("Success, but response is not a JSON object.")
-                print("Success, but response is not a JSON object.")
+                print("consultar_medicao::Success, but response is not a JSON object.")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -547,12 +538,10 @@ class Medicao:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Is not dict or list, but it's not a JSON object.")
-                        print(error_data)
+                        print("consultar_itens_medicao::Is not dict or list, but it's not a JSON object.")
                         return None
                 except ValueError:
-                    print("Server returned an error, but it's not in JSON format.")
-                    print(error_data)
+                    print("consultar_itens_medicao::Server returned an error")
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -582,8 +571,7 @@ class Medicao:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("Success, but response is not a JSON object.")
-                print("Success, but response is not a JSON object.")
+                print("consultar_itens_medicao::Success, but response is not a JSON object.")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -677,12 +665,10 @@ class Medicao:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Is not dict or list, but it's not a JSON object.")
-                        print(error_data)
+                        print("aprovar_medicoes_contrato::Is not dict or list, but it's not a JSON object.")
                         return None
                 except ValueError:
-                    print("Server returned an error, but it's not in JSON format.")
-                    print(error_data)
+                    print("aprovar_medicoes_contrato::Server returned an error")
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -712,8 +698,7 @@ class Medicao:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("Success, but response is not a JSON object.")
-                print("Success, but response is not a JSON object.")
+                print("aprovar_medicoes_contrato::Success, but response is not a JSON object.")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -808,12 +793,10 @@ class Medicao:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Is not dict or list, but it's not a JSON object.")
-                        print(error_data)
+                        print("consultar_boletim_medicao::Is not dict or list, but it's not a JSON object.")
                         return None
                 except ValueError:
-                    print("Server returned an error, but it's not in JSON format.")
-                    print(error_data)
+                    print("consultar_boletim_medicao::Server returned an error")
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -843,8 +826,7 @@ class Medicao:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("Success, but response is not a JSON object.")
-                print("Success, but response is not a JSON object.")
+                print("consultar_boletim_medicao::Success, but response is not a JSON object.")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -952,12 +934,10 @@ class Medicao:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Is not dict or list, but it's not a JSON object.")
-                        print(error_data)
+                        print("consultar_medicao_completa::Is not dict or list, but it's not a JSON object.")
                         return None
                 except ValueError:
-                    print("Server returned an error, but it's not in JSON format.")
-                    print(error_data)
+                    print("consultar_medicao_completa::Server returned an error")
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -987,8 +967,7 @@ class Medicao:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("Success, but response is not a JSON object.")
-                print("Success, but response is not a JSON object.")
+                print("consultar_medicao_completa::Success, but response is not a JSON object.")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -1071,12 +1050,10 @@ class Medicao:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Is not dict or list, but it's not a JSON object.")
-                        print(error_data)
+                        print("consultar_medicao_por_serv_mat::Is not dict or list, but it's not a JSON object.")
                         return None
                 except ValueError:
-                    print("Server returned an error, but it's not in JSON format.")
-                    print(error_data)
+                    print("consultar_medicao_por_serv_mat::Server returned an error")
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -1106,8 +1083,7 @@ class Medicao:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("Success, but response is not a JSON object.")
-                print("Success, but response is not a JSON object.")
+                print("consultar_medicao_por_serv_mat::Success, but response is not a JSON object.")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -1200,12 +1176,10 @@ class Medicao:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Is not dict or list, but it's not a JSON object.")
-                        print(error_data)
+                        print("consultar_medicoes_por_status::Is not dict or list, but it's not a JSON object.")
                         return None
                 except ValueError:
-                    print("Server returned an error, but it's not in JSON format.")
-                    print(error_data)
+                    print("consultar_medicoes_por_status::Server returned an error")
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -1235,8 +1209,7 @@ class Medicao:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("Success, but response is not a JSON object.")
-                print("Success, but response is not a JSON object.")
+                print("consultar_medicoes_por_status::Success, but response is not a JSON object.")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -1294,12 +1267,10 @@ class Medicao:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Is not dict or list, but it's not a JSON object.")
-                        print(error_data)
+                        print("validar_cnpjao_gravar_medicao::Is not dict or list, but it's not a JSON object.")
                         return None
                 except ValueError:
-                    print("Server returned an error, but it's not in JSON format.")
-                    print(error_data)
+                    print("validar_cnpjao_gravar_medicao::Server returned an error")
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -1329,8 +1300,7 @@ class Medicao:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("Success, but response is not a JSON object.")
-                print("Success, but response is not a JSON object.")
+                print("validar_cnpjao_gravar_medicao::Success, but response is not a JSON object.")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -1413,12 +1383,10 @@ class Medicao:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Is not dict or list, but it's not a JSON object.")
-                        print(error_data)
+                        print("consultar_medicao_por_contrato::Is not dict or list, but it's not a JSON object.")
                         return None
                 except ValueError:
-                    print("Server returned an error, but it's not in JSON format.")
-                    print(error_data)
+                    print("consultar_medicao_por_contrato::Server returned an error")
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -1448,8 +1416,7 @@ class Medicao:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("Success, but response is not a JSON object.")
-                print("Success, but response is not a JSON object.")
+                print("consultar_medicao_por_contrato::Success, but response is not a JSON object.")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -1536,12 +1503,10 @@ class Medicao:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Is not dict or list, but it's not a JSON object.")
-                        print(error_data)
+                        print("consultar_itens_medicao_por_medicao::Is not dict or list, but it's not a JSON object.")
                         return None
                 except ValueError:
-                    print("Server returned an error, but it's not in JSON format.")
-                    print(error_data)
+                    print("consultar_itens_medicao_por_medicao::Server returned an error")
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -1571,8 +1536,7 @@ class Medicao:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("Success, but response is not a JSON object.")
-                print("Success, but response is not a JSON object.")
+                print("consultar_itens_medicao_por_medicao::Success, but response is not a JSON object.")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -1655,12 +1619,10 @@ class Medicao:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Is not dict or list, but it's not a JSON object.")
-                        print(error_data)
+                        print("consultar_itens_medicao_por_serv_mat::Is not dict or list, but it's not a JSON object.")
                         return None
                 except ValueError:
-                    print("Server returned an error, but it's not in JSON format.")
-                    print(error_data)
+                    print("consultar_itens_medicao_por_serv_mat::Server returned an error")
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -1690,8 +1652,7 @@ class Medicao:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("Success, but response is not a JSON object.")
-                print("Success, but response is not a JSON object.")
+                print("consultar_itens_medicao_por_serv_mat::Success, but response is not a JSON object.")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -1774,12 +1735,10 @@ class Medicao:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Is not dict or list, but it's not a JSON object.")
-                        print(error_data)
+                        print("consultar_itens_medicao_por_contrato::Is not dict or list, but it's not a JSON object.")
                         return None
                 except ValueError:
-                    print("Server returned an error, but it's not in JSON format.")
-                    print(error_data)
+                    print("consultar_itens_medicao_por_contrato::Server returned an error")
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -1809,8 +1768,7 @@ class Medicao:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("Success, but response is not a JSON object.")
-                print("Success, but response is not a JSON object.")
+                print("consultar_itens_medicao_por_contrato::Success, but response is not a JSON object.")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -1901,12 +1859,10 @@ class Medicao:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Is not dict or list, but it's not a JSON object.")
-                        print(error_data)
+                        print("consultar_itens_medicao_por_item_contrato::Is not dict or list, but it's not a JSON object.")
                         return None
                 except ValueError:
-                    print("Server returned an error, but it's not in JSON format.")
-                    print(error_data)
+                    print("consultar_itens_medicao_por_item_contrato::Server returned an error")
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -1936,8 +1892,7 @@ class Medicao:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("Success, but response is not a JSON object.")
-                print("Success, but response is not a JSON object.")
+                print("consultar_itens_medicao_por_item_contrato::Success, but response is not a JSON object.")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")

@@ -100,12 +100,10 @@ class ChavePix:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Is not dict or list, but it's not a JSON object.")
-                        print(error_data)
+                        print("by_cpfcnpj::Is not dict or list, but it's not a JSON object.")
                         return None
                 except ValueError:
-                    print("Server returned an error, but it's not in JSON format.")
-                    print(error_data)
+                    print("by_cpfcnpj::Server returned an error")
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -135,8 +133,7 @@ class ChavePix:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("Success, but response is not a JSON object.")
-                print("Success, but response is not a JSON object.")
+                print("by_cpfcnpj::Success, but response is not a JSON object.")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -229,12 +226,10 @@ class ChavePix:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Is not dict or list, but it's not a JSON object.")
-                        print(error_data)
+                        print("deletar::Is not dict or list, but it's not a JSON object.")
                         return None
                 except ValueError:
-                    print("Server returned an error, but it's not in JSON format.")
-                    print(error_data)
+                    print("deletar::Server returned an error")
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -264,8 +259,7 @@ class ChavePix:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("Success, but response is not a JSON object.")
-                print("Success, but response is not a JSON object.")
+                print("deletar::Success, but response is not a JSON object.")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -368,12 +362,10 @@ class ChavePix:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Is not dict or list, but it's not a JSON object.")
-                        print(error_data)
+                        print("atualizar::Is not dict or list, but it's not a JSON object.")
                         return None
                 except ValueError:
-                    print("Server returned an error, but it's not in JSON format.")
-                    print(error_data)
+                    print("atualizar::Server returned an error")
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -403,8 +395,7 @@ class ChavePix:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("Success, but response is not a JSON object.")
-                print("Success, but response is not a JSON object.")
+                print("atualizar::Success, but response is not a JSON object.")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -507,12 +498,10 @@ class ChavePix:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Is not dict or list, but it's not a JSON object.")
-                        print(error_data)
+                        print("cadastrar::Is not dict or list, but it's not a JSON object.")
                         return None
                 except ValueError:
-                    print("Server returned an error, but it's not in JSON format.")
-                    print(error_data)
+                    print("cadastrar::Server returned an error")
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -542,8 +531,7 @@ class ChavePix:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("Success, but response is not a JSON object.")
-                print("Success, but response is not a JSON object.")
+                print("cadastrar::Success, but response is not a JSON object.")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")

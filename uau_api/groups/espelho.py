@@ -107,12 +107,10 @@ class Espelho:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Is not dict or list, but it's not a JSON object.")
-                        print(error_data)
+                        print("alterar_status_unidade::Is not dict or list, but it's not a JSON object.")
                         return None
                 except ValueError:
-                    print("Server returned an error, but it's not in JSON format.")
-                    print(error_data)
+                    print("alterar_status_unidade::Server returned an error")
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -142,8 +140,7 @@ class Espelho:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("Success, but response is not a JSON object.")
-                print("Success, but response is not a JSON object.")
+                print("alterar_status_unidade::Success, but response is not a JSON object.")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -222,12 +219,10 @@ class Espelho:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Is not dict or list, but it's not a JSON object.")
-                        print(error_data)
+                        print("consultar_espelhos_venda::Is not dict or list, but it's not a JSON object.")
                         return None
                 except ValueError:
-                    print("Server returned an error, but it's not in JSON format.")
-                    print(error_data)
+                    print("consultar_espelhos_venda::Server returned an error")
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -257,8 +252,7 @@ class Espelho:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("Success, but response is not a JSON object.")
-                print("Success, but response is not a JSON object.")
+                print("consultar_espelhos_venda::Success, but response is not a JSON object.")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -361,12 +355,10 @@ class Espelho:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Is not dict or list, but it's not a JSON object.")
-                        print(error_data)
+                        print("retornar_menor_preco_person::Is not dict or list, but it's not a JSON object.")
                         return None
                 except ValueError:
-                    print("Server returned an error, but it's not in JSON format.")
-                    print(error_data)
+                    print("retornar_menor_preco_person::Server returned an error")
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -396,8 +388,7 @@ class Espelho:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("Success, but response is not a JSON object.")
-                print("Success, but response is not a JSON object.")
+                print("retornar_menor_preco_person::Success, but response is not a JSON object.")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -491,12 +482,10 @@ class Espelho:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Is not dict or list, but it's not a JSON object.")
-                        print(error_data)
+                        print("atualizar_campos_customizados::Is not dict or list, but it's not a JSON object.")
                         return None
                 except ValueError:
-                    print("Server returned an error, but it's not in JSON format.")
-                    print(error_data)
+                    print("atualizar_campos_customizados::Server returned an error")
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -526,8 +515,7 @@ class Espelho:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("Success, but response is not a JSON object.")
-                print("Success, but response is not a JSON object.")
+                print("atualizar_campos_customizados::Success, but response is not a JSON object.")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -614,12 +602,10 @@ class Espelho:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Is not dict or list, but it's not a JSON object.")
-                        print(error_data)
+                        print("consultar_unidade_per_por_chave::Is not dict or list, but it's not a JSON object.")
                         return None
                 except ValueError:
-                    print("Server returned an error, but it's not in JSON format.")
-                    print(error_data)
+                    print("consultar_unidade_per_por_chave::Server returned an error")
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -649,8 +635,7 @@ class Espelho:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("Success, but response is not a JSON object.")
-                print("Success, but response is not a JSON object.")
+                print("consultar_unidade_per_por_chave::Success, but response is not a JSON object.")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -733,12 +718,10 @@ class Espelho:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Is not dict or list, but it's not a JSON object.")
-                        print(error_data)
+                        print("busca_unidades_de_acordo_com_where::Is not dict or list, but it's not a JSON object.")
                         return None
                 except ValueError:
-                    print("Server returned an error, but it's not in JSON format.")
-                    print(error_data)
+                    print("busca_unidades_de_acordo_com_where::Server returned an error")
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -768,8 +751,7 @@ class Espelho:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("Success, but response is not a JSON object.")
-                print("Success, but response is not a JSON object.")
+                print("busca_unidades_de_acordo_com_where::Success, but response is not a JSON object.")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -864,12 +846,10 @@ class Espelho:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Is not dict or list, but it's not a JSON object.")
-                        print(error_data)
+                        print("alterar_data_entrega_chaves_unidade::Is not dict or list, but it's not a JSON object.")
                         return None
                 except ValueError:
-                    print("Server returned an error, but it's not in JSON format.")
-                    print(error_data)
+                    print("alterar_data_entrega_chaves_unidade::Server returned an error")
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -899,8 +879,7 @@ class Espelho:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("Success, but response is not a JSON object.")
-                print("Success, but response is not a JSON object.")
+                print("alterar_data_entrega_chaves_unidade::Success, but response is not a JSON object.")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -1023,12 +1002,10 @@ class Espelho:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Is not dict or list, but it's not a JSON object.")
-                        print(error_data)
+                        print("consultar_personalizacoes_com_precos::Is not dict or list, but it's not a JSON object.")
                         return None
                 except ValueError:
-                    print("Server returned an error, but it's not in JSON format.")
-                    print(error_data)
+                    print("consultar_personalizacoes_com_precos::Server returned an error")
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -1058,8 +1035,7 @@ class Espelho:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("Success, but response is not a JSON object.")
-                print("Success, but response is not a JSON object.")
+                print("consultar_personalizacoes_com_precos::Success, but response is not a JSON object.")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -1144,12 +1120,10 @@ class Espelho:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Is not dict or list, but it's not a JSON object.")
-                        print(error_data)
+                        print("busca_unidades_de_acordo_com_where_detalhado::Is not dict or list, but it's not a JSON object.")
                         return None
                 except ValueError:
-                    print("Server returned an error, but it's not in JSON format.")
-                    print(error_data)
+                    print("busca_unidades_de_acordo_com_where_detalhado::Server returned an error")
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -1179,8 +1153,7 @@ class Espelho:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("Success, but response is not a JSON object.")
-                print("Success, but response is not a JSON object.")
+                print("busca_unidades_de_acordo_com_where_detalhado::Success, but response is not a JSON object.")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")

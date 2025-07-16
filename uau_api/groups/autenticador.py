@@ -91,12 +91,10 @@ class Autenticador:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Is not dict or list, but it's not a JSON object.")
-                        print(error_data)
+                        print("logout_usuario::Is not dict or list, but it's not a JSON object.")
                         return None
                 except ValueError:
-                    print("Server returned an error, but it's not in JSON format.")
-                    print(error_data)
+                    print("logout_usuario::Server returned an error")
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -126,8 +124,7 @@ class Autenticador:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("Success, but response is not a JSON object.")
-                print("Success, but response is not a JSON object.")
+                print("logout_usuario::Success, but response is not a JSON object.")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -233,12 +230,10 @@ class Autenticador:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Is not dict or list, but it's not a JSON object.")
-                        print(error_data)
+                        print("autenticar_usuario::Is not dict or list, but it's not a JSON object.")
                         return None
                 except ValueError:
-                    print("Server returned an error, but it's not in JSON format.")
-                    print(error_data)
+                    print("autenticar_usuario::Server returned an error")
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -268,8 +263,7 @@ class Autenticador:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("Success, but response is not a JSON object.")
-                print("Success, but response is not a JSON object.")
+                print("autenticar_usuario::Success, but response is not a JSON object.")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -350,12 +344,10 @@ class Autenticador:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Is not dict or list, but it's not a JSON object.")
-                        print(error_data)
+                        print("autenticar_usuario_app::Is not dict or list, but it's not a JSON object.")
                         return None
                 except ValueError:
-                    print("Server returned an error, but it's not in JSON format.")
-                    print(error_data)
+                    print("autenticar_usuario_app::Server returned an error")
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -385,8 +377,7 @@ class Autenticador:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("Success, but response is not a JSON object.")
-                print("Success, but response is not a JSON object.")
+                print("autenticar_usuario_app::Success, but response is not a JSON object.")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -465,12 +456,10 @@ class Autenticador:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Is not dict or list, but it's not a JSON object.")
-                        print(error_data)
+                        print("verifica_usuario_logado::Is not dict or list, but it's not a JSON object.")
                         return None
                 except ValueError:
-                    print("Server returned an error, but it's not in JSON format.")
-                    print(error_data)
+                    print("verifica_usuario_logado::Server returned an error")
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -500,8 +489,7 @@ class Autenticador:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("Success, but response is not a JSON object.")
-                print("Success, but response is not a JSON object.")
+                print("verifica_usuario_logado::Success, but response is not a JSON object.")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -638,12 +626,10 @@ class Autenticador:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Is not dict or list, but it's not a JSON object.")
-                        print(error_data)
+                        print("consultar_dados_usr_logado::Is not dict or list, but it's not a JSON object.")
                         return None
                 except ValueError:
-                    print("Server returned an error, but it's not in JSON format.")
-                    print(error_data)
+                    print("consultar_dados_usr_logado::Server returned an error")
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -673,8 +659,7 @@ class Autenticador:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("Success, but response is not a JSON object.")
-                print("Success, but response is not a JSON object.")
+                print("consultar_dados_usr_logado::Success, but response is not a JSON object.")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -749,12 +734,10 @@ class Autenticador:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Is not dict or list, but it's not a JSON object.")
-                        print(error_data)
+                        print("autentificar_usuario_titanium::Is not dict or list, but it's not a JSON object.")
                         return None
                 except ValueError:
-                    print("Server returned an error, but it's not in JSON format.")
-                    print(error_data)
+                    print("autentificar_usuario_titanium::Server returned an error")
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -784,8 +767,7 @@ class Autenticador:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("Success, but response is not a JSON object.")
-                print("Success, but response is not a JSON object.")
+                print("autentificar_usuario_titanium::Success, but response is not a JSON object.")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -895,12 +877,10 @@ class Autenticador:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Is not dict or list, but it's not a JSON object.")
-                        print(error_data)
+                        print("autenticar_usuario_corporativo::Is not dict or list, but it's not a JSON object.")
                         return None
                 except ValueError:
-                    print("Server returned an error, but it's not in JSON format.")
-                    print(error_data)
+                    print("autenticar_usuario_corporativo::Server returned an error")
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -930,8 +910,7 @@ class Autenticador:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("Success, but response is not a JSON object.")
-                print("Success, but response is not a JSON object.")
+                print("autenticar_usuario_corporativo::Success, but response is not a JSON object.")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")

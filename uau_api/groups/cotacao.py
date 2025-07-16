@@ -110,12 +110,10 @@ class Cotacao:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Is not dict or list, but it's not a JSON object.")
-                        print(error_data)
+                        print("atualizar_item_cotacao::Is not dict or list, but it's not a JSON object.")
                         return None
                 except ValueError:
-                    print("Server returned an error, but it's not in JSON format.")
-                    print(error_data)
+                    print("atualizar_item_cotacao::Server returned an error")
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -145,8 +143,7 @@ class Cotacao:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("Success, but response is not a JSON object.")
-                print("Success, but response is not a JSON object.")
+                print("atualizar_item_cotacao::Success, but response is not a JSON object.")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -229,12 +226,10 @@ class Cotacao:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Is not dict or list, but it's not a JSON object.")
-                        print(error_data)
+                        print("conta_cotacoes_aprov_mob::Is not dict or list, but it's not a JSON object.")
                         return None
                 except ValueError:
-                    print("Server returned an error, but it's not in JSON format.")
-                    print(error_data)
+                    print("conta_cotacoes_aprov_mob::Server returned an error")
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -264,8 +259,7 @@ class Cotacao:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("Success, but response is not a JSON object.")
-                print("Success, but response is not a JSON object.")
+                print("conta_cotacoes_aprov_mob::Success, but response is not a JSON object.")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -359,12 +353,10 @@ class Cotacao:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Is not dict or list, but it's not a JSON object.")
-                        print(error_data)
+                        print("aprovar_simulacoes_compra::Is not dict or list, but it's not a JSON object.")
                         return None
                 except ValueError:
-                    print("Server returned an error, but it's not in JSON format.")
-                    print(error_data)
+                    print("aprovar_simulacoes_compra::Server returned an error")
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -394,8 +386,7 @@ class Cotacao:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("Success, but response is not a JSON object.")
-                print("Success, but response is not a JSON object.")
+                print("aprovar_simulacoes_compra::Success, but response is not a JSON object.")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -497,12 +488,10 @@ class Cotacao:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Is not dict or list, but it's not a JSON object.")
-                        print(error_data)
+                        print("adicionar_fornecedor_cotacao::Is not dict or list, but it's not a JSON object.")
                         return None
                 except ValueError:
-                    print("Server returned an error, but it's not in JSON format.")
-                    print(error_data)
+                    print("adicionar_fornecedor_cotacao::Server returned an error")
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -532,8 +521,7 @@ class Cotacao:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("Success, but response is not a JSON object.")
-                print("Success, but response is not a JSON object.")
+                print("adicionar_fornecedor_cotacao::Success, but response is not a JSON object.")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -629,12 +617,10 @@ class Cotacao:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Is not dict or list, but it's not a JSON object.")
-                        print(error_data)
+                        print("buscar_itens_cotacao_fornecedor::Is not dict or list, but it's not a JSON object.")
                         return None
                 except ValueError:
-                    print("Server returned an error, but it's not in JSON format.")
-                    print(error_data)
+                    print("buscar_itens_cotacao_fornecedor::Server returned an error")
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -664,8 +650,7 @@ class Cotacao:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("Success, but response is not a JSON object.")
-                print("Success, but response is not a JSON object.")
+                print("buscar_itens_cotacao_fornecedor::Success, but response is not a JSON object.")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -756,12 +741,10 @@ class Cotacao:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Is not dict or list, but it's not a JSON object.")
-                        print(error_data)
+                        print("consultar_itens_cotacao_por_obra::Is not dict or list, but it's not a JSON object.")
                         return None
                 except ValueError:
-                    print("Server returned an error, but it's not in JSON format.")
-                    print(error_data)
+                    print("consultar_itens_cotacao_por_obra::Server returned an error")
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -791,8 +774,7 @@ class Cotacao:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("Success, but response is not a JSON object.")
-                print("Success, but response is not a JSON object.")
+                print("consultar_itens_cotacao_por_obra::Success, but response is not a JSON object.")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -892,12 +874,10 @@ class Cotacao:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Is not dict or list, but it's not a JSON object.")
-                        print(error_data)
+                        print("buscar_cotacao_aberta_fornecedor::Is not dict or list, but it's not a JSON object.")
                         return None
                 except ValueError:
-                    print("Server returned an error, but it's not in JSON format.")
-                    print(error_data)
+                    print("buscar_cotacao_aberta_fornecedor::Server returned an error")
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -927,8 +907,7 @@ class Cotacao:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("Success, but response is not a JSON object.")
-                print("Success, but response is not a JSON object.")
+                print("buscar_cotacao_aberta_fornecedor::Success, but response is not a JSON object.")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -1025,12 +1004,10 @@ class Cotacao:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Is not dict or list, but it's not a JSON object.")
-                        print(error_data)
+                        print("aprovar_confirmacao_cotacao_por_obra::Is not dict or list, but it's not a JSON object.")
                         return None
                 except ValueError:
-                    print("Server returned an error, but it's not in JSON format.")
-                    print(error_data)
+                    print("aprovar_confirmacao_cotacao_por_obra::Server returned an error")
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -1060,8 +1037,7 @@ class Cotacao:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("Success, but response is not a JSON object.")
-                print("Success, but response is not a JSON object.")
+                print("aprovar_confirmacao_cotacao_por_obra::Success, but response is not a JSON object.")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -1151,12 +1127,10 @@ class Cotacao:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Is not dict or list, but it's not a JSON object.")
-                        print(error_data)
+                        print("remover_aprovacao_simulacoes_compra::Is not dict or list, but it's not a JSON object.")
                         return None
                 except ValueError:
-                    print("Server returned an error, but it's not in JSON format.")
-                    print(error_data)
+                    print("remover_aprovacao_simulacoes_compra::Server returned an error")
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -1186,8 +1160,7 @@ class Cotacao:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("Success, but response is not a JSON object.")
-                print("Success, but response is not a JSON object.")
+                print("remover_aprovacao_simulacoes_compra::Success, but response is not a JSON object.")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -1321,12 +1294,10 @@ class Cotacao:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Is not dict or list, but it's not a JSON object.")
-                        print(error_data)
+                        print("atualizar_condicao_pagamento_entrega::Is not dict or list, but it's not a JSON object.")
                         return None
                 except ValueError:
-                    print("Server returned an error, but it's not in JSON format.")
-                    print(error_data)
+                    print("atualizar_condicao_pagamento_entrega::Server returned an error")
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -1356,8 +1327,7 @@ class Cotacao:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("Success, but response is not a JSON object.")
-                print("Success, but response is not a JSON object.")
+                print("atualizar_condicao_pagamento_entrega::Success, but response is not a JSON object.")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -1452,12 +1422,10 @@ class Cotacao:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Is not dict or list, but it's not a JSON object.")
-                        print(error_data)
+                        print("consultar_aprovacao_da_cotacao_por_obra::Is not dict or list, but it's not a JSON object.")
                         return None
                 except ValueError:
-                    print("Server returned an error, but it's not in JSON format.")
-                    print(error_data)
+                    print("consultar_aprovacao_da_cotacao_por_obra::Server returned an error")
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -1487,8 +1455,7 @@ class Cotacao:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("Success, but response is not a JSON object.")
-                print("Success, but response is not a JSON object.")
+                print("consultar_aprovacao_da_cotacao_por_obra::Success, but response is not a JSON object.")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -1582,12 +1549,10 @@ class Cotacao:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Is not dict or list, but it's not a JSON object.")
-                        print(error_data)
+                        print("reprovar_confirmacoes_cotacao_por_obra::Is not dict or list, but it's not a JSON object.")
                         return None
                 except ValueError:
-                    print("Server returned an error, but it's not in JSON format.")
-                    print(error_data)
+                    print("reprovar_confirmacoes_cotacao_por_obra::Server returned an error")
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -1617,8 +1582,7 @@ class Cotacao:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("Success, but response is not a JSON object.")
-                print("Success, but response is not a JSON object.")
+                print("reprovar_confirmacoes_cotacao_por_obra::Success, but response is not a JSON object.")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -1722,12 +1686,10 @@ class Cotacao:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Is not dict or list, but it's not a JSON object.")
-                        print(error_data)
+                        print("consultar_cotacoes_confirmacao_pendente::Is not dict or list, but it's not a JSON object.")
                         return None
                 except ValueError:
-                    print("Server returned an error, but it's not in JSON format.")
-                    print(error_data)
+                    print("consultar_cotacoes_confirmacao_pendente::Server returned an error")
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -1757,8 +1719,7 @@ class Cotacao:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("Success, but response is not a JSON object.")
-                print("Success, but response is not a JSON object.")
+                print("consultar_cotacoes_confirmacao_pendente::Success, but response is not a JSON object.")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -1858,12 +1819,10 @@ class Cotacao:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Is not dict or list, but it's not a JSON object.")
-                        print(error_data)
+                        print("consultar_quantidade_cotacao_pendente_por_obra::Is not dict or list, but it's not a JSON object.")
                         return None
                 except ValueError:
-                    print("Server returned an error, but it's not in JSON format.")
-                    print(error_data)
+                    print("consultar_quantidade_cotacao_pendente_por_obra::Server returned an error")
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -1893,8 +1852,7 @@ class Cotacao:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("Success, but response is not a JSON object.")
-                print("Success, but response is not a JSON object.")
+                print("consultar_quantidade_cotacao_pendente_por_obra::Success, but response is not a JSON object.")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -1994,12 +1952,10 @@ class Cotacao:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Is not dict or list, but it's not a JSON object.")
-                        print(error_data)
+                        print("consultar_quantidade_cotacao_pendente_por_obra_mob::Is not dict or list, but it's not a JSON object.")
                         return None
                 except ValueError:
-                    print("Server returned an error, but it's not in JSON format.")
-                    print(error_data)
+                    print("consultar_quantidade_cotacao_pendente_por_obra_mob::Server returned an error")
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -2029,8 +1985,7 @@ class Cotacao:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("Success, but response is not a JSON object.")
-                print("Success, but response is not a JSON object.")
+                print("consultar_quantidade_cotacao_pendente_por_obra_mob::Success, but response is not a JSON object.")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -2121,12 +2076,10 @@ class Cotacao:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Is not dict or list, but it's not a JSON object.")
-                        print(error_data)
+                        print("consultar_justificativas_aprovacao_fora_sequencia::Is not dict or list, but it's not a JSON object.")
                         return None
                 except ValueError:
-                    print("Server returned an error, but it's not in JSON format.")
-                    print(error_data)
+                    print("consultar_justificativas_aprovacao_fora_sequencia::Server returned an error")
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -2156,8 +2109,7 @@ class Cotacao:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("Success, but response is not a JSON object.")
-                print("Success, but response is not a JSON object.")
+                print("consultar_justificativas_aprovacao_fora_sequencia::Success, but response is not a JSON object.")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -2304,12 +2256,10 @@ class Cotacao:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Is not dict or list, but it's not a JSON object.")
-                        print(error_data)
+                        print("inserir_altera_coment_forn_frete::Is not dict or list, but it's not a JSON object.")
                         return None
                 except ValueError:
-                    print("Server returned an error, but it's not in JSON format.")
-                    print(error_data)
+                    print("inserir_altera_coment_forn_frete::Server returned an error")
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -2339,8 +2289,7 @@ class Cotacao:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("Success, but response is not a JSON object.")
-                print("Success, but response is not a JSON object.")
+                print("inserir_altera_coment_forn_frete::Success, but response is not a JSON object.")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")

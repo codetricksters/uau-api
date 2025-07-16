@@ -96,12 +96,10 @@ class Recebiveis:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Is not dict or list, but it's not a JSON object.")
-                        print(error_data)
+                        print("consultar_meios_preferenciais_recebimento::Is not dict or list, but it's not a JSON object.")
                         return None
                 except ValueError:
-                    print("Server returned an error, but it's not in JSON format.")
-                    print(error_data)
+                    print("consultar_meios_preferenciais_recebimento::Server returned an error")
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -131,8 +129,7 @@ class Recebiveis:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("Success, but response is not a JSON object.")
-                print("Success, but response is not a JSON object.")
+                print("consultar_meios_preferenciais_recebimento::Success, but response is not a JSON object.")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -226,12 +223,10 @@ class Recebiveis:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Is not dict or list, but it's not a JSON object.")
-                        print(error_data)
+                        print("by_numpadraocobranca::Is not dict or list, but it's not a JSON object.")
                         return None
                 except ValueError:
-                    print("Server returned an error, but it's not in JSON format.")
-                    print(error_data)
+                    print("by_numpadraocobranca::Server returned an error")
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -261,8 +256,7 @@ class Recebiveis:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("Success, but response is not a JSON object.")
-                print("Success, but response is not a JSON object.")
+                print("by_numpadraocobranca::Success, but response is not a JSON object.")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -365,12 +359,10 @@ class Recebiveis:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Is not dict or list, but it's not a JSON object.")
-                        print(error_data)
+                        print("parcelas_ecobrancas_do_cliente::Is not dict or list, but it's not a JSON object.")
                         return None
                 except ValueError:
-                    print("Server returned an error, but it's not in JSON format.")
-                    print(error_data)
+                    print("parcelas_ecobrancas_do_cliente::Server returned an error")
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -400,8 +392,7 @@ class Recebiveis:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("Success, but response is not a JSON object.")
-                print("Success, but response is not a JSON object.")
+                print("parcelas_ecobrancas_do_cliente::Success, but response is not a JSON object.")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -506,12 +497,10 @@ class Recebiveis:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Is not dict or list, but it's not a JSON object.")
-                        print(error_data)
+                        print("alterar_meio_preferencial_de_recebimento_da_parcela::Is not dict or list, but it's not a JSON object.")
                         return None
                 except ValueError:
-                    print("Server returned an error, but it's not in JSON format.")
-                    print(error_data)
+                    print("alterar_meio_preferencial_de_recebimento_da_parcela::Server returned an error")
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -541,8 +530,7 @@ class Recebiveis:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("Success, but response is not a JSON object.")
-                print("Success, but response is not a JSON object.")
+                print("alterar_meio_preferencial_de_recebimento_da_parcela::Success, but response is not a JSON object.")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")

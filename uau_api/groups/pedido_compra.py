@@ -124,12 +124,10 @@ class PedidoCompra:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Is not dict or list, but it's not a JSON object.")
-                        print(error_data)
+                        print("aprovar_pedido_compra_servico_app::Is not dict or list, but it's not a JSON object.")
                         return None
                 except ValueError:
-                    print("Server returned an error, but it's not in JSON format.")
-                    print(error_data)
+                    print("aprovar_pedido_compra_servico_app::Server returned an error")
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -159,8 +157,7 @@ class PedidoCompra:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("Success, but response is not a JSON object.")
-                print("Success, but response is not a JSON object.")
+                print("aprovar_pedido_compra_servico_app::Success, but response is not a JSON object.")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -280,12 +277,10 @@ class PedidoCompra:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Is not dict or list, but it's not a JSON object.")
-                        print(error_data)
+                        print("aprovar_pedido_compra_material_app::Is not dict or list, but it's not a JSON object.")
                         return None
                 except ValueError:
-                    print("Server returned an error, but it's not in JSON format.")
-                    print(error_data)
+                    print("aprovar_pedido_compra_material_app::Server returned an error")
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -315,8 +310,7 @@ class PedidoCompra:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("Success, but response is not a JSON object.")
-                print("Success, but response is not a JSON object.")
+                print("aprovar_pedido_compra_material_app::Success, but response is not a JSON object.")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -448,12 +442,10 @@ class PedidoCompra:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Is not dict or list, but it's not a JSON object.")
-                        print(error_data)
+                        print("gravar_pedido_de_compra_do_tipo_servico::Is not dict or list, but it's not a JSON object.")
                         return None
                 except ValueError:
-                    print("Server returned an error, but it's not in JSON format.")
-                    print(error_data)
+                    print("gravar_pedido_de_compra_do_tipo_servico::Server returned an error")
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -483,8 +475,7 @@ class PedidoCompra:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("Success, but response is not a JSON object.")
-                print("Success, but response is not a JSON object.")
+                print("gravar_pedido_de_compra_do_tipo_servico::Success, but response is not a JSON object.")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -612,12 +603,10 @@ class PedidoCompra:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Is not dict or list, but it's not a JSON object.")
-                        print(error_data)
+                        print("gravar_pedido_de_compra_do_tipo_material::Is not dict or list, but it's not a JSON object.")
                         return None
                 except ValueError:
-                    print("Server returned an error, but it's not in JSON format.")
-                    print(error_data)
+                    print("gravar_pedido_de_compra_do_tipo_material::Server returned an error")
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -647,8 +636,7 @@ class PedidoCompra:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("Success, but response is not a JSON object.")
-                print("Success, but response is not a JSON object.")
+                print("gravar_pedido_de_compra_do_tipo_material::Success, but response is not a JSON object.")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -776,12 +764,10 @@ class PedidoCompra:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Is not dict or list, but it's not a JSON object.")
-                        print(error_data)
+                        print("gravar_pedido_de_compra_do_tipo_patrimonio::Is not dict or list, but it's not a JSON object.")
                         return None
                 except ValueError:
-                    print("Server returned an error, but it's not in JSON format.")
-                    print(error_data)
+                    print("gravar_pedido_de_compra_do_tipo_patrimonio::Server returned an error")
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -811,8 +797,7 @@ class PedidoCompra:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("Success, but response is not a JSON object.")
-                print("Success, but response is not a JSON object.")
+                print("gravar_pedido_de_compra_do_tipo_patrimonio::Success, but response is not a JSON object.")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -940,12 +925,10 @@ class PedidoCompra:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Is not dict or list, but it's not a JSON object.")
-                        print(error_data)
+                        print("gravar_pedido_de_compra_do_tipo_complemento::Is not dict or list, but it's not a JSON object.")
                         return None
                 except ValueError:
-                    print("Server returned an error, but it's not in JSON format.")
-                    print(error_data)
+                    print("gravar_pedido_de_compra_do_tipo_complemento::Server returned an error")
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -975,8 +958,7 @@ class PedidoCompra:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("Success, but response is not a JSON object.")
-                print("Success, but response is not a JSON object.")
+                print("gravar_pedido_de_compra_do_tipo_complemento::Success, but response is not a JSON object.")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -1104,12 +1086,10 @@ class PedidoCompra:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Is not dict or list, but it's not a JSON object.")
-                        print(error_data)
+                        print("gravar_pedido_de_compra_do_tipo_emergencial::Is not dict or list, but it's not a JSON object.")
                         return None
                 except ValueError:
-                    print("Server returned an error, but it's not in JSON format.")
-                    print(error_data)
+                    print("gravar_pedido_de_compra_do_tipo_emergencial::Server returned an error")
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -1139,8 +1119,7 @@ class PedidoCompra:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("Success, but response is not a JSON object.")
-                print("Success, but response is not a JSON object.")
+                print("gravar_pedido_de_compra_do_tipo_emergencial::Success, but response is not a JSON object.")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -1272,12 +1251,10 @@ class PedidoCompra:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Is not dict or list, but it's not a JSON object.")
-                        print(error_data)
+                        print("gravar_pedido_de_compra_do_tipo_adiantamento::Is not dict or list, but it's not a JSON object.")
                         return None
                 except ValueError:
-                    print("Server returned an error, but it's not in JSON format.")
-                    print(error_data)
+                    print("gravar_pedido_de_compra_do_tipo_adiantamento::Server returned an error")
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -1307,8 +1284,7 @@ class PedidoCompra:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("Success, but response is not a JSON object.")
-                print("Success, but response is not a JSON object.")
+                print("gravar_pedido_de_compra_do_tipo_adiantamento::Success, but response is not a JSON object.")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -1436,12 +1412,10 @@ class PedidoCompra:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Is not dict or list, but it's not a JSON object.")
-                        print(error_data)
+                        print("gravar_pedido_de_compra_do_tipo_regularizacao::Is not dict or list, but it's not a JSON object.")
                         return None
                 except ValueError:
-                    print("Server returned an error, but it's not in JSON format.")
-                    print(error_data)
+                    print("gravar_pedido_de_compra_do_tipo_regularizacao::Server returned an error")
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -1471,8 +1445,7 @@ class PedidoCompra:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("Success, but response is not a JSON object.")
-                print("Success, but response is not a JSON object.")
+                print("gravar_pedido_de_compra_do_tipo_regularizacao::Success, but response is not a JSON object.")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -1572,12 +1545,10 @@ class PedidoCompra:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Is not dict or list, but it's not a JSON object.")
-                        print(error_data)
+                        print("confirmar_recebimento_ordem_compra_fornecedor::Is not dict or list, but it's not a JSON object.")
                         return None
                 except ValueError:
-                    print("Server returned an error, but it's not in JSON format.")
-                    print(error_data)
+                    print("confirmar_recebimento_ordem_compra_fornecedor::Server returned an error")
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -1607,8 +1578,7 @@ class PedidoCompra:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("Success, but response is not a JSON object.")
-                print("Success, but response is not a JSON object.")
+                print("confirmar_recebimento_ordem_compra_fornecedor::Success, but response is not a JSON object.")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -1720,12 +1690,10 @@ class PedidoCompra:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Is not dict or list, but it's not a JSON object.")
-                        print(error_data)
+                        print("gravar_pedido_de_compra_do_tipo_servico_contrato::Is not dict or list, but it's not a JSON object.")
                         return None
                 except ValueError:
-                    print("Server returned an error, but it's not in JSON format.")
-                    print(error_data)
+                    print("gravar_pedido_de_compra_do_tipo_servico_contrato::Server returned an error")
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -1755,8 +1723,7 @@ class PedidoCompra:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("Success, but response is not a JSON object.")
-                print("Success, but response is not a JSON object.")
+                print("gravar_pedido_de_compra_do_tipo_servico_contrato::Success, but response is not a JSON object.")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -1872,12 +1839,10 @@ class PedidoCompra:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Is not dict or list, but it's not a JSON object.")
-                        print(error_data)
+                        print("gravar_pedido_de_compra_do_tipo_contrato_material::Is not dict or list, but it's not a JSON object.")
                         return None
                 except ValueError:
-                    print("Server returned an error, but it's not in JSON format.")
-                    print(error_data)
+                    print("gravar_pedido_de_compra_do_tipo_contrato_material::Server returned an error")
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -1907,8 +1872,7 @@ class PedidoCompra:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("Success, but response is not a JSON object.")
-                print("Success, but response is not a JSON object.")
+                print("gravar_pedido_de_compra_do_tipo_contrato_material::Success, but response is not a JSON object.")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -2040,12 +2004,10 @@ class PedidoCompra:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Is not dict or list, but it's not a JSON object.")
-                        print(error_data)
+                        print("gravar_pedido_de_compra_do_tipo_servico_complemento::Is not dict or list, but it's not a JSON object.")
                         return None
                 except ValueError:
-                    print("Server returned an error, but it's not in JSON format.")
-                    print(error_data)
+                    print("gravar_pedido_de_compra_do_tipo_servico_complemento::Server returned an error")
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -2075,8 +2037,7 @@ class PedidoCompra:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("Success, but response is not a JSON object.")
-                print("Success, but response is not a JSON object.")
+                print("gravar_pedido_de_compra_do_tipo_servico_complemento::Success, but response is not a JSON object.")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -2208,12 +2169,10 @@ class PedidoCompra:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Is not dict or list, but it's not a JSON object.")
-                        print(error_data)
+                        print("gravar_pedido_de_compra_do_tipo_servico_emergencial::Is not dict or list, but it's not a JSON object.")
                         return None
                 except ValueError:
-                    print("Server returned an error, but it's not in JSON format.")
-                    print(error_data)
+                    print("gravar_pedido_de_compra_do_tipo_servico_emergencial::Server returned an error")
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -2243,8 +2202,7 @@ class PedidoCompra:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("Success, but response is not a JSON object.")
-                print("Success, but response is not a JSON object.")
+                print("gravar_pedido_de_compra_do_tipo_servico_emergencial::Success, but response is not a JSON object.")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -2380,12 +2338,10 @@ class PedidoCompra:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Is not dict or list, but it's not a JSON object.")
-                        print(error_data)
+                        print("gravar_pedido_de_compra_do_tipo_servico_adiantamento::Is not dict or list, but it's not a JSON object.")
                         return None
                 except ValueError:
-                    print("Server returned an error, but it's not in JSON format.")
-                    print(error_data)
+                    print("gravar_pedido_de_compra_do_tipo_servico_adiantamento::Server returned an error")
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -2415,8 +2371,7 @@ class PedidoCompra:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("Success, but response is not a JSON object.")
-                print("Success, but response is not a JSON object.")
+                print("gravar_pedido_de_compra_do_tipo_servico_adiantamento::Success, but response is not a JSON object.")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -2548,12 +2503,10 @@ class PedidoCompra:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Is not dict or list, but it's not a JSON object.")
-                        print(error_data)
+                        print("gravar_pedido_de_compra_do_tipo_servico_regularizacao::Is not dict or list, but it's not a JSON object.")
                         return None
                 except ValueError:
-                    print("Server returned an error, but it's not in JSON format.")
-                    print(error_data)
+                    print("gravar_pedido_de_compra_do_tipo_servico_regularizacao::Server returned an error")
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -2583,8 +2536,7 @@ class PedidoCompra:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("Success, but response is not a JSON object.")
-                print("Success, but response is not a JSON object.")
+                print("gravar_pedido_de_compra_do_tipo_servico_regularizacao::Success, but response is not a JSON object.")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")

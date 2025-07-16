@@ -132,12 +132,10 @@ class DocumentosDigitaisIntegracao:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Is not dict or list, but it's not a JSON object.")
-                        print(error_data)
+                        print("enviar_envelope_de_documento::Is not dict or list, but it's not a JSON object.")
                         return None
                 except ValueError:
-                    print("Server returned an error, but it's not in JSON format.")
-                    print(error_data)
+                    print("enviar_envelope_de_documento::Server returned an error")
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -167,8 +165,7 @@ class DocumentosDigitaisIntegracao:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("Success, but response is not a JSON object.")
-                print("Success, but response is not a JSON object.")
+                print("enviar_envelope_de_documento::Success, but response is not a JSON object.")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -250,12 +247,10 @@ class DocumentosDigitaisIntegracao:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Is not dict or list, but it's not a JSON object.")
-                        print(error_data)
+                        print("consultar_documentos_enviados::Is not dict or list, but it's not a JSON object.")
                         return None
                 except ValueError:
-                    print("Server returned an error, but it's not in JSON format.")
-                    print(error_data)
+                    print("consultar_documentos_enviados::Server returned an error")
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -285,8 +280,7 @@ class DocumentosDigitaisIntegracao:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("Success, but response is not a JSON object.")
-                print("Success, but response is not a JSON object.")
+                print("consultar_documentos_enviados::Success, but response is not a JSON object.")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -369,12 +363,10 @@ class DocumentosDigitaisIntegracao:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Is not dict or list, but it's not a JSON object.")
-                        print(error_data)
+                        print("consultar_assinaturas_enviadas::Is not dict or list, but it's not a JSON object.")
                         return None
                 except ValueError:
-                    print("Server returned an error, but it's not in JSON format.")
-                    print(error_data)
+                    print("consultar_assinaturas_enviadas::Server returned an error")
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -404,8 +396,7 @@ class DocumentosDigitaisIntegracao:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("Success, but response is not a JSON object.")
-                print("Success, but response is not a JSON object.")
+                print("consultar_assinaturas_enviadas::Success, but response is not a JSON object.")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -493,12 +484,10 @@ class DocumentosDigitaisIntegracao:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Is not dict or list, but it's not a JSON object.")
-                        print(error_data)
+                        print("consulta_documentos_digitais_ativos::Is not dict or list, but it's not a JSON object.")
                         return None
                 except ValueError:
-                    print("Server returned an error, but it's not in JSON format.")
-                    print(error_data)
+                    print("consulta_documentos_digitais_ativos::Server returned an error")
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -528,8 +517,7 @@ class DocumentosDigitaisIntegracao:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("Success, but response is not a JSON object.")
-                print("Success, but response is not a JSON object.")
+                print("consulta_documentos_digitais_ativos::Success, but response is not a JSON object.")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -613,12 +601,10 @@ class DocumentosDigitaisIntegracao:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Is not dict or list, but it's not a JSON object.")
-                        print(error_data)
+                        print("consultar_envelope_documentos_codigo_externo::Is not dict or list, but it's not a JSON object.")
                         return None
                 except ValueError:
-                    print("Server returned an error, but it's not in JSON format.")
-                    print(error_data)
+                    print("consultar_envelope_documentos_codigo_externo::Server returned an error")
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -648,8 +634,7 @@ class DocumentosDigitaisIntegracao:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("Success, but response is not a JSON object.")
-                print("Success, but response is not a JSON object.")
+                print("consultar_envelope_documentos_codigo_externo::Success, but response is not a JSON object.")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")

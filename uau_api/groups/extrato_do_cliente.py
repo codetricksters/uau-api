@@ -125,12 +125,10 @@ class ExtratoDoCliente:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Is not dict or list, but it's not a JSON object.")
-                        print(error_data)
+                        print("gerar_pdfextrato_cliente::Is not dict or list, but it's not a JSON object.")
                         return None
                 except ValueError:
-                    print("Server returned an error, but it's not in JSON format.")
-                    print(error_data)
+                    print("gerar_pdfextrato_cliente::Server returned an error")
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -160,8 +158,7 @@ class ExtratoDoCliente:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("Success, but response is not a JSON object.")
-                print("Success, but response is not a JSON object.")
+                print("gerar_pdfextrato_cliente::Success, but response is not a JSON object.")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -278,12 +275,10 @@ class ExtratoDoCliente:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Is not dict or list, but it's not a JSON object.")
-                        print(error_data)
+                        print("gerar_pdfextrato_cliente_v2::Is not dict or list, but it's not a JSON object.")
                         return None
                 except ValueError:
-                    print("Server returned an error, but it's not in JSON format.")
-                    print(error_data)
+                    print("gerar_pdfextrato_cliente_v2::Server returned an error")
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -313,8 +308,7 @@ class ExtratoDoCliente:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("Success, but response is not a JSON object.")
-                print("Success, but response is not a JSON object.")
+                print("gerar_pdfextrato_cliente_v2::Success, but response is not a JSON object.")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -397,12 +391,10 @@ class ExtratoDoCliente:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Is not dict or list, but it's not a JSON object.")
-                        print(error_data)
+                        print("consultar_saldo_cessoes_direito_anteriores::Is not dict or list, but it's not a JSON object.")
                         return None
                 except ValueError:
-                    print("Server returned an error, but it's not in JSON format.")
-                    print(error_data)
+                    print("consultar_saldo_cessoes_direito_anteriores::Server returned an error")
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -432,8 +424,7 @@ class ExtratoDoCliente:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("Success, but response is not a JSON object.")
-                print("Success, but response is not a JSON object.")
+                print("consultar_saldo_cessoes_direito_anteriores::Success, but response is not a JSON object.")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -558,12 +549,10 @@ class ExtratoDoCliente:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Is not dict or list, but it's not a JSON object.")
-                        print(error_data)
+                        print("consultar_dados_demonstrativo_pagto_cliente::Is not dict or list, but it's not a JSON object.")
                         return None
                 except ValueError:
-                    print("Server returned an error, but it's not in JSON format.")
-                    print(error_data)
+                    print("consultar_dados_demonstrativo_pagto_cliente::Server returned an error")
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -593,8 +582,7 @@ class ExtratoDoCliente:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("Success, but response is not a JSON object.")
-                print("Success, but response is not a JSON object.")
+                print("consultar_dados_demonstrativo_pagto_cliente::Success, but response is not a JSON object.")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
