@@ -237,10 +237,12 @@ class Venda:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Server returned an error, but it's not a JSON object.")
+                        print("Is not dict or list, but it's not a JSON object.")
+                        print(error_data)
                         return None
                 except ValueError:
                     print("Server returned an error, but it's not in JSON format.")
+                    print(error_data)
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -253,6 +255,7 @@ class Venda:
                 return response.json()
             except ValueError:
                 print("Server returned an error, but it's not in JSON format.")
+                print(http_err)
                 return None
         except requests.exceptions.ConnectionError as conn_err:
             print(f"Connection error occurred: {conn_err}")
@@ -371,10 +374,12 @@ class Venda:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Server returned an error, but it's not a JSON object.")
+                        print("Is not dict or list, but it's not a JSON object.")
+                        print(error_data)
                         return None
                 except ValueError:
                     print("Server returned an error, but it's not in JSON format.")
+                    print(error_data)
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -387,6 +392,7 @@ class Venda:
                 return response.json()
             except ValueError:
                 print("Server returned an error, but it's not in JSON format.")
+                print(http_err)
                 return None
         except requests.exceptions.ConnectionError as conn_err:
             print(f"Connection error occurred: {conn_err}")
@@ -493,10 +499,12 @@ class Venda:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Server returned an error, but it's not a JSON object.")
+                        print("Is not dict or list, but it's not a JSON object.")
+                        print(error_data)
                         return None
                 except ValueError:
                     print("Server returned an error, but it's not in JSON format.")
+                    print(error_data)
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -509,6 +517,7 @@ class Venda:
                 return response.json()
             except ValueError:
                 print("Server returned an error, but it's not in JSON format.")
+                print(http_err)
                 return None
         except requests.exceptions.ConnectionError as conn_err:
             print(f"Connection error occurred: {conn_err}")
@@ -635,10 +644,12 @@ class Venda:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Server returned an error, but it's not a JSON object.")
+                        print("Is not dict or list, but it's not a JSON object.")
+                        print(error_data)
                         return None
                 except ValueError:
                     print("Server returned an error, but it's not in JSON format.")
+                    print(error_data)
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -651,6 +662,7 @@ class Venda:
                 return response.json()
             except ValueError:
                 print("Server returned an error, but it's not in JSON format.")
+                print(http_err)
                 return None
         except requests.exceptions.ConnectionError as conn_err:
             print(f"Connection error occurred: {conn_err}")
@@ -769,10 +781,12 @@ class Venda:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Server returned an error, but it's not a JSON object.")
+                        print("Is not dict or list, but it's not a JSON object.")
+                        print(error_data)
                         return None
                 except ValueError:
                     print("Server returned an error, but it's not in JSON format.")
+                    print(error_data)
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -785,6 +799,7 @@ class Venda:
                 return response.json()
             except ValueError:
                 print("Server returned an error, but it's not in JSON format.")
+                print(http_err)
                 return None
         except requests.exceptions.ConnectionError as conn_err:
             print(f"Connection error occurred: {conn_err}")
@@ -908,10 +923,12 @@ class Venda:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Server returned an error, but it's not a JSON object.")
+                        print("Is not dict or list, but it's not a JSON object.")
+                        print(error_data)
                         return None
                 except ValueError:
                     print("Server returned an error, but it's not in JSON format.")
+                    print(error_data)
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -924,6 +941,7 @@ class Venda:
                 return response.json()
             except ValueError:
                 print("Server returned an error, but it's not in JSON format.")
+                print(http_err)
                 return None
         except requests.exceptions.ConnectionError as conn_err:
             print(f"Connection error occurred: {conn_err}")
@@ -1037,10 +1055,12 @@ class Venda:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Server returned an error, but it's not a JSON object.")
+                        print("Is not dict or list, but it's not a JSON object.")
+                        print(error_data)
                         return None
                 except ValueError:
                     print("Server returned an error, but it's not in JSON format.")
+                    print(error_data)
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -1053,6 +1073,7 @@ class Venda:
                 return response.json()
             except ValueError:
                 print("Server returned an error, but it's not in JSON format.")
+                print(http_err)
                 return None
         except requests.exceptions.ConnectionError as conn_err:
             print(f"Connection error occurred: {conn_err}")
@@ -1185,10 +1206,12 @@ class Venda:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Server returned an error, but it's not a JSON object.")
+                        print("Is not dict or list, but it's not a JSON object.")
+                        print(error_data)
                         return None
                 except ValueError:
                     print("Server returned an error, but it's not in JSON format.")
+                    print(error_data)
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -1201,6 +1224,7 @@ class Venda:
                 return response.json()
             except ValueError:
                 print("Server returned an error, but it's not in JSON format.")
+                print(http_err)
                 return None
         except requests.exceptions.ConnectionError as conn_err:
             print(f"Connection error occurred: {conn_err}")
@@ -1302,10 +1326,12 @@ class Venda:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Server returned an error, but it's not a JSON object.")
+                        print("Is not dict or list, but it's not a JSON object.")
+                        print(error_data)
                         return None
                 except ValueError:
                     print("Server returned an error, but it's not in JSON format.")
+                    print(error_data)
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -1318,6 +1344,7 @@ class Venda:
                 return response.json()
             except ValueError:
                 print("Server returned an error, but it's not in JSON format.")
+                print(http_err)
                 return None
         except requests.exceptions.ConnectionError as conn_err:
             print(f"Connection error occurred: {conn_err}")
@@ -1548,10 +1575,12 @@ class Venda:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Server returned an error, but it's not a JSON object.")
+                        print("Is not dict or list, but it's not a JSON object.")
+                        print(error_data)
                         return None
                 except ValueError:
                     print("Server returned an error, but it's not in JSON format.")
+                    print(error_data)
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -1564,6 +1593,7 @@ class Venda:
                 return response.json()
             except ValueError:
                 print("Server returned an error, but it's not in JSON format.")
+                print(http_err)
                 return None
         except requests.exceptions.ConnectionError as conn_err:
             print(f"Connection error occurred: {conn_err}")
@@ -1716,10 +1746,12 @@ class Venda:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Server returned an error, but it's not a JSON object.")
+                        print("Is not dict or list, but it's not a JSON object.")
+                        print(error_data)
                         return None
                 except ValueError:
                     print("Server returned an error, but it's not in JSON format.")
+                    print(error_data)
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -1732,6 +1764,7 @@ class Venda:
                 return response.json()
             except ValueError:
                 print("Server returned an error, but it's not in JSON format.")
+                print(http_err)
                 return None
         except requests.exceptions.ConnectionError as conn_err:
             print(f"Connection error occurred: {conn_err}")
@@ -1845,10 +1878,12 @@ class Venda:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Server returned an error, but it's not a JSON object.")
+                        print("Is not dict or list, but it's not a JSON object.")
+                        print(error_data)
                         return None
                 except ValueError:
                     print("Server returned an error, but it's not in JSON format.")
+                    print(error_data)
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -1861,6 +1896,7 @@ class Venda:
                 return response.json()
             except ValueError:
                 print("Server returned an error, but it's not in JSON format.")
+                print(http_err)
                 return None
         except requests.exceptions.ConnectionError as conn_err:
             print(f"Connection error occurred: {conn_err}")
@@ -2009,10 +2045,12 @@ class Venda:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Server returned an error, but it's not a JSON object.")
+                        print("Is not dict or list, but it's not a JSON object.")
+                        print(error_data)
                         return None
                 except ValueError:
                     print("Server returned an error, but it's not in JSON format.")
+                    print(error_data)
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -2025,6 +2063,7 @@ class Venda:
                 return response.json()
             except ValueError:
                 print("Server returned an error, but it's not in JSON format.")
+                print(http_err)
                 return None
         except requests.exceptions.ConnectionError as conn_err:
             print(f"Connection error occurred: {conn_err}")
@@ -2206,10 +2245,12 @@ class Venda:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Server returned an error, but it's not a JSON object.")
+                        print("Is not dict or list, but it's not a JSON object.")
+                        print(error_data)
                         return None
                 except ValueError:
                     print("Server returned an error, but it's not in JSON format.")
+                    print(error_data)
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -2222,6 +2263,7 @@ class Venda:
                 return response.json()
             except ValueError:
                 print("Server returned an error, but it's not in JSON format.")
+                print(http_err)
                 return None
         except requests.exceptions.ConnectionError as conn_err:
             print(f"Connection error occurred: {conn_err}")
@@ -2335,10 +2377,12 @@ class Venda:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Server returned an error, but it's not a JSON object.")
+                        print("Is not dict or list, but it's not a JSON object.")
+                        print(error_data)
                         return None
                 except ValueError:
                     print("Server returned an error, but it's not in JSON format.")
+                    print(error_data)
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -2351,6 +2395,7 @@ class Venda:
                 return response.json()
             except ValueError:
                 print("Server returned an error, but it's not in JSON format.")
+                print(http_err)
                 return None
         except requests.exceptions.ConnectionError as conn_err:
             print(f"Connection error occurred: {conn_err}")
@@ -2493,10 +2538,12 @@ class Venda:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Server returned an error, but it's not a JSON object.")
+                        print("Is not dict or list, but it's not a JSON object.")
+                        print(error_data)
                         return None
                 except ValueError:
                     print("Server returned an error, but it's not in JSON format.")
+                    print(error_data)
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -2509,6 +2556,7 @@ class Venda:
                 return response.json()
             except ValueError:
                 print("Server returned an error, but it's not in JSON format.")
+                print(http_err)
                 return None
         except requests.exceptions.ConnectionError as conn_err:
             print(f"Connection error occurred: {conn_err}")
@@ -2630,10 +2678,12 @@ class Venda:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Server returned an error, but it's not a JSON object.")
+                        print("Is not dict or list, but it's not a JSON object.")
+                        print(error_data)
                         return None
                 except ValueError:
                     print("Server returned an error, but it's not in JSON format.")
+                    print(error_data)
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -2646,6 +2696,7 @@ class Venda:
                 return response.json()
             except ValueError:
                 print("Server returned an error, but it's not in JSON format.")
+                print(http_err)
                 return None
         except requests.exceptions.ConnectionError as conn_err:
             print(f"Connection error occurred: {conn_err}")
@@ -2743,10 +2794,12 @@ class Venda:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Server returned an error, but it's not a JSON object.")
+                        print("Is not dict or list, but it's not a JSON object.")
+                        print(error_data)
                         return None
                 except ValueError:
                     print("Server returned an error, but it's not in JSON format.")
+                    print(error_data)
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -2759,6 +2812,7 @@ class Venda:
                 return response.json()
             except ValueError:
                 print("Server returned an error, but it's not in JSON format.")
+                print(http_err)
                 return None
         except requests.exceptions.ConnectionError as conn_err:
             print(f"Connection error occurred: {conn_err}")
@@ -2873,10 +2927,12 @@ class Venda:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Server returned an error, but it's not a JSON object.")
+                        print("Is not dict or list, but it's not a JSON object.")
+                        print(error_data)
                         return None
                 except ValueError:
                     print("Server returned an error, but it's not in JSON format.")
+                    print(error_data)
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -2889,6 +2945,7 @@ class Venda:
                 return response.json()
             except ValueError:
                 print("Server returned an error, but it's not in JSON format.")
+                print(http_err)
                 return None
         except requests.exceptions.ConnectionError as conn_err:
             print(f"Connection error occurred: {conn_err}")
@@ -3009,10 +3066,12 @@ class Venda:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Server returned an error, but it's not a JSON object.")
+                        print("Is not dict or list, but it's not a JSON object.")
+                        print(error_data)
                         return None
                 except ValueError:
                     print("Server returned an error, but it's not in JSON format.")
+                    print(error_data)
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -3025,6 +3084,7 @@ class Venda:
                 return response.json()
             except ValueError:
                 print("Server returned an error, but it's not in JSON format.")
+                print(http_err)
                 return None
         except requests.exceptions.ConnectionError as conn_err:
             print(f"Connection error occurred: {conn_err}")
@@ -3131,10 +3191,12 @@ class Venda:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Server returned an error, but it's not a JSON object.")
+                        print("Is not dict or list, but it's not a JSON object.")
+                        print(error_data)
                         return None
                 except ValueError:
                     print("Server returned an error, but it's not in JSON format.")
+                    print(error_data)
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -3147,6 +3209,7 @@ class Venda:
                 return response.json()
             except ValueError:
                 print("Server returned an error, but it's not in JSON format.")
+                print(http_err)
                 return None
         except requests.exceptions.ConnectionError as conn_err:
             print(f"Connection error occurred: {conn_err}")
@@ -3260,10 +3323,12 @@ class Venda:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Server returned an error, but it's not a JSON object.")
+                        print("Is not dict or list, but it's not a JSON object.")
+                        print(error_data)
                         return None
                 except ValueError:
                     print("Server returned an error, but it's not in JSON format.")
+                    print(error_data)
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -3276,6 +3341,7 @@ class Venda:
                 return response.json()
             except ValueError:
                 print("Server returned an error, but it's not in JSON format.")
+                print(http_err)
                 return None
         except requests.exceptions.ConnectionError as conn_err:
             print(f"Connection error occurred: {conn_err}")
@@ -3402,10 +3468,12 @@ class Venda:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Server returned an error, but it's not a JSON object.")
+                        print("Is not dict or list, but it's not a JSON object.")
+                        print(error_data)
                         return None
                 except ValueError:
                     print("Server returned an error, but it's not in JSON format.")
+                    print(error_data)
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -3418,6 +3486,7 @@ class Venda:
                 return response.json()
             except ValueError:
                 print("Server returned an error, but it's not in JSON format.")
+                print(http_err)
                 return None
         except requests.exceptions.ConnectionError as conn_err:
             print(f"Connection error occurred: {conn_err}")
@@ -3528,10 +3597,12 @@ class Venda:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Server returned an error, but it's not a JSON object.")
+                        print("Is not dict or list, but it's not a JSON object.")
+                        print(error_data)
                         return None
                 except ValueError:
                     print("Server returned an error, but it's not in JSON format.")
+                    print(error_data)
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -3544,6 +3615,7 @@ class Venda:
                 return response.json()
             except ValueError:
                 print("Server returned an error, but it's not in JSON format.")
+                print(http_err)
                 return None
         except requests.exceptions.ConnectionError as conn_err:
             print(f"Connection error occurred: {conn_err}")
@@ -3657,10 +3729,12 @@ class Venda:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Server returned an error, but it's not a JSON object.")
+                        print("Is not dict or list, but it's not a JSON object.")
+                        print(error_data)
                         return None
                 except ValueError:
                     print("Server returned an error, but it's not in JSON format.")
+                    print(error_data)
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -3673,6 +3747,7 @@ class Venda:
                 return response.json()
             except ValueError:
                 print("Server returned an error, but it's not in JSON format.")
+                print(http_err)
                 return None
         except requests.exceptions.ConnectionError as conn_err:
             print(f"Connection error occurred: {conn_err}")
@@ -3780,10 +3855,12 @@ class Venda:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Server returned an error, but it's not a JSON object.")
+                        print("Is not dict or list, but it's not a JSON object.")
+                        print(error_data)
                         return None
                 except ValueError:
                     print("Server returned an error, but it's not in JSON format.")
+                    print(error_data)
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -3796,6 +3873,7 @@ class Venda:
                 return response.json()
             except ValueError:
                 print("Server returned an error, but it's not in JSON format.")
+                print(http_err)
                 return None
         except requests.exceptions.ConnectionError as conn_err:
             print(f"Connection error occurred: {conn_err}")
@@ -3945,10 +4023,12 @@ class Venda:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Server returned an error, but it's not a JSON object.")
+                        print("Is not dict or list, but it's not a JSON object.")
+                        print(error_data)
                         return None
                 except ValueError:
                     print("Server returned an error, but it's not in JSON format.")
+                    print(error_data)
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -3961,6 +4041,7 @@ class Venda:
                 return response.json()
             except ValueError:
                 print("Server returned an error, but it's not in JSON format.")
+                print(http_err)
                 return None
         except requests.exceptions.ConnectionError as conn_err:
             print(f"Connection error occurred: {conn_err}")
@@ -4068,10 +4149,12 @@ class Venda:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Server returned an error, but it's not a JSON object.")
+                        print("Is not dict or list, but it's not a JSON object.")
+                        print(error_data)
                         return None
                 except ValueError:
                     print("Server returned an error, but it's not in JSON format.")
+                    print(error_data)
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -4084,6 +4167,7 @@ class Venda:
                 return response.json()
             except ValueError:
                 print("Server returned an error, but it's not in JSON format.")
+                print(http_err)
                 return None
         except requests.exceptions.ConnectionError as conn_err:
             print(f"Connection error occurred: {conn_err}")
@@ -4218,10 +4302,12 @@ class Venda:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Server returned an error, but it's not a JSON object.")
+                        print("Is not dict or list, but it's not a JSON object.")
+                        print(error_data)
                         return None
                 except ValueError:
                     print("Server returned an error, but it's not in JSON format.")
+                    print(error_data)
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -4234,6 +4320,7 @@ class Venda:
                 return response.json()
             except ValueError:
                 print("Server returned an error, but it's not in JSON format.")
+                print(http_err)
                 return None
         except requests.exceptions.ConnectionError as conn_err:
             print(f"Connection error occurred: {conn_err}")
@@ -4351,10 +4438,12 @@ class Venda:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Server returned an error, but it's not a JSON object.")
+                        print("Is not dict or list, but it's not a JSON object.")
+                        print(error_data)
                         return None
                 except ValueError:
                     print("Server returned an error, but it's not in JSON format.")
+                    print(error_data)
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -4367,6 +4456,7 @@ class Venda:
                 return response.json()
             except ValueError:
                 print("Server returned an error, but it's not in JSON format.")
+                print(http_err)
                 return None
         except requests.exceptions.ConnectionError as conn_err:
             print(f"Connection error occurred: {conn_err}")
@@ -4490,10 +4580,12 @@ class Venda:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Server returned an error, but it's not a JSON object.")
+                        print("Is not dict or list, but it's not a JSON object.")
+                        print(error_data)
                         return None
                 except ValueError:
                     print("Server returned an error, but it's not in JSON format.")
+                    print(error_data)
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -4506,6 +4598,7 @@ class Venda:
                 return response.json()
             except ValueError:
                 print("Server returned an error, but it's not in JSON format.")
+                print(http_err)
                 return None
         except requests.exceptions.ConnectionError as conn_err:
             print(f"Connection error occurred: {conn_err}")
@@ -4665,10 +4758,12 @@ class Venda:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Server returned an error, but it's not a JSON object.")
+                        print("Is not dict or list, but it's not a JSON object.")
+                        print(error_data)
                         return None
                 except ValueError:
                     print("Server returned an error, but it's not in JSON format.")
+                    print(error_data)
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -4681,6 +4776,7 @@ class Venda:
                 return response.json()
             except ValueError:
                 print("Server returned an error, but it's not in JSON format.")
+                print(http_err)
                 return None
         except requests.exceptions.ConnectionError as conn_err:
             print(f"Connection error occurred: {conn_err}")
@@ -4810,10 +4906,12 @@ class Venda:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Server returned an error, but it's not a JSON object.")
+                        print("Is not dict or list, but it's not a JSON object.")
+                        print(error_data)
                         return None
                 except ValueError:
                     print("Server returned an error, but it's not in JSON format.")
+                    print(error_data)
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -4826,6 +4924,7 @@ class Venda:
                 return response.json()
             except ValueError:
                 print("Server returned an error, but it's not in JSON format.")
+                print(http_err)
                 return None
         except requests.exceptions.ConnectionError as conn_err:
             print(f"Connection error occurred: {conn_err}")
@@ -4935,10 +5034,12 @@ class Venda:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Server returned an error, but it's not a JSON object.")
+                        print("Is not dict or list, but it's not a JSON object.")
+                        print(error_data)
                         return None
                 except ValueError:
                     print("Server returned an error, but it's not in JSON format.")
+                    print(error_data)
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -4951,6 +5052,7 @@ class Venda:
                 return response.json()
             except ValueError:
                 print("Server returned an error, but it's not in JSON format.")
+                print(http_err)
                 return None
         except requests.exceptions.ConnectionError as conn_err:
             print(f"Connection error occurred: {conn_err}")
@@ -5061,10 +5163,12 @@ class Venda:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Server returned an error, but it's not a JSON object.")
+                        print("Is not dict or list, but it's not a JSON object.")
+                        print(error_data)
                         return None
                 except ValueError:
                     print("Server returned an error, but it's not in JSON format.")
+                    print(error_data)
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -5077,6 +5181,7 @@ class Venda:
                 return response.json()
             except ValueError:
                 print("Server returned an error, but it's not in JSON format.")
+                print(http_err)
                 return None
         except requests.exceptions.ConnectionError as conn_err:
             print(f"Connection error occurred: {conn_err}")
@@ -5187,10 +5292,12 @@ class Venda:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Server returned an error, but it's not a JSON object.")
+                        print("Is not dict or list, but it's not a JSON object.")
+                        print(error_data)
                         return None
                 except ValueError:
                     print("Server returned an error, but it's not in JSON format.")
+                    print(error_data)
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -5203,6 +5310,7 @@ class Venda:
                 return response.json()
             except ValueError:
                 print("Server returned an error, but it's not in JSON format.")
+                print(http_err)
                 return None
         except requests.exceptions.ConnectionError as conn_err:
             print(f"Connection error occurred: {conn_err}")
@@ -5399,10 +5507,12 @@ class Venda:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Server returned an error, but it's not a JSON object.")
+                        print("Is not dict or list, but it's not a JSON object.")
+                        print(error_data)
                         return None
                 except ValueError:
                     print("Server returned an error, but it's not in JSON format.")
+                    print(error_data)
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -5415,6 +5525,7 @@ class Venda:
                 return response.json()
             except ValueError:
                 print("Server returned an error, but it's not in JSON format.")
+                print(http_err)
                 return None
         except requests.exceptions.ConnectionError as conn_err:
             print(f"Connection error occurred: {conn_err}")
@@ -5531,10 +5642,12 @@ class Venda:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Server returned an error, but it's not a JSON object.")
+                        print("Is not dict or list, but it's not a JSON object.")
+                        print(error_data)
                         return None
                 except ValueError:
                     print("Server returned an error, but it's not in JSON format.")
+                    print(error_data)
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -5547,6 +5660,7 @@ class Venda:
                 return response.json()
             except ValueError:
                 print("Server returned an error, but it's not in JSON format.")
+                print(http_err)
                 return None
         except requests.exceptions.ConnectionError as conn_err:
             print(f"Connection error occurred: {conn_err}")
@@ -5674,10 +5788,12 @@ class Venda:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Server returned an error, but it's not a JSON object.")
+                        print("Is not dict or list, but it's not a JSON object.")
+                        print(error_data)
                         return None
                 except ValueError:
                     print("Server returned an error, but it's not in JSON format.")
+                    print(error_data)
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -5690,6 +5806,7 @@ class Venda:
                 return response.json()
             except ValueError:
                 print("Server returned an error, but it's not in JSON format.")
+                print(http_err)
                 return None
         except requests.exceptions.ConnectionError as conn_err:
             print(f"Connection error occurred: {conn_err}")
@@ -5825,10 +5942,12 @@ class Venda:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Server returned an error, but it's not a JSON object.")
+                        print("Is not dict or list, but it's not a JSON object.")
+                        print(error_data)
                         return None
                 except ValueError:
                     print("Server returned an error, but it's not in JSON format.")
+                    print(error_data)
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -5841,6 +5960,7 @@ class Venda:
                 return response.json()
             except ValueError:
                 print("Server returned an error, but it's not in JSON format.")
+                print(http_err)
                 return None
         except requests.exceptions.ConnectionError as conn_err:
             print(f"Connection error occurred: {conn_err}")
@@ -5947,10 +6067,12 @@ class Venda:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Server returned an error, but it's not a JSON object.")
+                        print("Is not dict or list, but it's not a JSON object.")
+                        print(error_data)
                         return None
                 except ValueError:
                     print("Server returned an error, but it's not in JSON format.")
+                    print(error_data)
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -5963,6 +6085,7 @@ class Venda:
                 return response.json()
             except ValueError:
                 print("Server returned an error, but it's not in JSON format.")
+                print(http_err)
                 return None
         except requests.exceptions.ConnectionError as conn_err:
             print(f"Connection error occurred: {conn_err}")
@@ -6083,10 +6206,12 @@ class Venda:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Server returned an error, but it's not a JSON object.")
+                        print("Is not dict or list, but it's not a JSON object.")
+                        print(error_data)
                         return None
                 except ValueError:
                     print("Server returned an error, but it's not in JSON format.")
+                    print(error_data)
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -6099,6 +6224,7 @@ class Venda:
                 return response.json()
             except ValueError:
                 print("Server returned an error, but it's not in JSON format.")
+                print(http_err)
                 return None
         except requests.exceptions.ConnectionError as conn_err:
             print(f"Connection error occurred: {conn_err}")
@@ -6197,10 +6323,12 @@ class Venda:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Server returned an error, but it's not a JSON object.")
+                        print("Is not dict or list, but it's not a JSON object.")
+                        print(error_data)
                         return None
                 except ValueError:
                     print("Server returned an error, but it's not in JSON format.")
+                    print(error_data)
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -6213,6 +6341,7 @@ class Venda:
                 return response.json()
             except ValueError:
                 print("Server returned an error, but it's not in JSON format.")
+                print(http_err)
                 return None
         except requests.exceptions.ConnectionError as conn_err:
             print(f"Connection error occurred: {conn_err}")
@@ -6318,10 +6447,12 @@ class Venda:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Server returned an error, but it's not a JSON object.")
+                        print("Is not dict or list, but it's not a JSON object.")
+                        print(error_data)
                         return None
                 except ValueError:
                     print("Server returned an error, but it's not in JSON format.")
+                    print(error_data)
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -6334,6 +6465,7 @@ class Venda:
                 return response.json()
             except ValueError:
                 print("Server returned an error, but it's not in JSON format.")
+                print(http_err)
                 return None
         except requests.exceptions.ConnectionError as conn_err:
             print(f"Connection error occurred: {conn_err}")
@@ -6435,10 +6567,12 @@ class Venda:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Server returned an error, but it's not a JSON object.")
+                        print("Is not dict or list, but it's not a JSON object.")
+                        print(error_data)
                         return None
                 except ValueError:
                     print("Server returned an error, but it's not in JSON format.")
+                    print(error_data)
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -6451,6 +6585,7 @@ class Venda:
                 return response.json()
             except ValueError:
                 print("Server returned an error, but it's not in JSON format.")
+                print(http_err)
                 return None
         except requests.exceptions.ConnectionError as conn_err:
             print(f"Connection error occurred: {conn_err}")
@@ -6616,10 +6751,12 @@ class Venda:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Server returned an error, but it's not a JSON object.")
+                        print("Is not dict or list, but it's not a JSON object.")
+                        print(error_data)
                         return None
                 except ValueError:
                     print("Server returned an error, but it's not in JSON format.")
+                    print(error_data)
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -6632,6 +6769,7 @@ class Venda:
                 return response.json()
             except ValueError:
                 print("Server returned an error, but it's not in JSON format.")
+                print(http_err)
                 return None
         except requests.exceptions.ConnectionError as conn_err:
             print(f"Connection error occurred: {conn_err}")
@@ -6749,10 +6887,12 @@ class Venda:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Server returned an error, but it's not a JSON object.")
+                        print("Is not dict or list, but it's not a JSON object.")
+                        print(error_data)
                         return None
                 except ValueError:
                     print("Server returned an error, but it's not in JSON format.")
+                    print(error_data)
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -6765,6 +6905,7 @@ class Venda:
                 return response.json()
             except ValueError:
                 print("Server returned an error, but it's not in JSON format.")
+                print(http_err)
                 return None
         except requests.exceptions.ConnectionError as conn_err:
             print(f"Connection error occurred: {conn_err}")
@@ -6911,10 +7052,12 @@ class Venda:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Server returned an error, but it's not a JSON object.")
+                        print("Is not dict or list, but it's not a JSON object.")
+                        print(error_data)
                         return None
                 except ValueError:
                     print("Server returned an error, but it's not in JSON format.")
+                    print(error_data)
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -6927,6 +7070,7 @@ class Venda:
                 return response.json()
             except ValueError:
                 print("Server returned an error, but it's not in JSON format.")
+                print(http_err)
                 return None
         except requests.exceptions.ConnectionError as conn_err:
             print(f"Connection error occurred: {conn_err}")
@@ -7037,10 +7181,12 @@ class Venda:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Server returned an error, but it's not a JSON object.")
+                        print("Is not dict or list, but it's not a JSON object.")
+                        print(error_data)
                         return None
                 except ValueError:
                     print("Server returned an error, but it's not in JSON format.")
+                    print(error_data)
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -7053,6 +7199,7 @@ class Venda:
                 return response.json()
             except ValueError:
                 print("Server returned an error, but it's not in JSON format.")
+                print(http_err)
                 return None
         except requests.exceptions.ConnectionError as conn_err:
             print(f"Connection error occurred: {conn_err}")
@@ -7154,10 +7301,12 @@ class Venda:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Server returned an error, but it's not a JSON object.")
+                        print("Is not dict or list, but it's not a JSON object.")
+                        print(error_data)
                         return None
                 except ValueError:
                     print("Server returned an error, but it's not in JSON format.")
+                    print(error_data)
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -7170,6 +7319,7 @@ class Venda:
                 return response.json()
             except ValueError:
                 print("Server returned an error, but it's not in JSON format.")
+                print(http_err)
                 return None
         except requests.exceptions.ConnectionError as conn_err:
             print(f"Connection error occurred: {conn_err}")
@@ -7281,10 +7431,12 @@ class Venda:
                         # Return the error data for caller to handle
                         return error_data
                     else:
-                        print("Server returned an error, but it's not a JSON object.")
+                        print("Is not dict or list, but it's not a JSON object.")
+                        print(error_data)
                         return None
                 except ValueError:
                     print("Server returned an error, but it's not in JSON format.")
+                    print(error_data)
                     return None
             
             # Raise an error for other HTTP error statuses
@@ -7297,6 +7449,7 @@ class Venda:
                 return response.json()
             except ValueError:
                 print("Server returned an error, but it's not in JSON format.")
+                print(http_err)
                 return None
         except requests.exceptions.ConnectionError as conn_err:
             print(f"Connection error occurred: {conn_err}")
