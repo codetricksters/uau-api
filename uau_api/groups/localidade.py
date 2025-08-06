@@ -127,7 +127,7 @@ class Localidade:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("consultar_localidade_por_cep::Success, but response is not a JSON object.")
+                print("consultar_localidade_por_cep::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")

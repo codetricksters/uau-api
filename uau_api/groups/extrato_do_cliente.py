@@ -158,7 +158,7 @@ class ExtratoDoCliente:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("gerar_pdfextrato_cliente::Success, but response is not a JSON object.")
+                print("gerar_pdfextrato_cliente::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -308,7 +308,7 @@ class ExtratoDoCliente:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("gerar_pdfextrato_cliente_v2::Success, but response is not a JSON object.")
+                print("gerar_pdfextrato_cliente_v2::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -424,7 +424,7 @@ class ExtratoDoCliente:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("consultar_saldo_cessoes_direito_anteriores::Success, but response is not a JSON object.")
+                print("consultar_saldo_cessoes_direito_anteriores::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -582,7 +582,7 @@ class ExtratoDoCliente:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("consultar_dados_demonstrativo_pagto_cliente::Success, but response is not a JSON object.")
+                print("consultar_dados_demonstrativo_pagto_cliente::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")

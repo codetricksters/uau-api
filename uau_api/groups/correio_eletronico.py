@@ -137,7 +137,7 @@ class CorreioEletronico:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("enviar_mail_interno_uau::Success, but response is not a JSON object.")
+                print("enviar_mail_interno_uau::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")

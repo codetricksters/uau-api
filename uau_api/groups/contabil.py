@@ -143,7 +143,7 @@ class Contabil:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("consultar_saldo_de_contas::Success, but response is not a JSON object.")
+                print("consultar_saldo_de_contas::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -289,7 +289,7 @@ class Contabil:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("consultar_contas_contabeis::Success, but response is not a JSON object.")
+                print("consultar_contas_contabeis::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")

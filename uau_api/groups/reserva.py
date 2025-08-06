@@ -243,7 +243,7 @@ class Reserva:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("gravar_reserva::Success, but response is not a JSON object.")
+                print("gravar_reserva::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -379,7 +379,7 @@ class Reserva:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("excluir_reserva::Success, but response is not a JSON object.")
+                print("excluir_reserva::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -507,7 +507,7 @@ class Reserva:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("consultar_reservas::Success, but response is not a JSON object.")
+                print("consultar_reservas::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -635,7 +635,7 @@ class Reserva:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("consultar_reserva_vendedor::Success, but response is not a JSON object.")
+                print("consultar_reserva_vendedor::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -764,7 +764,7 @@ class Reserva:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("consultar_reserva_por_codigo::Success, but response is not a JSON object.")
+                print("consultar_reserva_por_codigo::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -888,7 +888,7 @@ class Reserva:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("consulta_reserva_por_proposta::Success, but response is not a JSON object.")
+                print("consulta_reserva_por_proposta::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -1016,7 +1016,7 @@ class Reserva:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("consultar_dados_controle_reserva::Success, but response is not a JSON object.")
+                print("consultar_dados_controle_reserva::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")

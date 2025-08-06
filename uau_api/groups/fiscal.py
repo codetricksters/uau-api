@@ -138,7 +138,7 @@ class Fiscal:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("buscar_caps::Success, but response is not a JSON object.")
+                print("buscar_caps::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -262,7 +262,7 @@ class Fiscal:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("buscar_codigo_servico_fiscal::Success, but response is not a JSON object.")
+                print("buscar_codigo_servico_fiscal::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -382,7 +382,7 @@ class Fiscal:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("importar_lancamentos_fiscais::Success, but response is not a JSON object.")
+                print("importar_lancamentos_fiscais::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -501,7 +501,7 @@ class Fiscal:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("importar_lancamentos_contabeis::Success, but response is not a JSON object.")
+                print("importar_lancamentos_contabeis::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")

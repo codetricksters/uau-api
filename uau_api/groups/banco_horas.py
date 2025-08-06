@@ -134,7 +134,7 @@ class BancoHoras:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("lancar_banco_horas_funcionario::Success, but response is not a JSON object.")
+                print("lancar_banco_horas_funcionario::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")

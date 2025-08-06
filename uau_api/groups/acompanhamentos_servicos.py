@@ -206,7 +206,7 @@ class AcompanhamentosServicos:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("acompanhar_contrato::Success, but response is not a JSON object.")
+                print("acompanhar_contrato::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -389,7 +389,7 @@ class AcompanhamentosServicos:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("acompanhar_servico_pl::Success, but response is not a JSON object.")
+                print("acompanhar_servico_pl::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -582,7 +582,7 @@ class AcompanhamentosServicos:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("acompanhar_servico_orcado::Success, but response is not a JSON object.")
+                print("acompanhar_servico_orcado::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -777,7 +777,7 @@ class AcompanhamentosServicos:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("acompanhar_servico_contrato::Success, but response is not a JSON object.")
+                print("acompanhar_servico_contrato::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -938,7 +938,7 @@ class AcompanhamentosServicos:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("excluir_acompanhamento_servico_pl::Success, but response is not a JSON object.")
+                print("excluir_acompanhamento_servico_pl::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -1091,7 +1091,7 @@ class AcompanhamentosServicos:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("excluir_acompanhamento_servico_orcado::Success, but response is not a JSON object.")
+                print("excluir_acompanhamento_servico_orcado::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -1290,7 +1290,7 @@ class AcompanhamentosServicos:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("alterar_acompanhamento_servico_contrato::Success, but response is not a JSON object.")
+                print("alterar_acompanhamento_servico_contrato::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -1440,7 +1440,7 @@ class AcompanhamentosServicos:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("excluir_acompanhamento_servico_de_contrato::Success, but response is not a JSON object.")
+                print("excluir_acompanhamento_servico_de_contrato::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -1594,7 +1594,7 @@ class AcompanhamentosServicos:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("excluir_acompanhamento_servico_orcado_por_chave::Success, but response is not a JSON object.")
+                print("excluir_acompanhamento_servico_orcado_por_chave::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -1712,7 +1712,7 @@ class AcompanhamentosServicos:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("consultar_acompanhamento_contrato_servico_por_servico::Success, but response is not a JSON object.")
+                print("consultar_acompanhamento_contrato_servico_por_servico::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -1839,7 +1839,7 @@ class AcompanhamentosServicos:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("consultar_acompanhamento_contrato_servico_por_contrato_eservico::Success, but response is not a JSON object.")
+                print("consultar_acompanhamento_contrato_servico_por_contrato_eservico::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")

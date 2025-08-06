@@ -132,7 +132,7 @@ class Obras:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("obter_obras_ativas::Success, but response is not a JSON object.")
+                print("obter_obras_ativas::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -253,7 +253,7 @@ class Obras:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("consultar_obra_por_chave::Success, but response is not a JSON object.")
+                print("consultar_obra_por_chave::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -355,7 +355,7 @@ class Obras:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("obter_meses_abertos_por_empresa_obra::Success, but response is not a JSON object.")
+                print("obter_meses_abertos_por_empresa_obra::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")

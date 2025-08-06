@@ -288,7 +288,7 @@ class InsumosGeral:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("inserir_insumos_geral::Success, but response is not a JSON object.")
+                print("inserir_insumos_geral::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -467,7 +467,7 @@ class InsumosGeral:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("atualizar_insumos_geral::Success, but response is not a JSON object.")
+                print("atualizar_insumos_geral::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -596,7 +596,7 @@ class InsumosGeral:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("consultar_insumos_geral::Success, but response is not a JSON object.")
+                print("consultar_insumos_geral::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -876,7 +876,7 @@ class InsumosGeral:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("consultar_insumos_geral_por_chave::Success, but response is not a JSON object.")
+                print("consultar_insumos_geral_por_chave::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -986,7 +986,7 @@ class InsumosGeral:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("consultar_insumos_geral_por_descricao::Success, but response is not a JSON object.")
+                print("consultar_insumos_geral_por_descricao::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")

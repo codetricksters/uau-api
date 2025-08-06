@@ -129,7 +129,7 @@ class Recebiveis:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("consultar_meios_preferenciais_recebimento::Success, but response is not a JSON object.")
+                print("consultar_meios_preferenciais_recebimento::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -256,7 +256,7 @@ class Recebiveis:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("by_numpadraocobranca::Success, but response is not a JSON object.")
+                print("by_numpadraocobranca::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -392,7 +392,7 @@ class Recebiveis:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("parcelas_ecobrancas_do_cliente::Success, but response is not a JSON object.")
+                print("parcelas_ecobrancas_do_cliente::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -530,7 +530,7 @@ class Recebiveis:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("alterar_meio_preferencial_de_recebimento_da_parcela::Success, but response is not a JSON object.")
+                print("alterar_meio_preferencial_de_recebimento_da_parcela::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")

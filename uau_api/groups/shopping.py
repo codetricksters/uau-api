@@ -148,7 +148,7 @@ class Shopping:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("grava_rendimentos::Success, but response is not a JSON object.")
+                print("grava_rendimentos::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -348,7 +348,7 @@ class Shopping:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("importacao_de_parcelas::Success, but response is not a JSON object.")
+                print("importacao_de_parcelas::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -468,7 +468,7 @@ class Shopping:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("consultar_rendimento_lojista::Success, but response is not a JSON object.")
+                print("consultar_rendimento_lojista::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")

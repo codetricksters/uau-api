@@ -146,7 +146,7 @@ class RequisicaoCompra:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("aprovar_requisicoes_compra::Success, but response is not a JSON object.")
+                print("aprovar_requisicoes_compra::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -277,7 +277,7 @@ class RequisicaoCompra:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("desaprovar_requisicoes_compra::Success, but response is not a JSON object.")
+                print("desaprovar_requisicoes_compra::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")

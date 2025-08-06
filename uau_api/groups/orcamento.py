@@ -156,7 +156,7 @@ class Orcamento:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("alterar_insumo_orcamento::Success, but response is not a JSON object.")
+                print("alterar_insumo_orcamento::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -304,7 +304,7 @@ class Orcamento:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("excluir_insumo_orcamento::Success, but response is not a JSON object.")
+                print("excluir_insumo_orcamento::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -429,7 +429,7 @@ class Orcamento:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("inserir_insumo_orcamento::Success, but response is not a JSON object.")
+                print("inserir_insumo_orcamento::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -577,7 +577,7 @@ class Orcamento:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("alterar_servico_orcamento::Success, but response is not a JSON object.")
+                print("alterar_servico_orcamento::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -713,7 +713,7 @@ class Orcamento:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("excluir_servico_orcamento::Success, but response is not a JSON object.")
+                print("excluir_servico_orcamento::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -839,7 +839,7 @@ class Orcamento:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("inserir_servico_orcamento::Success, but response is not a JSON object.")
+                print("inserir_servico_orcamento::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -963,7 +963,7 @@ class Orcamento:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("consultar_insumos_por_chave::Success, but response is not a JSON object.")
+                print("consultar_insumos_por_chave::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -1103,7 +1103,7 @@ class Orcamento:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("alterar_planilha_cronograma::Success, but response is not a JSON object.")
+                print("alterar_planilha_cronograma::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -1243,7 +1243,7 @@ class Orcamento:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("excluir_planilha_cronograma::Success, but response is not a JSON object.")
+                print("excluir_planilha_cronograma::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -1383,7 +1383,7 @@ class Orcamento:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("inserir_planilha_cronograma::Success, but response is not a JSON object.")
+                print("inserir_planilha_cronograma::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -1503,7 +1503,7 @@ class Orcamento:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("exportar_orcamento_estrutura::Success, but response is not a JSON object.")
+                print("exportar_orcamento_estrutura::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -1639,7 +1639,7 @@ class Orcamento:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("consultar_estrutura_orca_por_chave::Success, but response is not a JSON object.")
+                print("consultar_estrutura_orca_por_chave::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -1771,7 +1771,7 @@ class Orcamento:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("consultar_estrutura_orca_por_servico::Success, but response is not a JSON object.")
+                print("consultar_estrutura_orca_por_servico::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -1903,7 +1903,7 @@ class Orcamento:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("consultar_servico_orcamento_por_chave::Success, but response is not a JSON object.")
+                print("consultar_servico_orcamento_por_chave::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -2023,7 +2023,7 @@ class Orcamento:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("consultar_servico_orcado_desintegrado::Success, but response is not a JSON object.")
+                print("consultar_servico_orcado_desintegrado::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -2158,7 +2158,7 @@ class Orcamento:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("excluir_estrutura_servico_de_orcamento::Success, but response is not a JSON object.")
+                print("excluir_estrutura_servico_de_orcamento::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -2298,7 +2298,7 @@ class Orcamento:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("inserir_estrutura_servico_de_orcamento::Success, but response is not a JSON object.")
+                print("inserir_estrutura_servico_de_orcamento::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -2434,7 +2434,7 @@ class Orcamento:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("consultar_planilha_cronograma_por_chave::Success, but response is not a JSON object.")
+                print("consultar_planilha_cronograma_por_chave::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -2574,7 +2574,7 @@ class Orcamento:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("atualizar_estrutura_servico_de_orcamento::Success, but response is not a JSON object.")
+                print("atualizar_estrutura_servico_de_orcamento::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -2698,7 +2698,7 @@ class Orcamento:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("consultar_servico_orcamento_por_orcamento::Success, but response is not a JSON object.")
+                print("consultar_servico_orcamento_por_orcamento::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")

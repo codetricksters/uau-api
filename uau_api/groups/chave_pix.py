@@ -133,7 +133,7 @@ class ChavePix:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("by_cpfcnpj::Success, but response is not a JSON object.")
+                print("by_cpfcnpj::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -259,7 +259,7 @@ class ChavePix:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("deletar::Success, but response is not a JSON object.")
+                print("deletar::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -395,7 +395,7 @@ class ChavePix:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("atualizar::Success, but response is not a JSON object.")
+                print("atualizar::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -531,7 +531,7 @@ class ChavePix:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("cadastrar::Success, but response is not a JSON object.")
+                print("cadastrar::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")

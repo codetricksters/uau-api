@@ -147,7 +147,7 @@ class Eventos:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("consultar_log_eventos::Success, but response is not a JSON object.")
+                print("consultar_log_eventos::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -277,7 +277,7 @@ class Eventos:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("consultar_chaves_log_de_eventos::Success, but response is not a JSON object.")
+                print("consultar_chaves_log_de_eventos::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")

@@ -124,7 +124,7 @@ class ModeloVenda:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("buscar_plano_indexador::Success, but response is not a JSON object.")
+                print("buscar_plano_indexador::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -273,7 +273,7 @@ class ModeloVenda:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("consultar_modelo_venda::Success, but response is not a JSON object.")
+                print("consultar_modelo_venda::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -463,7 +463,7 @@ class ModeloVenda:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("gerar_parcelas_proposta::Success, but response is not a JSON object.")
+                print("gerar_parcelas_proposta::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -599,7 +599,7 @@ class ModeloVenda:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("consultar_modelo_de_venda::Success, but response is not a JSON object.")
+                print("consultar_modelo_de_venda::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -757,7 +757,7 @@ class ModeloVenda:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("montar_modelo_renegociacao::Success, but response is not a JSON object.")
+                print("montar_modelo_renegociacao::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -873,7 +873,7 @@ class ModeloVenda:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("consultar_parcelas_modelo_venda::Success, but response is not a JSON object.")
+                print("consultar_parcelas_modelo_venda::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -989,7 +989,7 @@ class ModeloVenda:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("consultar_modelo_de_venda_seguro_por_chave::Success, but response is not a JSON object.")
+                print("consultar_modelo_de_venda_seguro_por_chave::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")

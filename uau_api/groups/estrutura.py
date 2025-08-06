@@ -127,7 +127,7 @@ class Estrutura:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("excluir_estrutura::Success, but response is not a JSON object.")
+                print("excluir_estrutura::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -242,7 +242,7 @@ class Estrutura:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("inserir_estrutura::Success, but response is not a JSON object.")
+                print("inserir_estrutura::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -357,7 +357,7 @@ class Estrutura:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("excluir_item_de_estrutura::Success, but response is not a JSON object.")
+                print("excluir_item_de_estrutura::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -476,7 +476,7 @@ class Estrutura:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("inserir_item_de_estrutura::Success, but response is not a JSON object.")
+                print("inserir_item_de_estrutura::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -603,7 +603,7 @@ class Estrutura:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("inserir_item_na_estrutura::Success, but response is not a JSON object.")
+                print("inserir_item_na_estrutura::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")

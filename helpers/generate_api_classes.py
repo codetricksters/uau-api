@@ -216,7 +216,7 @@ def generate_api_classes(
                 f.write('            if isinstance(json_data, (list, dict)):\n')
                 f.write('                return json_data\n')
                 f.write('            else:\n')
-                f.write(f'                print("{method_name}::Success, but response is not a JSON object.")\n')
+                f.write(f'                print("{method_name}''::Success, but response is not a JSON object. {response.text}")\n')
                 f.write('                return None\n')
                 f.write('        except ValueError as json_err:\n')
                 f.write('            print(f"Failed to parse JSON: {json_err}")\n')

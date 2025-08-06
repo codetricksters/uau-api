@@ -168,7 +168,7 @@ class ListaPrecoReferencia:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("inserir_fornecedores::Success, but response is not a JSON object.")
+                print("inserir_fornecedores::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -328,7 +328,7 @@ class ListaPrecoReferencia:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("atualizar_item_fornecedor::Success, but response is not a JSON object.")
+                print("atualizar_item_fornecedor::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -474,7 +474,7 @@ class ListaPrecoReferencia:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("consultar_lista_preco_referencia::Success, but response is not a JSON object.")
+                print("consultar_lista_preco_referencia::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")

@@ -198,7 +198,7 @@ class Composicoes:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("inserir_composicoes::Success, but response is not a JSON object.")
+                print("inserir_composicoes::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -333,7 +333,7 @@ class Composicoes:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("atualizar_composicoes::Success, but response is not a JSON object.")
+                print("atualizar_composicoes::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -453,7 +453,7 @@ class Composicoes:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("consultar_todas_composicoes::Success, but response is not a JSON object.")
+                print("consultar_todas_composicoes::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -643,7 +643,7 @@ class Composicoes:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("consultar_composicoes_por_chave::Success, but response is not a JSON object.")
+                print("consultar_composicoes_por_chave::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -833,7 +833,7 @@ class Composicoes:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("consultar_insumos_da_composicao::Success, but response is not a JSON object.")
+                print("consultar_insumos_da_composicao::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -959,7 +959,7 @@ class Composicoes:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("alterar_insumo_composicoes_geral::Success, but response is not a JSON object.")
+                print("alterar_insumo_composicoes_geral::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -1085,7 +1085,7 @@ class Composicoes:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("inserir_insumo_composicoes_geral::Success, but response is not a JSON object.")
+                print("inserir_insumo_composicoes_geral::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -1197,7 +1197,7 @@ class Composicoes:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("consultar_composicoes_por_descricao::Success, but response is not a JSON object.")
+                print("consultar_composicoes_por_descricao::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -1318,7 +1318,7 @@ class Composicoes:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("consultar_composicoes_com_filtro_livre::Success, but response is not a JSON object.")
+                print("consultar_composicoes_com_filtro_livre::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -1456,7 +1456,7 @@ class Composicoes:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("alterar_insumo_composicoes_geral_pesada::Success, but response is not a JSON object.")
+                print("alterar_insumo_composicoes_geral_pesada::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
@@ -1594,7 +1594,7 @@ class Composicoes:
             if isinstance(json_data, (list, dict)):
                 return json_data
             else:
-                print("inserir_insumo_composicoes_geral_pesada::Success, but response is not a JSON object.")
+                print("inserir_insumo_composicoes_geral_pesada::Success, but response is not a JSON object. {response.text}")
                 return None
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
