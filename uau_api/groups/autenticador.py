@@ -123,9 +123,7 @@ class Autenticador:
             json_data = response.json()
             if isinstance(json_data, (list, dict)):
                 return json_data
-            else:
-                print("logout_usuario::Success, but response is not a JSON object. {response.text}")
-                return None
+            return response.text
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
             return None
@@ -262,9 +260,7 @@ class Autenticador:
             json_data = response.json()
             if isinstance(json_data, (list, dict)):
                 return json_data
-            else:
-                print("autenticar_usuario::Success, but response is not a JSON object. {response.text}")
-                return None
+            return response.text
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
             return None
@@ -376,9 +372,7 @@ class Autenticador:
             json_data = response.json()
             if isinstance(json_data, (list, dict)):
                 return json_data
-            else:
-                print("autenticar_usuario_app::Success, but response is not a JSON object. {response.text}")
-                return None
+            return response.text
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
             return None
@@ -488,9 +482,7 @@ class Autenticador:
             json_data = response.json()
             if isinstance(json_data, (list, dict)):
                 return json_data
-            else:
-                print("verifica_usuario_logado::Success, but response is not a JSON object. {response.text}")
-                return None
+            return response.text
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
             return None
@@ -658,9 +650,7 @@ class Autenticador:
             json_data = response.json()
             if isinstance(json_data, (list, dict)):
                 return json_data
-            else:
-                print("consultar_dados_usr_logado::Success, but response is not a JSON object. {response.text}")
-                return None
+            return response.text
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
             return None
@@ -766,9 +756,7 @@ class Autenticador:
             json_data = response.json()
             if isinstance(json_data, (list, dict)):
                 return json_data
-            else:
-                print("autentificar_usuario_titanium::Success, but response is not a JSON object. {response.text}")
-                return None
+            return response.text
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
             return None
@@ -909,9 +897,7 @@ class Autenticador:
             json_data = response.json()
             if isinstance(json_data, (list, dict)):
                 return json_data
-            else:
-                print("autenticar_usuario_corporativo::Success, but response is not a JSON object. {response.text}")
-                return None
+            return response.text
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
             return None

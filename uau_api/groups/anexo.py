@@ -156,9 +156,7 @@ class Anexo:
             json_data = response.json()
             if isinstance(json_data, (list, dict)):
                 return json_data
-            else:
-                print("anexar_arquivo::Success, but response is not a JSON object. {response.text}")
-                return None
+            return response.text
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
             return None
@@ -282,9 +280,7 @@ class Anexo:
             json_data = response.json()
             if isinstance(json_data, (list, dict)):
                 return json_data
-            else:
-                print("excluir_anexos::Success, but response is not a JSON object. {response.text}")
-                return None
+            return response.text
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
             return None
@@ -393,9 +389,7 @@ class Anexo:
             json_data = response.json()
             if isinstance(json_data, (list, dict)):
                 return json_data
-            else:
-                print("listar_diretorios::Success, but response is not a JSON object. {response.text}")
-                return None
+            return response.text
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
             return None
@@ -539,9 +533,7 @@ class Anexo:
             json_data = response.json()
             if isinstance(json_data, (list, dict)):
                 return json_data
-            else:
-                print("anexar_base64_imagem::Success, but response is not a JSON object. {response.text}")
-                return None
+            return response.text
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
             return None
@@ -651,9 +643,7 @@ class Anexo:
             json_data = response.json()
             if isinstance(json_data, (list, dict)):
                 return json_data
-            else:
-                print("listar_armazenamentos::Success, but response is not a JSON object. {response.text}")
-                return None
+            return response.text
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
             return None
@@ -811,9 +801,7 @@ class Anexo:
             json_data = response.json()
             if isinstance(json_data, (list, dict)):
                 return json_data
-            else:
-                print("gravar_comentario_anexo::Success, but response is not a JSON object. {response.text}")
-                return None
+            return response.text
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
             return None
@@ -933,9 +921,7 @@ class Anexo:
             json_data = response.json()
             if isinstance(json_data, (list, dict)):
                 return json_data
-            else:
-                print("retorna_arquivo_em_bytes::Success, but response is not a JSON object. {response.text}")
-                return None
+            return response.text
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
             return None
@@ -1060,9 +1046,7 @@ class Anexo:
             json_data = response.json()
             if isinstance(json_data, (list, dict)):
                 return json_data
-            else:
-                print("consultar_chaves_comentario::Success, but response is not a JSON object. {response.text}")
-                return None
+            return response.text
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
             return None
@@ -1187,9 +1171,7 @@ class Anexo:
             json_data = response.json()
             if isinstance(json_data, (list, dict)):
                 return json_data
-            else:
-                print("anexar_arquivos_base64_request::Success, but response is not a JSON object. {response.text}")
-                return None
+            return response.text
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
             return None
@@ -1316,9 +1298,7 @@ class Anexo:
             json_data = response.json()
             if isinstance(json_data, (list, dict)):
                 return json_data
-            else:
-                print("retornar_arquivos_em_lista_bytes::Success, but response is not a JSON object. {response.text}")
-                return None
+            return response.text
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
             return None

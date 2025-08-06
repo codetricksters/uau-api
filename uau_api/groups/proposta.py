@@ -218,9 +218,7 @@ class Proposta:
             json_data = response.json()
             if isinstance(json_data, (list, dict)):
                 return json_data
-            else:
-                print("gerar_boleto::Success, but response is not a JSON object. {response.text}")
-                return None
+            return response.text
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
             return None
@@ -342,9 +340,7 @@ class Proposta:
             json_data = response.json()
             if isinstance(json_data, (list, dict)):
                 return json_data
-            else:
-                print("expirar_boletos::Success, but response is not a JSON object. {response.text}")
-                return None
+            return response.text
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
             return None
@@ -857,9 +853,7 @@ class Proposta:
             json_data = response.json()
             if isinstance(json_data, (list, dict)):
                 return json_data
-            else:
-                print("gravar_proposta::Success, but response is not a JSON object. {response.text}")
-                return None
+            return response.text
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
             return None
@@ -984,9 +978,7 @@ class Proposta:
             json_data = response.json()
             if isinstance(json_data, (list, dict)):
                 return json_data
-            else:
-                print("cancelar_proposta::Success, but response is not a JSON object. {response.text}")
-                return None
+            return response.text
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
             return None
@@ -1166,9 +1158,7 @@ class Proposta:
             json_data = response.json()
             if isinstance(json_data, (list, dict)):
                 return json_data
-            else:
-                print("renegociar_proposta::Success, but response is not a JSON object. {response.text}")
-                return None
+            return response.text
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
             return None
@@ -1294,9 +1284,7 @@ class Proposta:
             json_data = response.json()
             if isinstance(json_data, (list, dict)):
                 return json_data
-            else:
-                print("consultar_proposta_por_id::Success, but response is not a JSON object. {response.text}")
-                return None
+            return response.text
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
             return None
@@ -1422,9 +1410,7 @@ class Proposta:
             json_data = response.json()
             if isinstance(json_data, (list, dict)):
                 return json_data
-            else:
-                print("vincular_arquivo_proposta::Success, but response is not a JSON object. {response.text}")
-                return None
+            return response.text
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
             return None
@@ -1590,9 +1576,7 @@ class Proposta:
             json_data = response.json()
             if isinstance(json_data, (list, dict)):
                 return json_data
-            else:
-                print("gravar_pedido_de_recebimento::Success, but response is not a JSON object. {response.text}")
-                return None
+            return response.text
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
             return None
@@ -1714,9 +1698,7 @@ class Proposta:
             json_data = response.json()
             if isinstance(json_data, (list, dict)):
                 return json_data
-            else:
-                print("cancelar_pedido_de_recebimento::Success, but response is not a JSON object. {response.text}")
-                return None
+            return response.text
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
             return None
@@ -1827,9 +1809,7 @@ class Proposta:
             json_data = response.json()
             if isinstance(json_data, (list, dict)):
                 return json_data
-            else:
-                print("consultar_hierarquia_parcelas::Success, but response is not a JSON object. {response.text}")
-                return None
+            return response.text
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
             return None
@@ -1951,9 +1931,7 @@ class Proposta:
             json_data = response.json()
             if isinstance(json_data, (list, dict)):
                 return json_data
-            else:
-                print("atualizar_pedido_de_recebimento::Success, but response is not a JSON object. {response.text}")
-                return None
+            return response.text
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
             return None
@@ -2075,9 +2053,7 @@ class Proposta:
             json_data = response.json()
             if isinstance(json_data, (list, dict)):
                 return json_data
-            else:
-                print("consultar_pedido_de_recebimento::Success, but response is not a JSON object. {response.text}")
-                return None
+            return response.text
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
             return None
@@ -2286,9 +2262,7 @@ class Proposta:
             json_data = response.json()
             if isinstance(json_data, (list, dict)):
                 return json_data
-            else:
-                print("processar_recebimento_parcelas::Success, but response is not a JSON object. {response.text}")
-                return None
+            return response.text
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
             return None
@@ -2406,9 +2380,7 @@ class Proposta:
             json_data = response.json()
             if isinstance(json_data, (list, dict)):
                 return json_data
-            else:
-                print("consultar_pedido_de_recebimento_uau::Success, but response is not a JSON object. {response.text}")
-                return None
+            return response.text
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
             return None
@@ -2580,9 +2552,7 @@ class Proposta:
             json_data = response.json()
             if isinstance(json_data, (list, dict)):
                 return json_data
-            else:
-                print("retornar_valores_estrutura_comissao::Success, but response is not a JSON object. {response.text}")
-                return None
+            return response.text
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
             return None
@@ -2732,9 +2702,7 @@ class Proposta:
             json_data = response.json()
             if isinstance(json_data, (list, dict)):
                 return json_data
-            else:
-                print("retorna_valor_comissao_deducao_parcelas::Success, but response is not a JSON object. {response.text}")
-                return None
+            return response.text
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
             return None
@@ -2857,9 +2825,7 @@ class Proposta:
             json_data = response.json()
             if isinstance(json_data, (list, dict)):
                 return json_data
-            else:
-                print("traduzir_request_parcelas_geradas::Success, but response is not a JSON object. {response.text}")
-                return None
+            return response.text
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
             return None
@@ -2961,9 +2927,7 @@ class Proposta:
             json_data = response.json()
             if isinstance(json_data, (list, dict)):
                 return json_data
-            else:
-                print("traduzir_request_parcelas_selecionadas::Success, but response is not a JSON object. {response.text}")
-                return None
+            return response.text
         except ValueError as json_err:
             print(f"Failed to parse JSON: {json_err}")
             return None
