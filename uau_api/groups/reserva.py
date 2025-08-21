@@ -182,70 +182,11 @@ class Reserva:
             "dados_reserva_json": dados_reserva_json,
         }
         params = {k: v for k, v in kwargs.items() if v is not None}
-        try:
-            response = self.api.post(
-                path,
-                json=params
-            )
-            
-            # Check for specific error codes (HTTPStatus.BAD_REQUEST and HTTPStatus.INTERNAL_SERVER_ERROR) before raising for status
-            if response.status_code in [HTTPStatus.BAD_REQUEST, HTTPStatus.INTERNAL_SERVER_ERROR]:
-                print(f"Server error occurred - Status Code: {response.status_code}")
-                # Attempt to parse the error JSON response
-                try:
-                    error_data = response.json()
-                    if isinstance(error_data, (dict, list)):
-                        # Extract the specific error fields if they exist
-                        error_data = [error_data] if isinstance(error_data, dict) else error_data
-                        for idx, error_item in enumerate(error_data, start=1):
-                            detalhe = error_item.get("Detalhe", "N/A")
-                            mensagem = error_item.get("Mensagem", "N/A")
-                            descricao = error_item.get("Descricao", "N/A")
-                            
-                            print(f"Error Details: [{idx}]")
-                            print(f"  Detalhe: {detalhe}")
-                            print(f"  Mensagem: {mensagem}")
-                            print(f"  Descrição: {descricao}")
-                        
-                        # Return the error data for caller to handle
-                        return error_data
-                    else:
-                        print("gravar_reserva::Is not dict or list, but it's not a JSON object.")
-                        return None
-                except ValueError:
-                    print("gravar_reserva::Server returned an error")
-                    return None
-            
-            # Raise an error for other HTTP error statuses
-            response.raise_for_status()
-            
-        except requests.exceptions.HTTPError as http_err:
-            print(f"HTTP error occurred: {http_err} - Status Code: {response.status_code}")
-            # Attempt to return server's JSON error details for other HTTP errors
-            try:
-                return response.json()
-            except ValueError:
-                print(f"Server returned {http_err}")
-                return None
-        except requests.exceptions.ConnectionError as conn_err:
-            print(f"Connection error occurred: {conn_err}")
-            return None
-        except requests.exceptions.Timeout as timeout_err:
-            print(f"Timeout error occurred: {timeout_err}")
-            return None
-        except requests.exceptions.RequestException as req_err:
-            print(f"An unknown error occurred: {req_err}")
-            return None
-        
-        # On success, attempt to return JSON response
-        try:
-            json_data = response.json()
-            if isinstance(json_data, (list, dict)):
-                return json_data
-            return response.text
-        except ValueError as json_err:
-            print(f"Failed to parse JSON: {json_err}")
-            return None
+        response = self.api.post(
+            path,
+            json=params
+        )
+        return response
 
     def excluir_reserva(
         self,
@@ -316,70 +257,11 @@ class Reserva:
             "cod_reserva": cod_reserva,
         }
         params = {k: v for k, v in kwargs.items() if v is not None}
-        try:
-            response = self.api.post(
-                path,
-                json=params
-            )
-            
-            # Check for specific error codes (HTTPStatus.BAD_REQUEST and HTTPStatus.INTERNAL_SERVER_ERROR) before raising for status
-            if response.status_code in [HTTPStatus.BAD_REQUEST, HTTPStatus.INTERNAL_SERVER_ERROR]:
-                print(f"Server error occurred - Status Code: {response.status_code}")
-                # Attempt to parse the error JSON response
-                try:
-                    error_data = response.json()
-                    if isinstance(error_data, (dict, list)):
-                        # Extract the specific error fields if they exist
-                        error_data = [error_data] if isinstance(error_data, dict) else error_data
-                        for idx, error_item in enumerate(error_data, start=1):
-                            detalhe = error_item.get("Detalhe", "N/A")
-                            mensagem = error_item.get("Mensagem", "N/A")
-                            descricao = error_item.get("Descricao", "N/A")
-                            
-                            print(f"Error Details: [{idx}]")
-                            print(f"  Detalhe: {detalhe}")
-                            print(f"  Mensagem: {mensagem}")
-                            print(f"  Descrição: {descricao}")
-                        
-                        # Return the error data for caller to handle
-                        return error_data
-                    else:
-                        print("excluir_reserva::Is not dict or list, but it's not a JSON object.")
-                        return None
-                except ValueError:
-                    print("excluir_reserva::Server returned an error")
-                    return None
-            
-            # Raise an error for other HTTP error statuses
-            response.raise_for_status()
-            
-        except requests.exceptions.HTTPError as http_err:
-            print(f"HTTP error occurred: {http_err} - Status Code: {response.status_code}")
-            # Attempt to return server's JSON error details for other HTTP errors
-            try:
-                return response.json()
-            except ValueError:
-                print(f"Server returned {http_err}")
-                return None
-        except requests.exceptions.ConnectionError as conn_err:
-            print(f"Connection error occurred: {conn_err}")
-            return None
-        except requests.exceptions.Timeout as timeout_err:
-            print(f"Timeout error occurred: {timeout_err}")
-            return None
-        except requests.exceptions.RequestException as req_err:
-            print(f"An unknown error occurred: {req_err}")
-            return None
-        
-        # On success, attempt to return JSON response
-        try:
-            json_data = response.json()
-            if isinstance(json_data, (list, dict)):
-                return json_data
-            return response.text
-        except ValueError as json_err:
-            print(f"Failed to parse JSON: {json_err}")
-            return None
+        response = self.api.post(
+            path,
+            json=params
+        )
+        return response
 
     def consultar_reservas(
         self,
@@ -442,70 +324,11 @@ class Reserva:
             "status": status,
         }
         params = {k: v for k, v in kwargs.items() if v is not None}
-        try:
-            response = self.api.post(
-                path,
-                json=params
-            )
-            
-            # Check for specific error codes (HTTPStatus.BAD_REQUEST and HTTPStatus.INTERNAL_SERVER_ERROR) before raising for status
-            if response.status_code in [HTTPStatus.BAD_REQUEST, HTTPStatus.INTERNAL_SERVER_ERROR]:
-                print(f"Server error occurred - Status Code: {response.status_code}")
-                # Attempt to parse the error JSON response
-                try:
-                    error_data = response.json()
-                    if isinstance(error_data, (dict, list)):
-                        # Extract the specific error fields if they exist
-                        error_data = [error_data] if isinstance(error_data, dict) else error_data
-                        for idx, error_item in enumerate(error_data, start=1):
-                            detalhe = error_item.get("Detalhe", "N/A")
-                            mensagem = error_item.get("Mensagem", "N/A")
-                            descricao = error_item.get("Descricao", "N/A")
-                            
-                            print(f"Error Details: [{idx}]")
-                            print(f"  Detalhe: {detalhe}")
-                            print(f"  Mensagem: {mensagem}")
-                            print(f"  Descrição: {descricao}")
-                        
-                        # Return the error data for caller to handle
-                        return error_data
-                    else:
-                        print("consultar_reservas::Is not dict or list, but it's not a JSON object.")
-                        return None
-                except ValueError:
-                    print("consultar_reservas::Server returned an error")
-                    return None
-            
-            # Raise an error for other HTTP error statuses
-            response.raise_for_status()
-            
-        except requests.exceptions.HTTPError as http_err:
-            print(f"HTTP error occurred: {http_err} - Status Code: {response.status_code}")
-            # Attempt to return server's JSON error details for other HTTP errors
-            try:
-                return response.json()
-            except ValueError:
-                print(f"Server returned {http_err}")
-                return None
-        except requests.exceptions.ConnectionError as conn_err:
-            print(f"Connection error occurred: {conn_err}")
-            return None
-        except requests.exceptions.Timeout as timeout_err:
-            print(f"Timeout error occurred: {timeout_err}")
-            return None
-        except requests.exceptions.RequestException as req_err:
-            print(f"An unknown error occurred: {req_err}")
-            return None
-        
-        # On success, attempt to return JSON response
-        try:
-            json_data = response.json()
-            if isinstance(json_data, (list, dict)):
-                return json_data
-            return response.text
-        except ValueError as json_err:
-            print(f"Failed to parse JSON: {json_err}")
-            return None
+        response = self.api.post(
+            path,
+            json=params
+        )
+        return response
 
     def consultar_reserva_vendedor(
         self,
@@ -568,70 +391,11 @@ class Reserva:
             "vendedor": vendedor,
         }
         params = {k: v for k, v in kwargs.items() if v is not None}
-        try:
-            response = self.api.post(
-                path,
-                json=params
-            )
-            
-            # Check for specific error codes (HTTPStatus.BAD_REQUEST and HTTPStatus.INTERNAL_SERVER_ERROR) before raising for status
-            if response.status_code in [HTTPStatus.BAD_REQUEST, HTTPStatus.INTERNAL_SERVER_ERROR]:
-                print(f"Server error occurred - Status Code: {response.status_code}")
-                # Attempt to parse the error JSON response
-                try:
-                    error_data = response.json()
-                    if isinstance(error_data, (dict, list)):
-                        # Extract the specific error fields if they exist
-                        error_data = [error_data] if isinstance(error_data, dict) else error_data
-                        for idx, error_item in enumerate(error_data, start=1):
-                            detalhe = error_item.get("Detalhe", "N/A")
-                            mensagem = error_item.get("Mensagem", "N/A")
-                            descricao = error_item.get("Descricao", "N/A")
-                            
-                            print(f"Error Details: [{idx}]")
-                            print(f"  Detalhe: {detalhe}")
-                            print(f"  Mensagem: {mensagem}")
-                            print(f"  Descrição: {descricao}")
-                        
-                        # Return the error data for caller to handle
-                        return error_data
-                    else:
-                        print("consultar_reserva_vendedor::Is not dict or list, but it's not a JSON object.")
-                        return None
-                except ValueError:
-                    print("consultar_reserva_vendedor::Server returned an error")
-                    return None
-            
-            # Raise an error for other HTTP error statuses
-            response.raise_for_status()
-            
-        except requests.exceptions.HTTPError as http_err:
-            print(f"HTTP error occurred: {http_err} - Status Code: {response.status_code}")
-            # Attempt to return server's JSON error details for other HTTP errors
-            try:
-                return response.json()
-            except ValueError:
-                print(f"Server returned {http_err}")
-                return None
-        except requests.exceptions.ConnectionError as conn_err:
-            print(f"Connection error occurred: {conn_err}")
-            return None
-        except requests.exceptions.Timeout as timeout_err:
-            print(f"Timeout error occurred: {timeout_err}")
-            return None
-        except requests.exceptions.RequestException as req_err:
-            print(f"An unknown error occurred: {req_err}")
-            return None
-        
-        # On success, attempt to return JSON response
-        try:
-            json_data = response.json()
-            if isinstance(json_data, (list, dict)):
-                return json_data
-            return response.text
-        except ValueError as json_err:
-            print(f"Failed to parse JSON: {json_err}")
-            return None
+        response = self.api.post(
+            path,
+            json=params
+        )
+        return response
 
     def consultar_reserva_por_codigo(
         self,
@@ -695,70 +459,11 @@ class Reserva:
             "cod_reserva": cod_reserva,
         }
         params = {k: v for k, v in kwargs.items() if v is not None}
-        try:
-            response = self.api.post(
-                path,
-                json=params
-            )
-            
-            # Check for specific error codes (HTTPStatus.BAD_REQUEST and HTTPStatus.INTERNAL_SERVER_ERROR) before raising for status
-            if response.status_code in [HTTPStatus.BAD_REQUEST, HTTPStatus.INTERNAL_SERVER_ERROR]:
-                print(f"Server error occurred - Status Code: {response.status_code}")
-                # Attempt to parse the error JSON response
-                try:
-                    error_data = response.json()
-                    if isinstance(error_data, (dict, list)):
-                        # Extract the specific error fields if they exist
-                        error_data = [error_data] if isinstance(error_data, dict) else error_data
-                        for idx, error_item in enumerate(error_data, start=1):
-                            detalhe = error_item.get("Detalhe", "N/A")
-                            mensagem = error_item.get("Mensagem", "N/A")
-                            descricao = error_item.get("Descricao", "N/A")
-                            
-                            print(f"Error Details: [{idx}]")
-                            print(f"  Detalhe: {detalhe}")
-                            print(f"  Mensagem: {mensagem}")
-                            print(f"  Descrição: {descricao}")
-                        
-                        # Return the error data for caller to handle
-                        return error_data
-                    else:
-                        print("consultar_reserva_por_codigo::Is not dict or list, but it's not a JSON object.")
-                        return None
-                except ValueError:
-                    print("consultar_reserva_por_codigo::Server returned an error")
-                    return None
-            
-            # Raise an error for other HTTP error statuses
-            response.raise_for_status()
-            
-        except requests.exceptions.HTTPError as http_err:
-            print(f"HTTP error occurred: {http_err} - Status Code: {response.status_code}")
-            # Attempt to return server's JSON error details for other HTTP errors
-            try:
-                return response.json()
-            except ValueError:
-                print(f"Server returned {http_err}")
-                return None
-        except requests.exceptions.ConnectionError as conn_err:
-            print(f"Connection error occurred: {conn_err}")
-            return None
-        except requests.exceptions.Timeout as timeout_err:
-            print(f"Timeout error occurred: {timeout_err}")
-            return None
-        except requests.exceptions.RequestException as req_err:
-            print(f"An unknown error occurred: {req_err}")
-            return None
-        
-        # On success, attempt to return JSON response
-        try:
-            json_data = response.json()
-            if isinstance(json_data, (list, dict)):
-                return json_data
-            return response.text
-        except ValueError as json_err:
-            print(f"Failed to parse JSON: {json_err}")
-            return None
+        response = self.api.post(
+            path,
+            json=params
+        )
+        return response
 
     def consulta_reserva_por_proposta(
         self,
@@ -817,70 +522,11 @@ class Reserva:
             "num_proposta": num_proposta,
         }
         params = {k: v for k, v in kwargs.items() if v is not None}
-        try:
-            response = self.api.post(
-                path,
-                json=params
-            )
-            
-            # Check for specific error codes (HTTPStatus.BAD_REQUEST and HTTPStatus.INTERNAL_SERVER_ERROR) before raising for status
-            if response.status_code in [HTTPStatus.BAD_REQUEST, HTTPStatus.INTERNAL_SERVER_ERROR]:
-                print(f"Server error occurred - Status Code: {response.status_code}")
-                # Attempt to parse the error JSON response
-                try:
-                    error_data = response.json()
-                    if isinstance(error_data, (dict, list)):
-                        # Extract the specific error fields if they exist
-                        error_data = [error_data] if isinstance(error_data, dict) else error_data
-                        for idx, error_item in enumerate(error_data, start=1):
-                            detalhe = error_item.get("Detalhe", "N/A")
-                            mensagem = error_item.get("Mensagem", "N/A")
-                            descricao = error_item.get("Descricao", "N/A")
-                            
-                            print(f"Error Details: [{idx}]")
-                            print(f"  Detalhe: {detalhe}")
-                            print(f"  Mensagem: {mensagem}")
-                            print(f"  Descrição: {descricao}")
-                        
-                        # Return the error data for caller to handle
-                        return error_data
-                    else:
-                        print("consulta_reserva_por_proposta::Is not dict or list, but it's not a JSON object.")
-                        return None
-                except ValueError:
-                    print("consulta_reserva_por_proposta::Server returned an error")
-                    return None
-            
-            # Raise an error for other HTTP error statuses
-            response.raise_for_status()
-            
-        except requests.exceptions.HTTPError as http_err:
-            print(f"HTTP error occurred: {http_err} - Status Code: {response.status_code}")
-            # Attempt to return server's JSON error details for other HTTP errors
-            try:
-                return response.json()
-            except ValueError:
-                print(f"Server returned {http_err}")
-                return None
-        except requests.exceptions.ConnectionError as conn_err:
-            print(f"Connection error occurred: {conn_err}")
-            return None
-        except requests.exceptions.Timeout as timeout_err:
-            print(f"Timeout error occurred: {timeout_err}")
-            return None
-        except requests.exceptions.RequestException as req_err:
-            print(f"An unknown error occurred: {req_err}")
-            return None
-        
-        # On success, attempt to return JSON response
-        try:
-            json_data = response.json()
-            if isinstance(json_data, (list, dict)):
-                return json_data
-            return response.text
-        except ValueError as json_err:
-            print(f"Failed to parse JSON: {json_err}")
-            return None
+        response = self.api.post(
+            path,
+            json=params
+        )
+        return response
 
     def consultar_dados_controle_reserva(
         self,
@@ -943,68 +589,9 @@ class Reserva:
             "status": status,
         }
         params = {k: v for k, v in kwargs.items() if v is not None}
-        try:
-            response = self.api.post(
-                path,
-                json=params
-            )
-            
-            # Check for specific error codes (HTTPStatus.BAD_REQUEST and HTTPStatus.INTERNAL_SERVER_ERROR) before raising for status
-            if response.status_code in [HTTPStatus.BAD_REQUEST, HTTPStatus.INTERNAL_SERVER_ERROR]:
-                print(f"Server error occurred - Status Code: {response.status_code}")
-                # Attempt to parse the error JSON response
-                try:
-                    error_data = response.json()
-                    if isinstance(error_data, (dict, list)):
-                        # Extract the specific error fields if they exist
-                        error_data = [error_data] if isinstance(error_data, dict) else error_data
-                        for idx, error_item in enumerate(error_data, start=1):
-                            detalhe = error_item.get("Detalhe", "N/A")
-                            mensagem = error_item.get("Mensagem", "N/A")
-                            descricao = error_item.get("Descricao", "N/A")
-                            
-                            print(f"Error Details: [{idx}]")
-                            print(f"  Detalhe: {detalhe}")
-                            print(f"  Mensagem: {mensagem}")
-                            print(f"  Descrição: {descricao}")
-                        
-                        # Return the error data for caller to handle
-                        return error_data
-                    else:
-                        print("consultar_dados_controle_reserva::Is not dict or list, but it's not a JSON object.")
-                        return None
-                except ValueError:
-                    print("consultar_dados_controle_reserva::Server returned an error")
-                    return None
-            
-            # Raise an error for other HTTP error statuses
-            response.raise_for_status()
-            
-        except requests.exceptions.HTTPError as http_err:
-            print(f"HTTP error occurred: {http_err} - Status Code: {response.status_code}")
-            # Attempt to return server's JSON error details for other HTTP errors
-            try:
-                return response.json()
-            except ValueError:
-                print(f"Server returned {http_err}")
-                return None
-        except requests.exceptions.ConnectionError as conn_err:
-            print(f"Connection error occurred: {conn_err}")
-            return None
-        except requests.exceptions.Timeout as timeout_err:
-            print(f"Timeout error occurred: {timeout_err}")
-            return None
-        except requests.exceptions.RequestException as req_err:
-            print(f"An unknown error occurred: {req_err}")
-            return None
-        
-        # On success, attempt to return JSON response
-        try:
-            json_data = response.json()
-            if isinstance(json_data, (list, dict)):
-                return json_data
-            return response.text
-        except ValueError as json_err:
-            print(f"Failed to parse JSON: {json_err}")
-            return None
+        response = self.api.post(
+            path,
+            json=params
+        )
+        return response
 
