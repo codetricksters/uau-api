@@ -44,5 +44,6 @@ post_test = "coverage html"
 quote-style = "single"
 
 
-[tool.setuptools.packages]
+
+[tool.setuptools.packages.find]
 include = ["uau_api*"]
