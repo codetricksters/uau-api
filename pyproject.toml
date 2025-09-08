@@ -45,6 +45,3 @@ quote-style = "single"
 
 [tool.setuptools.packages.find]
 where = ["uau_api"]
-
-[tool.setuptools]
-packages = ["uau_api"]
