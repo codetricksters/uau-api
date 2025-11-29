@@ -7,6 +7,5 @@ class Settings(BaseSettings):
 
     API_URL: str
     API_KEY: str
-    USER: str
+    USERNAME: str
     PASSWORD: str
-    WORKDIR:str

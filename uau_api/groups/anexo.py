@@ -167,6 +167,69 @@ class Anexo:
         )
         return response
 
+    def baixar_arquivos(
+        self,
+        arquivos: List[Dict] = None,
+    ) -> dict:
+        """
+        
+        Endpoint: `Anexo/BaixarArquivos`
+        HTTP Method: `POST`
+        
+        Implementation Notes
+        Definição Técnica:
+
+        Autenticar o usuário cliente via URI: /api/v{version}/Autenticador/AutenticarUsuario Preencher os parâmetros de request para uso do método. Utilizar a rota Anexo/ListaArquivoPorChave para obter os caminhos completos dos arquivos.
+        
+        Parâmetros da request
+        
+        CaminhoCompleto: Caminho completo do arquivo que deverá ser compactado para ZIP.
+
+        Origem (Obrigatório):
+
+        1 - Caminho local / rede
+
+        2 - Caminho AWS.
+        
+        Args:
+            arquivos (list): Lista de arquivos
+        
+        Parameter Structure:
+        
+            {
+                "Arquivos": [
+                    {
+                        "CaminhoCompleto": "string",
+                        "Origem": 1
+                    }
+                ]
+            }
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Anexo()
+            >>> response = api._baixar_arquivos(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
+        """
+        path = "Anexo/BaixarArquivos"
+        kwargs = {
+            "Arquivos": arquivos,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
+        response = self.api.post(
+            path,
+            json=params
+        )
+        return response
+    
     def listar_diretorios(
         self,
         caminho: Optional[str] = None,
@@ -301,6 +364,64 @@ class Anexo:
             json=params
         )
         return response
+
+
+    def lista_arquivo_por_chave(
+        self,
+        chave: str = None,
+        valores: List[str] = None
+    ) -> dict:
+        """
+        Endpoint: `Anexo/ListaArquivoPorChave`
+        HTTP Method: `POST`
+        
+        Implementation Notes
+        Definição Técnica:
+
+        Autenticar o usuário cliente via URI: /api/v{version}/Autenticador/AutenticarUsuario Preencher os parâmetros de request para uso do método.
+          
+        
+        Args:
+            Chave (str): Identificador do arquivo. Exemplo: "Contrato"
+            Valores (list):  Valores de identificação do arquivo. Exemplo: "123", "1234"
+        
+        Parameter Structure:
+        
+        {
+            "Chave": "string",
+            "Valores": [
+                "string"
+            ]
+        }
+        Para obter as chaves de utilização na requisição, utilize a rota:
+        Anexo/ConsultarChavesComentario
+        
+        Returns:
+            dict: The API response
+        
+        Raises:
+            requests.HTTPError: If the API request fails
+            ValueError: If required parameters are missing or invalid
+        
+        Examples:
+            >>> api = Anexo()
+            >>> response = api._lista_arquivo_por_chave(
+            ...     parameter1='value1',
+            ...     parameter2='value2'
+            ... )
+        """
+        path = "Anexo/ListaArquivoPorChave"
+        kwargs = {
+            "Chave": chave,
+            "Valores": valores,
+        }
+        params = {k: v for k, v in kwargs.items() if v is not None}
+        response = self.api.post(
+            path,
+            json=params
+        )
+        return response
+
 
     def listar_armazenamentos(
         self,
