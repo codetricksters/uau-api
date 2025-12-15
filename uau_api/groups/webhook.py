@@ -20,7 +20,7 @@ class Webhook:
         detalhe: Optional[str] = None,
         mensagem: Optional[str] = None,
         descricao: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Webhook/ConfirmarRecebimentoOrdemCompra/{token}`
@@ -81,7 +81,7 @@ class Webhook:
         info_pagador: Optional[str] = None,
         devolucoes: Optional[Dict] = None,
         pagador: Optional[Dict] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Webhook/AtualizarRecebimentoPix`
@@ -161,7 +161,7 @@ class Webhook:
         detalhe: Optional[str] = None,
         mensagem: Optional[str] = None,
         descricao: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Webhook/AtualizarPedidoRec`

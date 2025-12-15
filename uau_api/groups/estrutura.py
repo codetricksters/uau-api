@@ -18,7 +18,7 @@ class Estrutura:
         self,
         codigo_estrutura: Optional[int] = None,
         sequencia: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Estrutura/ExcluirEstrutura`
@@ -75,7 +75,7 @@ class Estrutura:
     def inserir_estrutura(
         self,
         descricao: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Estrutura/InserirEstrutura`
@@ -129,7 +129,7 @@ class Estrutura:
     def excluir_item_de_estrutura(
         self,
         codigo_item: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Estrutura/ExcluirItemDeEstrutura`
@@ -184,7 +184,7 @@ class Estrutura:
         self,
         codigo_item: Optional[str] = None,
         descricao_item: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Estrutura/InserirItemDeEstrutura`
@@ -244,7 +244,7 @@ class Estrutura:
         tipo_estrutura: Optional[int] = None,
         sequencia: Optional[str] = None,
         codigo_item: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Estrutura/InserirItemNaEstrutura`

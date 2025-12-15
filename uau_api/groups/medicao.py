@@ -29,7 +29,7 @@ class Medicao:
         descontos_medicao: Optional[List[Dict]] = None,
         itens: Optional[List[Dict]] = None,
         adiantamentos: Optional[List[Dict]] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Medicao/ManterMedicao`
@@ -150,7 +150,7 @@ class Medicao:
         empresa: Optional[int] = None,
         contrato: Optional[int] = None,
         numero_medicao: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Medicao/ExcluirMedicao`
@@ -216,7 +216,7 @@ class Medicao:
         empresa: Optional[int] = None,
         contrato: Optional[int] = None,
         medicao: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Medicao/ConsultarMedicao`
@@ -275,7 +275,7 @@ class Medicao:
         empresa: Optional[int] = None,
         contrato: Optional[int] = None,
         medicao: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Medicao/ConsultarItensMedicao`
@@ -336,7 +336,7 @@ class Medicao:
     def aprovar_medicoes_contrato(
         self,
         medicoes: Optional[List[Dict]] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Medicao/AprovarMedicoesContrato`
@@ -405,7 +405,7 @@ class Medicao:
         contrato: Optional[int] = None,
         avanco_fisico: Optional[bool] = None,
         medicao: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Medicao/ConsultarBoletimMedicao`
@@ -475,7 +475,7 @@ class Medicao:
         cnpj_fornecedor: Optional[str] = None,
         data_inicial: Optional[datetime] = None,
         data_final: Optional[datetime] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Medicao/ConsultarMedicaoCompleta`
@@ -550,7 +550,7 @@ class Medicao:
         self,
         empresa: Optional[int] = None,
         serv_mat: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Medicao/ConsultarMedicaoPorServMat`
@@ -605,7 +605,7 @@ class Medicao:
         self,
         status_med: Optional[int] = None,
         login_usu: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Medicao/ConsultarMedicoesPorStatus`
@@ -668,7 +668,7 @@ class Medicao:
 
     def validar_cnpjao_gravar_medicao(
         self,
-    ) -> dict:
+    ) -> requests.Response:
         """
         HTTP Method: `POST`
         
@@ -700,7 +700,7 @@ class Medicao:
         self,
         empresa: Optional[int] = None,
         contrato: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Medicao/ConsultarMedicaoPorContrato`
@@ -756,7 +756,7 @@ class Medicao:
         empresa: Optional[int] = None,
         contrato: Optional[int] = None,
         medicao: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Medicao/ConsultarItensMedicaoPorMedicao`
@@ -814,7 +814,7 @@ class Medicao:
         self,
         empresa: Optional[int] = None,
         serv_mat: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Medicao/ConsultarItensMedicaoPorServMat`
@@ -869,7 +869,7 @@ class Medicao:
         self,
         empresa: Optional[int] = None,
         contrato: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Medicao/ConsultarItensMedicaoPorContrato`
@@ -926,7 +926,7 @@ class Medicao:
         contrato: Optional[int] = None,
         medicao: Optional[int] = None,
         item_contrato: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Medicao/ConsultarItensMedicaoPorItemContrato`

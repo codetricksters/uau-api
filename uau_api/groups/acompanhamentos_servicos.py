@@ -36,7 +36,7 @@ class AcompanhamentosServicos:
         etapa: Optional[str] = None,
         observacao: Optional[str] = None,
         aplicacao_material: Optional[List[Dict]] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `AcompanhamentosServicos/AcompanharContrato`
@@ -170,7 +170,7 @@ class AcompanhamentosServicos:
         ordem: Optional[int] = None,
         etapa: Optional[str] = None,
         observacao: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `AcompanhamentosServicos/AcompanharServicoPL`
@@ -294,7 +294,7 @@ class AcompanhamentosServicos:
         produto: Optional[int] = None,
         contrato: Optional[int] = None,
         observacao: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `AcompanhamentosServicos/AcompanharServicoOrcado`
@@ -426,7 +426,7 @@ class AcompanhamentosServicos:
         orcamento: Optional[int] = None,
         item_orcamento: Optional[str] = None,
         aplicacao_material: Optional[List[Dict]] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `AcompanhamentosServicos/AcompanharServicoContrato`
@@ -552,7 +552,7 @@ class AcompanhamentosServicos:
         qtde: Optional[int] = None,
         sequencia: Optional[str] = None,
         cod_externo_integracao: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `AcompanhamentosServicos/ExcluirAcompanhamentoServicoPL`
@@ -651,7 +651,7 @@ class AcompanhamentosServicos:
         sequencia: Optional[str] = None,
         num_acomp: Optional[int] = None,
         cod_externo_integracao: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `AcompanhamentosServicos/ExcluirAcompanhamentoServicoOrcado`
@@ -752,7 +752,7 @@ class AcompanhamentosServicos:
         orcamento: Optional[int] = None,
         item_orcamento: Optional[str] = None,
         aplicacao_material: Optional[List[Dict]] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `AcompanhamentosServicos/AlterarAcompanhamentoServicoContrato`
@@ -880,7 +880,7 @@ class AcompanhamentosServicos:
         codigo_estrutura: Optional[str] = None,
         usuario_logado: Optional[str] = None,
         cod_aec: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `AcompanhamentosServicos/ExcluirAcompanhamentoServicoDeContrato`
@@ -970,7 +970,7 @@ class AcompanhamentosServicos:
         sequencia: Optional[str] = None,
         num_acomp: Optional[int] = None,
         cod_externo_integracao: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `AcompanhamentosServicos/ExcluirAcompanhamentoServicoOrcadoPorChave`
@@ -1055,7 +1055,7 @@ class AcompanhamentosServicos:
         self,
         empresa: Optional[int] = None,
         servico: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `AcompanhamentosServicos/ConsultarAcompanhamentoContratoServicoPorServico`
@@ -1113,7 +1113,7 @@ class AcompanhamentosServicos:
         empresa: Optional[int] = None,
         contrato: Optional[int] = None,
         servico: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `AcompanhamentosServicos/ConsultarAcompanhamentoContratoServicoPorContratoEServico`

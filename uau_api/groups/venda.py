@@ -27,7 +27,7 @@ class Venda:
         numero_padrao_cobranca: Optional[int] = None,
         tabelaplano_idx: Optional[List[Dict]] = None,
         data_calculo: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Venda/RenegociarVenda`
@@ -223,7 +223,7 @@ class Venda:
         exibirparcenv_cob: Optional[bool] = None,
         somenteparc_atraso: Optional[bool] = None,
         parcelasenviadas_banco: Optional[bool] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Venda/BuscaParcRenegWeb`
@@ -291,7 +291,7 @@ class Venda:
     def exclusao_de_boletos(
         self,
         lista_boletos_excluir: Optional[List[Dict]] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Venda/ExclusaoDeBoletos`
@@ -352,7 +352,7 @@ class Venda:
     def exportar_vendas_xml(
         self,
         dados_vendas: Optional[Dict] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Venda/ExportarVendasXml`
@@ -434,7 +434,7 @@ class Venda:
         self,
         xml_vendas: Optional[str] = None,
         alterarnumerodas_vendas: Optional[bool] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Venda/ImportacaoDeVenda`
@@ -509,7 +509,7 @@ class Venda:
         cod_obra: Optional[str] = None,
         num_venda: Optional[int] = None,
         aprov_desaprov: Optional[bool] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Venda/AprovDesaprovReneg`
@@ -586,7 +586,7 @@ class Venda:
         detalhe: Optional[str] = None,
         mensagem: Optional[str] = None,
         descricao: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Venda/BuscarTiposDeCustas`
@@ -655,7 +655,7 @@ class Venda:
         data_inicio: Optional[datetime] = None,
         data_fim: Optional[datetime] = None,
         tipo_manutencao: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Venda/ConsultarHistoricos`
@@ -740,7 +740,7 @@ class Venda:
         self,
         excluir_parcela_no_banco: Optional[bool] = None,
         lista: Optional[List[Dict]] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Venda/ExcluirParcelaCusta`
@@ -812,7 +812,7 @@ class Venda:
         excluir_boletos_existentes: Optional[bool] = None,
         reaproveitar_boleto: Optional[bool] = None,
         valor_taxa_boleto: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Venda/GerarBoletoBancario`
@@ -990,7 +990,7 @@ class Venda:
         percentual_desconto_geral: Optional[int] = None,
         aplicar_desconto_antecipacao: Optional[bool] = None,
         desconto_antecipacao: Optional[Dict] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Venda/GerarPDFResumoVenda`
@@ -1089,7 +1089,7 @@ class Venda:
         detalhe: Optional[str] = None,
         mensagem: Optional[str] = None,
         descricao: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Venda/BuscarStatusCobranca`
@@ -1165,7 +1165,7 @@ class Venda:
         percentual_desconto_geral: Optional[int] = None,
         aplicar_desconto_antecipacao: Optional[bool] = None,
         desconto_antecipacao: Optional[Dict] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Venda/ConsultarResumoVenda`
@@ -1274,7 +1274,7 @@ class Venda:
         dias_prorrogacao_parc_vencidas: Optional[int] = None,
         usuario_cad_venda: Optional[str] = None,
         lista_nao_titular_avalista: Optional[List[Dict]] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Venda/GerarVendaDeProposta`
@@ -1396,7 +1396,7 @@ class Venda:
         detalhe: Optional[str] = None,
         mensagem: Optional[str] = None,
         descricao: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Venda/BuscarTiposDeParcelas`
@@ -1473,7 +1473,7 @@ class Venda:
         obra: Optional[str] = None,
         empresa: Optional[int] = None,
         tabelaplano_idx_json: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Venda/FinalizarRenegociacao`
@@ -1559,7 +1559,7 @@ class Venda:
     def gravar_ocorrencia_anexo(
         self,
         ocorrencias: Optional[List[Dict]] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Venda/GravarOcorrenciaAnexo`
@@ -1635,7 +1635,7 @@ class Venda:
     def alterar_data_prorrogacao(
         self,
         dados_prorrogacao: Optional[Dict] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         HTTP Method: `POST`
         
@@ -1691,7 +1691,7 @@ class Venda:
         num_ven: Optional[int] = None,
         data_calculo: Optional[datetime] = None,
         valor_presente: Optional[bool] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Venda/BuscarParcelasAReceber`
@@ -1757,7 +1757,7 @@ class Venda:
         self,
         empresa: Optional[int] = None,
         banco: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Venda/BuscarParametroCobranca`
@@ -1833,7 +1833,7 @@ class Venda:
         empresa: Optional[int] = None,
         obra: Optional[str] = None,
         num_ven: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Venda/BuscarParcelasRecebidas`
@@ -1894,7 +1894,7 @@ class Venda:
         detalhe: Optional[str] = None,
         mensagem: Optional[str] = None,
         descricao: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Venda/BuscarStatusDeEscritura`
@@ -1965,7 +1965,7 @@ class Venda:
         data_calculo: Optional[datetime] = None,
         boleto_antecipado: Optional[bool] = None,
         somente_parcelas_aptas_boleto: Optional[bool] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Venda/ConsultarParcelasDaVenda`
@@ -2043,7 +2043,7 @@ class Venda:
         codigo_empresa: Optional[int] = None,
         codigo_obra: Optional[str] = None,
         numero_venda: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Venda/GerarPDFEvolucaoContrato`
@@ -2109,7 +2109,7 @@ class Venda:
         obra: Optional[str] = None,
         venda: Optional[int] = None,
         parcelasnao_conciliadas: Optional[bool] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Venda/BuscarRecebimentosDaVenda`
@@ -2174,7 +2174,7 @@ class Venda:
     def exportar_pessoas_da_venda_xml(
         self,
         lista_vendas: Optional[List[Dict]] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Venda/ExportarPessoasDaVendaXml`
@@ -2246,7 +2246,7 @@ class Venda:
         tipo_recebimento: Optional[int] = None,
         antecipacao: Optional[bool] = None,
         parcelas: Optional[List[Dict]] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Venda/GravarPedidoDeRecebimento`
@@ -2341,7 +2341,7 @@ class Venda:
         self,
         xml_vendas: Optional[str] = None,
         alterarnumerodas_vendas: Optional[bool] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Venda/ImportacaoVendaComRetorno`
@@ -2408,7 +2408,7 @@ class Venda:
         numero_parcela_geral: Optional[int] = None,
         tipo_parcela: Optional[str] = None,
         status_cobranca: Optional[List[Dict]] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Venda/ManterStatusCobrancaVenda`
@@ -2495,7 +2495,7 @@ class Venda:
         venda: Optional[int] = None,
         usr_logado: Optional[str] = None,
         mensagem_securitizacao: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Venda/VendaValidaParaManutencao`
@@ -2566,7 +2566,7 @@ class Venda:
         data_fim: Optional[datetime] = None,
         tipos_parcela: Optional[str] = None,
         vendas: Optional[List[Dict]] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Venda/ConsultarContasReceberCalc`
@@ -2641,7 +2641,7 @@ class Venda:
     def importacao_parcelas_de_custas(
         self,
         custas: Optional[List[Dict]] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Venda/ImportacaoParcelasDeCustas`
@@ -2758,7 +2758,7 @@ class Venda:
         obra: Optional[str] = None,
         venda: Optional[int] = None,
         data_calculo: Optional[datetime] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Venda/BuscarCampanhaDescontoVenda`
@@ -2841,7 +2841,7 @@ class Venda:
         empresa: Optional[int] = None,
         obra: Optional[str] = None,
         pedido: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Venda/CancelarPedidoDeRecebimento`
@@ -2905,7 +2905,7 @@ class Venda:
         empresa: Optional[int] = None,
         obra: Optional[str] = None,
         pedido: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Venda/AtualizarPedidoDeRecebimento`
@@ -2970,7 +2970,7 @@ class Venda:
         empresa: Optional[int] = None,
         obra: Optional[str] = None,
         pedido: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Venda/ConsultarPedidoDeRecebimento`
@@ -3034,7 +3034,7 @@ class Venda:
         self,
         recebimento: Optional[Dict] = None,
         forma_pagamento: Optional[Dict] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Venda/ProcessarRecebimentoParcelas`
@@ -3187,7 +3187,7 @@ class Venda:
         obra: Optional[str] = None,
         venda: Optional[int] = None,
         status_escrituracao: Optional[List[Dict]] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Venda/ManterStatusEscrituracaoVenda`
@@ -3259,7 +3259,7 @@ class Venda:
         status_escrituracao: Optional[bool] = None,
         status_venda: Optional[str] = None,
         lista_empresa_obra: Optional[List[Dict]] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Venda/RetornaChavesVendasPorPeriodo`
@@ -3345,7 +3345,7 @@ class Venda:
         data_calculo: Optional[datetime] = None,
         data_correcao: Optional[datetime] = None,
         valor_antecipado: Optional[bool] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Venda/ConsultarDemonstrativoCorrecao`
@@ -3429,7 +3429,7 @@ class Venda:
         empresa: Optional[int] = None,
         obra: Optional[str] = None,
         venda: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Venda/ConsultarPlanoIndexadoresVenda`
@@ -3492,7 +3492,7 @@ class Venda:
         num_venda: Optional[int] = None,
         codg_usuario: Optional[str] = None,
         num_contrato: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Venda/GravarNumContratoFinanciamento`
@@ -3563,7 +3563,7 @@ class Venda:
     def consultar_empreendimentos_cliente(
         self,
         codigo_usuario: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Venda/ConsultarEmpreendimentosCliente`
@@ -3617,7 +3617,7 @@ class Venda:
         self,
         numerontk: Optional[int] = None,
         numero_pedido: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Venda/ConsultarPedidoDeRecebimentoUAU`
@@ -3676,7 +3676,7 @@ class Venda:
     def consultar_unidades_compradas_por_cpf(
         self,
         cpf_cnpj: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Venda/ConsultarUnidadesCompradasPorCPF`
@@ -3734,7 +3734,7 @@ class Venda:
         campanha_de_desconto: Optional[Dict] = None,
         parcelas_calculadas: Optional[List[Dict]] = None,
         data_calculo: Optional[datetime] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Venda/CalcularDescontoCampanhaAntecipacao`
@@ -3856,7 +3856,7 @@ class Venda:
         numero_venda: Optional[int] = None,
         data_calculo: Optional[datetime] = None,
         data_correcao: Optional[datetime] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Venda/ConsultarCampanhaDescontoDisponivel`
@@ -3936,7 +3936,7 @@ class Venda:
         totalparcelas_sel: Optional[int] = None,
         antecipado: Optional[bool] = None,
         totalpara_quitacao: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Venda/ConsultarDescontoAntecipacaoParcela`
@@ -4027,7 +4027,7 @@ class Venda:
         detalhe: Optional[str] = None,
         mensagem: Optional[str] = None,
         descricao: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Venda/ConsultarUnidadesCompradasUsrLogado`
@@ -4090,7 +4090,7 @@ class Venda:
     def consultar_unidades_compradas_por_cpfcnpj(
         self,
         cpf_cnpj: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Venda/ConsultarUnidadesCompradasPorCPFCNPJ`
@@ -4149,7 +4149,7 @@ class Venda:
         codigo_obra: Optional[str] = None,
         numero_venda: Optional[int] = None,
         tipo_relatorio: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Venda/GerarPDFEvolucaoSaldoDevedorFinanciamento`

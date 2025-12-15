@@ -17,7 +17,7 @@ class CobrancaPix:
     def pix_por_parcelas(
         self,
         parameters: Optional[List[Dict]] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Pix/PixPorParcelas`
@@ -74,7 +74,7 @@ class CobrancaPix:
     def reimpressao_pix(
         self,
         tx_id: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Pix/ReimpressaoPix`
@@ -138,7 +138,7 @@ class CobrancaPix:
     def consultar_pix_status(
         self,
         parameters: Optional[List[Dict]] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Pix/ConsultarPixStatus`
@@ -210,7 +210,7 @@ class CobrancaPix:
         agrupar_parcelas: Optional[bool] = None,
         padrao_cobranca: Optional[int] = None,
         parcelas: Optional[List[Dict]] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Pix/GerarCobrancaVenda`
@@ -305,7 +305,7 @@ class CobrancaPix:
         agrupar_parcelas: Optional[bool] = None,
         padrao_cobranca: Optional[int] = None,
         parcelas: Optional[List[Dict]] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Pix/GerarCobrancaProposta`

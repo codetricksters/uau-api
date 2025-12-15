@@ -31,7 +31,7 @@ class ProcessoPagamento:
         parametro: Optional[Dict] = None,
         parcelas: Optional[List[Dict]] = None,
         itens: Optional[List[Dict]] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `ProcessoPagamento/GerarProcesso`
@@ -180,7 +180,7 @@ class ProcessoPagamento:
         self,
         processos: Optional[List[Dict]] = None,
         empresa_obra_periodo: Optional[Dict] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `ProcessoPagamento/ConsultarProcessos`
@@ -248,7 +248,7 @@ class ProcessoPagamento:
         usuario: Optional[str] = None,
         sobrepor_aprovacoes_de_outros_usuarios: Optional[bool] = None,
         parcelas: Optional[List[Dict]] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `ProcessoPagamento/AprovarDVQ`
@@ -390,7 +390,7 @@ class ProcessoPagamento:
         desconto_vinculado: Optional[List[Dict]] = None,
         solicitacao_caixa_obra: Optional[Dict] = None,
         permite_boleto_vencido: Optional[bool] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `ProcessoPagamento/GerarProcesso`
@@ -617,7 +617,7 @@ class ProcessoPagamento:
         nome_arquivo: Optional[str] = None,
         copiar_arquivo: Optional[bool] = None,
         vinculara_descontos: Optional[bool] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `ProcessoPagamento/GerarNotaFiscal`
@@ -740,7 +740,7 @@ class ProcessoPagamento:
     def aprovar_processos(
         self,
         processos: Optional[List[Dict]] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `ProcessoPagamento/AprovarProcessos`
@@ -812,7 +812,7 @@ class ProcessoPagamento:
         processos: Optional[List[Dict]] = None,
         empresa_obra_periodo: Optional[Dict] = None,
         fornecedor_periodo: Optional[Dict] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `ProcessoPagamento/ConsultarProcessos`
@@ -917,7 +917,7 @@ class ProcessoPagamento:
         parcela: Optional[Dict] = None,
         numero_protocolo: Optional[int] = None,
         permite_boleto_vencido: Optional[bool] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `ProcessoPagamento/ManutencaoProcesso`
@@ -1058,7 +1058,7 @@ class ProcessoPagamento:
         notafiscal: Optional[int] = None,
         inicial: Optional[str] = None,
         final: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `ProcessoPagamento/RetornarParcelasDVQ`
@@ -1157,7 +1157,7 @@ class ProcessoPagamento:
         documento_fiscal: Optional[Dict] = None,
         parcelas: Optional[List[Dict]] = None,
         itens: Optional[List[Dict]] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `ProcessoPagamento/GerarProcessoMedicao`
@@ -1338,7 +1338,7 @@ class ProcessoPagamento:
         lista_valores_novas_parcelas: Optional[List[Dict]] = None,
         lista_valores_acrescimo_novas_parcelas: Optional[List[Dict]] = None,
         lista_data_vencimento_novas_parcelas: Optional[List[Dict]] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `ProcessoPagamento/ManutencaoParcelasProcesso`
@@ -1447,7 +1447,7 @@ class ProcessoPagamento:
         processo: Optional[int] = None,
         parcela: Optional[int] = None,
         vinculara_descontos: Optional[bool] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `ProcessoPagamento/GerarNotaFiscalProdutoPeloXML`
@@ -1536,7 +1536,7 @@ class ProcessoPagamento:
         processo: Optional[int] = None,
         parcela: Optional[int] = None,
         vinculara_descontos: Optional[bool] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `ProcessoPagamento/GerarNotaFiscalServicoPeloXML`
@@ -1624,7 +1624,7 @@ class ProcessoPagamento:
     def integrar_processo_pagamento_uauws(
         self,
         xml_proc: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `ProcessoPagamento/IntegrarProcessoPagamentoUAUWS`
@@ -1695,7 +1695,7 @@ class ProcessoPagamento:
         processo: Optional[int] = None,
         parcela: Optional[int] = None,
         vinculara_descontos: Optional[bool] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `ProcessoPagamento/GerarNotaFiscalTransportePeloXML`

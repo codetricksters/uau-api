@@ -31,7 +31,7 @@ class Proposta:
         valor_boleto: Optional[int] = None,
         padrao_cobranca: Optional[int] = None,
         excluir_boletos_existentes: Optional[bool] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Proposta/GerarBoleto`
@@ -169,7 +169,7 @@ class Proposta:
         detalhe: Optional[str] = None,
         mensagem: Optional[str] = None,
         descricao: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Proposta/ExpirarBoletos`
@@ -243,7 +243,7 @@ class Proposta:
         proposta_custas_retencao_parcela: Optional[List[Dict]] = None,
         proposta_cap: Optional[List[Dict]] = None,
         proposta_shopping: Optional[Dict] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Proposta/GravarProposta`
@@ -686,7 +686,7 @@ class Proposta:
         numero_proposta: Optional[int] = None,
         cancelar_vendida: Optional[bool] = None,
         excluir_boletos: Optional[bool] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Proposta/CancelarProposta`
@@ -756,7 +756,7 @@ class Proposta:
         valor_acrescimo: Optional[int] = None,
         num_padrao_cobranca: Optional[int] = None,
         termo_reserva: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Proposta/RenegociarProposta`
@@ -873,7 +873,7 @@ class Proposta:
         num_proposta: Optional[int] = None,
         valor_antecipado: Optional[int] = None,
         data_calculo: Optional[datetime] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Proposta/ConsultarPropostaPorId`
@@ -941,7 +941,7 @@ class Proposta:
         nome_arquivo: Optional[str] = None,
         proposta: Optional[int] = None,
         usuario: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Proposta/VincularArquivoProposta`
@@ -1015,7 +1015,7 @@ class Proposta:
         tipo_recebimento: Optional[int] = None,
         antecipacao: Optional[bool] = None,
         parcelas: Optional[List[Dict]] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Proposta/GravarPedidoDeRecebimento`
@@ -1114,7 +1114,7 @@ class Proposta:
         empresa: Optional[int] = None,
         obra: Optional[str] = None,
         pedido: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Proposta/CancelarPedidoDeRecebimento`
@@ -1175,7 +1175,7 @@ class Proposta:
     def consultar_hierarquia_parcelas(
         self,
         codigo: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Proposta/ConsultarHierarquiaParcelas`
@@ -1229,7 +1229,7 @@ class Proposta:
         empresa: Optional[int] = None,
         obra: Optional[str] = None,
         pedido: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Proposta/AtualizarPedidoDeRecebimento`
@@ -1292,7 +1292,7 @@ class Proposta:
         empresa: Optional[int] = None,
         obra: Optional[str] = None,
         pedido: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Proposta/ConsultarPedidoDeRecebimento`
@@ -1354,7 +1354,7 @@ class Proposta:
         self,
         recebimento: Optional[Dict] = None,
         forma_pagamento: Optional[Dict] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Proposta/ProcessarRecebimentoParcelas`
@@ -1504,7 +1504,7 @@ class Proposta:
         self,
         numerontk: Optional[int] = None,
         numero_pedido: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Proposta/ConsultarPedidoDeRecebimentoUAU`
@@ -1570,7 +1570,7 @@ class Proposta:
         valor_comissao_direta: Optional[int] = None,
         produtos: Optional[List[Dict]] = None,
         parcelas: Optional[List[Dict]] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Proposta/RetornarValoresEstruturaComissao`
@@ -1682,7 +1682,7 @@ class Proposta:
         parcelas_geradas: Optional[List[Dict]] = None,
         porcentagem_comissao: Optional[int] = None,
         valor_item_proposta: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Proposta/RetornaValorComissaoDeducaoParcelas`
@@ -1766,7 +1766,7 @@ class Proposta:
     def traduzir_request_parcelas_geradas(
         self,
         parameters: Optional[List[Dict]] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         HTTP Method: `POST`
         
@@ -1830,7 +1830,7 @@ class Proposta:
     def traduzir_request_parcelas_selecionadas(
         self,
         parameters: Optional[List[Dict]] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         HTTP Method: `POST`
         

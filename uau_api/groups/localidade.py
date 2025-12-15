@@ -17,7 +17,7 @@ class Localidade:
     def consultar_localidade_por_cep(
         self,
         cep: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Localidade/ConsultarLocalidadePorCEP`

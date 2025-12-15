@@ -22,7 +22,7 @@ class Espelho:
         novo_status_unidade: Optional[int] = None,
         motivo_alteracao: Optional[str] = None,
         categoria_status_personalizacao: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Espelho/AlterarStatusUnidade`
@@ -88,7 +88,7 @@ class Espelho:
     def consultar_espelhos_venda(
         self,
         usuario_logado: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Espelho/ConsultarEspelhosVenda`
@@ -145,7 +145,7 @@ class Espelho:
         empresa: Optional[int] = None,
         data_categ_preco_produto: Optional[datetime] = None,
         porc_preco_minimo: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Espelho/RetornarMenorPrecoPerson`
@@ -214,7 +214,7 @@ class Espelho:
     def atualizar_campos_customizados(
         self,
         campos_custom: Optional[Dict] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Espelho/AtualizarCamposCustomizados`
@@ -282,7 +282,7 @@ class Espelho:
         codigo_empresa: Optional[int] = None,
         codigo_produto: Optional[int] = None,
         numero_personalizacao: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Espelho/ConsultarUnidadePerPorChave`
@@ -340,7 +340,7 @@ class Espelho:
         self,
         where: Optional[str] = None,
         retorna_venda: Optional[bool] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Espelho/BuscaUnidadesDeAcordoComWhere`
@@ -398,7 +398,7 @@ class Espelho:
         numero_personalizacao: Optional[int] = None,
         data_entrega_chaves: Optional[datetime] = None,
         observacao: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Espelho/AlterarDataEntregaChavesUnidade`
@@ -472,7 +472,7 @@ class Espelho:
         status_person: Optional[str] = None,
         num_espelho: Optional[int] = None,
         tipocontrato_grafico: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Espelho/ConsultarPersonalizacoesComPrecos`
@@ -558,7 +558,7 @@ class Espelho:
         where: Optional[str] = None,
         retorna_venda: Optional[bool] = None,
         data_tabela_preco: Optional[datetime] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Espelho/BuscaUnidadesDeAcordoComWhereDetalhado`

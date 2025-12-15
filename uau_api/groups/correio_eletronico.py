@@ -20,7 +20,7 @@ class CorreioEletronico:
         usuariosuau_destino: Optional[str] = None,
         usuariouau_envio: Optional[str] = None,
         assunto: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `CorreioEletronico/EnviarMailInternoUau`

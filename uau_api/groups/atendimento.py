@@ -25,7 +25,7 @@ class Atendimento:
         gerar_email_externo: Optional[bool] = None,
         gerar_aviso: Optional[bool] = None,
         categoria: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Atendimento/GerarPendencia`
@@ -100,7 +100,7 @@ class Atendimento:
     def gravar_atendimento(
         self,
         atendimento: Optional[Dict] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Atendimento/GravarAtendimento`
@@ -182,7 +182,7 @@ class Atendimento:
         numero: Optional[int] = None,
         data_lancamento: Optional[datetime] = None,
         responsavel_resolucao: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Atendimento/ConsultarPendencia`
@@ -239,7 +239,7 @@ class Atendimento:
     def consultar_atendimento(
         self,
         codigo_atendimento: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Atendimento/ConsultarAtendimento`
@@ -292,7 +292,7 @@ class Atendimento:
         detalhe: Optional[str] = None,
         mensagem: Optional[str] = None,
         descricao: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Atendimento/ConsultarCategDeComentAtivas`
@@ -351,7 +351,7 @@ class Atendimento:
         numero_pendencia: Optional[int] = None,
         dataquando_lancou: Optional[datetime] = None,
         usuario_resolve: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Atendimento/ConsultarPendenciaObservacao`
@@ -411,7 +411,7 @@ class Atendimento:
         nome_arquivo: Optional[str] = None,
         num_atendimento: Optional[int] = None,
         usuario: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Atendimento/VincularArquivoAoAtendimento`
@@ -471,7 +471,7 @@ class Atendimento:
     def consultar_atendimento_por_pessoa(
         self,
         codigo_pessoa: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Atendimento/ConsultarAtendimentoPorPessoa`
@@ -522,7 +522,7 @@ class Atendimento:
     def consultar_empreendimentos_cliente(
         self,
         cod_pessoa: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Atendimento/ConsultarEmpreendimentosCliente`
@@ -573,7 +573,7 @@ class Atendimento:
     def consultar_categoria_atendimento_web(
         self,
         tipo_atend: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Atendimento/ConsultarCategoriaAtendimentoWeb`
@@ -626,7 +626,7 @@ class Atendimento:
         numerovinculo_workflow: Optional[int] = None,
         empresa: Optional[int] = None,
         obra: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Atendimento/ConsultarNumeroWorkFlowVinculado`
@@ -683,7 +683,7 @@ class Atendimento:
     def consultar_pendencias_por_numero_vinculo(
         self,
         numero_vinculo: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Atendimento/ConsultarPendenciasPorNumeroVinculo`
@@ -734,7 +734,7 @@ class Atendimento:
     def gerar_atendimento_por_chat_online_cliente(
         self,
         dados_atendimento: Optional[Dict] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Atendimento/GerarAtendimentoPorChatOnlineCliente`
@@ -795,7 +795,7 @@ class Atendimento:
     def consultar_atendimento_detalhado_por_chave(
         self,
         codigo_atendimento: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Atendimento/ConsultarAtendimentoDetalhadoPorChave`
@@ -848,7 +848,7 @@ class Atendimento:
         detalhe: Optional[str] = None,
         mensagem: Optional[str] = None,
         descricao: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Atendimento/ConsultarConfiguracaoAtendimentoUAUWEB`
@@ -905,7 +905,7 @@ class Atendimento:
     def consultar_atendimento_por_categorias_uau_web(
         self,
         codigo_pessoa: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Atendimento/ConsultarAtendimentoPorCategoriasUauWeb`
@@ -959,7 +959,7 @@ class Atendimento:
         lista_categoria: Optional[List[Dict]] = None,
         periodo_incio: Optional[datetime] = None,
         periodo_fim: Optional[datetime] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Atendimento/ConsultarAtendimentoPorPessoaComentario`
@@ -1023,7 +1023,7 @@ class Atendimento:
         obra: Optional[str] = None,
         empresa: Optional[int] = None,
         cod_pessoa: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Atendimento/ConsultarUnidadesDoEmpreendimentoCliente`
@@ -1081,7 +1081,7 @@ class Atendimento:
         self,
         numerovinculo_workflow: Optional[int] = None,
         numero_workflow: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Atendimento/ConsultarDataPrevistaDeTerminoAtendimento`
@@ -1135,7 +1135,7 @@ class Atendimento:
     def consultar_numero_vinculo_categoria_de_comentario_com_work_flow(
         self,
         codigo_categoria: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Atendimento/ConsultarNumeroVinculoCategoriaDeComentarioComWorkFlow`

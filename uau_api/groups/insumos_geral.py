@@ -58,7 +58,7 @@ class InsumosGeral:
         marca_modelo: Optional[str] = None,
         subgrupo: Optional[int] = None,
         item_manutencao: Optional[bool] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         HTTP Method: `POST`
         
@@ -236,7 +236,7 @@ class InsumosGeral:
     def atualizar_insumos_geral(
         self,
         lista_insumos_atualizar: Optional[List[Dict]] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         HTTP Method: `POST`
         
@@ -358,7 +358,7 @@ class InsumosGeral:
         codigosub_grupo: Optional[int] = None,
         item_manutencao: Optional[int] = None,
         patrimonio: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `InsumosGeral/ConsultarInsumosGeral`
@@ -463,7 +463,7 @@ class InsumosGeral:
         marca_modelo: Optional[str] = None,
         subgrupo: Optional[int] = None,
         item_manutencao: Optional[bool] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         HTTP Method: `POST`
         
@@ -641,7 +641,7 @@ class InsumosGeral:
     def consultar_insumos_geral_por_descricao(
         self,
         descricao: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         HTTP Method: `POST`
         

@@ -17,7 +17,7 @@ class Cotacao:
     def atualizar_item_cotacao(
         self,
         lista_itens_cotacao: Optional[List[Dict]] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Cotacao/AtualizarItemCotacao`
@@ -91,7 +91,7 @@ class Cotacao:
     def conta_cotacoes_aprov_mob(
         self,
         usuario: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Cotacao/ContaCotacoesAprovMob`
@@ -146,7 +146,7 @@ class Cotacao:
     def aprovar_simulacoes_compra(
         self,
         simulacoes: Optional[List[Dict]] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Cotacao/AprovarSimulacoesCompra`
@@ -216,7 +216,7 @@ class Cotacao:
         numero_cotacao: Optional[int] = None,
         numero_cotacao_geral: Optional[int] = None,
         empresa: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Cotacao/AdicionarFornecedorCotacao`
@@ -289,7 +289,7 @@ class Cotacao:
         cotacao: Optional[int] = None,
         fornecedor: Optional[int] = None,
         origem: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Cotacao/BuscarItensCotacaoFornecedor`
@@ -356,7 +356,7 @@ class Cotacao:
         empresa: Optional[int] = None,
         obra: Optional[str] = None,
         cotacao: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Cotacao/ConsultarItensCotacaoPorObra`
@@ -417,7 +417,7 @@ class Cotacao:
     def buscar_cotacao_aberta_fornecedor(
         self,
         cnpj: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Cotacao/BuscarCotacaoAbertaFornecedor`
@@ -489,7 +489,7 @@ class Cotacao:
     def aprovar_confirmacao_cotacao_por_obra(
         self,
         lista_confirmar_aprovacao_cotacao: Optional[List[Dict]] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Cotacao/AprovarConfirmacaoCotacaoPorObra`
@@ -558,7 +558,7 @@ class Cotacao:
     def remover_aprovacao_simulacoes_compra(
         self,
         simulacoes: Optional[List[Dict]] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Cotacao/RemoverAprovacaoSimulacoesCompra`
@@ -632,7 +632,7 @@ class Cotacao:
         tipo_frete: Optional[int] = None,
         tipo_pagamento: Optional[int] = None,
         condicao_pagamento: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Cotacao/AtualizarCondicaoPagamentoEntrega`
@@ -729,7 +729,7 @@ class Cotacao:
         codigo_obra: Optional[str] = None,
         numero_simulacao: Optional[int] = None,
         numero_cotacao: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Cotacao/ConsultarAprovacaoDaCotacaoPorObra`
@@ -794,7 +794,7 @@ class Cotacao:
         self,
         confirmacoes_cotacao: Optional[List[Dict]] = None,
         justificativa_reprovacao: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Cotacao/ReprovarConfirmacoesCotacaoPorObra`
@@ -863,7 +863,7 @@ class Cotacao:
         cargo: Optional[str] = None,
         lista_emp_obras: Optional[List[Dict]] = None,
         cotacao: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Cotacao/ConsultarCotacoesConfirmacaoPendente`
@@ -938,7 +938,7 @@ class Cotacao:
         codigo_departamento: Optional[str] = None,
         codigo_cargo: Optional[str] = None,
         lista_emp_obras: Optional[List[Dict]] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Cotacao/ConsultarQuantidadeCotacaoPendentePorObra`
@@ -1010,7 +1010,7 @@ class Cotacao:
         codigo_departamento: Optional[str] = None,
         codigo_cargo: Optional[str] = None,
         lista_emp_obras: Optional[List[Dict]] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Cotacao/ConsultarQuantidadeCotacaoPendentePorObraMob`
@@ -1081,7 +1081,7 @@ class Cotacao:
         detalhe: Optional[str] = None,
         mensagem: Optional[str] = None,
         descricao: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Cotacao/ConsultarJustificativasAprovacaoForaSequencia`
@@ -1158,7 +1158,7 @@ class Cotacao:
         freteqtde_ent: Optional[int] = None,
         interv_ent: Optional[int] = None,
         dias_entrega: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Cotacao/InserirAlteraComentFornFrete`

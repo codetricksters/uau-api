@@ -18,7 +18,7 @@ class ContratoMaterialServico:
         self,
         empresa: Optional[int] = None,
         contrato: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `ContratoMaterialServico/ConsultarItensContrato`
@@ -77,7 +77,7 @@ class ContratoMaterialServico:
         self,
         empresa: Optional[int] = None,
         contrato: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `ContratoMaterialServico/ConsultarContratoPorChave`
@@ -137,7 +137,7 @@ class ContratoMaterialServico:
     def consultar_contrato_por_fornecedor(
         self,
         fornecedor: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `ContratoMaterialServico/ConsultarContratoPorFornecedor`
@@ -194,7 +194,7 @@ class ContratoMaterialServico:
         self,
         empresa: Optional[int] = None,
         servico_material: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `ContratoMaterialServico/ConsultarContratoPorServicoMaterial`
@@ -262,7 +262,7 @@ class ContratoMaterialServico:
         servico: Optional[str] = None,
         orcamento: Optional[int] = None,
         somente_contratos_aprovados: Optional[bool] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `ContratoMaterialServico/ConsultarItensVinculoOrcamentoServico`
@@ -338,7 +338,7 @@ class ContratoMaterialServico:
         obra: Optional[str] = None,
         contratos: Optional[List[Dict]] = None,
         situacoes: Optional[List[Dict]] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         HTTP Method: `POST`
         
@@ -424,7 +424,7 @@ class ContratoMaterialServico:
         servico: Optional[str] = None,
         produto: Optional[int] = None,
         contrato: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `ContratoMaterialServico/ConsultarItensVinculoPlanejamentoServico`
@@ -485,7 +485,7 @@ class ContratoMaterialServico:
         obra: Optional[str] = None,
         orcamento: Optional[int] = None,
         somente_contratos_aprovados: Optional[bool] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `ContratoMaterialServico/ConsultarContratosItensVinculadoOrcamento`

@@ -19,7 +19,7 @@ class Contabil:
         empresa: Optional[int] = None,
         mes_ano: Optional[datetime] = None,
         tipo: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Contabil/ConsultarSaldoDeContas`
@@ -95,7 +95,7 @@ class Contabil:
         conta: Optional[str] = None,
         descricao_conta: Optional[str] = None,
         limitar_retorno_em: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Contabil/ConsultarContasContabeis`

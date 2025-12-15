@@ -19,7 +19,7 @@ class Eventos:
         chave: Optional[str] = None,
         data_inicial: Optional[datetime] = None,
         data_final: Optional[datetime] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Eventos/ConsultarLogEventos`
@@ -97,7 +97,7 @@ class Eventos:
         detalhe: Optional[str] = None,
         mensagem: Optional[str] = None,
         descricao: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Eventos/ConsultarChavesLogDeEventos`

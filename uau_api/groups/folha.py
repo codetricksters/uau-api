@@ -17,7 +17,7 @@ class Folha:
     def gravar_alocacao_mao_obra(
         self,
         lista_alocacao: Optional[List[Dict]] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Folha/GravarAlocacaoMaoObra`
@@ -95,7 +95,7 @@ class Folha:
     def gravar_movimentacao_mensal_obra(
         self,
         lista_movimentacao_obra: Optional[List[Dict]] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Folha/GravarMovimentacaoMensalObra`

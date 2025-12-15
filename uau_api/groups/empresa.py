@@ -17,7 +17,7 @@ class Empresa:
     def consultar_empresa(
         self,
         codigo_empresa: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Empresa/ConsultarEmpresa`
@@ -70,7 +70,7 @@ class Empresa:
         detalhe: Optional[str] = None,
         mensagem: Optional[str] = None,
         descricao: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Empresa/ObterEmpresasAtivas`
@@ -130,7 +130,7 @@ class Empresa:
         descricao_empresa: Optional[str] = None,
         cnpj: Optional[str] = None,
         limitar_retorno_em: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Empresa/ConsultarDadosBasicosEmpresasPorFiltro`

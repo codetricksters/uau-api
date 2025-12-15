@@ -17,7 +17,7 @@ class Usuarios:
     def consultar_usuarios_ativos(
         self,
         login_usuario: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Usuarios/ConsultarUsuariosAtivos`
@@ -75,7 +75,7 @@ class Usuarios:
         detalhe: Optional[str] = None,
         mensagem: Optional[str] = None,
         descricao: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Usuarios/ConsultarGruposDeUsuario`

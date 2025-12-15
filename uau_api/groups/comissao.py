@@ -17,7 +17,7 @@ class Comissao:
     def consultar_vendedores(
         self,
         codigo_modelo_comissao: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Comissao/ConsultarVendedores`
@@ -78,7 +78,7 @@ class Comissao:
     def atualizar_status_comissao(
         self,
         parameters: Optional[List[Dict]] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Comissao/AtualizarStatusComissao`
@@ -156,7 +156,7 @@ class Comissao:
         data_venda: Optional[str] = None,
         qtde_parcelas: Optional[int] = None,
         lista_unidades: Optional[List[Dict]] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Comissao/ConsultarModeloComissao`
@@ -241,7 +241,7 @@ class Comissao:
         numero_comissao: Optional[int] = None,
         valor_comissao: Optional[int] = None,
         produtos: Optional[List[Dict]] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Comissao/ConsultarEstruturaComissao`

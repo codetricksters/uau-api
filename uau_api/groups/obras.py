@@ -19,7 +19,7 @@ class Obras:
         detalhe: Optional[str] = None,
         mensagem: Optional[str] = None,
         descricao: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Obras/ObterObrasAtivas`
@@ -81,7 +81,7 @@ class Obras:
         self,
         empresa: Optional[int] = None,
         obra: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Obras/ConsultarObraPorChave`
@@ -140,7 +140,7 @@ class Obras:
     def obter_meses_abertos_por_empresa_obra(
         self,
         empresa_obra: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         HTTP Method: `POST`
         

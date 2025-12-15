@@ -37,7 +37,7 @@ class Composicoes:
         porc_qtde_excedida_entrega: Optional[str] = None,
         porc_preco_excedido_entrega: Optional[str] = None,
         porc_preco_reduzido_entrega: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         HTTP Method: `POST`
         
@@ -146,7 +146,7 @@ class Composicoes:
     def atualizar_composicoes(
         self,
         lista_composicoes_atualizar: Optional[List[Dict]] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         HTTP Method: `POST`
         
@@ -222,7 +222,7 @@ class Composicoes:
         detalhe: Optional[str] = None,
         mensagem: Optional[str] = None,
         descricao: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Composicoes/ConsultarTodasComposicoes`
@@ -299,7 +299,7 @@ class Composicoes:
         porc_qtde_excedida_entrega: Optional[str] = None,
         porc_preco_excedido_entrega: Optional[str] = None,
         porc_preco_reduzido_entrega: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         HTTP Method: `POST`
         
@@ -428,7 +428,7 @@ class Composicoes:
         porc_qtde_excedida_entrega: Optional[str] = None,
         porc_preco_excedido_entrega: Optional[str] = None,
         porc_preco_reduzido_entrega: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         HTTP Method: `POST`
         
@@ -541,7 +541,7 @@ class Composicoes:
         tipo_item: Optional[int] = None,
         coeficiente: Optional[int] = None,
         preco: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         HTTP Method: `POST`
         
@@ -606,7 +606,7 @@ class Composicoes:
         tipo_item: Optional[int] = None,
         coeficiente: Optional[int] = None,
         preco: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         HTTP Method: `POST`
         
@@ -667,7 +667,7 @@ class Composicoes:
     def consultar_composicoes_por_descricao(
         self,
         descricao: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Composicoes/ConsultarComposicoesPorDescricao`
@@ -718,7 +718,7 @@ class Composicoes:
     def consultar_composicoes_com_filtro_livre(
         self,
         filtro: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Composicoes/ConsultarComposicoesComFiltroLivre`
@@ -785,7 +785,7 @@ class Composicoes:
         coef_prod: Optional[int] = None,
         coef_im_prod: Optional[int] = None,
         dmt: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         HTTP Method: `POST`
         
@@ -862,7 +862,7 @@ class Composicoes:
         coef_prod: Optional[int] = None,
         coef_im_prod: Optional[int] = None,
         dmt: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         HTTP Method: `POST`
         

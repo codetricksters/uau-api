@@ -25,7 +25,7 @@ class ListaPrecoReferencia:
         data_termino: Optional[datetime] = None,
         contato: Optional[str] = None,
         itens_por_fornecedor: Optional[List[Dict]] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `ListaPrecoReferencia/InserirFornecedores`
@@ -124,7 +124,7 @@ class ListaPrecoReferencia:
         data_termino: Optional[datetime] = None,
         contato: Optional[str] = None,
         itens_por_fornecedor: Optional[List[Dict]] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `ListaPrecoReferencia/AtualizarItemFornecedor`
@@ -219,7 +219,7 @@ class ListaPrecoReferencia:
         status: Optional[int] = None,
         fornecedorcnpj: Optional[str] = None,
         fornecedor_codigo: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `ListaPrecoReferencia/ConsultarListaPrecoReferencia`

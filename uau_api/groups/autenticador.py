@@ -19,7 +19,7 @@ class Autenticador:
         detalhe: Optional[str] = None,
         mensagem: Optional[str] = None,
         descricao: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Autenticador/LogoutUsuario`
@@ -74,7 +74,7 @@ class Autenticador:
         login: Optional[str] = None,
         senha: Optional[str] = None,
         usuariouau_site: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Autenticador/AutenticarUsuario`
@@ -152,7 +152,7 @@ class Autenticador:
         login: Optional[str] = None,
         senha: Optional[str] = None,
         usuariouau_site: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
           caso contrário será validado como usuário UAU ou Cliente.
           Atualmente utilizado pela API do Mobile.
@@ -205,7 +205,7 @@ class Autenticador:
         detalhe: Optional[str] = None,
         mensagem: Optional[str] = None,
         descricao: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Autenticador/VerificaUsuarioLogado`
@@ -256,7 +256,7 @@ class Autenticador:
         detalhe: Optional[str] = None,
         mensagem: Optional[str] = None,
         descricao: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
           usuário logado seja do tipo pessoa. Caso contrário uma exceção é lançada informando que
           o usuário logado precisa ser do tipo pessoa para este método.
@@ -364,7 +364,7 @@ class Autenticador:
         self,
         usuario: Optional[str] = None,
         senha: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Autenticador/AutentificarUsuarioTitanium`
@@ -412,7 +412,7 @@ class Autenticador:
         login_ad: Optional[str] = None,
         senha: Optional[str] = None,
         login_uau: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Autenticador/AutenticarUsuarioCorporativo`

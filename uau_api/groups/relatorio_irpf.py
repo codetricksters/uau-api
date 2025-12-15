@@ -19,7 +19,7 @@ class RelatorioIRPF:
         vendasobras_empresa: Optional[List[Dict]] = None,
         ano_base: Optional[int] = None,
         naomostradados_venda: Optional[bool] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `RelatorioIRPF/GerarPDFRelIRPF`
@@ -118,7 +118,7 @@ class RelatorioIRPF:
         vendasobras_empresa: Optional[List[Dict]] = None,
         ano_base: Optional[int] = None,
         naomostradados_venda: Optional[bool] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `RelatorioIRPF/GerarPDFRelIRPFV2`

@@ -20,7 +20,7 @@ class ChavePix:
         detalhe: Optional[str] = None,
         mensagem: Optional[str] = None,
         descricao: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `ChavePix/Pessoas/Consultar/{cpfCnpj}`
@@ -83,7 +83,7 @@ class ChavePix:
         cpf_cnpj: Optional[str] = None,
         chave_pix: Optional[str] = None,
         tipo_chave_pix: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `ChavePix/Pessoas/Deletar`
@@ -150,7 +150,7 @@ class ChavePix:
         tipo_chave_pix: Optional[int] = None,
         chave_pix_padrao: Optional[int] = None,
         ativo_inativo: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `ChavePix/Pessoas/Atualizar`
@@ -225,7 +225,7 @@ class ChavePix:
         tipo_chave_pix: Optional[int] = None,
         chave_pix_padrao: Optional[int] = None,
         ativo_inativo: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `ChavePix/Pessoas/Cadastrar`

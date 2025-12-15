@@ -25,7 +25,7 @@ class PedidoCompra:
         cargo: Optional[str] = None,
         cod_justificativa: Optional[int] = None,
         obs_justificativa: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `PedidoCompra/AprovarPedidoCompraServicoApp`
@@ -114,7 +114,7 @@ class PedidoCompra:
         cargo: Optional[str] = None,
         cod_justificativa: Optional[int] = None,
         obs_justificativa: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `PedidoCompra/AprovarPedidoCompraMaterialApp`
@@ -198,7 +198,7 @@ class PedidoCompra:
         self,
         dados_pedido: Optional[Dict] = None,
         lista_dados_item_pedido: Optional[List[Dict]] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `PedidoCompra/GravarPedidoDeCompraDoTipoServico`
@@ -302,7 +302,7 @@ class PedidoCompra:
         self,
         dados_pedido: Optional[Dict] = None,
         lista_dados_item_pedido: Optional[List[Dict]] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `PedidoCompra/GravarPedidoDeCompraDoTipoMaterial`
@@ -402,7 +402,7 @@ class PedidoCompra:
         self,
         dados_pedido: Optional[Dict] = None,
         lista_dados_item_pedido: Optional[List[Dict]] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `PedidoCompra/GravarPedidoDeCompraDoTipoPatrimonio`
@@ -502,7 +502,7 @@ class PedidoCompra:
         self,
         dados_pedido: Optional[Dict] = None,
         lista_dados_item_pedido: Optional[List[Dict]] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `PedidoCompra/GravarPedidoDeCompraDoTipoComplemento`
@@ -602,7 +602,7 @@ class PedidoCompra:
         self,
         dados_pedido: Optional[Dict] = None,
         lista_dados_item_pedido: Optional[List[Dict]] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `PedidoCompra/GravarPedidoDeCompraDoTipoEmergencial`
@@ -703,7 +703,7 @@ class PedidoCompra:
         dados_pedido: Optional[Dict] = None,
         lista_dados_item_pedido: Optional[List[Dict]] = None,
         numero_contrato: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `PedidoCompra/GravarPedidoDeCompraDoTipoAdiantamento`
@@ -806,7 +806,7 @@ class PedidoCompra:
         self,
         dados_pedido: Optional[Dict] = None,
         lista_dados_item_pedido: Optional[List[Dict]] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `PedidoCompra/GravarPedidoDeCompraDoTipoRegularizacao`
@@ -910,7 +910,7 @@ class PedidoCompra:
         ordem_de_compra: Optional[int] = None,
         tipo_resposta: Optional[int] = None,
         observacao: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `PedidoCompra/ConfirmarRecebimentoOrdemCompraFornecedor`
@@ -978,7 +978,7 @@ class PedidoCompra:
         self,
         dados_pedido: Optional[Dict] = None,
         lista_dados_item_pedido: Optional[List[Dict]] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `PedidoCompra/GravarPedidoDeCompraDoTipoServicoContrato`
@@ -1062,7 +1062,7 @@ class PedidoCompra:
         self,
         dados_pedido: Optional[Dict] = None,
         lista_dados_item_pedido: Optional[List[Dict]] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `PedidoCompra/GravarPedidoDeCompraDoTipoContratoMaterial`
@@ -1150,7 +1150,7 @@ class PedidoCompra:
         self,
         dados_pedido: Optional[Dict] = None,
         lista_dados_item_pedido: Optional[List[Dict]] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `PedidoCompra/GravarPedidoDeCompraDoTipoServicoComplemento`
@@ -1254,7 +1254,7 @@ class PedidoCompra:
         self,
         dados_pedido: Optional[Dict] = None,
         lista_dados_item_pedido: Optional[List[Dict]] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `PedidoCompra/GravarPedidoDeCompraDoTipoServicoEmergencial`
@@ -1359,7 +1359,7 @@ class PedidoCompra:
         dados_pedido: Optional[Dict] = None,
         lista_dados_item_pedido: Optional[List[Dict]] = None,
         numero_contrato: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `PedidoCompra/GravarPedidoDeCompraDoTipoServicoAdiantamento`
@@ -1466,7 +1466,7 @@ class PedidoCompra:
         self,
         dados_pedido: Optional[Dict] = None,
         lista_dados_item_pedido: Optional[List[Dict]] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `PedidoCompra/GravarPedidoDeCompraDoTipoServicoRegularizacao`

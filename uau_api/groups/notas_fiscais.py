@@ -24,7 +24,7 @@ class NotasFiscais:
         data_inicial: Optional[datetime] = None,
         data_final: Optional[datetime] = None,
         tipo_periodo: Optional[Any] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `NotasFiscais/ConsultarNFEntrada`
@@ -114,7 +114,7 @@ class NotasFiscais:
     def salvar_arquivo_xmlnotafiscal_entrada(
         self,
         parameters: Optional[List[Dict]] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `NotasFiscais/SalvarArquivoXMLnotafiscalEntrada`

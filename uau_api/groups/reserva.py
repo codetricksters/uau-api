@@ -17,7 +17,7 @@ class Reserva:
     def gravar_reserva(
         self,
         dados_reserva_json: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Reserva/GravarReserva`
@@ -196,7 +196,7 @@ class Reserva:
         cod_produto: Optional[int] = None,
         cod_person: Optional[int] = None,
         cod_reserva: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Reserva/ExcluirReserva`
@@ -269,7 +269,7 @@ class Reserva:
         cod_produto: Optional[int] = None,
         cod_person: Optional[int] = None,
         status: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Reserva/ConsultarReservas`
@@ -336,7 +336,7 @@ class Reserva:
         num_prod: Optional[int] = None,
         num_per: Optional[int] = None,
         vendedor: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Reserva/ConsultarReservaVendedor`
@@ -403,7 +403,7 @@ class Reserva:
         cod_produto: Optional[int] = None,
         cod_person: Optional[int] = None,
         cod_reserva: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Reserva/ConsultarReservaPorCodigo`
@@ -470,7 +470,7 @@ class Reserva:
         empresa: Optional[int] = None,
         obra: Optional[str] = None,
         num_proposta: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Reserva/ConsultaReservaPorProposta`
@@ -534,7 +534,7 @@ class Reserva:
         cod_produto: Optional[int] = None,
         cod_person: Optional[int] = None,
         status: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Reserva/ConsultarDadosControleReserva`

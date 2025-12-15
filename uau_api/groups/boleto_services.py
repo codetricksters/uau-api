@@ -20,7 +20,7 @@ class BoletoServices:
         filtro_venda_remessa: Optional[Dict] = None,
         carne_tres_boletos_pagina_na_vertical: Optional[bool] = None,
         carne_dois_boletos_pagina_na_horizontal: Optional[bool] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `BoletoServices/GerarPDFCarne`
@@ -101,7 +101,7 @@ class BoletoServices:
         cod_banco: Optional[int] = None,
         seu_numero: Optional[int] = None,
         ocultar_dados_pessoais: Optional[bool] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `BoletoServices/GerarPDFBoleto`
@@ -170,7 +170,7 @@ class BoletoServices:
         data_venc: Optional[datetime] = None,
         valor_nominal: Optional[int] = None,
         campo_livre: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `BoletoServices/ObterCodigoDeBarras`
@@ -238,7 +238,7 @@ class BoletoServices:
     def obter_linha_digitavel(
         self,
         codigode_barras: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `BoletoServices/ObterLinhaDigitavel`
@@ -296,7 +296,7 @@ class BoletoServices:
         cod_banco: Optional[int] = None,
         cod_empresa: Optional[int] = None,
         nova_data_venc: Optional[datetime] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `BoletoServices/AlterarDataVencimento`
@@ -374,7 +374,7 @@ class BoletoServices:
         self,
         codigo_banco: Optional[int] = None,
         seu_numero: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `BoletoServices/ConsultarStatusBoleto`
@@ -436,7 +436,7 @@ class BoletoServices:
         cod_empresa: Optional[int] = None,
         instrucao: Optional[str] = None,
         carteira: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `BoletoServices/ObterMensagemDoBoleto`
@@ -504,7 +504,7 @@ class BoletoServices:
         self,
         cod_banco: Optional[str] = None,
         seu_numero: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `BoletoServices/ConsultarDadosDoBoleto`
@@ -565,7 +565,7 @@ class BoletoServices:
         nao_mostra_boleto_vencido: Optional[bool] = None,
         usuario: Optional[str] = None,
         tipo_usuario: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `BoletoServices/ConsultarBoletosDoCliente`
@@ -653,7 +653,7 @@ class BoletoServices:
         num_venda: Optional[int] = None,
         naomostraboleto_vencido: Optional[bool] = None,
         mostrar_apenas_ultimo_boleto: Optional[bool] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `BoletoServices/ConsultarBoletosReimpressao`

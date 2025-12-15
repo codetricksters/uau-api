@@ -29,7 +29,7 @@ class AcompanhamentoContratoVenda:
         motorista: Optional[int] = None,
         caminhao_placa: Optional[str] = None,
         uf_placa: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `AcompanhamentoContratoVenda/GravarAcompanhamento`

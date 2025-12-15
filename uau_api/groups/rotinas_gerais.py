@@ -18,7 +18,7 @@ class RotinasGerais:
         self,
         empresa: Optional[str] = None,
         produto: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `RotinasGerais/BuscaCamposPerson`
@@ -77,7 +77,7 @@ class RotinasGerais:
     def busca_capvenda_empresa(
         self,
         codigo_empresa: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `RotinasGerais/BuscaCAPVendaEmpresa`
@@ -141,7 +141,7 @@ class RotinasGerais:
         codigo_pasta: Optional[str] = None,
         status: Optional[int] = None,
         parametros: Optional[List[Dict]] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `RotinasGerais/InserirConsultaGeral`
@@ -230,7 +230,7 @@ class RotinasGerais:
         id: Optional[int] = None,
         personalizado: Optional[int] = None,
         parameters: Optional[List[Dict]] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `RotinasGerais/ExecutarConsultaGeral`
@@ -327,7 +327,7 @@ class RotinasGerais:
         detalhe: Optional[str] = None,
         mensagem: Optional[str] = None,
         descricao: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `RotinasGerais/BuscarIndicesDeReajuste`
@@ -390,7 +390,7 @@ class RotinasGerais:
         detalhe: Optional[str] = None,
         mensagem: Optional[str] = None,
         descricao: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `RotinasGerais/BuscarTiposDeVencimento`
@@ -453,7 +453,7 @@ class RotinasGerais:
         empresa: Optional[int] = None,
         status: Optional[int] = None,
         banco: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `RotinasGerais/ConsultarPadroesCobranca`
@@ -518,7 +518,7 @@ class RotinasGerais:
         detalhe: Optional[str] = None,
         mensagem: Optional[str] = None,
         descricao: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `RotinasGerais/BuscarCategoriasDeProduto`
@@ -581,7 +581,7 @@ class RotinasGerais:
         detalhe: Optional[str] = None,
         mensagem: Optional[str] = None,
         descricao: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `RotinasGerais/BuscarFinalidadesDeCompra`
@@ -644,7 +644,7 @@ class RotinasGerais:
         detalhe: Optional[str] = None,
         mensagem: Optional[str] = None,
         descricao: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `RotinasGerais/BuscarVeiculosDeDivulgacao`
@@ -706,7 +706,7 @@ class RotinasGerais:
         self,
         id: Optional[int] = None,
         personalizado: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `RotinasGerais/ConsultarParamConsultaGeral`

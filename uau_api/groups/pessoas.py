@@ -25,7 +25,7 @@ class Pessoas:
         info_pesendereco_principal: Optional[Dict] = None,
         infopesendereco_cobranca: Optional[Dict] = None,
         infopesendereco_comercial: Optional[Dict] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Pessoas/GravarPessoa`
@@ -301,7 +301,7 @@ class Pessoas:
         self,
         numero: Optional[int] = None,
         telefones: Optional[List[Dict]] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Pessoas/ManterTelefone`
@@ -378,7 +378,7 @@ class Pessoas:
         self,
         numero: Optional[int] = None,
         telefones: Optional[List[Dict]] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Pessoas/ExcluirTelefone`
@@ -448,7 +448,7 @@ class Pessoas:
         self,
         codigo_pessoa: Optional[int] = None,
         cpf_cnpj: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Pessoas/ConsultarUnidades`
@@ -509,7 +509,7 @@ class Pessoas:
     def consultar_telefones(
         self,
         numero: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Pessoas/ConsultarTelefones`
@@ -567,7 +567,7 @@ class Pessoas:
         self,
         codigo_cliente: Optional[int] = None,
         senha: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Pessoas/AlterarSenhaCliente`
@@ -644,7 +644,7 @@ class Pessoas:
         agencia: Optional[str] = None,
         nome_agencia: Optional[str] = None,
         debito_automatico: Optional[bool] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Pessoas/GravarContaBancaria`
@@ -725,7 +725,7 @@ class Pessoas:
     def consultar_tipo_endereco(
         self,
         codigo_pessoa: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Pessoas/ConsultarTipoEndereco`
@@ -772,7 +772,7 @@ class Pessoas:
         login: Optional[str] = None,
         senha: Optional[str] = None,
         email: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Pessoas/CriarCredenciaisUAUWeb`
@@ -843,7 +843,7 @@ class Pessoas:
     def consultar_pessoa_por_chave(
         self,
         codigo_pessoa: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Pessoas/ConsultarPessoaPorChave`
@@ -902,7 +902,7 @@ class Pessoas:
     def consultar_contas_bancarias(
         self,
         codigo: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Pessoas/ConsultarContasBancarias`
@@ -960,7 +960,7 @@ class Pessoas:
         detalhe: Optional[str] = None,
         mensagem: Optional[str] = None,
         descricao: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Pessoas/ConsultarPessoasComVenda`
@@ -1025,7 +1025,7 @@ class Pessoas:
         login: Optional[str] = None,
         senha: Optional[str] = None,
         email: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Pessoas/AlterarPessoaAcessoPortal`
@@ -1102,7 +1102,7 @@ class Pessoas:
         self,
         cpf_cnpj: Optional[str] = None,
         status: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Pessoas/ConsultarPessoasPorCPFCNPJ`
@@ -1181,7 +1181,7 @@ class Pessoas:
         banco: Optional[int] = None,
         conta: Optional[str] = None,
         agencia: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Pessoas/ExcluirBancoEContaPorChave`
@@ -1256,7 +1256,7 @@ class Pessoas:
         self,
         login: Optional[str] = None,
         email: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Pessoas/RecuperarCredenciaisUAUWeb`
@@ -1320,7 +1320,7 @@ class Pessoas:
     def consultar_pessoas_por_condicao(
         self,
         condicao_consultar_pessoa: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Pessoas/ConsultarPessoasPorCondicao`
@@ -1385,7 +1385,7 @@ class Pessoas:
     def importar_dados_pessoas_para_uau(
         self,
         xml: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Pessoas/ImportarDadosPessoasParaUau`
@@ -1455,7 +1455,7 @@ class Pessoas:
     def consultar_telefone_pes_por_chave(
         self,
         codigo_pessoa: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Pessoas/ConsultarTelefonePesPorChave`
@@ -1516,7 +1516,7 @@ class Pessoas:
         self,
         codigo_pessoa: Optional[int] = None,
         tipo_endereco: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Pessoas/ConsultarEnderecoPessoasPorChave`
@@ -1576,7 +1576,7 @@ class Pessoas:
         page: Optional[int] = None,
         page_size: Optional[int] = None,
         search_text: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Pessoas/ConsultarPessoasFuncionariosAtivos`
@@ -1632,7 +1632,7 @@ class Pessoas:
     def consultar_dados_pessoa_fisica_por_codigo(
         self,
         codigopessoa_fis: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Pessoas/ConsultarDadosPessoaFisicaPorCodigo`
@@ -1692,7 +1692,7 @@ class Pessoas:
         self,
         cpf_cnpj: Optional[str] = None,
         status: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Pessoas/ConsultarDadosPessoaPorCpfCnpjEStatus`
@@ -1759,7 +1759,7 @@ class Pessoas:
     def consultar_dados_adicionais_pessoa_por_chave(
         self,
         codigo_pessoa: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Pessoas/ConsultarDadosAdicionaisPessoaPorChave`

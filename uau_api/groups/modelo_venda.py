@@ -17,7 +17,7 @@ class ModeloVenda:
     def buscar_plano_indexador(
         self,
         nummodelo_venda: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `ModeloVenda/BuscarPlanoIndexador`
@@ -72,7 +72,7 @@ class ModeloVenda:
     def consultar_modelo_venda(
         self,
         cod_modelo_venda: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `ModeloVenda/ConsultarModeloVenda`
@@ -165,7 +165,7 @@ class ModeloVenda:
         redistribuir_valor: Optional[bool] = None,
         utilizar_cap: Optional[bool] = None,
         tipo_venda: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `ModeloVenda/GerarParcelasProposta`
@@ -294,7 +294,7 @@ class ModeloVenda:
         eat_inat: Optional[int] = None,
         campos_retornados: Optional[str] = None,
         tipo: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `ModeloVenda/ConsultarModeloDeVenda`
@@ -371,7 +371,7 @@ class ModeloVenda:
         valor_reneg_custas: Optional[int] = None,
         valor_reneg_seguromip: Optional[int] = None,
         valor_reneg_segurodfi: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `ModeloVenda/MontarModeloRenegociacao`
@@ -461,7 +461,7 @@ class ModeloVenda:
     def consultar_parcelas_modelo_venda(
         self,
         nummodelo_venda: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `ModeloVenda/ConsultarParcelasModeloVenda`
@@ -516,7 +516,7 @@ class ModeloVenda:
     def consultar_modelo_de_venda_seguro_por_chave(
         self,
         nummodelo_venda: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `ModeloVenda/ConsultarModeloDeVendaSeguroPorChave`

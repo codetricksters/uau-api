@@ -19,7 +19,7 @@ class Fiscal:
         detalhe: Optional[str] = None,
         mensagem: Optional[str] = None,
         descricao: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Fiscal/BuscarCAPs`
@@ -88,7 +88,7 @@ class Fiscal:
         detalhe: Optional[str] = None,
         mensagem: Optional[str] = None,
         descricao: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Fiscal/BuscarCodigoServicoFiscal`
@@ -149,7 +149,7 @@ class Fiscal:
     def importar_lancamentos_fiscais(
         self,
         dadoslacamentos_xml: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Fiscal/ImportarLancamentosFiscais`
@@ -208,7 +208,7 @@ class Fiscal:
     def importar_lancamentos_contabeis(
         self,
         dadoslacamentos_xml: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Fiscal/ImportarLancamentosContabeis`

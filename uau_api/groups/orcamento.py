@@ -26,7 +26,7 @@ class Orcamento:
         preco: Optional[int] = None,
         tipo_insumo: Optional[int] = None,
         encargo: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Orcamento/AlterarInsumoOrcamento`
@@ -113,7 +113,7 @@ class Orcamento:
         preco: Optional[int] = None,
         tipo_insumo: Optional[int] = None,
         encargo: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Orcamento/ExcluirInsumoOrcamento`
@@ -191,7 +191,7 @@ class Orcamento:
     def inserir_insumo_orcamento(
         self,
         insumos_orcamento: Optional[List[Dict]] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Orcamento/InserirInsumoOrcamento`
@@ -264,7 +264,7 @@ class Orcamento:
         item: Optional[str] = None,
         servico: Optional[str] = None,
         cod_externo_integracao: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Orcamento/AlterarServicoOrcamento`
@@ -348,7 +348,7 @@ class Orcamento:
         item: Optional[str] = None,
         servico: Optional[str] = None,
         cod_externo_integracao: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Orcamento/ExcluirServicoOrcamento`
@@ -417,7 +417,7 @@ class Orcamento:
     def inserir_servico_orcamento(
         self,
         servicos_orcamento: Optional[List[Dict]] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Orcamento/InserirServicoOrcamento`
@@ -485,7 +485,7 @@ class Orcamento:
         obra: Optional[str] = None,
         orcamento: Optional[int] = None,
         composicao: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Orcamento/ConsultarInsumosPorChave`
@@ -552,7 +552,7 @@ class Orcamento:
         servico: Optional[str] = None,
         periodo: Optional[str] = None,
         quantidade: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Orcamento/AlterarPlanilhaCronograma`
@@ -631,7 +631,7 @@ class Orcamento:
         servico: Optional[str] = None,
         periodo: Optional[str] = None,
         quantidade: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Orcamento/ExcluirPlanilhaCronograma`
@@ -710,7 +710,7 @@ class Orcamento:
         servico: Optional[str] = None,
         periodo: Optional[str] = None,
         quantidade: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Orcamento/InserirPlanilhaCronograma`
@@ -784,7 +784,7 @@ class Orcamento:
         empresa: Optional[int] = None,
         obra: Optional[str] = None,
         orcamento: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Orcamento/ExportarOrcamentoEstrutura`
@@ -847,7 +847,7 @@ class Orcamento:
         item: Optional[str] = None,
         servico: Optional[str] = None,
         cod_externo_integracao: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Orcamento/ConsultarEstruturaOrcaPorChave`
@@ -921,7 +921,7 @@ class Orcamento:
         item: Optional[str] = None,
         servico: Optional[str] = None,
         cod_externo_integracao: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Orcamento/ConsultarEstruturaOrcaPorServico`
@@ -992,7 +992,7 @@ class Orcamento:
         item: Optional[str] = None,
         servico: Optional[str] = None,
         cod_externo_integracao: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Orcamento/ConsultarServicoOrcamentoPorChave`
@@ -1060,7 +1060,7 @@ class Orcamento:
         empresa: Optional[int] = None,
         obra: Optional[str] = None,
         num_orcamento: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Orcamento/ConsultarServicoOrcadoDesintegrado`
@@ -1117,7 +1117,7 @@ class Orcamento:
     def excluir_estrutura_servico_de_orcamento(
         self,
         estruturas_de_servico_de_orcamento: Optional[List[Dict]] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Orcamento/ExcluirEstruturaServicoDeOrcamento`
@@ -1191,7 +1191,7 @@ class Orcamento:
     def inserir_estrutura_servico_de_orcamento(
         self,
         estruturas_de_servico_de_orcamento: Optional[List[Dict]] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Orcamento/InserirEstruturaServicoDeOrcamento`
@@ -1276,7 +1276,7 @@ class Orcamento:
         item: Optional[str] = None,
         servico: Optional[str] = None,
         periodo: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Orcamento/ConsultarPlanilhaCronogramaPorChave`
@@ -1345,7 +1345,7 @@ class Orcamento:
     def atualizar_estrutura_servico_de_orcamento(
         self,
         estruturas_de_servico_de_orcamento: Optional[List[Dict]] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Orcamento/AtualizarEstruturaServicoDeOrcamento`
@@ -1427,7 +1427,7 @@ class Orcamento:
         obra: Optional[str] = None,
         num_orcamento: Optional[int] = None,
         tipo_item: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Orcamento/ConsultarServicoOrcamentoPorOrcamento`

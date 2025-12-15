@@ -24,7 +24,7 @@ class Shopping:
         valor_lancamento: Optional[int] = None,
         usuario: Optional[str] = None,
         tipo_usuario: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Shopping/GravaRendimentos`
@@ -96,7 +96,7 @@ class Shopping:
     def importacao_de_parcelas(
         self,
         parcelas: Optional[List[Dict]] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Shopping/ImportacaoDeParcelas`
@@ -239,7 +239,7 @@ class Shopping:
         num_venda: Optional[int] = None,
         ini_lancamento: Optional[datetime] = None,
         fim_lancamento: Optional[datetime] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Shopping/ConsultarRendimentoLojista`

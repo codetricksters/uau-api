@@ -26,7 +26,7 @@ class ExtratoDoCliente:
         ocultar_usuario: Optional[bool] = None,
         data_calculo: Optional[datetime] = None,
         residuo_ira_compor_valor_total: Optional[bool] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `ExtratoDoCliente/GerarPDFExtratoCliente`
@@ -115,7 +115,7 @@ class ExtratoDoCliente:
         ocultar_usuario: Optional[bool] = None,
         data_calculo: Optional[datetime] = None,
         residuo_ira_compor_valor_total: Optional[bool] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `ExtratoDoCliente/GerarPDFExtratoClienteV2`
@@ -197,7 +197,7 @@ class ExtratoDoCliente:
         empresa: Optional[int] = None,
         obra: Optional[str] = None,
         num_venda: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `ExtratoDoCliente/ConsultarSaldoCessoesDireitoAnteriores`
@@ -262,7 +262,7 @@ class ExtratoDoCliente:
         ocultapref_custas: Optional[bool] = None,
         data_calculo: Optional[datetime] = None,
         exibir_data_deposito: Optional[bool] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
           Contém as chamadas dos métodos ConsultarItensRecebidas e ConsultarParcelasRecebidasCliente retornando um dataset e suas tabelas.
           OBS.: A instruçãoa [tipos_parc] se refere à parcelas que não devem ser mostradas no extrato do cliente, se enviar vazio, vai mostrar todas.

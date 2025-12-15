@@ -19,7 +19,7 @@ class Recebiveis:
         detalhe: Optional[str] = None,
         mensagem: Optional[str] = None,
         descricao: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Recebiveis/ConsultarMeiosPreferenciaisRecebimento`
@@ -81,7 +81,7 @@ class Recebiveis:
         detalhe: Optional[str] = None,
         mensagem: Optional[str] = None,
         descricao: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Recebiveis/PadraoDeCobranca/{IdEmpresa}/{NumPadraoCobranca}`
@@ -148,7 +148,7 @@ class Recebiveis:
         data_inicio_vencimento: Optional[datetime] = None,
         data_fim_vencimento: Optional[datetime] = None,
         pesquisa_por_nao_titulares: Optional[bool] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Recebiveis/ParcelasECobrancasDoCliente`
@@ -224,7 +224,7 @@ class Recebiveis:
         tipo_parcela: Optional[str] = None,
         numero_parcela_geral: Optional[int] = None,
         meio_preferencial_recebimento: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Recebiveis/AlterarMeioPreferencialDeRecebimentoDaParcela`

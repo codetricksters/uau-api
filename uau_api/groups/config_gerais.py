@@ -19,7 +19,7 @@ class ConfigGerais:
         detalhe: Optional[str] = None,
         mensagem: Optional[str] = None,
         descricao: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `ConfigGerais/RetornarVersaoBD`
@@ -80,7 +80,7 @@ class ConfigGerais:
         detalhe: Optional[str] = None,
         mensagem: Optional[str] = None,
         descricao: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `ConfigGerais/RetornarVersaoWS`
@@ -141,7 +141,7 @@ class ConfigGerais:
         detalhe: Optional[str] = None,
         mensagem: Optional[str] = None,
         descricao: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `ConfigGerais/ObterConfiguracaoDeCasasDecimais`

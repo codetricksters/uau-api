@@ -23,7 +23,7 @@ class Anexo:
         usuario: Optional[str] = None,
         caminho_exclusivo: Optional[str] = None,
         controla_anexouau_web: Optional[bool] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Anexo/AnexarArquivo`
@@ -107,7 +107,7 @@ class Anexo:
         identificador: Optional[str] = None,
         nome_arquivo: Optional[str] = None,
         origem: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Anexo/ExcluirAnexos`
@@ -170,7 +170,7 @@ class Anexo:
     def baixar_arquivos(
         self,
         arquivos: List[Dict] = None,
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Anexo/BaixarArquivos`
@@ -234,7 +234,7 @@ class Anexo:
         self,
         caminho: Optional[str] = None,
         origem: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         HTTP Method: `POST`
         
@@ -291,7 +291,7 @@ class Anexo:
         caminho_exclusivo: Optional[str] = None,
         controla_anexouau_web: Optional[bool] = None,
         origem: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Anexo/AnexarBase64Imagem`
@@ -370,7 +370,7 @@ class Anexo:
         self,
         chave: str = None,
         valores: List[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         Endpoint: `Anexo/ListaArquivoPorChave`
         HTTP Method: `POST`
@@ -428,7 +428,7 @@ class Anexo:
         detalhe: Optional[str] = None,
         mensagem: Optional[str] = None,
         descricao: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Anexo/ListarArmazenamentos`
@@ -483,7 +483,7 @@ class Anexo:
         tipo_comentario: Optional[str] = None,
         usuario_privado: Optional[List[Dict]] = None,
         grupo_privado: Optional[List[Dict]] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Anexo/GravarComentarioAnexo`
@@ -577,7 +577,7 @@ class Anexo:
         self,
         nome_arquivo: Optional[str] = None,
         origem: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Anexo/RetornaArquivoEmBytes`
@@ -639,7 +639,7 @@ class Anexo:
         detalhe: Optional[str] = None,
         mensagem: Optional[str] = None,
         descricao: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Anexo/ConsultarChavesComentario`
@@ -705,7 +705,7 @@ class Anexo:
         lista_arquivos: Optional[List[Dict]] = None,
         empresa: Optional[int] = None,
         usuario: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Anexo/AnexarArquivosBase64Request`
@@ -771,7 +771,7 @@ class Anexo:
         empresa: Optional[str] = None,
         identificador: Optional[str] = None,
         listanomes_arquivos: Optional[List[Dict]] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Anexo/RetornarArquivosEmListaBytes`

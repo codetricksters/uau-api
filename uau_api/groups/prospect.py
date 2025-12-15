@@ -33,7 +33,7 @@ class Prospect:
         atualizar_pessoas: Optional[bool] = None,
         mensagem_retorno: Optional[str] = None,
         prospect_doc: Optional[List[Dict]] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Prospect/GravarProspect`
@@ -289,7 +289,7 @@ class Prospect:
     def importar_prospect(
         self,
         xml: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Prospect/ImportarProspect`
@@ -352,7 +352,7 @@ class Prospect:
         detalhe: Optional[str] = None,
         mensagem: Optional[str] = None,
         descricao: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         HTTP Method: `POST`
         
@@ -399,7 +399,7 @@ class Prospect:
     def migrar_prospect_pessoa(
         self,
         numero_prospect: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Prospect/MigrarProspectPessoa`
@@ -460,7 +460,7 @@ class Prospect:
         enum_opcao_todos: Optional[int] = None,
         codigo_prospect: Optional[str] = None,
         codigo_vendedor: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Prospect/ConsultarTodosProspects`
@@ -525,7 +525,7 @@ class Prospect:
     def consultar_prospect_por_chave(
         self,
         codigo_prospect: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Prospect/ConsultarProspectPorChave`
@@ -586,7 +586,7 @@ class Prospect:
         novo_responsavel: Optional[int] = None,
         cod_empresa: Optional[int] = None,
         num_prospect: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Prospect/AlterarResponsavelProspect`
@@ -664,7 +664,7 @@ class Prospect:
         cpf_cnpj: Optional[str] = None,
         trata_sem_responsavel: Optional[bool] = None,
         uf_prosp: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Prospect/ConsultarProspectComFiltro`
@@ -747,7 +747,7 @@ class Prospect:
     def buscar_grau_parentesco_por_codigo(
         self,
         codigo: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         HTTP Method: `POST`
         

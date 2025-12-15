@@ -21,7 +21,7 @@ class RequisicaoCompra:
         cargo: Optional[str] = None,
         cod_justificativa: Optional[int] = None,
         obs_justificativa: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `RequisicaoCompra/AprovarRequisicoesCompra`
@@ -96,7 +96,7 @@ class RequisicaoCompra:
         requisicoes: Optional[List[Dict]] = None,
         cod_justificativa_desaprovacao: Optional[int] = None,
         obs_justificativa_desaprovacao: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `RequisicaoCompra/DesaprovarRequisicoesCompra`

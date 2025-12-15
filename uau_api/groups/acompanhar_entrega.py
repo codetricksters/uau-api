@@ -18,7 +18,7 @@ class AcompanharEntrega:
         self,
         empresa: Optional[int] = None,
         obra: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `AcompanharEntrega/ConsultarProcessos`
@@ -83,7 +83,7 @@ class AcompanharEntrega:
         codigo_do_boleto: Optional[str] = None,
         codigo_do_boleto_frete: Optional[str] = None,
         itens: Optional[List[Dict]] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `AcompanharEntrega/AcompanharPreEntrega`

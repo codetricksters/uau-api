@@ -22,7 +22,7 @@ class Funcionario:
         codigo_funcionario: Optional[int] = None,
         matricula: Optional[str] = None,
         situacao: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Funcionario/ConsultarFuncionario`

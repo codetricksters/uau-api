@@ -20,7 +20,7 @@ class DocumentosDigitaisIntegracao:
         lista_de_documentos: Optional[List[Dict]] = None,
         mensagem: Optional[str] = None,
         codigo_do_sistema: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `DocumentosDigitais/EnviarEnvelopeDeDocumento`
@@ -113,7 +113,7 @@ class DocumentosDigitaisIntegracao:
     def consultar_documentos_enviados(
         self,
         numero_do_envelope: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `DocumentosDigitais/ConsultarDocumentosEnviados`
@@ -167,7 +167,7 @@ class DocumentosDigitaisIntegracao:
     def consultar_assinaturas_enviadas(
         self,
         numero_do_envelope: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `DocumentosDigitais/ConsultarAssinaturasEnviadas`
@@ -224,7 +224,7 @@ class DocumentosDigitaisIntegracao:
         detalhe: Optional[str] = None,
         mensagem: Optional[str] = None,
         descricao: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `DocumentosDigitais/ConsultaDocumentosDigitaisAtivos`
@@ -282,7 +282,7 @@ class DocumentosDigitaisIntegracao:
     def consultar_envelope_documentos_codigo_externo(
         self,
         envelope_id: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `DocumentosDigitais/ConsultarEnvelopeDocumentosCodigoExterno`

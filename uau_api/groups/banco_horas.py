@@ -17,7 +17,7 @@ class BancoHoras:
     def lancar_banco_horas_funcionario(
         self,
         lista_banco_horas: Optional[List[Dict]] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `BancoHoras/LancarBancoHorasFuncionario`

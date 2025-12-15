@@ -23,7 +23,7 @@ class Planejamento:
         item: Optional[str] = None,
         descricao_item: Optional[str] = None,
         usuario: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Planejamento/AtualizarItemPlanejamento`
@@ -96,7 +96,7 @@ class Planejamento:
         produto: Optional[str] = None,
         contrato: Optional[str] = None,
         item: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Planejamento/ConsultarItemPlanejamento`
@@ -166,7 +166,7 @@ class Planejamento:
         servico: Optional[str] = None,
         mes_pl: Optional[str] = None,
         insumo: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Planejamento/ConsultarSaldoSIPlanejada`
@@ -246,7 +246,7 @@ class Planejamento:
         servico: Optional[str] = None,
         tipo_de_custo: Optional[str] = None,
         usuario: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Planejamento/InserirServicoPlanejamento`
@@ -321,7 +321,7 @@ class Planejamento:
         obra: Optional[str] = None,
         contrato: Optional[int] = None,
         produto: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Planejamento/ExportarPlanejamentoProduto`
@@ -382,7 +382,7 @@ class Planejamento:
         self,
         insumos: Optional[List[Dict]] = None,
         justificativa_aprovacao_pl: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Planejamento/AtualizarInsumosPlanejamento`
@@ -459,7 +459,7 @@ class Planejamento:
         data_inicio: Optional[str] = None,
         data_termino: Optional[str] = None,
         usuario: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Planejamento/AtualizarServicoPlanejamento`
@@ -542,7 +542,7 @@ class Planejamento:
         contrato: Optional[str] = None,
         item: Optional[str] = None,
         servico: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Planejamento/ConsultarServicoPlanejamento`
@@ -608,7 +608,7 @@ class Planejamento:
     def consultar_solicitacao_insumo_pl(
         self,
         num_solicitacao: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Planejamento/ConsultarSolicitacaoInsumoPL`
@@ -669,7 +669,7 @@ class Planejamento:
         tipo: Optional[int] = None,
         qtde: Optional[int] = None,
         usuario: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Planejamento/InserirEstruturaPlanejamento`
@@ -750,7 +750,7 @@ class Planejamento:
     def consultar_solicitacao_servico_pl(
         self,
         num_solicitacao: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Planejamento/ConsultarSolicitacaoServicoPL`
@@ -809,7 +809,7 @@ class Planejamento:
         mes: Optional[str] = None,
         qtde: Optional[int] = None,
         usuario: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Planejamento/InserirServicoPlanejamentoMes`
@@ -887,7 +887,7 @@ class Planejamento:
         usuario: Optional[str] = None,
         departamento: Optional[str] = None,
         cargo: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Planejamento/AprovarSolicitacaoPlanejamento`
@@ -963,7 +963,7 @@ class Planejamento:
         sequencia: Optional[str] = None,
         qtde: Optional[int] = None,
         usuario: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Planejamento/AtualizarEstruturaPlanejamento`
@@ -1044,7 +1044,7 @@ class Planejamento:
         item: Optional[str] = None,
         servico: Optional[str] = None,
         sequencia: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Planejamento/ConsultarEstruturaPlanejamento`
@@ -1121,7 +1121,7 @@ class Planejamento:
         mes: Optional[str] = None,
         qtde: Optional[int] = None,
         usuario: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Planejamento/AtualizarServicoPlanejamentoMes`
@@ -1199,7 +1199,7 @@ class Planejamento:
         obra: Optional[str] = None,
         mes_inicial: Optional[str] = None,
         mes_final: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Planejamento/ConsultarDesembolsoPlanejamento`
@@ -1273,7 +1273,7 @@ class Planejamento:
         item: Optional[str] = None,
         servico: Optional[str] = None,
         mes: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Planejamento/ConsultarServicoPlanejamentoMes`
@@ -1343,7 +1343,7 @@ class Planejamento:
         self,
         empresa: Optional[int] = None,
         obra: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Planejamento/ConsultarServicoPlanejamentoPorObra`
@@ -1405,7 +1405,7 @@ class Planejamento:
         tipo_de_custo: Optional[str] = None,
         codigo_externo: Optional[str] = None,
         usuario: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Planejamento/InserirServicoPlanejamentoIntegrado`
@@ -1485,7 +1485,7 @@ class Planejamento:
         usuario: Optional[str] = None,
         departamento: Optional[str] = None,
         cargo: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Planejamento/RecusarSolicitacaoPlanejamentoGeral`
@@ -1558,7 +1558,7 @@ class Planejamento:
         usuario: Optional[str] = None,
         departamento: Optional[str] = None,
         cargo: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Planejamento/AprovarSolicitacaoPlanejamentoEmLote`
@@ -1634,7 +1634,7 @@ class Planejamento:
         data_inicio: Optional[str] = None,
         data_termino: Optional[str] = None,
         usuario: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Planejamento/AtualizarServicoPlanejamentoIntegrado`
@@ -1698,7 +1698,7 @@ class Planejamento:
         self,
         empresa: Optional[int] = None,
         obra: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Planejamento/ConsultarServicoPlanejadoDesintegrado`
@@ -1752,7 +1752,7 @@ class Planejamento:
     def consultar_servico_planejamento_integrado(
         self,
         codigo_externo: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Planejamento/ConsultarServicoPlanejamentoIntegrado`
@@ -1808,7 +1808,7 @@ class Planejamento:
         empresas_obras: Optional[str] = None,
         tipo_consulta_aprovacao: Optional[str] = None,
         numero_dias: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Planejamento/ConsultarAprovacaoPlPendentePorUsuario`
@@ -1879,7 +1879,7 @@ class Planejamento:
         usuario: Optional[str] = None,
         departamento: Optional[str] = None,
         cargo: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Planejamento/RecusarSolicitacaoPlanejamentoGeralEmLote`
@@ -1952,7 +1952,7 @@ class Planejamento:
         usuario: Optional[str] = None,
         departamento: Optional[str] = None,
         cargo: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Planejamento/AprovarSolicitacaoPlanejamentoInsumosEmLote`
@@ -2028,7 +2028,7 @@ class Planejamento:
         usuario: Optional[str] = None,
         departamento: Optional[str] = None,
         cargo: Optional[str] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Planejamento/AprovarSolicitacaoPlanejamentoServicosEmLote`
@@ -2134,7 +2134,7 @@ class Planejamento:
         empresas_obras: Optional[str] = None,
         tipo_consulta_aprovacao: Optional[str] = None,
         numero_dias: Optional[int] = None
-    ) -> dict:
+    ) -> requests.Response:
         """
         
         Endpoint: `Planejamento/ConsultarQuantidadeAprovacaoPlPendentePorUsuario`
