@@ -6,7 +6,16 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is a Python client library for the **UAU Globaltec** ERP API. It provides auto-generated wrapper classes for 50+ API resource groups, built from Swagger/OpenAPI specs.
 
-## Commands
+## Branch Strategy
+
+| Branch | Purpose |
+|--------|---------|
+| `master` | All source code. Receives every change. |
+| `minified` | Compiled-only distribution. No Python source — only `.so` native extensions and `.pyi` stubs. Never edited directly; always rebuilt from `master`. |
+
+---
+
+## Commands (master branch)
 
 This project uses `taskipy` as a task runner and `uv` as the package manager.
 
@@ -31,6 +40,64 @@ task docs
 ```
 
 **Note:** Tests require a `.env` file with real credentials. Copy `.env.example` and fill in `API_URL`, `API_KEY`, `USERNAME`, and `PASSWORD`. Integration tests are skipped by default (`@pytest.mark.skip`).
+
+---
+
+## Updating the minified branch from master
+
+Run this procedure whenever `master` has changes that should be released as compiled extensions.
+
+### Prerequisites (one-time)
+```bash
+sudo apt-get install -y gcc python3-dev   # Debian / Ubuntu / WSL
+```
+
+### Step-by-step
+
+```bash
+# 1. Make sure master is clean and up to date
+git checkout master
+git pull origin master
+
+# 2. Switch to minified and merge master's source files in
+git checkout minified
+git checkout master -- uau_api/
+
+# 3. Install / sync the venv (picks up any new dependencies from master)
+uv sync
+
+# 4. Compile all modules to native extensions
+#    Uses the system Python so gcc is on PATH
+PATH="/usr/bin:$PATH" .venv/bin/python compile.py build_ext --inplace
+
+# 5. Strip Python sources — keep only __init__.py stubs
+find uau_api -name "*.py" ! -name "__init__.py" -delete
+find uau_api -name "*.c"  -delete
+rm -rf build/
+
+# 6. Regenerate .pyi stubs from the updated source (run before deleting .py)
+#    If you already deleted the .py files, check them out from master first:
+#    git checkout master -- uau_api/
+#    Then run stubgen, then delete again.
+uv run stubgen -p uau_api -o .
+
+# 7. Update client.pyi: the group instance attributes are dynamic and
+#    must be listed manually. Check uau_api/client.pyi after stubgen and
+#    add any new group attributes following the existing pattern.
+
+# 8. Force-add compiled extensions (they are in .gitignore)
+git add -u
+git add -f uau_api/**/*.so uau_api/*.so
+
+# 9. Commit and push
+git commit -m "minified: rebuild from master <short description>"
+git push origin minified
+```
+
+### What stubgen cannot infer automatically
+- Group instance attributes on `UauAPI` (`uau.Obras`, `uau.Venda`, …) — set dynamically in `_init_api_groups()`. After running stubgen, open [uau_api/client.pyi](uau_api/client.pyi) and add any new group class attributes following the existing pattern.
+
+---
 
 ## Architecture
 
