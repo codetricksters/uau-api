@@ -127,7 +127,7 @@ class Recebiveis:
             ...     parameter2='value2'
             ... )
         """
-        path = f"Recebiveis/PadraoDeCobranca/{IdEmpresa}/{NumPadraoCobranca}"
+        path = f"Recebiveis/PadraoDeCobranca/{id_empresa}/{num_padrao_cobranca}"
         kwargs = {
             "Detalhe": detalhe,
             "Mensagem": mensagem,

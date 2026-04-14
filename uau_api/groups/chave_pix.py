@@ -65,7 +65,7 @@ class ChavePix:
             ...     parameter2='value2'
             ... )
         """
-        path = f"ChavePix/Pessoas/Consultar/{cpfCnpj}"
+        path = f"ChavePix/Pessoas/Consultar/{cpf_cnpj}"
         kwargs = {
             "Detalhe": detalhe,
             "Mensagem": mensagem,

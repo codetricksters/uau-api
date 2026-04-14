@@ -6,6 +6,7 @@ requires-python = "<4.0,>=3.11"
 dependencies = [
     "requests>=2.31.0,<3.0.0",
     "typer>=0.15.2,<1.0.0",
+    "pydantic-settings>=2.0",
 ]
 name = "uau-api"
 version = "1.0.0"
@@ -14,39 +15,13 @@ readme = "README.md"
 
 [dependency-groups]
 dev = [
-    "pytest<9.0.0,>=8.3.5",
-    "isort<7.0.0,>=6.0.1",
-    "blue<1.0.0,>=0.9.1",
-    "taskipy<2.0.0,>=1.14.1",
-    "pytest-cov<7.0.0,>=6.1.1",
-    "ipython>=9.6.0",
-    "pandas>=2.3.3",
-    "python-dotenv>=1.0.0",
+    "cython>=3.0",
+    "setuptools>=82.0.1",
 ]
-doc = [
-    "mkdocs-material<10.0.0,>=9.6.12",
-    "mkdocstrings<1.0.0,>=0.29.1",
-    "mkdocstrings-python<2.0.0,>=1.16.10",
-]
-[tool.pytest.ini_options]
-pythonpath = "."
-addopts = "--doctest-modules"
 
-[tool.isort]
-profile = "black"
-line_lenght = 79
-
-[tool.taskipy.tasks]
-lint = "blue --check --diff . && isort --check --diff ."
-docs = "mkdocs serve"
-pre_test = "task lint"
-test = "pytest -s -x --cov=uau_api -vv"
-post_test = "coverage html"
-
-[tool.ruff.format]
-quote-style = "single"
-
-
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
 
 [tool.setuptools.packages.find]
 include = ["uau_api*"]

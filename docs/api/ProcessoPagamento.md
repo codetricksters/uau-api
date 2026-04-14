@@ -1,1 +1,0 @@
-::: groups.processo_pagamento.ProcessoPagamento
