@@ -211,3 +211,7 @@ pyrightconfig.json
 .ionide
 
 # End of https://www.toptal.com/developers/gitignore/api/python,visualstudiocode,jupyternotebooks
+
+# Sensitive files
+keys.cs
+uau_api/cripto.py
