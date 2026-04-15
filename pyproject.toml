@@ -26,3 +26,7 @@ build-backend = "setuptools.build_meta"
 
 [tool.setuptools.packages.find]
 include = ["uau_api*"]
+
+[tool.setuptools.package-data]
+"uau_api" = ["*.so"]
+"uau_api.groups" = ["*.so"]
