@@ -7,14 +7,13 @@ import functools
 
 
 uau = UauAPI(Settings().API_URL, Settings().API_KEY)
-uau.authenticate("leonardo", "hybr01")
+uau.authenticate(Settings().USERNAME, Settings().PASSWORD)
 
 
 def consulta_api(class_name: str, function_name: str):
-    result = functools.reduce(
-        getattr, [class_name, function_name], uau
-    )()
-    
-    return result
+    result = functools.reduce(getattr, [class_name, function_name], uau)()
+
+    print(result.json())
+
 
 run(consulta_api)

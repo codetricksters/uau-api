@@ -1,14 +1,18 @@
 """Main API client module."""
-from typing import Dict, Any, Optional
+
+from typing import Optional
 import requests
 from .requestsapi import RequestsApi
 
+
 class UauAPI(RequestsApi):
     """Main API client class that provides access to all API groups."""
-    
-    def __init__(self, base_url: str, api_key: str, session: Optional[requests.Session] = None):
+
+    def __init__(
+        self, base_url: str, api_key: str, session: Optional[requests.Session] = None
+    ):
         """Initialize the API client.
-        
+
         Args:
             base_url: The base URL for the API
             session: Optional session to use for requests
@@ -70,7 +74,7 @@ class UauAPI(RequestsApi):
         from .groups.usuarios import Usuarios
         from .groups.venda import Venda
         from .groups.webhook import Webhook
-        
+
         # Initialize group instances
         self.AcompanhamentoContratoVenda = AcompanhamentoContratoVenda(self)
         self.AcompanhamentosServicos = AcompanhamentosServicos(self)
@@ -122,38 +126,37 @@ class UauAPI(RequestsApi):
         self.Venda = Venda(self)
         self.Webhook = Webhook(self)
 
-
-    def authenticate(self, username: str, password: str) -> Dict[str, Any]:
+    def authenticate(self, username: str, password: str) -> requests.Response:
         """Authenticate with the API.
-        
+
         Args:
             username: API username
             password: API password
-        
+
         Returns:
-            Authentication response data
+            Authentication response
         """
         auth_response = self.post(
-            "Autenticador/AutenticarUsuario",
-            json={"Login": username, "Senha": password, 'UsuarioUAUSite': username}
+            'Autenticador/AutenticarUsuario',
+            json={'Login': username, 'Senha': password, 'UsuarioUAUSite': username},
         )
-        
+
         if auth_response.status_code == 401:
             # Remove existing Authorization header if present
             self.session.headers.pop('Authorization', None)
             # Try authentication again
             auth_response = self.post(
-                "Autenticador/AutenticarUsuario",
-                json={"Login": username, "Senha": password}
+                'Autenticador/AutenticarUsuario',
+                json={'Login': username, 'Senha': password},
             )
-            
+
         self.session.headers['Authorization'] = auth_response.json()
         self.is_authenticated = True
         return auth_response
-        
+
     def get_session(self) -> requests.Session:
         """Get the current session.
-        
+
         Returns:
             The requests Session object
         """
