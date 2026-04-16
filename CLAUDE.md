@@ -10,8 +10,8 @@ This is a Python client library for the **UAU Globaltec** ERP API. It provides a
 
 | Branch | Purpose |
 |--------|---------|
-| `master` | All source code. Receives every change. |
-| `minified` | Compiled-only distribution. No Python source — only `.so` native extensions and `.pyi` stubs. Never edited directly; always rebuilt from `master`. |
+| `master` | All source code (`codetricksters/uau-api`). Receives every change. |
+| `minified` | Distribution branch on `hy-brazil-energia/uau-api`. Contains Cython-generated `.c` files (no `.py` source, no `.so`). At install time the user's `gcc` compiles `.c` → `.so` for their Python version. Never edited directly; always rebuilt from `master`. |
 
 ---
 
@@ -45,57 +45,67 @@ task docs
 
 ## Updating the minified branch from master
 
-Run this procedure whenever `master` has changes that should be released as compiled extensions.
+Run this procedure whenever `master` has changes that should be published.
+
+The `minified` branch distributes **Cython-generated `.c` files** instead of Python source. At install time (`uv add git+...` or `pip install git+...`) the user's local `gcc` compiles those `.c` files into native extensions (`.so`/`.pyd`) for their Python version — no Cython needed on their machine.
 
 ### Prerequisites (one-time)
+
 ```bash
 sudo apt-get install -y gcc python3-dev   # Debian / Ubuntu / WSL
+uv sync --group dev                        # instala Cython, mypy, setuptools
 ```
 
 ### Step-by-step
 
 ```bash
-# 1. Make sure master is clean and up to date
+# 1. Garantir que master está limpo e atualizado
 git checkout master
 git pull origin master
 
-# 2. Switch to minified and merge master's source files in
+# 2. Ir para minified e trazer os arquivos-fonte do master
 git checkout minified
 git checkout master -- uau_api/
 
-# 3. Install / sync the venv (picks up any new dependencies from master)
-uv sync
+# 3. Verificar e corrigir bugs de f-string (o Cython rejeita variáveis
+#    camelCase não declaradas como parâmetros)
+python3 -c "
+import ast, glob
+for path in sorted(glob.glob('uau_api/**/*.py', recursive=True)):
+    if path.endswith('__init__.py'): continue
+    tree = ast.parse(open(path).read())
+    for node in ast.walk(tree):
+        if not isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)): continue
+        params = {a.arg for a in node.args.args} | {'self','type','str','int','bool','e','version'}
+        for child in ast.walk(node):
+            if not isinstance(child, ast.JoinedStr): continue
+            for part in ast.walk(child):
+                if isinstance(part, ast.Name) and part.id not in params:
+                    print(f'{path}:{child.lineno}: {part.id}')
+"
 
-# 4. Compile all modules to native extensions
-#    Uses the system Python so gcc is on PATH
+# 4. Transpilação Python → C  (requer Cython; NÃO compila para .so)
 PATH="/usr/bin:$PATH" .venv/bin/python compile.py build_ext --inplace
 
-# 5. Strip Python sources — keep only __init__.py stubs
+# 5. Remover .py (exceto __init__.py) e artefatos de build
 find uau_api -name "*.py" ! -name "__init__.py" -delete
-find uau_api -name "*.c"  -delete
 rm -rf build/
 
-# 6. Regenerate .pyi stubs from the updated source (run before deleting .py)
-#    If you already deleted the .py files, check them out from master first:
-#    git checkout master -- uau_api/
-#    Then run stubgen, then delete again.
+# 6. Regenerar stubs de tipo (.pyi)
 uv run stubgen -p uau_api -o .
 
-# 7. Update client.pyi: the group instance attributes are dynamic and
-#    must be listed manually. Check uau_api/client.pyi after stubgen and
-#    add any new group attributes following the existing pattern.
+# 7. Atualizar uau_api/client.pyi manualmente:
+#    stubgen não captura atributos definidos em _init_api_groups().
+#    Adicione qualquer novo grupo seguindo o padrão existente.
 
-# 8. Force-add compiled extensions (they are in .gitignore)
-git add -u
-git add -f uau_api/**/*.so uau_api/*.so
-
-# 9. Commit and push
-git commit -m "minified: rebuild from master <short description>"
-git push origin minified
+# 8. Commit e push para hy-brazil/minified
+git add -A
+git commit -m "minified: rebuild from master — <descrição breve>"
+git push hy-brazil minified
 ```
 
-### What stubgen cannot infer automatically
-- Group instance attributes on `UauAPI` (`uau.Obras`, `uau.Venda`, …) — set dynamically in `_init_api_groups()`. After running stubgen, open [uau_api/client.pyi](uau_api/client.pyi) and add any new group class attributes following the existing pattern.
+### O que o stubgen não captura automaticamente
+Atributos de instância de `UauAPI` (`uau.Obras`, `uau.Venda`, …) são definidos dinamicamente em `_init_api_groups()`. Após rodar o stubgen, abra [uau_api/client.pyi](uau_api/client.pyi) e adicione novos grupos seguindo o padrão existente.
 
 ---
 
