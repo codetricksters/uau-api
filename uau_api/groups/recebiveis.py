@@ -5,6 +5,7 @@ from uau_api.requestsapi import RequestsApi
 import requests
 from http import HTTPStatus
 
+
 class Recebiveis:
     def __init__(self, api: RequestsApi):
         """Initialize with API client
@@ -18,42 +19,42 @@ class Recebiveis:
         self,
         detalhe: Optional[str] = None,
         mensagem: Optional[str] = None,
-        descricao: Optional[str] = None
+        descricao: Optional[str] = None,
     ) -> requests.Response:
         """
-        
+
         Endpoint: `Recebiveis/ConsultarMeiosPreferenciaisRecebimento`
         HTTP Method: `GET`
-        
+
         Implementation Notes:
         Definição Técnica:
-        
+
         Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-        
+
         Definição de Negócio:
           Permite consultar os meios preferenciais de recebimento que estão ativos.
-        
-        
+
+
         Args:
             Detalhe (str): The detalhe
             Mensagem (str): The mensagem
             Descricao (str): The descricao
-        
+
         Parameter Structure:
-        
+
             {
                 "Detalhe": "string",
                 "Mensagem": "string",
                 "Descricao": "string"
             }
-        
+
         Returns:
             dict: The API response
-        
+
         Raises:
             requests.HTTPError: If the API request fails
             ValueError: If required parameters are missing or invalid
-        
+
         Examples:
             >>> api = Recebiveis()
             >>> response = api._consultar_meios_preferenciais_recebimento(
@@ -61,17 +62,14 @@ class Recebiveis:
             ...     parameter2='value2'
             ... )
         """
-        path = "Recebiveis/ConsultarMeiosPreferenciaisRecebimento"
+        path = 'Recebiveis/ConsultarMeiosPreferenciaisRecebimento'
         kwargs = {
-            "Detalhe": detalhe,
-            "Mensagem": mensagem,
-            "Descricao": descricao,
+            'Detalhe': detalhe,
+            'Mensagem': mensagem,
+            'Descricao': descricao,
         }
         params = {k: v for k, v in kwargs.items() if v is not None}
-        response = self.api.get(
-            path,
-            json=params
-        )
+        response = self.api.get(path, json=params)
         return response
 
     def by_numpadraocobranca(
@@ -80,46 +78,46 @@ class Recebiveis:
         num_padrao_cobranca: str,
         detalhe: Optional[str] = None,
         mensagem: Optional[str] = None,
-        descricao: Optional[str] = None
+        descricao: Optional[str] = None,
     ) -> requests.Response:
         """
-        
+
         Endpoint: `Recebiveis/PadraoDeCobranca/{IdEmpresa}/{NumPadraoCobranca}`
         HTTP Method: `GET`
-        
+
         Implementation Notes:
         Definição Técnica:
-        
+
         Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
         Preencher os parâmetros de request com os dados do usuário para uso do método.
-        
+
         Regras de Negócio:
-        
+
         É necessário que exista uma empresa cadastrada.
         Numero do padrão de cobrança 0 busca todos os padrões de cobrança.
-        
-        
-        
+
+
+
         Args:
             Detalhe (str): The detalhe
             Mensagem (str): The mensagem
             Descricao (str): The descricao
-        
+
         Parameter Structure:
-        
+
             {
                 "Detalhe": "string",
                 "Mensagem": "string",
                 "Descricao": "string"
             }
-        
+
         Returns:
             dict: The API response
-        
+
         Raises:
             requests.HTTPError: If the API request fails
             ValueError: If required parameters are missing or invalid
-        
+
         Examples:
             >>> api = Recebiveis()
             >>> response = api.{_num_padrao_cobranca}(
@@ -127,17 +125,14 @@ class Recebiveis:
             ...     parameter2='value2'
             ... )
         """
-        path = f"Recebiveis/PadraoDeCobranca/{IdEmpresa}/{NumPadraoCobranca}"
+        path = f'Recebiveis/PadraoDeCobranca/{id_empresa}/{num_padrao_cobranca}'
         kwargs = {
-            "Detalhe": detalhe,
-            "Mensagem": mensagem,
-            "Descricao": descricao,
+            'Detalhe': detalhe,
+            'Mensagem': mensagem,
+            'Descricao': descricao,
         }
         params = {k: v for k, v in kwargs.items() if v is not None}
-        response = self.api.get(
-            path,
-            json=params
-        )
+        response = self.api.get(path, json=params)
         return response
 
     def parcelas_ecobrancas_do_cliente(
@@ -147,25 +142,25 @@ class Recebiveis:
         qtde_parcelas: Optional[int] = None,
         data_inicio_vencimento: Optional[datetime] = None,
         data_fim_vencimento: Optional[datetime] = None,
-        pesquisa_por_nao_titulares: Optional[bool] = None
+        pesquisa_por_nao_titulares: Optional[bool] = None,
     ) -> requests.Response:
         """
-        
+
         Endpoint: `Recebiveis/ParcelasECobrancasDoCliente`
         HTTP Method: `POST`
-        
+
         Implementation Notes:
         Definição Técnica:
-        
+
         Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
         Preencher os parâmetros de request para uso do método.
         Definição de Negócio:
-        
+
         Busca parcelas e cobranças em aberto do cliente, informando o CPF.
         O parametro PesquisaPorNaoTitulares não é obrigatório, se não informado no request ou informado false, buscará somente dos clientes da venda que possuam o tipo 0 - Titular. Caso informado true buscará de todos os clientes da venda independente do tipo.
-        
-        
-        
+
+
+
         Args:
             Cpf (str): The cpf
             ValorReajustado (int): The valor reajustado
@@ -173,9 +168,9 @@ class Recebiveis:
             DataInicioVencimento (datetime): The data inicio vencimento
             DataFimVencimento (datetime): The data fim vencimento
             PesquisaPorNaoTitulares (int): The pesquisa por nao titulares
-        
+
         Parameter Structure:
-        
+
             {
                 "Cpf": "string",
                 "ValorReajustado": true,
@@ -184,14 +179,14 @@ class Recebiveis:
                 "DataFimVencimento": "2025-04-23T13:46:14.396Z",
                 "PesquisaPorNaoTitulares": true
             }
-        
+
         Returns:
             dict: The API response
-        
+
         Raises:
             requests.HTTPError: If the API request fails
             ValueError: If required parameters are missing or invalid
-        
+
         Examples:
             >>> api = Recebiveis()
             >>> response = api._parcelase_cobrancas_do_cliente(
@@ -199,20 +194,17 @@ class Recebiveis:
             ...     parameter2='value2'
             ... )
         """
-        path = "Recebiveis/ParcelasECobrancasDoCliente"
+        path = 'Recebiveis/ParcelasECobrancasDoCliente'
         kwargs = {
-            "Cpf": cpf,
-            "ValorReajustado": valor_reajustado,
-            "QtdeParcelas": qtde_parcelas,
-            "DataInicioVencimento": data_inicio_vencimento,
-            "DataFimVencimento": data_fim_vencimento,
-            "PesquisaPorNaoTitulares": pesquisa_por_nao_titulares,
+            'Cpf': cpf,
+            'ValorReajustado': valor_reajustado,
+            'QtdeParcelas': qtde_parcelas,
+            'DataInicioVencimento': data_inicio_vencimento,
+            'DataFimVencimento': data_fim_vencimento,
+            'PesquisaPorNaoTitulares': pesquisa_por_nao_titulares,
         }
         params = {k: v for k, v in kwargs.items() if v is not None}
-        response = self.api.post(
-            path,
-            json=params
-        )
+        response = self.api.post(path, json=params)
         return response
 
     def alterar_meio_preferencial_de_recebimento_da_parcela(
@@ -223,23 +215,23 @@ class Recebiveis:
         numero_parcela: Optional[int] = None,
         tipo_parcela: Optional[str] = None,
         numero_parcela_geral: Optional[int] = None,
-        meio_preferencial_recebimento: Optional[int] = None
+        meio_preferencial_recebimento: Optional[int] = None,
     ) -> requests.Response:
         """
-        
+
         Endpoint: `Recebiveis/AlterarMeioPreferencialDeRecebimentoDaParcela`
         HTTP Method: `POST`
-        
+
         Implementation Notes:
         Definição Técnica:
-        
+
         Autenticar o usuário cliente URI + /api/v{version}/Autenticador/AutenticarUsuario
-        
+
         Definição de Negócio:
           Permite alteração na parcela do meio preferencial de recebimento.
           Permite consultar a alteração realizada na parcela.
-        
-        
+
+
         Args:
             Empresa (int): The empresa
             Obra (str): The obra
@@ -248,9 +240,9 @@ class Recebiveis:
             TipoParcela (str): The tipo parcela
             NumeroParcelaGeral (int): The numero parcela geral
             MeioPreferencialRecebimento (int): The meio preferencial recebimento
-        
+
         Parameter Structure:
-        
+
             {
                 "Empresa": 0,
                 "Obra": "string",
@@ -260,14 +252,14 @@ class Recebiveis:
                 "NumeroParcelaGeral": 0,
                 "MeioPreferencialRecebimento": 0
             }
-        
+
         Returns:
             dict: The API response
-        
+
         Raises:
             requests.HTTPError: If the API request fails
             ValueError: If required parameters are missing or invalid
-        
+
         Examples:
             >>> api = Recebiveis()
             >>> response = api._alterar_meio_preferencial_de_recebimento_da_parcela(
@@ -275,20 +267,16 @@ class Recebiveis:
             ...     parameter2='value2'
             ... )
         """
-        path = "Recebiveis/AlterarMeioPreferencialDeRecebimentoDaParcela"
+        path = 'Recebiveis/AlterarMeioPreferencialDeRecebimentoDaParcela'
         kwargs = {
-            "Empresa": empresa,
-            "Obra": obra,
-            "Venda": venda,
-            "NumeroParcela": numero_parcela,
-            "TipoParcela": tipo_parcela,
-            "NumeroParcelaGeral": numero_parcela_geral,
-            "MeioPreferencialRecebimento": meio_preferencial_recebimento,
+            'Empresa': empresa,
+            'Obra': obra,
+            'Venda': venda,
+            'NumeroParcela': numero_parcela,
+            'TipoParcela': tipo_parcela,
+            'NumeroParcelaGeral': numero_parcela_geral,
+            'MeioPreferencialRecebimento': meio_preferencial_recebimento,
         }
         params = {k: v for k, v in kwargs.items() if v is not None}
-        response = self.api.post(
-            path,
-            json=params
-        )
+        response = self.api.post(path, json=params)
         return response
-
