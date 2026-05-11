@@ -879,6 +879,7 @@ class ProcessoPagamento:
         params = {k: v for k, v in kwargs.items() if v is not None}
         response = self.api.post(path, json=params)
         PARCELA_KEYS_TO_REMOVE = [
+            'Valor',
             'Acrescimo',
             'Desconto',
             'ValorTotalDocumentoFiscal',
