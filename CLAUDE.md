@@ -98,6 +98,11 @@ uv run stubgen -p uau_api -o .
 #    stubgen não captura atributos definidos em _init_api_groups().
 #    Adicione qualquer novo grupo seguindo o padrão existente.
 
+# 7b. CLI `uau`: o pyproject.toml da minified precisa de
+#     [project.scripts] uau = "uau_api.cli.main:main", da dependência `click`
+#     e de package-data "uau_api.catalog" = ["endpoints.json"] (o JSON é dado,
+#     não é transpilado; mantenha-o em uau_api/catalog/).
+
 # 8. Commit e push para hy-brazil/minified
 git add -A
 git commit -m "minified: rebuild from master — <descrição breve>"

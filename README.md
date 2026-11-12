@@ -20,6 +20,36 @@ print(response.json())
 
 ---
 
+## Linha de comando (`uau`)
+
+Os subcomandos são gerados a partir do catálogo de endpoints
+(`uau_api/catalog/endpoints.json`, construído do `swagger.json`).
+
+```bash
+uau config init                      # URL, token de integração (oculto), usuário e senha opcionais
+uau config show                      # segredos mascarados
+uau search obras ativas              # busca no catálogo
+uau describe obras obter-obras-ativas
+uau obras obter-obras-ativas
+uau chave-pix consultar --cpf-cnpj 12345678900
+uau venda <endpoint> --body @payload.json --campo valor   # opções sobrepõem o --body
+uau --raw obras obter-obras-ativas | jq .                 # saída compacta
+```
+
+**Credenciais.** O token de integração fica **obrigatoriamente** no arquivo de
+configuração (`~/.config/uau-api/config.toml`, ou `%APPDATA%\uau-api\` no
+Windows; sobrescreva com `--config` ou `UAU_CONFIG`; permissão 600). Usuário e
+senha são opcionais no arquivo; se ausentes, são pedidos a cada chamada, e a
+senha usa prompt oculto. Não existe opção de linha de comando para senha ou
+token.
+
+Para regenerar o catálogo após atualizar o `swagger.json`:
+`uv run python -m helpers.build_catalog`.
+
+**Agentes de IA:** use o CLI seguindo o
+[guia para agentes](docs/cli-agent-guide.md) (também referenciado em
+[AGENTS.md](AGENTS.md)).
+
 ## Instalação
 
 O pacote compila extensões C durante a instalação. É necessário ter um compilador C:

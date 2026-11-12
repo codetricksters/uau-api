@@ -3,6 +3,8 @@
 
 *.jsonl
 *.json
+!swagger.json
+!uau_api/catalog/endpoints.json
 
 ### JupyterNotebooks ###
 # gitignore template for Jupyter Notebooks

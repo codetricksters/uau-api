@@ -1289,8 +1289,9 @@ wheels = [
 [[package]]
 name = "uau-api"
 version = "1.0.0"
-source = { virtual = "." }
+source = { editable = "." }
 dependencies = [
+    { name = "click" },
     { name = "pydantic-settings" },
     { name = "requests" },
     { name = "rich" },
@@ -1316,6 +1317,7 @@ doc = [
 
 [package.metadata]
 requires-dist = [
+    { name = "click", specifier = ">=8.1" },
     { name = "pydantic-settings", specifier = ">=2.13.1" },
     { name = "requests", specifier = ">=2.31.0,<3.0.0" },
     { name = "rich", specifier = ">=14.0.0" },
